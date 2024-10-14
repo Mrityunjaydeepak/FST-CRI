@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import Navbar from "./Components/Navbar";
 import Homei from "./Home/Homei"
 export default function Home() {
