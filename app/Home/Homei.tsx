@@ -1,11 +1,17 @@
 import React from 'react';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  weight: '800',
+  subsets: ['latin'],
+});
 
 function Homei() {
   return (
     <>
       <div className='relative flex justify-center items-center min-h-screen w-full bg-black'>
         {/* Background Text (Responsive with Wider Letters using scaleX) */}
-        <div className='absolute text-6xl md:text-9xl lg:text-[10rem] xl:text-[12rem] text-blue-500 font-bold text-center' style={{ top: '47%', transform: 'scaleX(1.2)' }}>
+        <div className={`${inter.className} absolute text-6xl md:text-9xl lg:text-[10rem] xl:text-[12rem] text-blue-500 font-bold text-center`} style={{ top: '40%', transform: 'scaleX(1.2)' }}>
           CRIBONIX
         </div>
 
@@ -22,10 +28,10 @@ function Homei() {
             </p>
             {/* Buttons */}
             <div className='flex space-x-4 mt-6'>
-              <button className='text-[2rem] border border-[#383838] text-white rounded-full p-2 w-auto hover:bg-white hover:text-black'>
+              <button className='text-2xl border border-[#383838] text-white rounded-full py-3 px-6 hover:bg-white hover:text-black'>
                 Contact Us
               </button>
-              <button className='text-[2rem] border border-[#383838] text-white rounded-full py-2 px-6 hover:bg-white hover:text-black'>
+              <button className='text-2xl border border-[#383838] text-white rounded-full py-3 px-6 hover:bg-white hover:text-black'>
                 View Portfolio
               </button>
             </div>
