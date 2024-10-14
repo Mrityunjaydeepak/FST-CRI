@@ -22,10 +22,10 @@ function Homei() {
             </p>
             {/* Buttons */}
             <div className='flex space-x-4 mt-6'>
-              <button className='border border-[#383838] text-white rounded-full py-2 px-6 hover:bg-white hover:text-black'>
+              <button className='text-[2rem] border border-[#383838] text-white rounded-full p-2 w-auto hover:bg-white hover:text-black'>
                 Contact Us
               </button>
-              <button className='border border-[#383838] text-white rounded-full py-2 px-6 hover:bg-white hover:text-black'>
+              <button className='text-[2rem] border border-[#383838] text-white rounded-full py-2 px-6 hover:bg-white hover:text-black'>
                 View Portfolio
               </button>
             </div>
