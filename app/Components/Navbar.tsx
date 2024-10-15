@@ -18,7 +18,7 @@ function Navbar() {
       </nav>
 
       <div>
-        <button className='text-white p-3 border border-[#383838] rounded-full'>
+        <button className='text-white p-3 border border-[#383838] rounded-full hover:bg-white hover:text-black'>
           Contact Us
         </button>
       </div>
