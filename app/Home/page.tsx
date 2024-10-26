@@ -89,14 +89,14 @@ const Homei: React.FC = () => {
             transition: 'opacity 0.1s linear',
           }}
         >
-          <h1>.Your Vision</h1>
-          <h1>Our Mastery.</h1>
+          <h1>.Your Story</h1>
+          <h1>Our Influence.</h1>
           <div className="flex flex-col items-center space-y-2 mt-4">
             <p className="text-white text-base md:text-lg">
-              Praesent euismod ullamcorper non facilisis a fames arcu eget fringilla orci
+            Want your brand's story to echo through time? Let Cribonix weave your 
             </p>
             <p className="text-white text-base md:text-lg">
-              Enim erat lectus egestas etiam mauris tellus est aenean vel aliquam non.
+            narrative into an unforgettable legacy!
             </p>
             {/* Buttons */}
             <div className="flex space-x-4 mt-6">

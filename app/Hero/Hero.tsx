@@ -1,10 +1,66 @@
 // Hero.tsx
 "use client";
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import KeenSlider from 'keen-slider';
+import Card from '../Components/Card';
+import img1 from './imgOne.png';
+import img2 from './imgTwo.png';
+import img3 from './imgThree.png';
+import img4 from './imgFour.png';
+import Image from 'next/image';
+
+interface Cribonix {
+  heading: string;
+  subheading?: string;
+  description: string;
+  height?: string;
+  width?: string;
+  image?: string;
+  link?: string;
+}
 
 const Hero: React.FC = () => {
+  const [showImg1, setShowImg1] = useState(false);
+  const [showImg2, setShowImg2] = useState(false);
+  const [showImg3, setShowImg3] = useState(false);
+  const [showImg4, setShowImg4] = useState(false);
+
+  const cribonix: Cribonix[] = [
+    {
+      heading: 'Cribonix',
+      subheading: 'CUSTOMER FIRST',
+      description:
+        "Customer hi Bhagwaan Hai! We prioritize our customers' needs and preferences, ensuring that every decision we make is driven by their satisfaction and loyalty.",
+      height: 'h-64', // Standardized height
+      width: 'w-full', // Standardized width
+    },
+    {
+      heading: 'Cribonix',
+      subheading: 'COLLABORATIVE COMMUNICATION',
+      description:
+        'Hum Saath Saath Hai! We believe in open and transparent communication, fostering collaboration among teams and clients to achieve common goals effectively.',
+      height: 'h-64', // Standardized height
+      width: 'w-full', // Standardized width
+    },
+    {
+      heading: 'Cribonix',
+      subheading: 'CREATIVE EXCELLENCE',
+      description:
+        'Yeh Apun ka Style Hai! Our approach focuses on creativity, providing innovative solutions that engage audiences and enhance brand storytelling.',
+      height: 'h-64', // Standardized height
+      width: 'w-full', // Standardized width
+    },
+    {
+      heading: 'Cribonix',
+      subheading: 'COST VALUATION',
+      description:
+        'Ab Hoga Sabse Bada Rupaiya! We regularly review and adjust costs to ensure our strategies provide great value and support your business goals.',
+      height: 'h-64', // Standardized height
+      width: 'w-full', // Standardized width
+    },
+  ];
+
   useEffect(() => {
     const keenSlider = new KeenSlider('#keen-slider', {
       loop: true,
@@ -57,121 +113,232 @@ const Hero: React.FC = () => {
     <div className="bg-[#040404]">
       {/* Our Story Section */}
       <div className="container mx-auto px-4 py-12">
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-8 lg:space-y-0 lg:space-x-8 border-t border-gray-700 pt-8">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-8 lg:space-y-0 lg:space-x-8 border-t border-secondary pt-8">
           {/* Our Story Heading */}
           <div className="flex flex-col space-y-4">
-            <h2 className="text-xl text-white">Our Story</h2>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white">Our Story</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white">
+              The Art of<br /> Digital <br /> Marketing
+            </h1>
             <button className="border border-gray-700 rounded-full px-6 py-3 text-white hover:bg-gray-700 transition">
               More About Us
             </button>
           </div>
           {/* Our Story Content */}
           <div className="lg:w-2/3">
-            <p className="text-gray-400 mb-4">
-              Facilisi mollis nunc ultrices vestibulum nisl id arcu non dolor sollicitudin massa a
-              diam sed non habitant volutpat convallis lorem in leo donec ultrices aliquet in
-              adipiscing cursus turpis egestas ut et eu vulputate magnis lectus nunc lorem
-              sollicitudin arcu viverra gravida posuere ac suspendisse suspendisse.
+            <p className="text-[#E9E9E9] mb-4">
+              In a world filled with noise, Cribonix stands out as a master creator, crafting digital stories that truly connect with audiences. We believe every brand has a unique tale to tell, and our mission is to help yours shine. Our passionate team blends innovation with artistry, transforming your vision into an engaging narrative that sparks connections and drives results.
             </p>
-            <p className="text-gray-400">
-              Facilisi mollis nunc ultrices vestibulum nisl id arcu non dolor sollicitudin massa a
-              diam sed non habitant volutpat convallis lorem in leo donec ultrices aliquet.
+            <p className="text-[#E9E9E9]">
+              With strategies that push boundaries and creativity that knows no limits, we craft campaigns that not only speak but sing to your audience. Are you ready to unlock your brand's potential and start an exciting journey with us?
+              Then Let's create magic together!
             </p>
           </div>
         </div>
       </div>
 
-      {/* Services Section */}
-      <div className="container mx-auto px-4 py-12 border-t border-gray-700">
-        {/* Section Title */}
-        <div className="flex flex-col items-start mb-8">
-          <h2 className="text-xl text-white">Services</h2>
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mt-4">Services</h1>
+      {/* 4 Cs of Cribonix */}
+      <div className='flex flex-col mx-8 sm:mx-16 md:mx-24 lg:mx-32 my-8 space-y-8 border-secondary border-t pt-8'>
+        <div className='flex flex-col items-center'>
+          <h1 className='text-4xl md:text-5xl lg:text-7xl font-bold text-white text-center p-4'>4 C's of Marketing</h1>
+          <h2 className='text-xl text-white text-center p-4'>
+            Unlocking New-Age Marketing: The 4 Pillars of Digital <br /> Success by Cribonix
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+          {cribonix.map((item, index) => (
+            <Card
+              key={index}
+              height={item.height}
+              width={item.width}
+              heading={item.heading}
+              subheading={item.subheading}
+              description={item.description}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Portfolio Section */}
+      <div className='flex flex-col items-center my-8 mx-8 sm:mx-16 md:mx-24 lg:mx-32 space-y-5 border-secondary border-t pt-8'>
+        <div className='text-left text-white flex flex-col items-center justify-center w-full'>
+          <h1 className='text-4xl md:text-5xl lg:text-7xl font-extrabold text-center'>Our Work in Action</h1>
+          <h2 className='text-lg text-center'>A Glimpse into Our Success Stories and Creative Impact</h2>
         </div>
 
-        {/* Services Content */}
-        <div className="flex flex-col space-y-8">
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center">
-            <div className="space-y-4 lg:w-2/3">
-              <p className="text-gray-400">
-                Praesent euismod ullamcorper non facilisis a fames arcu eget fringilla orci. Enim
-                erat lectus egestas etiam mauris tellus est aenean vel aliquam non.
-              </p>
-            </div>
-            <div className="mt-4 lg:mt-0">
-              <button className="border border-secondary rounded-full px-6 py-3 text-white hover:bg-white hover:text-black transition">
-                View More
-              </button>
+        {/* Service 1 */}
+        <div className='w-full max-w-4xl mx-auto flex justify-center'>
+          <div className='flex flex-col sm:flex-row cursor-pointer' onClick={() => setShowImg1(!showImg1)}>
+            <div className='w-full'>
+              <Image src={img1} alt='Service 1' width={1200} height={500} className='object-fit rounded-lg' />
             </div>
           </div>
-
-          {/* Service Items */}
-          <div className="space-y-8">
-            {/* Service Item */}
-            <div className="flex flex-col lg:flex-row justify-between items-start border-b border-gray-700 pb-8">
-              <div className="lg:w-3/4 space-y-4">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                  Documentary Film Making
-                </h2>
-                <p className="text-gray-400">
-                  Praesent euismod ullamcorper non facilisis a fames arcu eget fringilla orci enim
-                  erat lectus egestas etiam mauris tellus est aenean vel aliquam non.
+          {showImg1 && (
+            <div className="flex flex-col lg:flex-row justify-between mt-4 bg-[#030303] p-6 rounded-lg">
+              <div className='flex flex-col space-y-3 lg:w-2/3'>
+                <h1 className='text-3xl font-bold text-white'>ABOUT THE SERVICE</h1>
+                <p className='text-white text-sm'>
+                  Lorem ipsum dolor sit amet consectetur.<br />
+                  Sagittis egestas risus vitae eu et massa.<br />
+                  Purus leo ornare adipiscing commodo quisque ipsum libero faucibus.<br />
+                  Sed metus suscipit auctor nisl nunc sit vel.<br />
+                  Sagittis pellentesque sit posuere diam tincidunt.<br />
+                  Egestas quis leo dui adipiscing ullamcorper.<br />
+                  Turpis eu sit fusce maecenas ut.<br />
+                  Auctor at scelerisque congue nunc.<br />
+                  A tempor sed est semper est tincidunt nibh tempus.<br />
+                  Lobortis nulla adipiscing blandit accumsan a.<br />
+                  Morbi vestibulum risus ultricies purus metus cras metus porttitor.<br />
+                  Nisl felis leo est pharetra nulla.<br />
+                  Lorem ultricies dolor sodales feugiat aenean.
                 </p>
               </div>
-              <div className="mt-4 lg:mt-0">
-                <button className="rounded-full p-4 text-white border border-white">+</button>
+
+              <div className='mt-6 lg:mt-0 lg:w-1/3 h-auto p-4 rounded-xl bg-[#2D2D2D] flex flex-col justify-center space-y-4'>
+                <h2 className='text-left font-bold text-2xl text-white'>Let's connect for a discussion</h2>
+                <p className='text-left text-sm text-white'>
+                  Lorem ipsum dolor sit amet consectetur.<br />
+                  Nibh dapibus ut eleifend lacus volutpat quam aliquam nibh.<br />
+                  At cursus adipiscing mattis sapien donec<br />
+                  et elementum vestibulum sapien.
+                </p>
+                <button className='p-2 w-full md:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300'>
+                  Contact Us
+                </button>
               </div>
             </div>
+          )}
+        </div>
 
-            {/* Service Item */}
-            <div className="flex flex-col lg:flex-row justify-between items-start border-b border-gray-700 pb-8">
-              <div className="lg:w-3/4 space-y-4">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                  Music Video Production
-                </h2>
-                <p className="text-gray-400">
-                  Praesent euismod ullamcorper non facilisis a fames arcu eget fringilla orci enim
-                  erat lectus egestas etiam mauris tellus est aenean vel aliquam non.
-                </p>
-              </div>
-              <div className="mt-4 lg:mt-0">
-                <button className="rounded-full p-4 text-white border border-white">+</button>
-              </div>
-            </div>
-
-            {/* Service Item */}
-            <div className="flex flex-col lg:flex-row justify-between items-start border-b border-gray-700 pb-8">
-              <div className="lg:w-3/4 space-y-4">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                  Advertising Production
-                </h2>
-                <p className="text-gray-400">
-                  Praesent euismod ullamcorper non facilisis a fames arcu eget fringilla orci enim
-                  erat lectus egestas etiam mauris tellus est aenean vel aliquam non.
-                </p>
-              </div>
-              <div className="mt-4 lg:mt-0">
-                <button className="rounded-full p-4 text-white border border-white">+</button>
-              </div>
-            </div>
-
-            {/* Service Item */}
-            <div className="flex flex-col lg:flex-row justify-between items-start border-b border-gray-700 pb-8">
-              <div className="lg:w-3/4 space-y-4">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                  Streaming Production
-                </h2>
-                <p className="text-gray-400">
-                  Praesent euismod ullamcorper non facilisis a fames arcu eget fringilla orci enim
-                  erat lectus egestas etiam mauris tellus est aenean vel aliquam non.
-                </p>
-              </div>
-              <div className="mt-4 lg:mt-0">
-                <button className="rounded-full p-4 text-white border border-white">+</button>
-              </div>
+        {/* Service 2 */}
+        <div className='w-full max-w-4xl mx-auto'>
+          <div className='flex flex-col sm:flex-row cursor-pointer' onClick={() => setShowImg2(!showImg2)}>
+            <div className='w-full '>
+              <Image src={img2} alt='Service 2' width={900} height={500} className='object-cover rounded-lg' />
             </div>
           </div>
+          {showImg2 && (
+            <div className="flex flex-col lg:flex-row justify-between mt-4 bg-[#030303] p-6 rounded-lg">
+              <div className='flex flex-col space-y-3 lg:w-2/3'>
+                <h1 className='text-3xl font-bold text-white'>ABOUT THE SERVICE</h1>
+                <p className='text-white text-sm'>
+                  Lorem ipsum dolor sit amet consectetur.<br />
+                  Sagittis egestas risus vitae eu et massa.<br />
+                  Purus leo ornare adipiscing commodo quisque ipsum libero faucibus.<br />
+                  Sed metus suscipit auctor nisl nunc sit vel.<br />
+                  Sagittis pellentesque sit posuere diam tincidunt.<br />
+                  Egestas quis leo dui adipiscing ullamcorper.<br />
+                  Turpis eu sit fusce maecenas ut.<br />
+                  Auctor at scelerisque congue nunc.<br />
+                  A tempor sed est semper est tincidunt nibh tempus.<br />
+                  Lobortis nulla adipiscing blandit accumsan a.<br />
+                  Morbi vestibulum risus ultricies purus metus cras metus porttitor.<br />
+                  Nisl felis leo est pharetra nulla.<br />
+                  Lorem ultricies dolor sodales feugiat aenean.
+                </p>
+              </div>
+
+              <div className='mt-6 lg:mt-0 lg:w-1/3 h-auto p-4 rounded-xl bg-[#2D2D2D] flex flex-col justify-center space-y-4'>
+                <h2 className='text-left font-bold text-2xl text-white'>Let's connect for a discussion</h2>
+                <p className='text-left text-sm text-white'>
+                  Lorem ipsum dolor sit amet consectetur.<br />
+                  Nibh dapibus ut eleifend lacus volutpat quam aliquam nibh.<br />
+                  At cursus adipiscing mattis sapien donec<br />
+                  et elementum vestibulum sapien.
+                </p>
+                <button className='p-2 w-full md:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300'>
+                  Contact Us
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Service 3 */}
+        <div className='w-full max-w-4xl mx-auto'>
+          <div className='flex flex-col sm:flex-row cursor-pointer' onClick={() => setShowImg3(!showImg3)}>
+            <div className='w-full '>
+              <Image src={img3} alt='Service 3' width={900} height={500} className='object-cover rounded-lg' />
+            </div>
+          </div>
+          {showImg3 && (
+            <div className="flex flex-col lg:flex-row justify-between mt-4 bg-[#030303] p-6 rounded-lg">
+              <div className='flex flex-col space-y-3 lg:w-2/3'>
+                <h1 className='text-3xl font-bold text-white'>ABOUT THE SERVICE</h1>
+                <p className='text-white text-sm'>
+                  Lorem ipsum dolor sit amet consectetur.<br />
+                  Sagittis egestas risus vitae eu et massa.<br />
+                  Purus leo ornare adipiscing commodo quisque ipsum libero faucibus.<br />
+                  Sed metus suscipit auctor nisl nunc sit vel.<br />
+                  Sagittis pellentesque sit posuere diam tincidunt.<br />
+                  Egestas quis leo dui adipiscing ullamcorper.<br />
+                  Turpis eu sit fusce maecenas ut.<br />
+                  Auctor at scelerisque congue nunc.<br />
+                  A tempor sed est semper est tincidunt nibh tempus.<br />
+                  Lobortis nulla adipiscing blandit accumsan a.<br />
+                  Morbi vestibulum risus ultricies purus metus cras metus porttitor.<br />
+                  Nisl felis leo est pharetra nulla.<br />
+                  Lorem ultricies dolor sodales feugiat aenean.
+                </p>
+              </div>
+
+              <div className='mt-6 lg:mt-0 lg:w-1/3 h-auto p-4 rounded-xl bg-[#2D2D2D] flex flex-col justify-center space-y-4'>
+                <h2 className='text-left font-bold text-2xl text-white'>Let's connect for a discussion</h2>
+                <p className='text-left text-sm text-white'>
+                  Lorem ipsum dolor sit amet consectetur.<br />
+                  Nibh dapibus ut eleifend lacus volutpat quam aliquam nibh.<br />
+                  At cursus adipiscing mattis sapien donec<br />
+                  et elementum vestibulum sapien.
+                </p>
+                <button className='p-2 w-full md:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300'>
+                  Contact Us
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Service 4 */}
+        <div className='w-full max-w-4xl mx-auto'>
+          <div className='flex flex-col sm:flex-row cursor-pointer' onClick={() => setShowImg4(!showImg4)}>
+            <div className='w-full '>
+              <Image src={img4} alt='Service 4' width={900} height={500} className='object-cover rounded-lg' />
+            </div>
+          </div>
+          {showImg4 && (
+            <div className="flex flex-col lg:flex-row justify-between mt-4 bg-[#030303] p-6 rounded-lg">
+              <div className='flex flex-col space-y-3 lg:w-2/3'>
+                <h1 className='text-3xl font-bold text-white'>ABOUT THE SERVICE</h1>
+                <p className='text-white text-sm'>
+                  Lorem ipsum dolor sit amet consectetur.<br />
+                  Sagittis egestas risus vitae eu et massa.<br />
+                  Purus leo ornare adipiscing commodo quisque ipsum libero faucibus.<br />
+                  Sed metus suscipit auctor nisl nunc sit vel.<br />
+                  Sagittis pellentesque sit posuere diam tincidunt.<br />
+                  Egestas quis leo dui adipiscing ullamcorper.<br />
+                  Turpis eu sit fusce maecenas ut.<br />
+                  Auctor at scelerisque congue nunc.<br />
+                  A tempor sed est semper est tincidunt nibh tempus.<br />
+                  Lobortis nulla adipiscing blandit accumsan a.<br />
+                  Morbi vestibulum risus ultricies purus metus cras metus porttitor.<br />
+                  Nisl felis leo est pharetra nulla.<br />
+                  Lorem ultricies dolor sodales feugiat aenean.
+                </p>
+              </div>
+
+              <div className='mt-6 lg:mt-0 lg:w-1/3 h-auto p-4 rounded-xl bg-[#2D2D2D] flex flex-col justify-center space-y-4'>
+                <h2 className='text-left font-bold text-2xl text-white'>Let's connect for a discussion</h2>
+                <p className='text-left text-sm text-white'>
+                  Lorem ipsum dolor sit amet consectetur.<br />
+                  Nibh dapibus ut eleifend lacus volutpat quam aliquam nibh.<br />
+                  At cursus adipiscing mattis sapien donec<br />
+                  et elementum vestibulum sapien.
+                </p>
+                <button className='p-2 w-full md:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300'>
+                  Contact Us
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
@@ -181,31 +348,26 @@ const Hero: React.FC = () => {
           {/* Text Content */}
           <div className="space-y-4">
             <h1 className="text-4xl md:text-5xl lg:text-6xl text-white">
-              Building strategies,
+              Building Strategies <br /> and Crafting <span className='text-[#A0A0A0]'>Effective <br /> Ideas for Lasting Impressions </span>
             </h1>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl text-white">
-              Crafting <span className="text-gray-400">Experiences</span>
-            </h1>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl text-gray-400">Ideas for Lasting</h1>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl text-gray-400">Impressions</h1>
           </div>
 
           {/* Features */}
-          <div className="flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-16 mt-8 lg:mt-0">
+          <div className="flex flex-col place-content-end lg:flex-row space-y-8 lg:space-y-0 lg:space-x-16 mt-8 lg:mt-0">
             <div className="space-y-2">
               <h2 className="text-white">
-                <span className="text-green-600">|</span> 24/7 Support
+                <span className="text-green-600">|</span> Data-Driven Results
               </h2>
               <p className="text-gray-400">
-                Lorem ipsum dolor sit amet, consectetur adipiscing.
+                We provide clear, actionable insights <br /> from every campaign to ensure measurable growth and success.
               </p>
             </div>
             <div className="space-y-2">
               <h2 className="text-white">
-                <span className="text-green-600">|</span> Super Fast Team
+                <span className="text-green-600">|</span> Fast, Result-Driven Execution
               </h2>
               <p className="text-gray-400">
-                Lorem ipsum dolor sit amet, consectetur adipiscing.
+                With our agile approach, we deliver<br /> high-impact solutions and measurable results in record time.
               </p>
             </div>
           </div>
@@ -216,19 +378,21 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col sm:flex-row justify-between items-center space-y-8 sm:space-y-0 sm:space-x-8">
           {/* Statistic Item */}
-          <div className="text-center">
+          <div className="text-left">
             <h1 className="text-5xl font-bold text-white">50,000K+</h1>
-            <p className="text-xl text-white">Spent on Ads</p>
+            <p className="text-xl">Spent on Ads</p>
           </div>
           {/* Statistic Item */}
-          <div className="text-center">
-            <h1 className="text-5xl font-bold text-white">5000+</h1>
-            <p className="text-xl text-white">Clients</p>
+          <div className="text-left">
+            <h1 className="text-5xl font-bold text-white">5,000+</h1>
+            <p className="text-xl">Projects Onboarded</p>
           </div>
           {/* Statistic Item */}
-          <div className="text-center">
+          <div className="text-left">
             <h1 className="text-5xl font-bold text-white">500+</h1>
-            <p className="text-xl text-white">Projects</p>
+            <p className="text-xl text-left">
+              Delivering an average<br /> 4x ROI for brands
+            </p>
           </div>
         </div>
       </div>
@@ -295,7 +459,6 @@ const Hero: React.FC = () => {
             <div className="lg:col-span-2">
               <div id="keen-slider" className="keen-slider">
                 {/* Testimonial Slide */}
-                {/* Repeat similar blocks for each testimonial */}
                 <div className="keen-slider__slide">
                   <blockquote className="flex flex-col justify-between bg-[#040404] p-6 sm:p-8 lg:p-12 h-full">
                     <div>
@@ -328,7 +491,6 @@ const Hero: React.FC = () => {
                 </div>
 
                 {/* Additional Testimonial Slides */}
-                {/* Repeat the block below for each additional review */}
                 <div className="keen-slider__slide">
                   <blockquote className="flex flex-col justify-between bg-[#040404] p-6 sm:p-8 lg:p-12 h-full">
                     <div>

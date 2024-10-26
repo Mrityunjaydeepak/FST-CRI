@@ -35,7 +35,7 @@ export default function RootLayout({
       <head>
         {/* Metadata and other head elements can go here */}
       </head>
-      <body className="antialiased">
+      <body className="antialiased bg-primary">
         {/* Navbar at the top */}
         <Navbar />
         

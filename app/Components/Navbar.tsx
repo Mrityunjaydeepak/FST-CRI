@@ -18,6 +18,8 @@ function Navbar() {
   const pathname = usePathname(); // Use usePathname for current path
 
   const navItems = [
+
+    { name: 'Home', href: '/Home' },
     { name: 'Why Us', href: '/Whyus' },
     { name: 'Services', href: '/Services' },
     { name: 'Solutions', href: '/Solutions' },
@@ -50,7 +52,10 @@ function Navbar() {
       </nav>
 
       <div>
-        <button className='text-white p-3 border border-[#383838] rounded-full hover:bg-white hover:text-black'>
+        <button 
+        
+        className='text-white p-3 border border-[#383838] rounded-full hover:bg-white hover:text-black'>
+          
           Contact Us
         </button>
       </div>
