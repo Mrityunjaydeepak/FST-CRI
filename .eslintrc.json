@@ -1,8 +1,42 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended","next/typescript"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "rules": {
-    "quotes": "off",
-    "jsx-quotes": "off"
-    // Add other custom rules here
+    // Disable the rule that enforces React component names to start with an uppercase letter
+    "react/function-component-definition": "off",
+
+    // Disable the rule that enforces Hooks to be used only in React components or custom Hooks
+    "react-hooks/rules-of-hooks": "off",
+
+    // Optionally, you can set exhaustive-deps to 'warn' instead of 'error'
+    "react-hooks/exhaustive-deps": "warn",
+
+    // Disable the rule that disallows unescaped entities like apostrophes in JSX
+    "react/no-unescaped-entities": "off",
+
+    // Customize the 'quotes' rule to allow single quotes without enforcing HTML entities
+    "quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ],
+
+    // Additional rules can be added or customized here
+    "@typescript-eslint/no-unused-vars": ["warn"],
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
