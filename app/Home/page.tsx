@@ -4,11 +4,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Inter } from 'next/font/google';
 import throttle from 'lodash/throttle';
-import { useRouter } from 'next/navigation';
 import Hero from '../Hero/Hero';
+
 // Initialize the Inter font with the correct weight
 const inter = Inter({
-  weight: ['900'], // Changed to an array for type safety
+  weight: ['900'], // Using array for type safety
   subsets: ['latin'],
 });
 
@@ -27,7 +27,7 @@ const Homei: React.FC = () => {
         const elementTop = containerRef.current.offsetTop;
 
         // Adjust this multiplier to control the scroll distance
-        const scrollMultiplier = 2; // Keep at 1 for now
+        const scrollMultiplier = 2; // Can be adjusted if needed
 
         const maxScroll = (elementTop + elementHeight - windowHeight) * scrollMultiplier;
 
@@ -36,7 +36,7 @@ const Homei: React.FC = () => {
         setProgress(progress);
 
         // Calculate scale to make the text fill the screen
-        const maxScale = 100; // Adjust this value as needed
+        const maxScale = 5; // Reduced from 100 to prevent overflow
         const newScale = 1 + progress * (maxScale - 1);
         setScale(newScale);
 
@@ -69,13 +69,14 @@ const Homei: React.FC = () => {
       >
         {/* Background Text with Dynamic Scaling */}
         <div
-          className={`${inter.className} absolute text-6xl md:text-9xl lg:text-[10rem] xl:text-[12rem] text-transparent bg-clip-text bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] font-bold text-center`}
+          className={`${inter.className} absolute text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] text-transparent bg-clip-text bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] font-bold text-center`}
           style={{
             top: '50%',
             left: '50%',
             transform: `translate(-50%, -50%) scale(${scale})`,
             transition: 'transform 0.1s linear',
             transformOrigin: 'center',
+            whiteSpace: 'nowrap', // Prevent text from wrapping
           }}
         >
           CRIBONIX
@@ -83,7 +84,7 @@ const Homei: React.FC = () => {
 
         {/* Overlayed Text (Responsive) */}
         <div
-          className="absolute text-4xl md:text-6xl lg:text-8xl xl:text-9xl text-white font-bold text-center z-10"
+          className="absolute text-4xl sm:text-5xl md:text-6xl lg:text-8xl xl:text-9xl text-white font-bold text-center z-10"
           style={{
             opacity: `${1 - progress * 2}`,
             transition: 'opacity 0.1s linear',
@@ -92,22 +93,22 @@ const Homei: React.FC = () => {
           <h1>.Your Story</h1>
           <h1>Our Influence.</h1>
           <div className="flex flex-col items-center space-y-2 mt-4">
-            <p className="text-white text-base md:text-lg">
-            Want your brand's story to echo through time? Let Cribonix weave your 
+            <p className="text-white text-base sm:text-lg">
+              Want your brand's story to echo through time? Let Cribonix weave your 
             </p>
-            <p className="text-white text-base md:text-lg">
-            narrative into an unforgettable legacy!
+            <p className="text-white text-base sm:text-lg">
+              narrative into an unforgettable legacy!
             </p>
             {/* Buttons */}
             <div className="flex space-x-4 mt-6">
               <button
-                className="text-2xl border border-[#383838] text-white rounded-full py-3 px-6 hover:bg-white hover:text-black transition"
+                className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-6 hover:bg-white hover:text-black transition"
                 aria-label="Contact Us"
               >
                 Contact Us
               </button>
               <button
-                className="text-2xl border border-[#383838] text-white rounded-full py-3 px-6 hover:bg-white hover:text-black transition"
+                className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-6 hover:bg-white hover:text-black transition"
                 aria-label="View Portfolio"
               >
                 View Portfolio

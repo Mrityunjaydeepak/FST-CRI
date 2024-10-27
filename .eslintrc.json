@@ -8,6 +8,7 @@
     "@typescript-eslint"
   ],
   "rules": {
+    "quotes": "off",
     // Disable the rule that enforces React component names to start with an uppercase letter
     "react/function-component-definition": "off",
 
@@ -21,14 +22,7 @@
     "react/no-unescaped-entities": "off",
 
     // Customize the 'quotes' rule to allow single quotes without enforcing HTML entities
-    "quotes": [
-      "error",
-      "single",
-      {
-        "avoidEscape": true,
-        "allowTemplateLiterals": true
-      }
-    ],
+   
 
     // Additional rules can be added or customized here
     "@typescript-eslint/no-unused-vars": ["warn"],

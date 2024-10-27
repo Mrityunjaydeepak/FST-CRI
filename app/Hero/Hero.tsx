@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from 'react';
 import KeenSlider from 'keen-slider';
+import 'keen-slider/keen-slider.min.css'; // Ensure KeenSlider styles are imported
 import Card from '../Components/Card';
 import img1 from './imgOne.png';
 import img2 from './imgTwo.png';
@@ -96,15 +97,27 @@ const Hero: React.FC = () => {
 
     const keenSliderPrevious = document.getElementById('keen-slider-previous');
     const keenSliderNext = document.getElementById('keen-slider-next');
+    const keenSliderPreviousMobile = document.getElementById('keen-slider-previous-mobile');
+    const keenSliderNextMobile = document.getElementById('keen-slider-next-mobile');
 
-    keenSliderPrevious?.addEventListener('click', () =>
-      keenSlider.prev(keenSlider.options.slides.perView as number)
-    );
-    keenSliderNext?.addEventListener('click', () =>
-      keenSlider.next(keenSlider.options.slides.perView as number)
-    );
+    const handlePrev = () => {
+      keenSlider.prev(keenSlider.options.slides?.perView as number);
+    };
+
+    const handleNext = () => {
+      keenSlider.next(keenSlider.options.slides?.perView as number);
+    };
+
+    keenSliderPrevious?.addEventListener('click', handlePrev);
+    keenSliderNext?.addEventListener('click', handleNext);
+    keenSliderPreviousMobile?.addEventListener('click', handlePrev);
+    keenSliderNextMobile?.addEventListener('click', handleNext);
 
     return () => {
+      keenSliderPrevious?.removeEventListener('click', handlePrev);
+      keenSliderNext?.removeEventListener('click', handleNext);
+      keenSliderPreviousMobile?.removeEventListener('click', handlePrev);
+      keenSliderNextMobile?.removeEventListener('click', handleNext);
       keenSlider.destroy();
     };
   }, []);
@@ -116,19 +129,19 @@ const Hero: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-8 lg:space-y-0 lg:space-x-8 border-t border-secondary pt-8">
           {/* Our Story Heading */}
           <div className="flex flex-col space-y-4">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white">
               The Art of<br /> Digital <br /> Marketing
             </h1>
-            <button className="border border-gray-700 rounded-full px-6 py-3 text-white hover:bg-gray-700 transition">
+            <button className="border border-gray-700 rounded-full px-4 sm:px-6 py-2 sm:py-3 text-white hover:bg-gray-700 transition">
               More About Us
             </button>
           </div>
           {/* Our Story Content */}
           <div className="lg:w-2/3">
-            <p className="text-[#E9E9E9] mb-4">
+            <p className="text-[#E9E9E9] mb-4 text-base sm:text-lg">
               In a world filled with noise, Cribonix stands out as a master creator, crafting digital stories that truly connect with audiences. We believe every brand has a unique tale to tell, and our mission is to help yours shine. Our passionate team blends innovation with artistry, transforming your vision into an engaging narrative that sparks connections and drives results.
             </p>
-            <p className="text-[#E9E9E9]">
+            <p className="text-[#E9E9E9] text-base sm:text-lg">
               With strategies that push boundaries and creativity that knows no limits, we craft campaigns that not only speak but sing to your audience. Are you ready to unlock your brand's potential and start an exciting journey with us?
               Then Let's create magic together!
             </p>
@@ -137,10 +150,10 @@ const Hero: React.FC = () => {
       </div>
 
       {/* 4 Cs of Cribonix */}
-      <div className='flex flex-col mx-8 sm:mx-16 md:mx-24 lg:mx-32 my-8 space-y-8 border-secondary border-t pt-8'>
+      <div className='flex flex-col mx-4 sm:mx-8 md:mx-16 lg:mx-32 my-8 space-y-8 border-secondary border-t pt-8'>
         <div className='flex flex-col items-center'>
-          <h1 className='text-4xl md:text-5xl lg:text-7xl font-bold text-white text-center p-4'>4 C's of Marketing</h1>
-          <h2 className='text-xl text-white text-center p-4'>
+          <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white text-center p-4'>4 C's of Marketing</h1>
+          <h2 className='text-lg sm:text-xl text-white text-center p-4'>
             Unlocking New-Age Marketing: The 4 Pillars of Digital <br /> Success by Cribonix
           </h2>
         </div>
@@ -159,24 +172,24 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Portfolio Section */}
-      <div className='flex flex-col items-center my-8 mx-8 sm:mx-16 md:mx-24 lg:mx-32 space-y-5 border-secondary border-t pt-8'>
-        <div className='text-left text-white flex flex-col items-center justify-center w-full'>
-          <h1 className='text-4xl md:text-5xl lg:text-7xl font-extrabold text-center'>Our Work in Action</h1>
-          <h2 className='text-lg text-center'>A Glimpse into Our Success Stories and Creative Impact</h2>
+      <div className='flex flex-col items-center my-8 mx-4 sm:mx-8 md:mx-16 lg:mx-32 space-y-5 border-secondary border-t pt-8'>
+        <div className='text-left text-white flex flex-col items-center justify-center w-full px-2 sm:px-0'>
+          <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-center'>Our Work in Action</h1>
+          <h2 className='text-base sm:text-lg text-center'>A Glimpse into Our Success Stories and Creative Impact</h2>
         </div>
 
         {/* Service 1 */}
-        <div className='w-full max-w-4xl mx-auto flex justify-center'>
+        <div className='w-full max-w-4xl mx-auto'>
           <div className='flex flex-col sm:flex-row cursor-pointer' onClick={() => setShowImg1(!showImg1)}>
             <div className='w-full'>
-              <Image src={img1} alt='Service 1' width={1200} height={500} className='object-fit rounded-lg' />
+              <Image src={img1} alt='Service 1' layout="responsive" className='object-cover rounded-lg' />
             </div>
           </div>
           {showImg1 && (
-            <div className="flex flex-col lg:flex-row justify-between mt-4 bg-[#030303] p-6 rounded-lg">
+            <div className="flex flex-col lg:flex-row justify-between mt-4 bg-[#030303] p-4 sm:p-6 rounded-lg">
               <div className='flex flex-col space-y-3 lg:w-2/3'>
-                <h1 className='text-3xl font-bold text-white'>ABOUT THE SERVICE</h1>
-                <p className='text-white text-sm'>
+                <h1 className='text-2xl sm:text-3xl font-bold text-white'>ABOUT THE SERVICE</h1>
+                <p className='text-white text-sm sm:text-base'>
                   Lorem ipsum dolor sit amet consectetur.<br />
                   Sagittis egestas risus vitae eu et massa.<br />
                   Purus leo ornare adipiscing commodo quisque ipsum libero faucibus.<br />
@@ -194,14 +207,14 @@ const Hero: React.FC = () => {
               </div>
 
               <div className='mt-6 lg:mt-0 lg:w-1/3 h-auto p-4 rounded-xl bg-[#2D2D2D] flex flex-col justify-center space-y-4'>
-                <h2 className='text-left font-bold text-2xl text-white'>Let's connect for a discussion</h2>
-                <p className='text-left text-sm text-white'>
+                <h2 className='text-left font-bold text-xl sm:text-2xl text-white'>Let's connect for a discussion</h2>
+                <p className='text-left text-sm sm:text-base text-white'>
                   Lorem ipsum dolor sit amet consectetur.<br />
                   Nibh dapibus ut eleifend lacus volutpat quam aliquam nibh.<br />
                   At cursus adipiscing mattis sapien donec<br />
                   et elementum vestibulum sapien.
                 </p>
-                <button className='p-2 w-full md:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300'>
+                <button className='p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300'>
                   Contact Us
                 </button>
               </div>
@@ -212,15 +225,15 @@ const Hero: React.FC = () => {
         {/* Service 2 */}
         <div className='w-full max-w-4xl mx-auto'>
           <div className='flex flex-col sm:flex-row cursor-pointer' onClick={() => setShowImg2(!showImg2)}>
-            <div className='w-full '>
-              <Image src={img2} alt='Service 2' width={900} height={500} className='object-cover rounded-lg' />
+            <div className='w-full'>
+              <Image src={img2} alt='Service 2' layout="responsive" className='object-cover rounded-lg' />
             </div>
           </div>
           {showImg2 && (
-            <div className="flex flex-col lg:flex-row justify-between mt-4 bg-[#030303] p-6 rounded-lg">
+            <div className="flex flex-col lg:flex-row justify-between mt-4 bg-[#030303] p-4 sm:p-6 rounded-lg">
               <div className='flex flex-col space-y-3 lg:w-2/3'>
-                <h1 className='text-3xl font-bold text-white'>ABOUT THE SERVICE</h1>
-                <p className='text-white text-sm'>
+                <h1 className='text-2xl sm:text-3xl font-bold text-white'>ABOUT THE SERVICE</h1>
+                <p className='text-white text-sm sm:text-base'>
                   Lorem ipsum dolor sit amet consectetur.<br />
                   Sagittis egestas risus vitae eu et massa.<br />
                   Purus leo ornare adipiscing commodo quisque ipsum libero faucibus.<br />
@@ -238,14 +251,14 @@ const Hero: React.FC = () => {
               </div>
 
               <div className='mt-6 lg:mt-0 lg:w-1/3 h-auto p-4 rounded-xl bg-[#2D2D2D] flex flex-col justify-center space-y-4'>
-                <h2 className='text-left font-bold text-2xl text-white'>Let's connect for a discussion</h2>
-                <p className='text-left text-sm text-white'>
+                <h2 className='text-left font-bold text-xl sm:text-2xl text-white'>Let's connect for a discussion</h2>
+                <p className='text-left text-sm sm:text-base text-white'>
                   Lorem ipsum dolor sit amet consectetur.<br />
                   Nibh dapibus ut eleifend lacus volutpat quam aliquam nibh.<br />
                   At cursus adipiscing mattis sapien donec<br />
                   et elementum vestibulum sapien.
                 </p>
-                <button className='p-2 w-full md:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300'>
+                <button className='p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300'>
                   Contact Us
                 </button>
               </div>
@@ -256,15 +269,15 @@ const Hero: React.FC = () => {
         {/* Service 3 */}
         <div className='w-full max-w-4xl mx-auto'>
           <div className='flex flex-col sm:flex-row cursor-pointer' onClick={() => setShowImg3(!showImg3)}>
-            <div className='w-full '>
-              <Image src={img3} alt='Service 3' width={900} height={500} className='object-cover rounded-lg' />
+            <div className='w-full'>
+              <Image src={img3} alt='Service 3' layout="responsive" className='object-cover rounded-lg' />
             </div>
           </div>
           {showImg3 && (
-            <div className="flex flex-col lg:flex-row justify-between mt-4 bg-[#030303] p-6 rounded-lg">
+            <div className="flex flex-col lg:flex-row justify-between mt-4 bg-[#030303] p-4 sm:p-6 rounded-lg">
               <div className='flex flex-col space-y-3 lg:w-2/3'>
-                <h1 className='text-3xl font-bold text-white'>ABOUT THE SERVICE</h1>
-                <p className='text-white text-sm'>
+                <h1 className='text-2xl sm:text-3xl font-bold text-white'>ABOUT THE SERVICE</h1>
+                <p className='text-white text-sm sm:text-base'>
                   Lorem ipsum dolor sit amet consectetur.<br />
                   Sagittis egestas risus vitae eu et massa.<br />
                   Purus leo ornare adipiscing commodo quisque ipsum libero faucibus.<br />
@@ -282,14 +295,14 @@ const Hero: React.FC = () => {
               </div>
 
               <div className='mt-6 lg:mt-0 lg:w-1/3 h-auto p-4 rounded-xl bg-[#2D2D2D] flex flex-col justify-center space-y-4'>
-                <h2 className='text-left font-bold text-2xl text-white'>Let's connect for a discussion</h2>
-                <p className='text-left text-sm text-white'>
+                <h2 className='text-left font-bold text-xl sm:text-2xl text-white'>Let's connect for a discussion</h2>
+                <p className='text-left text-sm sm:text-base text-white'>
                   Lorem ipsum dolor sit amet consectetur.<br />
                   Nibh dapibus ut eleifend lacus volutpat quam aliquam nibh.<br />
                   At cursus adipiscing mattis sapien donec<br />
                   et elementum vestibulum sapien.
                 </p>
-                <button className='p-2 w-full md:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300'>
+                <button className='p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300'>
                   Contact Us
                 </button>
               </div>
@@ -300,15 +313,15 @@ const Hero: React.FC = () => {
         {/* Service 4 */}
         <div className='w-full max-w-4xl mx-auto'>
           <div className='flex flex-col sm:flex-row cursor-pointer' onClick={() => setShowImg4(!showImg4)}>
-            <div className='w-full '>
-              <Image src={img4} alt='Service 4' width={900} height={500} className='object-cover rounded-lg' />
+            <div className='w-full'>
+              <Image src={img4} alt='Service 4' layout="responsive" className='object-cover rounded-lg' />
             </div>
           </div>
           {showImg4 && (
-            <div className="flex flex-col lg:flex-row justify-between mt-4 bg-[#030303] p-6 rounded-lg">
+            <div className="flex flex-col lg:flex-row justify-between mt-4 bg-[#030303] p-4 sm:p-6 rounded-lg">
               <div className='flex flex-col space-y-3 lg:w-2/3'>
-                <h1 className='text-3xl font-bold text-white'>ABOUT THE SERVICE</h1>
-                <p className='text-white text-sm'>
+                <h1 className='text-2xl sm:text-3xl font-bold text-white'>ABOUT THE SERVICE</h1>
+                <p className='text-white text-sm sm:text-base'>
                   Lorem ipsum dolor sit amet consectetur.<br />
                   Sagittis egestas risus vitae eu et massa.<br />
                   Purus leo ornare adipiscing commodo quisque ipsum libero faucibus.<br />
@@ -326,14 +339,14 @@ const Hero: React.FC = () => {
               </div>
 
               <div className='mt-6 lg:mt-0 lg:w-1/3 h-auto p-4 rounded-xl bg-[#2D2D2D] flex flex-col justify-center space-y-4'>
-                <h2 className='text-left font-bold text-2xl text-white'>Let's connect for a discussion</h2>
-                <p className='text-left text-sm text-white'>
+                <h2 className='text-left font-bold text-xl sm:text-2xl text-white'>Let's connect for a discussion</h2>
+                <p className='text-left text-sm sm:text-base text-white'>
                   Lorem ipsum dolor sit amet consectetur.<br />
                   Nibh dapibus ut eleifend lacus volutpat quam aliquam nibh.<br />
                   At cursus adipiscing mattis sapien donec<br />
                   et elementum vestibulum sapien.
                 </p>
-                <button className='p-2 w-full md:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300'>
+                <button className='p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300'>
                   Contact Us
                 </button>
               </div>
@@ -347,7 +360,7 @@ const Hero: React.FC = () => {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-8 lg:space-y-0">
           {/* Text Content */}
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white">
               Building Strategies <br /> and Crafting <span className='text-[#A0A0A0]'>Effective <br /> Ideas for Lasting Impressions </span>
             </h1>
           </div>
@@ -379,18 +392,18 @@ const Hero: React.FC = () => {
         <div className="flex flex-col sm:flex-row justify-between items-center space-y-8 sm:space-y-0 sm:space-x-8">
           {/* Statistic Item */}
           <div className="text-left">
-            <h1 className="text-5xl font-bold text-white">50,000K+</h1>
-            <p className="text-xl">Spent on Ads</p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-white">50,000K+</h1>
+            <p className="text-lg sm:text-xl">Spent on Ads</p>
           </div>
           {/* Statistic Item */}
           <div className="text-left">
-            <h1 className="text-5xl font-bold text-white">5,000+</h1>
-            <p className="text-xl">Projects Onboarded</p>
+            <h1 className="text-4xl sm:text-5xl font-bold text-white">5,000+</h1>
+            <p className="text-lg sm:text-xl">Projects Onboarded</p>
           </div>
           {/* Statistic Item */}
           <div className="text-left">
-            <h1 className="text-5xl font-bold text-white">500+</h1>
-            <p className="text-xl text-left">
+            <h1 className="text-4xl sm:text-5xl font-bold text-white">500+</h1>
+            <p className="text-lg sm:text-xl text-left">
               Delivering an average<br /> 4x ROI for brands
             </p>
           </div>
@@ -403,7 +416,7 @@ const Hero: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
             {/* Testimonials Heading */}
             <div className="max-w-xl text-center lg:text-left">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white">
                 What they say about Us...
               </h2>
               <p className="mt-4 text-gray-400">
@@ -414,7 +427,7 @@ const Hero: React.FC = () => {
                 <button
                   aria-label="Previous slide"
                   id="keen-slider-previous"
-                  className="rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
+                  className="hidden lg:flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
                 >
                   {/* Previous Icon */}
                   <svg
@@ -435,7 +448,7 @@ const Hero: React.FC = () => {
                 <button
                   aria-label="Next slide"
                   id="keen-slider-next"
-                  className="rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
+                  className="hidden lg:flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
                 >
                   {/* Next Icon */}
                   <svg
@@ -460,14 +473,14 @@ const Hero: React.FC = () => {
               <div id="keen-slider" className="keen-slider">
                 {/* Testimonial Slide */}
                 <div className="keen-slider__slide">
-                  <blockquote className="flex flex-col justify-between bg-[#040404] p-6 sm:p-8 lg:p-12 h-full">
+                  <blockquote className="flex flex-col justify-between bg-[#040404] p-4 sm:p-6 lg:p-12 h-full">
                     <div>
                       <div className="flex gap-1 text-[#009DD1]">
                         {/* Stars */}
                         {[...Array(5)].map((_, i) => (
                           <svg
                             key={i}
-                            className="w-5 h-5"
+                            className="w-4 sm:w-5 h-4 sm:h-5"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg"
@@ -477,14 +490,14 @@ const Hero: React.FC = () => {
                         ))}
                       </div>
                       <div className="mt-4">
-                        <p className="text-2xl font-bold text-white">Great Service!</p>
+                        <p className="text-xl sm:text-2xl font-bold text-white">Great Service!</p>
                         <p className="mt-4 text-gray-400">
                           Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima cupiditate
                           quaerat rerum, quas sunt labore perferendis!
                         </p>
                       </div>
                     </div>
-                    <footer className="mt-4 text-sm font-medium text-gray-400">
+                    <footer className="mt-4 text-sm sm:text-base font-medium text-gray-400">
                       &mdash; John Doe
                     </footer>
                   </blockquote>
@@ -492,14 +505,14 @@ const Hero: React.FC = () => {
 
                 {/* Additional Testimonial Slides */}
                 <div className="keen-slider__slide">
-                  <blockquote className="flex flex-col justify-between bg-[#040404] p-6 sm:p-8 lg:p-12 h-full">
+                  <blockquote className="flex flex-col justify-between bg-[#040404] p-4 sm:p-6 lg:p-12 h-full">
                     <div>
                       <div className="flex gap-1 text-[#009DD1]">
                         {/* Stars */}
                         {[...Array(5)].map((_, i) => (
                           <svg
                             key={i}
-                            className="w-5 h-5"
+                            className="w-4 sm:w-5 h-4 sm:h-5"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg"
@@ -509,14 +522,14 @@ const Hero: React.FC = () => {
                         ))}
                       </div>
                       <div className="mt-4">
-                        <p className="text-2xl font-bold text-white">Wonderful Team!</p>
+                        <p className="text-xl sm:text-2xl font-bold text-white">Wonderful Team!</p>
                         <p className="mt-4 text-gray-400">
                           Great experience from start to finish. The team was professional and very
                           efficient in getting the project done.
                         </p>
                       </div>
                     </div>
-                    <footer className="mt-4 text-sm font-medium text-gray-400">
+                    <footer className="mt-4 text-sm sm:text-base font-medium text-gray-400">
                       &mdash; Jane Smith
                     </footer>
                   </blockquote>
@@ -532,7 +545,7 @@ const Hero: React.FC = () => {
             <button
               aria-label="Previous slide"
               id="keen-slider-previous-mobile"
-              className="rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
+              className="flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
             >
               {/* Previous Icon */}
               <svg
@@ -553,7 +566,7 @@ const Hero: React.FC = () => {
             <button
               aria-label="Next slide"
               id="keen-slider-next-mobile"
-              className="rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
+              className="flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
             >
               {/* Next Icon */}
               <svg
