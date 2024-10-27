@@ -101,11 +101,11 @@ const Hero: React.FC = () => {
     const keenSliderNextMobile = document.getElementById('keen-slider-next-mobile');
 
     const handlePrev = () => {
-      keenSlider.prev(keenSlider.options.slides?.perView as number);
+      keenSlider.prev();
     };
 
     const handleNext = () => {
-      keenSlider.next(keenSlider.options.slides?.perView as number);
+      keenSlider.next();
     };
 
     keenSliderPrevious?.addEventListener('click', handlePrev);

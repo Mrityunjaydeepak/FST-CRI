@@ -36,7 +36,7 @@ const Homei: React.FC = () => {
         setProgress(progress);
 
         // Calculate scale to make the text fill the screen
-        const maxScale = 5; // Reduced from 100 to prevent overflow
+        const maxScale = 100; // Reduced from 100 to prevent overflow
         const newScale = 1 + progress * (maxScale - 1);
         setScale(newScale);
 
