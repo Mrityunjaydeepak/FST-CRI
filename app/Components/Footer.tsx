@@ -78,11 +78,8 @@ const Footer = () => {
                         {/* Additional Text */}
                         <div className='flex flex-col mt-8 px-4 sm:px-8 text-center'>
                             <h1 className='text-white text-sm sm:text-base'>
-                                Lorem ipsum dolor sit amet consectetur nunc nunc sit velit eget sollicitudin sit posuere augue vestibulum eget turpis.
-                            </h1>
-                            <h1 className='text-white text-sm sm:text-base'>
-                                Lobortis donec sapien integer phasellus quisque aenean porttitor senectus tempor hac turpis ut morbi.
-                            </h1>
+                            At Cribonix, we blend creativity with strategy to craft compelling digital marketing solutions. 
+                            <br /> Our passion is transforming brands into influential stories that resonate with audiences and drive results.</h1>
                         </div>
                     </div>
                 </footer>

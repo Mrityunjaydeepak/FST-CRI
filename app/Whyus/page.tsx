@@ -39,7 +39,7 @@ const Whyus = () => {
   const [isFading, setIsFading] = useState(false);
 
   // Handler for button clicks
-  const handleButtonClick = (index:number) => {     
+  const handleButtonClick = (index: number) => {     
     if (index === currentImageIndex || isFading) return; // Prevent redundant clicks
 
     setIsFading(true); // Start fade-out
@@ -56,126 +56,125 @@ const Whyus = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen px-4 sm:px-8 md:px-16 lg:px-32">
+    <div className="bg-[#040404]">
       {/* Image Section */}
-      <div className="relative w-full mt-24 h-auto sm:h-128 md:h-160">
-        <Image
-          src={imgcont}
-          alt="Why Us Background Image"
-          layout="responsive"
-          width={1200} // Maintain original aspect ratio
-          height={600}
-          className="object-cover opacity-50 rounded-md"
-        />
+      <div className="container mx-auto px-4 py-12">
+        <div className="relative w-full mt-24 h-auto sm:h-128 md:h-160">
+          <Image
+            src={imgcont}
+            alt="Why Us Background Image"
+            layout="responsive"
+            width={1200} // Maintain original aspect ratio
+            height={600}
+            className="object-cover opacity-50 rounded-md"
+          />
 
-        {/* Overlay Content */}
-        <div className="absolute inset-0 flex flex-col justify-center items-start p-4 sm:p-8 md:p-16">
-          <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold text-left text-white">
-            Mastering Every <span className="block"> Digital Move.</span>
-          </h2>
+          {/* Overlay Content */}
+          <div className="absolute inset-0 flex flex-col justify-center items-start p-4 sm:p-8 md:p-16">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold text-left text-white">
+              Mastering Every <span className="block"> Digital Move.</span>
+            </h2>
+          </div>
         </div>
       </div>
 
       {/* Content Section */}
-      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center p-8 space-y-8 lg:space-y-0 lg:space-x-40">
-        {/* Left Content */}
-        <div className="flex-1">
-          <p className="text-left text-md sm:text-lg md:text-xl text-gray-200">
-            Where Aloo meets the Samosa<br /> <br />
+      <div className="container mx-auto px-4 py-12">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-8 lg:space-y-0 lg:space-x-40">
+          {/* Left Content */}
+          <div className="flex-1">
+            <p className="text-left text-md sm:text-lg md:text-xl text-gray-200">
+              Where Aloo meets the Samosa<br /> <br />
 
-            At Cribonix, we're the “Bahubali” of <br />digital marketing—always delivering <br />what your brand needs. With blockbuster strategies, superstar <br />solutions, and a script for success, we make sure your brand hits the spotlight.<br />
-            Ready for a “Dhoom”<br /> of growth? We’ve got your back!
-          </p>
-        </div>
-
-        {/* Right Content: Metrics */}
-        <div className="flex flex-col sm:flex-row justify-between space-y-8 sm:space-y-0 sm:space-x-16">
-          {/* Metric 1 */}
-          <div className="flex flex-col items-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              Ads <br />
-              Management
-            </h2>
-            <h1 className="text-6xl sm:text-7xl font-extrabold text-white mt-4">+500K</h1>
+              At Cribonix, we're the “Bahubali” of <br />digital marketing—always delivering <br />what your brand needs. With blockbuster strategies, superstar <br />solutions, and a script for success, we make sure your brand hits the spotlight.<br />
+              Ready for a “Dhoom”<br /> of growth? We’ve got your back!
+            </p>
           </div>
 
-          {/* Metric 2 */}
-          <div className="flex flex-col items-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              Years of <br />
-              Experience
-            </h2>
-            <h1 className="text-6xl sm:text-7xl font-extrabold text-white mt-4">+10</h1>
-          </div>
+          {/* Right Content: Metrics */}
+          <div className="flex flex-col sm:flex-row justify-between space-y-8 sm:space-y-0 sm:space-x-16">
+            {/* Metric 1 */}
+            <div className="flex flex-col items-center">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white">
+                Ads <br />
+                Management
+              </h2>
+              <h1 className="text-6xl sm:text-7xl font-extrabold text-white mt-4">+500K</h1>
+            </div>
 
-          {/* Metric 3 */}
-          <div className="flex flex-col items-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              Successful <br />
-              Projects
-            </h2>
-            <h1 className="text-6xl sm:text-7xl font-extrabold text-white mt-4">+400</h1>
+            {/* Metric 2 */}
+            <div className="flex flex-col items-center">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white">
+                Years of <br />
+                Experience
+              </h2>
+              <h1 className="text-6xl sm:text-7xl font-extrabold text-white mt-4">+10</h1>
+            </div>
+
+            {/* Metric 3 */}
+            <div className="flex flex-col items-center">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white">
+                Successful <br />
+                Projects
+              </h2>
+              <h1 className="text-6xl sm:text-7xl font-extrabold text-white mt-4">+400</h1>
+            </div>
           </div>
         </div>
       </div>
 
       {/* How We Started */}
-      <div className="flex flex-col p-4 border-t-2 border-secondary mb-8">
-        <div className="flex flex-col items-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white text-center">
-            Cribonix Insights: The Power <br /> Behind Our Strategies
-          </h1>
-          <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start mt-12 w-full sm:space-x-16">
-            {/* Left Description */}
-            <div className="flex-1 space-y-4">
-              <h2 className="text-white text-4xl sm:text-5xl font-bold text-left">
-                Where smart strategies meet creativity,<br /> we lift brands to new heights.<br /> Discover how knowledge drives<br /> our innovative solutions!
-              </h2>
-              <h2 className="text-white text-md sm:text-lg text-left">
-                Et quam nec commodo senectus elementum facilisi in <br />
-                vestibulum adipiscing proin ligula euismod sagittis mollis <br />
-                donec gravida lorem tortor adipiscing lorem massa lorem <br />
-                mattis amet leo varius posuere nullam magna maecenas <br />
-                massa, sit purus sit pretium convallis luctus nulla.
-              </h2>
-              <Button
-                text="View Portfolio"
-                href="/Portfolio"
-                variant="primary"
-                ariaLabel="View Portfolio"
-                className="w-full sm:w-48"
-              />
-            </div>
+      <div className="container mx-auto px-4 py-12 border-t-2 border-secondary">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start space-y-12 lg:space-y-0 lg:space-x-16">
+          {/* Left Description */}
+          <div className="flex-1 space-y-4">
+            <h2 className="text-white text-4xl sm:text-5xl font-bold text-left">
+              Where smart strategies meet creativity,<br /> we lift brands to new heights.<br /> Discover how knowledge drives<br /> our innovative solutions!
+            </h2>
+            <h2 className="text-white text-md sm:text-lg text-left">
+              Et quam nec commodo senectus elementum facilisi in <br />
+              vestibulum adipiscing proin ligula euismod sagittis mollis <br />
+              donec gravida lorem tortor adipiscing lorem massa lorem <br />
+              mattis amet leo varius posuere nullam magna maecenas <br />
+              massa, sit purus sit pretium convallis luctus nulla.
+            </h2>
+            <Button
+              text="View Portfolio"
+              href="/Portfolio"
+              variant="primary"
+              ariaLabel="View Portfolio"
+              className="w-full sm:w-48"
+            />
+          </div>
 
-            {/* Right Image */}
-            <div className="flex-1 mt-8 sm:mt-0">
-              <Image
-                src={team}
-                alt="Team Image"
-                width={500}
-                height={500}
-                className="object-cover opacity-100 rounded-md shadow-lg"
-              />
-            </div>
+          {/* Right Image */}
+          <div className="flex-1 mt-8 sm:mt-0">
+            <Image
+              src={team}
+              alt="Team Image"
+              width={500}
+              height={500}
+              className="object-cover opacity-100 rounded-md shadow-lg"
+            />
           </div>
         </div>
       </div>
 
       {/* Our Values */}
-      <div className="flex flex-col p-4 border-t-2 border-secondary mb-8">
-        <div className="flex flex-col items-center">
+      <div className="container mx-auto px-4 py-12 border-t-2 border-secondary">
+        <div className="flex flex-col items-center space-y-8">
           <h1 className="text-7xl sm:text-6xl md:text-7xl font-bold text-white text-center">
             THE VALUES THAT DRIVE, <br />EVERYTHING WE DO
           </h1>
-          <h2 className="text-lg sm:text-xl text-white font-light text-center mt-4">
+          <h2 className="text-lg sm:text-xl text-white font-light text-center">
             - More than goals. We’re on a mission. <br />
             Our values are the fuel behind every campaign, strategy and breakthrough
           </h2>
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center items-center space-y-8 sm:space-y-0 sm:space-x-5 mt-8">
+        <div className="flex flex-col lg:flex-row justify-center items-center space-y-8 lg:space-y-0 lg:space-x-8 mt-8">
           {/* Dynamic Image Section */}
-          <div className="relative w-full sm:w-2/3 lg:w-1/2 transition-opacity duration-500">
+          <div className="relative w-full lg:w-2/3 transition-opacity duration-500">
             <Image
               src={images[currentImageIndex]}
               alt={`Quality Image ${currentImageIndex + 1}`}
@@ -187,7 +186,7 @@ const Whyus = () => {
           </div>
 
           {/* Buttons Section */}
-          <div className="flex flex-row sm:flex-col justify-center items-center space-x-4 sm:space-x-0 sm:space-y-4">
+          <div className="flex flex-row lg:flex-col justify-center items-center space-x-4 lg:space-x-0 lg:space-y-4">
             {images.map((img, index) => (
               <button
                 key={index}
@@ -205,32 +204,32 @@ const Whyus = () => {
       </div>
 
       {/* Our Clients Section */}
-      <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start border-t-2 border-secondary mt-24 p-8 space-y-8 sm:space-y-0">
-        <h1 className="text-6xl sm:text-7xl text-left font-bold text-white">
-          OUR TRUSTED <br /> CLIENTS
-        </h1>
-        <h2 className="text-md sm:text-lg text-white text-center sm:text-left">
-          Collaborating with the best to bring their visions to life.<br />
-          From emerging startups to established brands, we’re <br />
-          honoured to be the trusted digital partner that helps <br />
-          them thrive in the modern market.
-        </h2>
+      <div className="container mx-auto px-4 py-12 border-t-2 border-secondary">
+        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start space-y-8 lg:space-y-0">
+          <h1 className="text-6xl sm:text-7xl text-left font-bold text-white">
+            OUR TRUSTED <br /> CLIENTS
+          </h1>
+          <h2 className="text-md sm:text-lg text-white text-center lg:text-left">
+            Collaborating with the best to bring their visions to life.<br />
+            From emerging startups to established brands, we’re <br />
+            honoured to be the trusted digital partner that helps <br />
+            them thrive in the modern market.
+          </h2>
+        </div>
       </div>
 
       {/* Testimonials Section */}
-      <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start border-t-2 border-secondary mt-24 p-8 space-y-8 sm:space-y-0">
-        {/* (Assuming testimonials content goes here) */}
-      </div>
+      {/* ...Assuming testimonials content goes here... */}
 
       {/* Our Team */}
-      <div className="flex flex-col p-4 border-t-2 border-secondary mb-8">
-        <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start mt-9 space-y-8 sm:space-y-0 sm:space-x-40">
+      <div className="container mx-auto px-4 py-12 border-t-2 border-secondary">
+        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start space-y-8 lg:space-y-0">
           {/* Left Content */}
           <div className="flex flex-col space-y-4">
-            <h1 className="text-6xl sm:text-7xl font-extrabold text-white text-center sm:text-left">
+            <h1 className="text-6xl sm:text-7xl font-extrabold text-white text-center lg:text-left">
               MEET OUR TEAM
             </h1>
-            <h2 className="text-md sm:text-lg text-white text-center sm:text-left">
+            <h2 className="text-md sm:text-lg text-white text-center lg:text-left">
               The brains behind the brilliance, the faces behind the flair.<br />
               Meet the dreamers, creators and doers shaping Cribonix’s magic.
             </h2>
@@ -316,9 +315,9 @@ const Whyus = () => {
       </div>
 
       {/* Visit Our Office */}
-      <div className="flex flex-col p-4 border-t-2 border-secondary mb-8">
-        <div className="flex justify-center">
-          <h1 className="font-extrabold text-white text-6xl text-center mb-8">
+      <div className="container mx-auto px-4 py-12 border-t-2 border-secondary">
+        <div className="flex justify-center mb-8">
+          <h1 className="font-extrabold text-white text-6xl text-center">
             VISIT OUR OFFICE
           </h1>
         </div>
@@ -334,12 +333,12 @@ const Whyus = () => {
       </div>
 
       {/* Follow us on Instagram */}
-      <div className="flex flex-col p-4 border-t-2 border-secondary mb-8">
-        <div className="flex flex-col items-center">
+      <div className="container mx-auto px-4 py-12 border-t-2 border-secondary">
+        <div className="flex flex-col items-center space-y-8">
           <h1 className="text-white font-extrabold text-6xl text-center">
             FOLLOW OUR WORK <br /> ON INSTAGRAM
           </h1>
-          <h2 className="text-md text-white text-center mt-4">
+          <h2 className="text-md text-white text-center">
             Behind Every Swipe, There’s a Story to Tell.<br />
             Join us on Instagram for a peek into our world!
           </h2>
@@ -356,7 +355,7 @@ const Whyus = () => {
         </div>
 
         {/* Instagram Images */}
-        <div className="flex flex-col sm:flex-row justify-between gap-4 mt-8">
+        <div className="flex flex-col lg:flex-row justify-between gap-4 mt-8">
           {/* Mountain Image */}
           <div className="flex-1">
             <Image
