@@ -325,7 +325,7 @@ const Whyus = () => {
           <Image
             src={office}
             alt="Office Background"
-            width={990}
+            width={1500}
             height={990}
             className="object-cover rounded-md shadow-lg opacity-80"
           />

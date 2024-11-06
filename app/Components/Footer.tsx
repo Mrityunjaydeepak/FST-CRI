@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import footerbg from './footerbg.png';
-import { FaArrowAltCircleRight, FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaArrowAltCircleRight, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
     return (
@@ -26,17 +26,15 @@ const Footer = () => {
                     <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4">
                         {/* Heading Section */}
                         <div className='flex flex-col mt-8 mb-8 text-center'>
-                            <h2 className="text-4xl sm:text-6xl lg:text-7xl font-bold">Let's Work</h2>
-                            <h2 className="text-4xl sm:text-6xl lg:text-7xl font-bold">Together!</h2>
+                            <h2 className="text-4xl sm:text-6xl lg:text-7xl xl:text-9xl font-bold">Let's Work</h2>
+                            <h2 className="text-4xl sm:text-6xl lg:text-7xl xl:text-9xl      font-bold">Together!</h2>
                         </div>
 
                         {/* Social Icons, Email, and Get in Touch */}
                         <div className='flex flex-col sm:flex-row justify-center items-center mt-8 mb-8 space-y-4 sm:space-y-0 sm:space-x-5'>
                             {/* Social Icons */}
                             <div className='flex justify-center space-x-5'>
-                                <button className='text-white text-2xl hover:text-green-500 transition'>
-                                    <FaTwitter />
-                                </button>
+                                
                                 <button className='text-white text-2xl hover:text-green-500 transition'>
                                     <FaFacebook />
                                 </button>

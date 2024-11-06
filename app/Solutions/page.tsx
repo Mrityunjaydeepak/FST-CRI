@@ -1,87 +1,338 @@
-
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import office from './Container.png';
 
 const Solutions = () => {
+  // State to manage the selected card
+  const [selectedCardIndex, setSelectedCardIndex] = useState(0);
+
+  // Content for each card (same as provided)
+  const cardContents = [
+    {
+      title: 'Competition Analysis',
+      content: {
+        problemHeading: 'Problem: Competition Analysis',
+        problemDescription:
+          'Brands often struggle to fully understand what their competitors are doing well or where they are lacking. This makes it hard to develop strategies that stand out in the market.',
+        solutionHeading: 'How Cribonix Solves It',
+        solutionDescription:
+          'Cribonix tackles this by thoroughly analysing your competitors. We break down their successful approaches and highlight where they fall short. This gives you a clear plan to outshine them. Our detailed insights help your brand take smart, informed steps and stay ahead with strategies tailored for impact.',
+        processHeading: 'Our Process Includes:',
+        processList: [
+          'Deep Competitor Reviews: Understanding their strengths and gaps.',
+          'Actionable Insights: Offering clear, data-based guidance.',
+          'Customised Strategies: Crafting plans to make your brand unique.',
+        ],
+      },
+    },
+    {
+      title: 'Ineffective Content Strategies',
+      content: {
+        problemHeading: 'Problem: Ineffective Content Strategies',
+        problemDescription:
+          'Brands often face challenges with content that doesn’t engage or drive desired outcomes. Whether it’s lacking relevance, failing to capture attention, or not being aligned with business goals, ineffective content can hold back a brand\'s potential.',
+        solutionHeading: 'How Cribonix Solves It',
+        solutionDescription:
+          'Cribonix crafts content strategies that connect deeply with your audience. We use research-driven insights to develop engaging and valuable content that aligns with your brand message. Our team ensures every piece of content serves a purpose, driving engagement and conversions effectively.',
+        processHeading: 'Our Process Includes:',
+        processList: [
+          'Audience-Centric Planning: Tailoring content for specific needs.',
+          'Impactful Storytelling: Creating memorable, relatable content.',
+          'Continuous Optimization: Using data to refine and improve outcomes.',
+        ],
+      },
+    },
+    {
+      title: 'Poor SEO Practices',
+      content: {
+        problemHeading: 'Problem: Poor SEO Practices',
+        problemDescription:
+          'Many brands struggle with ineffective SEO tactics that lead to low visibility on search engines. From outdated strategies to poorly optimised content, these mistakes can prevent your website from ranking well and being discovered by potential customers.',
+        solutionHeading: 'How Cribonix Solves It',
+        solutionDescription:
+          'Cribonix brings a strategic approach to SEO. We analyse your current setup, identify gaps, and implement proven methods to boost your search performance. Our SEO specialists focus on keyword research, high-quality content, and technical optimizations to make sure your brand gets noticed online.',
+        processHeading: 'Our Process Includes:',
+        processList: [
+          'Comprehensive Audits: Reviewing your SEO landscape.',
+          'Keyword-Driven Content: Developing content that ranks and engages.',
+          'Technical Optimization: Fixing backend issues for improved performance.',
+        ],
+      },
+    },
+    {
+      title: 'Google Business Management',
+      content: {
+        problemHeading: 'Problem: Google Business Management',
+        problemDescription:
+          'Managing your Google Business profile can be tricky. From keeping your business information updated to managing customer reviews and engagement, it’s easy to feel overwhelmed. Inconsistent or outdated details can lead to missed opportunities and decreased customer trust.',
+        solutionHeading: 'How Cribonix Solves It',
+        solutionDescription:
+          'Cribonix ensures your Google Business profile stays optimised and accurate. We handle everything—from updating information and posting engaging content to responding to reviews swiftly. By doing this, we increase your local visibility and ensure a stronger brand presence.',
+        processHeading: 'Our Process Includes:',
+        processList: [
+          'Profile Optimization: Keeping business info updated.',
+          'Engagement Management: Responding to reviews professionally.',
+          'Insightful Reporting: Providing performance metrics regularly.',
+        ],
+      },
+    },
+    {
+      title: 'Ad Fatigue',
+      content: {
+        problemHeading: 'Problem: Ad Fatigue',
+        problemDescription:
+          'Running the same ads repeatedly can cause your audience to lose interest, leading to lower engagement and wasted budget. When people see the same ad too often, they tend to ignore it, resulting in declining performance over time.',
+        solutionHeading: 'How Cribonix Solves It',
+        solutionDescription:
+          'Cribonix combats ad fatigue with a smart, dynamic approach. We continuously refresh ad creatives, experiment with new formats, and target varied audience segments. By keeping content fresh and engaging, we ensure your ads stay impactful and relevant, maximising reach and conversion rates.',
+        processHeading: 'Our Process Includes:',
+        processList: [
+          'Creative Rotation: Regularly updating ad designs and messaging.',
+          'Audience Segmentation: Targeting different groups for better results.',
+          'Performance Monitoring: Analysing metrics to adapt and optimise efficiently.',
+        ],
+      },
+    },
+    {
+      title: 'Social Media Management Challenges',
+      content: {
+        problemHeading: 'Problem: Social Media Management Challenges',
+        problemDescription:
+          'Managing social media can be overwhelming. From inconsistent posting schedules to engaging content creation and responding promptly to followers, staying on top of it all is tough. A lack of strategy can result in reduced audience interaction and missed opportunities.',
+        solutionHeading: 'How Cribonix Solves It',
+        solutionDescription:
+          'Cribonix simplifies social media management by providing comprehensive, tailored strategies. We create engaging content, maintain a consistent presence, and actively interact with your audience. Our streamlined approach helps boost brand visibility and build lasting connections.',
+        processHeading: 'Our Process Includes:',
+        processList: [
+          'Content Calendar: Scheduling posts for optimal engagement.',
+          'Audience Interaction: Timely and meaningful responses.',
+          'Performance Review: Analysing results to improve strategies.',
+        ],
+      },
+    },
+    {
+      title: 'Ineffective Influencer Collaborations',
+      content: {
+        problemHeading: 'Problem: Ineffective Influencer Collaborations',
+        problemDescription:
+          'Collaborating with influencers without clear goals or understanding the target audience can lead to wasted efforts and poor campaign results. Misalignment between brand identity and influencer content may also result in decreased trust from your audience.',
+        solutionHeading: 'How Cribonix Solves It',
+        solutionDescription:
+          'We handle influencer collaborations strategically. By carefully selecting influencers who match your brand’s values and audience, we maximise impact. We oversee every step of the process, ensuring campaigns are authentic, engaging, and result-driven.',
+        processHeading: 'Our Process Includes:',
+        processList: [
+          'Strategic Matching: Finding the right influencers for your brand.',
+          'Seamless Campaign Execution: Managing content creation and timelines.',
+          'Impact Analysis: Measuring results to optimise future efforts.',
+        ],
+      },
+    },
+    {
+      title: 'Brand Value vs. Brand Promotion',
+      content: {
+        problemHeading: 'Problem: Brand Value vs. Brand Promotion',
+        problemDescription:
+          'Brands often struggle to balance maintaining core values with the need for effective promotions. Over-promotion can dilute brand identity, while under-promotion can limit reach and impact. This disconnect can confuse customers and weaken brand loyalty.',
+        solutionHeading: 'How Cribonix Solves It',
+        solutionDescription:
+          'We strike the perfect balance between reinforcing your brand’s essence and executing compelling promotions. Our strategies ensure that every campaign remains true to your brand’s core while amplifying visibility through carefully curated content and targeted messaging.',
+        processHeading: 'Our Process Includes:',
+        processList: [
+          'Value-Driven Campaigns: Crafting content that aligns with your brand’s ethos.',
+          'Strategic Promotions: Using platforms and tactics that enhance rather than overshadow your identity.',
+          'Consistent Messaging: Ensuring uniformity across all promotional channels.',
+        ],
+      },
+    },
+    {
+      title: 'Sustainable Growth',
+      content: {
+        problemHeading: 'Problem: Sustainable Growth',
+        problemDescription:
+          'Brands often find it challenging to grow steadily without sacrificing quality or brand values. Quick wins can lead to short-lived success, while unsustainable practices can harm long-term brand health, leaving businesses in a loop of instability.',
+        solutionHeading: 'How Cribonix Solves It',
+        solutionDescription:
+          'We focus on strategic, long-term plans that nurture your brand’s growth sustainably. By integrating data-driven insights, ethical practices, and consistent messaging, we ensure that growth aligns with your brand vision while maintaining quality and trustworthiness.',
+        processHeading: 'Our Process Includes:',
+        processList: [
+          'Strategic Roadmaps: Creating tailored growth plans for long-term success.',
+          'Sustainability Focus: Prioritising eco-friendly and ethical practices.',
+          'Consistent Optimization: Continuously refining strategies to adapt and evolve.',
+        ],
+      },
+    },
+    {
+      title: 'Inability to Measure ROI',
+      content: {
+        problemHeading: 'Problem: Inability to Measure ROI',
+        problemDescription:
+          'Many brands struggle to understand the true impact of their marketing efforts. Without clear visibility into returns on investment, it becomes difficult to refine strategies, allocate budgets effectively, or prove the value of campaigns.',
+        solutionHeading: 'How Cribonix Solves It',
+        solutionDescription:
+          'We use advanced analytics to break down campaign performance, highlighting key metrics that matter. Our team focuses on transparent reporting, helping you track each rupee spent and its outcomes. By continuously analysing data, we optimise your strategy to maximise ROI, ensuring every action drives measurable value.',
+        processHeading: 'Our Process Includes:',
+        processList: [
+          'Detailed Reporting: Clear, easy-to-understand performance insights.',
+          'Custom KPI Tracking: Metrics tailored to your business goals.',
+          'Ongoing Optimization: Consistent improvements for higher returns.',
+        ],
+      },
+    },
+    {
+      title: 'Cross-Channel Integration Problems',
+      content: {
+        problemHeading: 'Problem: Cross-Channel Integration Problems',
+        problemDescription:
+          'Marketing across multiple channels can be a headache when strategies aren\'t aligned. Brands often miss opportunities or lose out on engagement due to inconsistent messaging, siloed data, or a lack of synchronisation between platforms.',
+        solutionHeading: 'How Cribonix Solves It',
+        solutionDescription:
+          'We create a unified strategy that seamlessly integrates all your marketing channels, ensuring consistent messaging and efficient data flow. By leveraging cross-platform insights, we align your campaigns for maximum reach and impact, delivering a cohesive brand experience across every touchpoint.',
+        processHeading: 'Our Process Includes:',
+        processList: [
+          'Unified Campaign Strategy: Aligning all channels for a consistent message.',
+          'Data Synchronisation: Merging analytics for informed decision-making.',
+          'Omnichannel Engagement: Optimising interactions across platforms.',
+        ],
+      },
+    },
+    {
+      title: 'Growth on a Low Budget',
+      content: {
+        problemHeading: 'Problem: Growth on a Low Budget',
+        problemDescription:
+          'Achieving growth with limited resources is a significant hurdle for many brands. Stretching marketing dollars while trying to stay competitive often feels overwhelming, especially when aiming for quality and reach.',
+        solutionHeading: 'How Cribonix Solves It',
+        solutionDescription:
+          'We implement cost-effective yet powerful strategies, prioritising high-impact activities that yield maximum returns. With a creative approach, we focus on leveraging organic growth, strategic partnerships, and highly targeted ad campaigns that don\'t strain your budget, ensuring you see measurable growth without overspending.',
+        processHeading: 'Our Process Includes:',
+        processList: [
+          'Budget Optimization: Maximising every rupee for best outcomes.',
+          'Targeted Ads: Hyper-focused campaigns to reduce costs.',
+          'Organic Engagement: Building authentic connections for sustainable impact.',
+        ],
+      },
+    },
+    {
+      title: 'Managing a Marketing Team',
+      content: {
+        problemHeading: 'Problem: Managing a Marketing Team',
+        problemDescription:
+          'Coordinating a marketing team can be overwhelming, especially when juggling campaign strategies, creative ideas, and performance tracking. Miscommunication and inefficient workflows can slow progress and impact results.',
+        solutionHeading: 'How Cribonix Solves It',
+        solutionDescription:
+          'We streamline marketing management through structured processes and clear communication, ensuring tasks are aligned and efficiently executed. By fostering collaboration and leveraging project management tools, we enhance productivity, so teams stay focused on impactful outcomes.',
+        processHeading: 'Our Process Includes:',
+        processList: [
+          'Efficient Workflows: Streamlined processes for smoother operations.',
+          'Clear Communication: Avoiding misunderstandings with transparent coordination.',
+          'Performance Monitoring: Tracking metrics to drive continuous improvement.',
+        ],
+      },
+    },
+  ];
+
   return (
-    <div className="flex flex-col mx-32 justify-center bg-primary">
-      
-      <div className="relative mt-24 h-screen sm:h-96 bg-primary">
+    <div className="flex flex-col mx-4 sm:mx-8 md:mx-16 lg:mx-32 justify-center bg-primary">
+      {/* Header Section */}
+      <div className="relative mt-12 sm:mt-24 h-64 sm:h-96 md:h-screen bg-primary">
         <Image
           src={office}
           alt="Office Background Image"
-          fill // Updated from layout='fill' to fill
+          fill
           className="object-cover opacity-50"
         />
 
         {/* Overlay Content */}
-        <div className="absolute inset-0 flex flex-col justify-center items-start p-8">
-          <h2 className="text-8xl sm:text-5xl md:text-7xl font-bold text-left text-white">
+        <div className="absolute inset-0 flex flex-col justify-center items-start p-4 sm:p-8">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-left text-white">
             OUR <span className="block">SOLUTIONS</span>
           </h2>
         </div>
       </div>
 
-      <div className="flex justify-between border border-secondary border-t-2 border-b-0 border-l-0 border-r-0 p-4 mt-24">
-        <div className="flex flex-col">
-          <h1 className="text-6xl font-bold text-white">Lorem Ipsum</h1>
-          <p className="text-left font-thin">
-            Lorem ipsum dolor sit amet consectetur.<br />
-            In aenean augue mi id. Amet nulla mattis <br />
-            tincidunt velit tempus natoque ultrices<br />
-            varius. Nullam viverra lacus sit eros porttitor<br />
-            id sed. Integer nunc lectus mattis facilisis neque<br />
-            eleifend. Consequat eros integer venenatis sagittis<br />
-            pellentesque libero gravida. Commodo vitae adipiscing<br />
-            eget auctor nullam dui lorem et in. Ultricies <br />
-            donec egestas tellus vitae vel nunc cras.<br />
-            Suspendisse amet nunc sit elementum suscipit <br />
-            
-            <span className="block text-left font-thin mt-8">
-              amet nisl aliquam porttitor. Neque eget nunc ipsum <br />
-              ipsum sit cursus sociis luctus tortor. Nunc neque elementum<br />
-              is sapien. Rhoncus eu pellentesque et egestas non<br />
-              tum aenean nibh. Est ipsum risus nunc lacus parturient<br />
-              as. In dolor ac vel et gravida cursus euismod. Dolor<br />
-              dolor enim et eu elit varius sed consequat ullamcorper. <br />
-              Vitae maecenas proin id ultricies. Porta enim et a nibh facilisi nunc in turpis eget.<br />
-              Mauris ristique in lectus viverra pellentesque. <br />
-              Aliquam sodales dis non tristique porttitor. <br />
-              Ante nunc neque magnis fames aliquam. <br />
-              Nam gravida aliquet purus sit mattis rhoncus vel. <br />
-              Erat dolor urna morbi sem risus massa facilisis tincidunt.
-            </span>
+      {/* Main Content Section */}
+      <div className="flex flex-col md:flex-row justify-center items-stretch border-t-2 border-secondary p-4 sm:p-8 mt-12 sm:mt-24">
+        {/* Left Content */}
+        <div className="w-full md:flex-1 flex flex-col pr-0 md:pr-8">
+          {/* Problem Heading */}
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+            {cardContents[selectedCardIndex].content.problemHeading}
+          </h2>
+          {/* Problem Description */}
+          <p className="text-left font-thin mt-4 text-white text-sm sm:text-base md:text-lg">
+            {cardContents[selectedCardIndex].content.problemDescription}
           </p>
+
+          {/* Solution Heading */}
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-8">
+            {cardContents[selectedCardIndex].content.solutionHeading}
+          </h2>
+          {/* Solution Description */}
+          <p className="text-left font-thin mt-4 text-white text-sm sm:text-base md:text-lg">
+            {cardContents[selectedCardIndex].content.solutionDescription}
+          </p>
+
+          {/* Process Heading */}
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-8">
+            {cardContents[selectedCardIndex].content.processHeading}
+          </h2>
+          {/* Process List */}
+          <ul className="list-disc list-inside mt-4 text-white font-thin text-sm sm:text-base md:text-lg">
+            {cardContents[selectedCardIndex].content.processList.map(
+              (item, index) => (
+                <li key={index} className="mt-2">
+                  {item}
+                </li>
+              )
+            )}
+          </ul>
         </div>
-        <div className='flex flex-col space-y-2'>
-          <div className='bg-[#2d2d2d] flex flex-col justify-center rounded-xl h-64  p-8 w-auto'>
-            <h1 className='text-white flex justify-center items-center '>Lorem ipsum dolor sit amet consectetur.<br /> Suspendisse risus nisl erat ornare consequat.</h1>
 
-          </div>
-          <div className='bg-[#2d2d2d] flex flex-col justify-center rounded-xl h-64  p-8 w-auto'>
-            <h1 className='text-white flex justify-center items-center '>Lorem ipsum dolor sit amet consectetur.<br /> Suspendisse risus nisl erat ornare consequat.</h1>
+        {/* Right Content (Cards) */}
+        <div className="flex flex-col mt-8 md:mt-0 md:ml-4 w-full md:w-1/3 relative">
+          {/* Gradient Overlays */}
+          <div className="pointer-events-none absolute top-0 left-0 w-full h-8 bg-gradient-to-b from-black to-transparent z-10"></div>
+          <div className="pointer-events-none absolute bottom-0 left-0 w-full h-8 bg-gradient-to-t from-black to-transparent z-10"></div>
 
+          {/* Scrollable Container with fixed height */}
+          <div
+            className="overflow-y-auto hide-scrollbar relative z-0 pt-8 pb-8"
+            style={{ maxHeight: 'calc(16rem * 2 + 0.5rem * 2)' }}
+          >
+            {cardContents.map((card, index) => (
+              <div
+                key={index}
+                onClick={() => setSelectedCardIndex(index)}
+                className={`bg-[#2d2d2d] flex flex-col justify-center rounded-xl h-48 sm:h-64 p-4 sm:p-8 w-full mb-2 cursor-pointer ${
+                  selectedCardIndex === index
+                    ? 'border-2 border-white'
+                    : ''
+                }`}
+              >
+                <h1 className="text-white text-center text-xl sm:text-2xl font-bold">
+                  {card.title}
+                </h1>
+              </div>
+            ))}
           </div>
-          <div className='bg-[#2d2d2d] flex flex-col justify-center rounded-xl h-64  p-8 w-auto'>
-            <h1 className='text-white flex justify-center items-center '>Lorem ipsum dolor sit amet consectetur.<br /> Suspendisse risus nisl erat ornare consequat.</h1>
-
-          </div>
-          <div className='bg-[#2d2d2d] flex flex-col justify-center rounded-xl h-64  p-8 w-auto'>
-            <h1 className='text-white flex justify-center items-center '>Lorem ipsum dolor sit amet consectetur.<br /> Suspendisse risus nisl erat ornare consequat.</h1>
-
-          </div>
-          <div className='bg-[#2d2d2d] flex flex-col justify-center rounded-xl h-64  p-8 w-auto'>
-            <h1 className='text-white flex justify-center items-center '>Lorem ipsum dolor sit amet consectetur.<br /> Suspendisse risus nisl erat ornare consequat.</h1>
-
-          </div>
-          
-           </div> {/* Removed invalid 'c' attribute */}
+        </div>
       </div>
 
+      {/* Custom Styles */}
+      <style jsx>{`
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .hide-scrollbar {
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+        }
+      `}</style>
     </div>
   );
-}
+};
 
 export default Solutions;
