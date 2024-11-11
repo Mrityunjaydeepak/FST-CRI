@@ -6,13 +6,13 @@ import React, { useEffect, useState, useRef } from 'react';
 import KeenSlider from 'keen-slider';
 import 'keen-slider/keen-slider.min.css'; // Ensure KeenSlider styles are imported
 import Card from '../Components/Card';
-import img1 from './imgOne.png';
-import img2 from './imgTwo.png';
-import img3 from './imgThree.png';
-import img4 from './imgFour.png';
+// import img1 from './imgOne.png';
+// import img2 from './imgTwo.png';
+// import img3 from './imgThree.png';
+// import img4 from './imgFour.png';
 import Image from 'next/image';
-import { FaArrowAltCircleRight, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
-import Link from "next/link";
+// import { FaArrowAltCircleRight, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+// import Link from "next/link";
 import { motion, useAnimation } from 'framer-motion';
 
 interface Cribonix {
@@ -230,132 +230,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Portfolio Section */}
-      <div className="flex flex-col items-center my-8 mx-4 sm:mx-8 md:mx-16 lg:mx-32 space-y-5 border-secondary border-t pt-8">
-        <div className="text-left text-white flex flex-col items-center justify-center w-full px-2 sm:px-0">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-center">Our Work in Action</h1>
-          <h2 className="text-base sm:text-lg text-center">A Glimpse into Our Success Stories and Creative Impact</h2>
-        </div>
-
-        {/* Service 1 */}
-        <div className="w-full max-w-4xl mx-auto">
-          <div className="flex flex-col sm:flex-row cursor-pointer" onClick={() => setShowImg1(!showImg1)}>
-            <div className="w-full">
-              <Image src={img1} alt="Service 1" layout="responsive" className="object-cover rounded-lg" />
-            </div>
-          </div>
-          {showImg1 && (
-            <div className="flex flex-col lg:flex-row justify-between mt-4 bg-[#030303] p-4 sm:p-6 rounded-lg">
-              <div className="flex flex-col space-y-3 lg:w-2/3">
-                <h1 className="text-2xl sm:text-3xl font-bold text-white">ABOUT THE SERVICE</h1>
-                {/* Description removed as per your request */}
-              </div>
-
-              <div className="mt-6 lg:mt-0 lg:w-1/3 h-auto p-4 rounded-xl bg-[#2D2D2D] flex flex-col justify-center space-y-4">
-                <h2 className="text-left font-bold text-xl sm:text-2xl text-white">Let's connect for a discussion</h2>
-                <p className="text-left text-sm sm:text-base text-white">
-                  Lorem ipsum dolor sit amet consectetur.<br />
-                  Nibh dapibus ut eleifend lacus volutpat quam aliquam nibh.<br />
-                  At cursus adipiscing mattis sapien donec<br />
-                  et elementum vestibulum sapien.
-                </p>
-                <button className="p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300">
-                  Contact Us
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Service 2 */}
-        <div className="w-full max-w-4xl mx-auto">
-          <div className="flex flex-col sm:flex-row cursor-pointer" onClick={() => setShowImg2(!showImg2)}>
-            <div className="w-full">
-              <Image src={img2} alt="Service 2" layout="responsive" className="object-cover rounded-lg" />
-            </div>
-          </div>
-          {showImg2 && (
-            <div className="flex flex-col lg:flex-row justify-between mt-4 bg-[#030303] p-4 sm:p-6 rounded-lg">
-              <div className="flex flex-col space-y-3 lg:w-2/3">
-                <h1 className="text-2xl sm:text-3xl font-bold text-white">ABOUT THE SERVICE</h1>
-                {/* Description removed as per your request */}
-              </div>
-
-              <div className="mt-6 lg:mt-0 lg:w-1/3 h-auto p-4 rounded-xl bg-[#2D2D2D] flex flex-col justify-center space-y-4">
-                <h2 className="text-left font-bold text-xl sm:text-2xl text-white">Let's connect for a discussion</h2>
-                <p className="text-left text-sm sm:text-base text-white">
-                  Lorem ipsum dolor sit amet consectetur.<br />
-                  Nibh dapibus ut eleifend lacus volutpat quam aliquam nibh.<br />
-                  At cursus adipiscing mattis sapien donec<br />
-                  et elementum vestibulum sapien.
-                </p>
-                <button className="p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300">
-                  Contact Us
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Service 3 */}
-        <div className="w-full max-w-4xl mx-auto">
-          <div className="flex flex-col sm:flex-row cursor-pointer" onClick={() => setShowImg3(!showImg3)}>
-            <div className="w-full">
-              <Image src={img3} alt="Service 3" layout="responsive" className="object-cover rounded-lg" />
-            </div>
-          </div>
-          {showImg3 && (
-            <div className="flex flex-col lg:flex-row justify-between mt-4 bg-[#030303] p-4 sm:p-6 rounded-lg">
-              <div className="flex flex-col space-y-3 lg:w-2/3">
-                <h1 className="text-2xl sm:text-3xl font-bold text-white">ABOUT THE SERVICE</h1>
-                {/* Description removed as per your request */}
-              </div>
-
-              <div className="mt-6 lg:mt-0 lg:w-1/3 h-auto p-4 rounded-xl bg-[#2D2D2D] flex flex-col justify-center space-y-4">
-                <h2 className="text-left font-bold text-xl sm:text-2xl text-white">Let's connect for a discussion</h2>
-                <p className="text-left text-sm sm:text-base text-white">
-                  Lorem ipsum dolor sit amet consectetur.<br />
-                  Nibh dapibus ut eleifend lacus volutpat quam aliquam nibh.<br />
-                  At cursus adipiscing mattis sapien donec<br />
-                  et elementum vestibulum sapien.
-                </p>
-                <button className="p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300">
-                  Contact Us
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Service 4 */}
-        <div className="w-full max-w-4xl mx-auto">
-          <div className="flex flex-col sm:flex-row cursor-pointer" onClick={() => setShowImg4(!showImg4)}>
-            <div className="w-full">
-              <Image src={img4} alt="Service 4" layout="responsive" className="object-cover rounded-lg" />
-            </div>
-          </div>
-          {showImg4 && (
-            <div className="flex flex-col lg:flex-row justify-between mt-4 bg-[#030303] p-4 sm:p-6 rounded-lg">
-              <div className="flex flex-col space-y-3 lg:w-2/3">
-                <h1 className="text-2xl sm:text-3xl font-bold text-white">ABOUT THE SERVICE</h1>
-                {/* Description removed as per your request */}
-              </div>
-
-              <div className="mt-6 lg:mt-0 lg:w-1/3 h-auto p-4 rounded-xl bg-[#2D2D2D] flex flex-col justify-center space-y-4">
-                <h2 className="text-left font-bold text-xl sm:text-2xl text-white">Let's connect for a discussion</h2>
-                <p className="text-left text-sm sm:text-base text-white">
-                  Lorem ipsum dolor sit amet consectetur.<br />
-                  Nibh dapibus ut eleifend lacus volutpat quam aliquam nibh.<br />
-                  At cursus adipiscing mattis sapien donec<br />
-                  et elementum vestibulum sapien.
-                </p>
-                <button className="p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300">
-                  Contact Us
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
+     
       
 
       {/* Problems Section */}

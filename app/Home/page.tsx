@@ -5,7 +5,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Inter } from 'next/font/google';
 import throttle from 'lodash/throttle';
 import Hero from '../Hero/Hero';
-
+import Link from 'next/link';
 // Initialize the Inter font with the correct weight
 const inter = Inter({
   weight: ['900'], // Using array for type safety
@@ -101,18 +101,21 @@ const Homei: React.FC = () => {
             </p>
             {/* Buttons */}
             <div className="flex space-x-4 mt-6">
+            <Link href="/Contact">
               <button
                 className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-6 hover:bg-white hover:text-black transition"
                 aria-label="Contact Us"
               >
                 Contact Us
               </button>
+              </Link>
+              <Link href="/Portfolio">
               <button
                 className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-6 hover:bg-white hover:text-black transition"
                 aria-label="View Portfolio"
               >
                 View Portfolio
-              </button>
+              </button></Link>
             </div>
           </div>
         </div>
