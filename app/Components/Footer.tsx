@@ -43,10 +43,10 @@ const Footer = () => {
                             <div className='flex justify-center space-x-5'>
                                 {/* Facebook */}
                                 <a
-                                    href="https://www.facebook.com/yourprofile" // Replace with your Facebook URL
+                                    href="https://www.facebook.com/cribonix0" // Replace with your Facebook URL
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className='text-white text-2xl hover:text-green-500 transition'
+                                    className='text-white text-2xl hover:text-blue-500 transition'
                                 >
                                     <FaFacebook />
                                 </a>
@@ -55,16 +55,16 @@ const Footer = () => {
                                     href="https://www.instagram.com/yourprofile" // Replace with your Instagram URL
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className='text-white text-2xl hover:text-green-500 transition'
+                                    className='text-white text-2xl hover:text-blue-500 transition'
                                 >
                                     <FaInstagram />
                                 </a>
                                 {/* LinkedIn */}
                                 <a
-                                    href="https://www.linkedin.com/in/yourprofile" // Replace with your LinkedIn URL
+                                    href="https://www.linkedin.com/company/cribonix/" // Replace with your LinkedIn URL
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className='text-white text-2xl hover:text-green-500 transition'
+                                    className='text-white text-2xl hover:text-blue-500 transition'
                                 >
                                     <FaLinkedin />
                                 </a>
@@ -77,16 +77,18 @@ const Footer = () => {
 
                             {/* Get in Touch */}
                             <div className='flex items-center'>
-                                <h1 className='text-white text-lg sm:text-xl flex items-center'>
+                            <Link href="/Contact">
+                                <h1 className='text-white text-lg sm:text-xl flex items-center cursor-pointer'>
                                     Get in touch 
                                     <FaArrowAltCircleRight className='ml-2 text-xl sm:text-2xl' />
                                 </h1>
+                                </Link>
                             </div>
                         </div>
 
                         {/* Navigation Menu */}
                         <div className='flex justify-center w-full'>
-                            <div className='flex flex-wrap justify-center space-x-2 sm:space-x-4 border border-[#303030] border-t-2 pt-3 pb-3 w-full'>
+                            <div className='flex flex-wrap justify-center space-x-2 sm:space-x-4 border mx-32 border-secondary border-b-2 border-l-0 border-r-0 border-t-2 pt-3 pb-3 w-full'>
                                 <nav className='flex flex-wrap justify-center space-x-2 sm:space-x-4'>
                                     {[
                                         { name: 'Home', href: '/' },
@@ -96,7 +98,7 @@ const Footer = () => {
                                         { name: 'Portfolio', href: '/Portfolio' },
                                         { name: 'New Project', href: '/Newproject' },
                                     ].map(({ name, href }) => (
-                                        <Link key={name} href={href} className='cursor-pointer hover:text-green-500 transition text-center'>
+                                        <Link key={name} href={href} className='cursor-pointer hover:text-blue-500 transition text-center'>
                                             {name}
                                         </Link>
                                     ))}

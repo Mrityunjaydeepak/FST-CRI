@@ -270,7 +270,7 @@ const Hero: React.FC = () => {
       </motion.section>
 
       {/* Extended Services Section */}
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12 border border-secondary border-t-2 border-l-0 border-r-0 border-b-0">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-8 lg:space-y-0">
           {/* Text Content */}
           <div className="space-y-4">
@@ -326,7 +326,7 @@ const Hero: React.FC = () => {
 
       {/* Testimonials Section */}
      {/* Testimonials Section */}
-<section className="bg-[#040404] border-t border-b border-gray-700 py-12">
+<section className="bg-primary border-t mx-32 border-secondary py-12">
   <div className="container mx-auto px-4">
     <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
       {/* Testimonials Heading */}
