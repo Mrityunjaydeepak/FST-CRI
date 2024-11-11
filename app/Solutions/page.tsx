@@ -245,7 +245,7 @@ const Solutions = () => {
 
         {/* Overlay Content */}
         <div className="absolute inset-0 flex flex-col justify-center items-start p-4 sm:p-8">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-left text-white">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-bold text-left text-white">
             OUR <span className="block">SOLUTIONS</span>
           </h2>
         </div>

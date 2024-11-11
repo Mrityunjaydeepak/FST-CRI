@@ -25,14 +25,15 @@ const Services = () => {
         <Image
           src={office}
           alt="Why Us Background Image"
-          layout="fill"
-          objectFit="cover"
-          className="object-cover opacity-50"
+          layout="responsive"
+          width={1200} // Maintain original aspect ratio
+          height={600}
+          className="object-cover opacity-50 rounded-md"
         />
 
         {/* Overlay Content */}
         <div className="absolute inset-0 flex flex-col justify-center items-start p-4 sm:p-8">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold text-left text-white">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-bold text-left text-white">
             BLOCKBUSTER STRATEGIES FOR{" "}
             <span className="block">YOUR BRAND</span>
           </h2>

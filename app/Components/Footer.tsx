@@ -26,8 +26,8 @@ const Footer = () => {
                     <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4">
                         {/* Heading Section */}
                         <div className='flex flex-col mt-8 mb-8 text-center'>
-                            <h2 className="text-4xl sm:text-6xl lg:text-7xl xl:text-9xl font-bold">Let's Work</h2>
-                            <h2 className="text-4xl sm:text-6xl lg:text-7xl xl:text-9xl      font-bold">Together!</h2>
+                            <h2 className="text-6xl sm:text-6xl lg:text-7xl xl:text-9xl font-bold">Let's Work</h2>
+                            <h2 className="text-6xl sm:text-6xl lg:text-7xl xl:text-9xl      font-bold">Together!</h2>
                         </div>
 
                         {/* Social Icons, Email, and Get in Touch */}

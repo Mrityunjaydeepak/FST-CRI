@@ -1,36 +1,31 @@
 "use client";
 
-import Image from 'next/image';
-import React, { useState } from 'react';
-import imgcont from './Container.png';
-import Button from '../Components/Button';
-import team from './Team.png';
-import mem1 from './Rectangle 379.png';
-import mem2 from './Rectangle 380.png';
-import mem3 from './Rectangle 381.png';
-import mem4 from './Rectangle 382.png';
-import office from './Officereal.png';
-import panel1 from './Tabpanel(2).png';
-import panel2 from './Tabpanel(1).png';
-import panel3 from './Tabpanel.png';
-import mountain from './mountain.png';
-import g1 from './g1.png';
-import g2 from './g2.png';
-import g3 from './g3.png';
-import g4 from './g4.png';
-import circle from './circle.svg.png';
-import verified from './verified.png';
-import { FaInstagram } from 'react-icons/fa';
-import Link from 'next/link';
+import Image from "next/image";
+import React, { useState } from "react";
+import imgcont from "./Container.png";
+import Button from "../Components/Button";
+import team from "./Team.png";
+import mem1 from "./Rectangle 379.png";
+import mem2 from "./Rectangle 380.png";
+import mem3 from "./Rectangle 381.png";
+import mem4 from "./Rectangle 382.png";
+import office from "./Officereal.png";
+import panel1 from "./Tabpanel(2).png";
+import panel2 from "./Tabpanel(1).png";
+import panel3 from "./Tabpanel.png";
+import mountain from "./mountain.png";
+import g1 from "./g1.png";
+import g2 from "./g2.png";
+import g3 from "./g3.png";
+import g4 from "./g4.png";
+import circle from "./circle.svg.png";
+import verified from "./verified.png";
+import { FaInstagram } from "react-icons/fa";
+import Link from "next/link";
 
 const Whyus = () => {
   // Array of image imports
-  const images = [
-    panel1,  // 01
-    panel2,  // 02
-    panel3,  // 03
-    // 04 (You can replace this with another image if available)
-  ];
+  const images = [panel1, panel2, panel3];
 
   // State to track the current image index
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -39,7 +34,7 @@ const Whyus = () => {
   const [isFading, setIsFading] = useState(false);
 
   // Handler for button clicks
-  const handleButtonClick = (index: number) => {     
+  const handleButtonClick = (index) => {
     if (index === currentImageIndex || isFading) return; // Prevent redundant clicks
 
     setIsFading(true); // Start fade-out
@@ -56,10 +51,10 @@ const Whyus = () => {
   };
 
   return (
-    <div className="bg-[#040404]">
-      {/* Image Section */}
+    <div className="bg-[#040404] scroll-smooth">
+      {/* Hero Section */}
       <div className="container mx-auto px-4 py-12">
-        <div className="relative w-full mt-24 h-auto sm:h-128 md:h-160">
+        <div className="relative w-full mt-12 h-auto sm:h-96 lg:h-[40rem]">
           <Image
             src={imgcont}
             alt="Why Us Background Image"
@@ -70,9 +65,9 @@ const Whyus = () => {
           />
 
           {/* Overlay Content */}
-          <div className="absolute inset-0 flex flex-col justify-center items-start p-4 sm:p-8 md:p-16">
-            <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold text-left text-white">
-              Mastering Every <span className="block"> Digital Move.</span>
+          <div className="absolute inset-0 flex flex-col justify-center items-start px-4 sm:px-6 md:px-16">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-bold text-left text-white">
+              Mastering Every <span className="block">Digital Move.</span>
             </h2>
           </div>
         </div>
@@ -83,11 +78,18 @@ const Whyus = () => {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-8 lg:space-y-0 lg:space-x-40">
           {/* Left Content */}
           <div className="flex-1">
-            <p className="text-left text-md sm:text-lg md:text-xl text-gray-200">
-              Where Aloo meets the Samosa<br /> <br />
-
-              At Cribonix, we're the “Bahubali” of <br />digital marketing—always delivering <br />what your brand needs. With blockbuster strategies, superstar <br />solutions, and a script for success, we make sure your brand hits the spotlight.<br />
-              Ready for a “Dhoom”<br /> of growth? We’ve got your back!
+            <p className="text-left text-sm sm:text-lg md:text-xl text-gray-200">
+              Where Aloo meets the Samosa
+              <br /> <br />
+              At Cribonix, we're the “Bahubali” of <br />
+              digital marketing—always delivering <br />
+              what your brand needs. With blockbuster strategies, superstar{" "}
+              <br />
+              solutions, and a script for success, we make sure your brand hits
+              the spotlight.
+              <br />
+              Ready for a “Dhoom”
+              <br /> of growth? We’ve got your back!
             </p>
           </div>
 
@@ -95,29 +97,35 @@ const Whyus = () => {
           <div className="flex flex-col sm:flex-row justify-between space-y-8 sm:space-y-0 sm:space-x-16">
             {/* Metric 1 */}
             <div className="flex flex-col items-center">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white text-center">
                 Ads <br />
                 Management
               </h2>
-              <h1 className="text-6xl sm:text-7xl font-extrabold text-white mt-4">+500K</h1>
+              <h1 className="text-4xl sm:text-5xl font-extrabold text-white mt-4">
+                +500K
+              </h1>
             </div>
 
             {/* Metric 2 */}
             <div className="flex flex-col items-center">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white text-center">
                 Years of <br />
                 Experience
               </h2>
-              <h1 className="text-6xl sm:text-7xl font-extrabold text-white mt-4">+10</h1>
+              <h1 className="text-4xl sm:text-5xl font-extrabold text-white mt-4">
+                +10
+              </h1>
             </div>
 
             {/* Metric 3 */}
             <div className="flex flex-col items-center">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white text-center">
                 Successful <br />
                 Projects
               </h2>
-              <h1 className="text-6xl sm:text-7xl font-extrabold text-white mt-4">+400</h1>
+              <h1 className="text-4xl sm:text-5xl font-extrabold text-white mt-4">
+                +400
+              </h1>
             </div>
           </div>
         </div>
@@ -128,22 +136,31 @@ const Whyus = () => {
         <div className="flex flex-col lg:flex-row items-center lg:items-start space-y-12 lg:space-y-0 lg:space-x-16">
           {/* Left Description */}
           <div className="flex-1 space-y-4">
-            <h2 className="text-white text-4xl sm:text-5xl font-bold text-left">
-              Where smart strategies meet creativity,<br /> we lift brands to new heights.<br /> Discover how knowledge drives<br /> our innovative solutions!
+            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-left px-4 sm:px-0">
+              Where smart strategies meet creativity,
+              <br /> we lift brands to new heights.
+              <br /> Discover how knowledge drives
+              <br /> our innovative solutions!
             </h2>
-            <h2 className="text-white text-md sm:text-lg text-left">
-              Et quam nec commodo senectus elementum facilisi in <br />
-              vestibulum adipiscing proin ligula euismod sagittis mollis <br />
-              donec gravida lorem tortor adipiscing lorem massa lorem <br />
-              mattis amet leo varius posuere nullam magna maecenas <br />
-              massa, sit purus sit pretium convallis luctus nulla.
+            <h2 className="text-white text-sm sm:text-md md:text-lg text-left px-4  py-5 sm:px-0">
+              At Cribonix, we harness knowledge and industry insights to create
+              <br />
+              personalised digital marketing strategies. Our expert team stays
+              <br />
+              ahead of trends and customer behaviours to help brands stand out.
+              <br />
+              From SEO to social media, we craft methods that drive real
+              <br />
+              results, ensuring your brand connects with its audience and grows.
+              <br />
+              Let us turn our expertise into your brand's success!
             </h2>
             <Button
               text="View Portfolio"
               href="/Portfolio"
               variant="primary"
               ariaLabel="View Portfolio"
-              className="w-full sm:w-48"
+              className="w-full sm:w-48 p-3 mt-8"
             />
           </div>
 
@@ -152,7 +169,7 @@ const Whyus = () => {
             <Image
               src={team}
               alt="Team Image"
-              width={500}
+              width={600}
               height={500}
               className="object-cover opacity-100 rounded-md shadow-lg"
             />
@@ -162,13 +179,16 @@ const Whyus = () => {
 
       {/* Our Values */}
       <div className="container mx-auto px-4 py-12 border-t-2 border-secondary">
-        <div className="flex flex-col items-center space-y-8">
-          <h1 className="text-7xl sm:text-6xl md:text-7xl font-bold text-white text-center">
-            THE VALUES THAT DRIVE, <br />EVERYTHING WE DO
+        <div className="flex flex-col items-center space-y-6 sm:space-y-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center px-4">
+            THE VALUES THAT DRIVE, <br />
+            EVERYTHING WE DO
           </h1>
-          <h2 className="text-lg sm:text-xl text-white font-light text-center">
-            - More than goals. We’re on a mission. <br />
-            Our values are the fuel behind every campaign, strategy and breakthrough
+          <h2 className="text-sm sm:text-md md:text-lg lg:text-xl text-white font-light text-center px-4">
+            - More than goals. We’re on a mission.
+            <br />
+            Our values are the fuel behind every campaign, strategy, and
+            breakthrough.
           </h2>
         </div>
 
@@ -179,9 +199,11 @@ const Whyus = () => {
               src={images[currentImageIndex]}
               alt={`Quality Image ${currentImageIndex + 1}`}
               layout="responsive"
-              width={800}
-              height={600}
-              className={`object-cover rounded-md shadow-lg ${isFading ? 'opacity-0' : 'opacity-100'}`}
+              width={1500}
+              height={900}
+              className={`rounded-md shadow-lg ${
+                isFading ? "opacity-0" : "opacity-100"
+              }`}
             />
           </div>
 
@@ -191,8 +213,8 @@ const Whyus = () => {
               <button
                 key={index}
                 onClick={() => handleButtonClick(index)}
-                className={`w-12 h-12 sm:w-16 sm:h-16 text-lg bg-black text-white rounded-full hover:bg-white hover:text-black transition-colors duration-100 focus:outline-none ${
-                  currentImageIndex === index ? 'bg-white text-black' : ''
+                className={`w-10 h-10 sm:w-12 sm:h-12 text-base sm:text-lg bg-black text-white rounded-full hover:bg-white hover:text-black transition-colors duration-100 focus:outline-none ${
+                  currentImageIndex === index ? "bg-white text-black" : ""
                 }`}
                 aria-label={`Display image ${index + 1}`}
               >
@@ -205,14 +227,17 @@ const Whyus = () => {
 
       {/* Our Clients Section */}
       <div className="container mx-auto px-4 py-12 border-t-2 border-secondary">
-        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start space-y-8 lg:space-y-0">
-          <h1 className="text-6xl sm:text-7xl text-left font-bold text-white">
+        <div className="flex flex-col lg:flex-row sm:items-center sm:justify-center justify-between items-center lg:items-start space-y-8 lg:space-y-0">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl text-left font-bold text-white lg:text-left px-4">
             OUR TRUSTED <br /> CLIENTS
           </h1>
-          <h2 className="text-md sm:text-lg text-white text-center lg:text-left">
-            Collaborating with the best to bring their visions to life.<br />
-            From emerging startups to established brands, we’re <br />
-            honoured to be the trusted digital partner that helps <br />
+          <h2 className="text-sm sm:text-md md:text-lg text-white text-center lg:text-left px-4">
+            Collaborating with the best to bring their visions to life.
+            <br />
+            From emerging startups to established brands, we’re
+            <br />
+            honoured to be the trusted digital partner that helps
+            <br />
             them thrive in the modern market.
           </h2>
         </div>
@@ -226,11 +251,12 @@ const Whyus = () => {
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start space-y-8 lg:space-y-0">
           {/* Left Content */}
           <div className="flex flex-col space-y-4">
-            <h1 className="text-6xl sm:text-7xl font-extrabold text-white text-center lg:text-left">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white text-center lg:text-left px-4 sm:px-0">
               MEET OUR TEAM
             </h1>
-            <h2 className="text-md sm:text-lg text-white text-center lg:text-left">
-              The brains behind the brilliance, the faces behind the flair.<br />
+            <h2 className="text-sm sm:text-md md:text-lg lg:text-xl text-white text-center lg:text-left px-4 sm:px-0">
+              The brains behind the brilliance, the faces behind the flair.
+              <br />
               Meet the dreamers, creators and doers shaping Cribonix’s magic.
             </h2>
           </div>
@@ -260,12 +286,14 @@ const Whyus = () => {
           <div className="flex flex-col items-center">
             <Image
               src={mem1}
-              alt="Member 1"
+              alt="Herman Defoe"
               width={250}
               height={200}
               className="object-cover rounded-md shadow-lg"
             />
-            <p className="text-gray-400 font-light text-sm mt-2">Hi! my Name is</p>
+            <p className="text-gray-400 font-light text-sm mt-2">
+              Hi! my Name is
+            </p>
             <h2 className="text-white font-bold text-md">Herman Defoe</h2>
             <h2 className="text-white text-md font-light">CEO & Founder</h2>
           </div>
@@ -274,12 +302,14 @@ const Whyus = () => {
           <div className="flex flex-col items-center">
             <Image
               src={mem2}
-              alt="Member 2"
+              alt="Herman Defoe"
               width={250}
               height={200}
               className="object-cover rounded-md shadow-lg"
             />
-            <p className="text-gray-400 font-light text-sm mt-2">Hi! my Name is</p>
+            <p className="text-gray-400 font-light text-sm mt-2">
+              Hi! my Name is
+            </p>
             <h2 className="text-white font-bold text-md">Herman Defoe</h2>
             <h2 className="text-white text-md font-light">CEO & Founder</h2>
           </div>
@@ -288,12 +318,14 @@ const Whyus = () => {
           <div className="flex flex-col items-center">
             <Image
               src={mem3}
-              alt="Member 3"
+              alt="Herman Defoe"
               width={250}
               height={200}
               className="object-cover rounded-md shadow-lg"
             />
-            <p className="text-gray-400 font-light text-sm mt-2">Hi! my Name is</p>
+            <p className="text-gray-400 font-light text-sm mt-2">
+              Hi! my Name is
+            </p>
             <h2 className="text-white font-bold text-md">Herman Defoe</h2>
             <h2 className="text-white text-md font-light">CEO & Founder</h2>
           </div>
@@ -302,12 +334,14 @@ const Whyus = () => {
           <div className="flex flex-col items-center">
             <Image
               src={mem4}
-              alt="Member 4"
+              alt="Herman Defoe"
               width={250}
               height={200}
               className="object-cover rounded-md shadow-lg"
             />
-            <p className="text-gray-400 font-light text-sm mt-2">Hi! my Name is</p>
+            <p className="text-gray-400 font-light text-sm mt-2">
+              Hi! my Name is
+            </p>
             <h2 className="text-white font-bold text-md">Herman Defoe</h2>
             <h2 className="text-white text-md font-light">CEO & Founder</h2>
           </div>
@@ -317,7 +351,7 @@ const Whyus = () => {
       {/* Visit Our Office */}
       <div className="container mx-auto px-4 py-12 border-t-2 border-secondary">
         <div className="flex justify-center mb-8">
-          <h1 className="font-extrabold text-white text-6xl text-center">
+          <h1 className="font-extrabold text-white text-4xl sm:text-5xl lg:text-6xl text-center px-4">
             VISIT OUR OFFICE
           </h1>
         </div>
@@ -334,23 +368,28 @@ const Whyus = () => {
 
       {/* Follow us on Instagram */}
       <div className="container mx-auto px-4 py-12 border-t-2 border-secondary">
-        <div className="flex flex-col items-center space-y-8">
-          <h1 className="text-white font-extrabold text-6xl text-center">
+        <div className="flex flex-col items-center space-y-6 sm:space-y-8">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white text-center px-4">
             FOLLOW OUR WORK <br /> ON INSTAGRAM
           </h1>
-          <h2 className="text-md text-white text-center">
-            Behind Every Swipe, There’s a Story to Tell.<br />
+          <h2 className="text-sm sm:text-md md:text-lg lg:text-xl text-white text-center px-4">
+            Behind Every Swipe, There’s a Story to Tell.
+            <br />
             Join us on Instagram for a peek into our world!
           </h2>
           <div className="flex flex-row items-center justify-center space-x-4 mt-8">
             <Image src={circle} alt="Circle Icon" width={24} height={24} />
             <span className="text-white font-bold">@Productionx</span>
             <Image src={verified} alt="Verified Icon" width={24} height={24} />
-            <button className="flex items-center space-x-2 px-4 py-2 border border-secondary rounded-full text-white hover:bg-white hover:text-black transition-colors duration-300">
+            <Link
+              href="https://www.instagram.com/cribonix/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 px-4 py-2 border sm:text-sm  border-secondary rounded-full text-white hover:bg-white hover:text-black transition-colors duration-300"
+            >
               <FaInstagram />
               <span>Follow us</span>
-              <Link href="https://www.instagram.com/cribonix/" target="_blank" rel="noopener noreferrer"></Link>
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -369,7 +408,7 @@ const Whyus = () => {
 
           {/* Grid of Images */}
           <div className="flex-1 flex flex-col gap-4">
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Image
                 src={g1}
                 alt="Gallery 1"
@@ -385,7 +424,7 @@ const Whyus = () => {
                 className="object-cover rounded-md shadow-lg"
               />
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Image
                 src={g3}
                 alt="Gallery 3"

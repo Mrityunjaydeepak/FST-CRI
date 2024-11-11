@@ -1,9 +1,18 @@
+// app/layout.tsx
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import 'keen-slider/keen-slider.min.css'; // Importing external styles
 import Navbar from "./Components/Navbar"; // Correct import paths
 import Footer from "./Components/Footer"; // Correct import paths
+import { Inter } from 'next/font/google';
+
+// Initialize the Inter font with desired configurations
+const inter = Inter({
+  subsets: ['latin'], // Specify subsets if needed
+  variable: '--font-inter', // Define a CSS variable for the font
+});
 
 // Local font import with Tailwind CSS variable setup
 const geistSans = localFont({
@@ -31,11 +40,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${geistSans.variable} ${geistMono.variable}`}>
       <head>
         {/* Metadata and other head elements can go here */}
       </head>
-      <body className="antialiased bg-primary">
+      <body className="antialiased bg-primary font-sans">
         {/* Navbar at the top */}
         <Navbar />
         

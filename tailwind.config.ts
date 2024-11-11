@@ -8,12 +8,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      scrollBehavior: ["responsive", "hover", "focus"],
       colors: {
-        primary: '#040404',
-        secondary: '#383838',
+        primary: "#040404",
+        secondary: "#383838",
       },
       fontFamily: {
-        sans: ['Inter', 'Helvetica', 'Arial', 'sans-serif'],
+        sans: ["Inter", "Helvetica", "Arial", "sans-serif"],
       },
     },
   },
