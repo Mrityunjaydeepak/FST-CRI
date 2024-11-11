@@ -8,6 +8,7 @@ import service3 from "./service3.png";
 import service4 from "./service4.png";
 import service5 from "./service5.png";
 import service6 from "./service6.png";
+import Link from "next/link";
 
 const Services = () => {
   // State variables to manage visibility of each service's hidden content
@@ -17,6 +18,7 @@ const Services = () => {
   const [showService4, setShowService4] = useState(false);
   const [showService5, setShowService5] = useState(false);
   const [showService6, setShowService6] = useState(false);
+ 
 
   return (
     <div className="flex flex-col mx-4 sm:mx-8 md:mx-16 lg:mx-32 justify-center bg-primary">
@@ -123,9 +125,11 @@ const Services = () => {
                     Interested in taking your brand to the next level? Contact us
                     today to start the conversation.
                   </p>
-                  <button className="p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300">
-                    Contact Us
-                  </button>
+                  <Link href="/Contact">
+      <button className="p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300">
+        Contact Us
+      </button>
+    </Link>
                 </div>
               </div>
             )}
@@ -191,9 +195,11 @@ const Services = () => {
                     Ready to amplify your reach with influencer collaborations?
                     Let's discuss how we can help.
                   </p>
-                  <button className="p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300">
-                    Contact Us
-                  </button>
+                  <Link href="/Contact">
+      <button className="p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300">
+        Contact Us
+      </button>
+    </Link>
                 </div>
               </div>
             )}
@@ -256,9 +262,11 @@ const Services = () => {
                     Want to make your ads work harder for you? Reach out to explore
                     our ad solutions.
                   </p>
-                  <button className="p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300">
-                    Contact Us
-                  </button>
+                  <Link href="/Contact">
+      <button className="p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300">
+        Contact Us
+      </button>
+    </Link>
                 </div>
               </div>
             )}
@@ -324,9 +332,11 @@ const Services = () => {
                     Harness the power of user-generated content. Contact us to get
                     started.
                   </p>
-                  <button className="p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300">
-                    Contact Us
-                  </button>
+                  <Link href="/Contact">
+      <button className="p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300">
+        Contact Us
+      </button>
+    </Link>
                 </div>
               </div>
             )}
@@ -392,9 +402,11 @@ const Services = () => {
                     Looking to redefine your brand? Let's collaborate to create
                     something exceptional.
                   </p>
-                  <button className="p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300">
-                    Contact Us
-                  </button>
+                  <Link href="/Contact">
+      <button className="p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300">
+        Contact Us
+      </button>
+    </Link>
                 </div>
               </div>
             )}
@@ -458,9 +470,11 @@ const Services = () => {
                     Ready to unlock insights from your data? Let's talk about how
                     we can help.
                   </p>
-                  <button className="p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300">
-                    Contact Us
-                  </button>
+                  <Link href="/Contact">
+      <button className="p-2 w-full sm:w-32 border border-white bg-white text-black rounded-full hover:bg-gray-200 transition duration-300">
+        Contact Us
+      </button>
+    </Link>
                 </div>
               </div>
             )}
