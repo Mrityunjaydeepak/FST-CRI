@@ -48,14 +48,14 @@ const Services = () => {
         </h1>
       </div>
 
-      {/* Subscription Plans */}
+      {/* Subscription Plans
       <div className="flex flex-col justify-center border-t-2 border-secondary p-6 mt-8">
         <div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center">
             Subscriptions
           </h1>
         </div>
-      </div>
+      </div> */}
 
       {/* Services Section */}
       <div className="flex flex-col justify-center items-center space-y-6 border-t-2 border-secondary mt-6 p-4">

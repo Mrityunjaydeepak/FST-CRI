@@ -1,4 +1,4 @@
-import Navbar from "./Components/Navbar";
+
 import Homei from "./Home/page"
 
 export default function Home() {

@@ -34,7 +34,7 @@ const Whyus = () => {
   const [isFading, setIsFading] = useState(false);
 
   // Handler for button clicks
-  const handleButtonClick = (index) => {
+  const handleButtonClick = (index:number) => {
     if (index === currentImageIndex || isFading) return; // Prevent redundant clicks
 
     setIsFading(true); // Start fade-out

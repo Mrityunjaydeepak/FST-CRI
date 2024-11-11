@@ -27,7 +27,7 @@ const Homei: React.FC = () => {
         const elementTop = containerRef.current.offsetTop;
 
         // Adjust this multiplier to control the scroll distance
-        const scrollMultiplier = 2; // Can be adjusted if needed
+        const scrollMultiplier = 5; // Can be adjusted if needed
 
         const maxScroll = (elementTop + elementHeight - windowHeight) * scrollMultiplier;
 
