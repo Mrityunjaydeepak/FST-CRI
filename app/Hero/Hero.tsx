@@ -1,3 +1,5 @@
+// Hero.tsx
+
 "use client";
 
 import React, { useEffect, useState, useRef } from 'react';
@@ -18,11 +20,10 @@ interface Cribonix {
 }
 
 const Hero: React.FC = () => {
-  // Removed unused state variables
-  // const [showImg1, setShowImg1] = useState(false);
-  // const [showImg2, setShowImg2] = useState(false);
-  // const [showImg3, setShowImg3] = useState(false);
-  // const [showImg4, setShowImg4] = useState(false);
+  const [showImg1, setShowImg1] = useState(false);
+  const [showImg2, setShowImg2] = useState(false);
+  const [showImg3, setShowImg3] = useState(false);
+  const [showImg4, setShowImg4] = useState(false);
 
   const cribonix: Cribonix[] = [
     {
@@ -62,8 +63,11 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const keenSlider = new KeenSlider('#keen-slider', {
       loop: true,
-      duration: 500, // Moved duration to root level
+      defaultAnimation: {
+        duration: 500,
+      },
       slides: {
+        origin: 'center',
         perView: 1,
         spacing: 15,
       },
@@ -219,13 +223,16 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
+      {/* Portfolio Section */}
+     
+
       {/* Problems Section */}
       <motion.section
         ref={sectionRef}
         variants={sectionVariants}
         initial="hidden"
         animate={controlsProblems}
-        className="py-16 bg-primary border-t-2 border-secondary mx-4 sm:mx-8 md:mx-16 lg:mx-32"
+        className="py-16 bg-primary border border-t-2 border-l-0 border-b-0 border-r-0 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-32 border-secondary"
       >
         <div className="container mx-auto px-4">
           {/* Section Header */}
@@ -247,7 +254,7 @@ const Hero: React.FC = () => {
                 variants={problemVariants}
                 className="bg-secondary rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow duration-300"
               >
-                <h3 className="text-xl sm:text-2xl font-semibold text-white">{problem}</h3>
+                <h3 className="text-xl font-semibold text-white">{problem}</h3>
               </motion.div>
             ))}
           </div>
@@ -310,7 +317,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Testimonials Section */}
-      <section className="bg-primary border-t mx-4 sm:mx-8 md:mx-16 lg:mx-32 border-secondary py-12">
+      <section className="bg-primary border-t sm:mx-4 md:mx-8 lg:mx-16 xl:mx-32 border-secondary py-12">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
             {/* Testimonials Heading */}
@@ -367,7 +374,7 @@ const Hero: React.FC = () => {
                 </button>
               </div>
             </div>
-
+            
             {/* Testimonials Slider */}
             <div className="lg:col-span-2">
               <div id="keen-slider" className="keen-slider">
@@ -438,54 +445,54 @@ const Hero: React.FC = () => {
                 {/* Add more testimonial slides as needed */}
               </div>
             </div>
-          </div>
 
-          {/* Mobile Slider Controls */}
-          <div className="flex justify-center gap-4 mt-8 lg:hidden">
-            <button
-              aria-label="Previous slide"
-              id="keen-slider-previous-mobile"
-              className="flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
-            >
-              {/* Previous Icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6 -rotate-180"
+            {/* Mobile Slider Controls */}
+            <div className="flex justify-center gap-4 mt-8 lg:hidden">
+              <button
+                aria-label="Previous slide"
+                id="keen-slider-previous-mobile"
+                className="flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15.75 19.5L8.25 12l7.5-7.5"
-                />
-              </svg>
-            </button>
-            <button
-              aria-label="Next slide"
-              id="keen-slider-next-mobile"
-              className="flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
-            >
-              {/* Next Icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
+                {/* Previous Icon */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6 -rotate-180"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15.75 19.5L8.25 12l7.5-7.5"
+                  />
+                </svg>
+              </button>
+              <button
+                aria-label="Next slide"
+                id="keen-slider-next-mobile"
+                className="flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
-              </svg>
-            </button>
+                {/* Next Icon */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
-        </div>
+        </div>  
       </section>
     </div>
   );
