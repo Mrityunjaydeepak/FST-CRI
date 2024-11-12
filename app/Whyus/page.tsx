@@ -385,7 +385,7 @@ const Whyus = () => {
               href="https://www.instagram.com/cribonix/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 px-4 py-2 border sm:text-sm  border-secondary rounded-full text-white hover:bg-white hover:text-black transition-colors duration-300"
+              className="flex items-center space-x-2 px-4 py-2 border sm:text-sm  border-secondary rounded-full text-white hover:bg-white hover:text-white hover:bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] transition-colors duration-300"
             >
               <FaInstagram />
               <span>Follow us</span>

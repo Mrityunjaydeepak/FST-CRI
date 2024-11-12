@@ -1,18 +1,10 @@
-// Hero.tsx
-
 "use client";
 
 import React, { useEffect, useState, useRef } from 'react';
 import KeenSlider from 'keen-slider';
 import 'keen-slider/keen-slider.min.css'; // Ensure KeenSlider styles are imported
 import Card from '../Components/Card';
-// import img1 from './imgOne.png';
-// import img2 from './imgTwo.png';
-// import img3 from './imgThree.png';
-// import img4 from './imgFour.png';
 import Image from 'next/image';
-// import { FaArrowAltCircleRight, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
-// import Link from "next/link";
 import { motion, useAnimation } from 'framer-motion';
 
 interface Cribonix {
@@ -26,10 +18,11 @@ interface Cribonix {
 }
 
 const Hero: React.FC = () => {
-  const [showImg1, setShowImg1] = useState(false);
-  const [showImg2, setShowImg2] = useState(false);
-  const [showImg3, setShowImg3] = useState(false);
-  const [showImg4, setShowImg4] = useState(false);
+  // Removed unused state variables
+  // const [showImg1, setShowImg1] = useState(false);
+  // const [showImg2, setShowImg2] = useState(false);
+  // const [showImg3, setShowImg3] = useState(false);
+  // const [showImg4, setShowImg4] = useState(false);
 
   const cribonix: Cribonix[] = [
     {
@@ -69,11 +62,8 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const keenSlider = new KeenSlider('#keen-slider', {
       loop: true,
-      defaultAnimation: {
-        duration: 500,
-      },
+      duration: 500, // Moved duration to root level
       slides: {
-        origin: 'center',
         perView: 1,
         spacing: 15,
       },
@@ -229,17 +219,13 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Portfolio Section */}
-     
-      
-
       {/* Problems Section */}
       <motion.section
         ref={sectionRef}
         variants={sectionVariants}
         initial="hidden"
         animate={controlsProblems}
-        className="py-16 bg-primary border border-t-2 border-l-0 border-b-0 border-r-0 mx-32 border-secondary"
+        className="py-16 bg-primary border-t-2 border-secondary mx-4 sm:mx-8 md:mx-16 lg:mx-32"
       >
         <div className="container mx-auto px-4">
           {/* Section Header */}
@@ -248,8 +234,7 @@ const Hero: React.FC = () => {
               Problems
             </h2>
             <p className="mt-4 text-white max-w-2xl mx-auto">
-            The Digital Realm is full of unwanted and unique problems, but hey! Cribonix turns them into growth opportunities with its smart and creative solutions.
-
+              The Digital Realm is full of unwanted and unique problems, but hey! Cribonix turns them into growth opportunities with its smart and creative solutions.
             </p>
           </div>
 
@@ -262,7 +247,7 @@ const Hero: React.FC = () => {
                 variants={problemVariants}
                 className="bg-secondary rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow duration-300"
               >
-                <h3 className="text-xl font-semibold text-white">{problem}</h3>
+                <h3 className="text-xl sm:text-2xl font-semibold text-white">{problem}</h3>
               </motion.div>
             ))}
           </div>
@@ -325,186 +310,183 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Testimonials Section */}
-     {/* Testimonials Section */}
-<section className="bg-primary border-t mx-32 border-secondary py-12">
-  <div className="container mx-auto px-4">
-    <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
-      {/* Testimonials Heading */}
-      <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-          What They Say About Us...
-        </h2>
-        <p className="mt-4 text-gray-400 max-w-md">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas veritatis illo
-          placeat harum porro optio fugit a culpa sunt id!
-        </p>
-        <div className="flex gap-4 mt-8">
-          <button
-            aria-label="Previous slide"
-            id="keen-slider-previous"
-            className="hidden lg:flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
-          >
-            {/* Previous Icon */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 19.5L8.25 12l7.5-7.5"
-              />
-            </svg>
-          </button>
-          <button
-            aria-label="Next slide"
-            id="keen-slider-next"
-            className="hidden lg:flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
-          >
-            {/* Next Icon */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M8.25 4.5l7.5 7.5-7.5 7.5"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-      
-      {/* Testimonials Slider */}
-      <div className="lg:col-span-2">
-        <div id="keen-slider" className="keen-slider">
-          {/* Testimonial Slide */}
-          <div className="keen-slider__slide">
-            <blockquote className="flex flex-col justify-between bg-[#040404] p-4 sm:p-6 lg:p-12 h-full">
-              <div>
-                <div className="flex gap-1 text-[#009DD1]">
-                  {/* Stars */}
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className="w-4 sm:w-5 h-4 sm:h-5"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <div className="mt-4">
-                  <p className="text-xl sm:text-2xl font-bold text-white">Great Service!</p>
-                  <p className="mt-4 text-gray-400">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima cupiditate
-                    quaerat rerum, quas sunt labore perferendis!
-                  </p>
-                </div>
+      <section className="bg-primary border-t mx-4 sm:mx-8 md:mx-16 lg:mx-32 border-secondary py-12">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
+            {/* Testimonials Heading */}
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+                What They Say About Us...
+              </h2>
+              <p className="mt-4 text-gray-400 max-w-md">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas veritatis illo
+                placeat harum porro optio fugit a culpa sunt id!
+              </p>
+              <div className="flex gap-4 mt-8">
+                <button
+                  aria-label="Previous slide"
+                  id="keen-slider-previous"
+                  className="hidden lg:flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
+                >
+                  {/* Previous Icon */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 19.5L8.25 12l7.5-7.5"
+                    />
+                  </svg>
+                </button>
+                <button
+                  aria-label="Next slide"
+                  id="keen-slider-next"
+                  className="hidden lg:flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
+                >
+                  {/* Next Icon */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                    />
+                  </svg>
+                </button>
               </div>
-              <footer className="mt-4 text-sm sm:text-base font-medium text-gray-400">
-                &mdash; John Doe
-              </footer>
-            </blockquote>
+            </div>
+
+            {/* Testimonials Slider */}
+            <div className="lg:col-span-2">
+              <div id="keen-slider" className="keen-slider">
+                {/* Testimonial Slide */}
+                <div className="keen-slider__slide">
+                  <blockquote className="flex flex-col justify-between bg-[#040404] p-4 sm:p-6 lg:p-12 h-full">
+                    <div>
+                      <div className="flex gap-1 text-[#009DD1]">
+                        {/* Stars */}
+                        {[...Array(5)].map((_, i) => (
+                          <svg
+                            key={i}
+                            className="w-4 sm:w-5 h-4 sm:h-5"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                      <div className="mt-4">
+                        <p className="text-xl sm:text-2xl font-bold text-white">Great Service!</p>
+                        <p className="mt-4 text-gray-400">
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima cupiditate
+                          quaerat rerum, quas sunt labore perferendis!
+                        </p>
+                      </div>
+                    </div>
+                    <footer className="mt-4 text-sm sm:text-base font-medium text-gray-400">
+                      &mdash; John Doe
+                    </footer>
+                  </blockquote>
+                </div>
+
+                {/* Testimonial Slide */}
+                <div className="keen-slider__slide">
+                  <blockquote className="flex flex-col justify-between bg-[#040404] p-4 sm:p-6 lg:p-12 h-full">
+                    <div>
+                      <div className="flex gap-1 text-[#009DD1]">
+                        {/* Stars */}
+                        {[...Array(5)].map((_, i) => (
+                          <svg
+                            key={i}
+                            className="w-4 sm:w-5 h-4 sm:h-5"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                      <div className="mt-4">
+                        <p className="text-xl sm:text-2xl font-bold text-white">Wonderful Team!</p>
+                        <p className="mt-4 text-gray-400">
+                          Great experience from start to finish. The team was professional and very
+                          efficient in getting the project done.
+                        </p>
+                      </div>
+                    </div>
+                    <footer className="mt-4 text-sm sm:text-base font-medium text-gray-400">
+                      &mdash; Jane Smith
+                    </footer>
+                  </blockquote>
+                </div>
+
+                {/* Add more testimonial slides as needed */}
+              </div>
+            </div>
           </div>
 
-          {/* Testimonial Slide */}
-          <div className="keen-slider__slide">
-            <blockquote className="flex flex-col justify-between bg-[#040404] p-4 sm:p-6 lg:p-12 h-full">
-              <div>
-                <div className="flex gap-1 text-[#009DD1]">
-                  {/* Stars */}
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className="w-4 sm:w-5 h-4 sm:h-5"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <div className="mt-4">
-                  <p className="text-xl sm:text-2xl font-bold text-white">Wonderful Team!</p>
-                  <p className="mt-4 text-gray-400">
-                    Great experience from start to finish. The team was professional and very
-                    efficient in getting the project done.
-                  </p>
-                </div>
-              </div>
-              <footer className="mt-4 text-sm sm:text-base font-medium text-gray-400">
-                &mdash; Jane Smith
-              </footer>
-            </blockquote>
+          {/* Mobile Slider Controls */}
+          <div className="flex justify-center gap-4 mt-8 lg:hidden">
+            <button
+              aria-label="Previous slide"
+              id="keen-slider-previous-mobile"
+              className="flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
+            >
+              {/* Previous Icon */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6 -rotate-180"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
+                />
+              </svg>
+            </button>
+            <button
+              aria-label="Next slide"
+              id="keen-slider-next-mobile"
+              className="flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
+            >
+              {/* Next Icon */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </button>
           </div>
-
-          {/* Add more testimonial slides as needed */}
         </div>
-      </div>
-
-      {/* Mobile Slider Controls */}
-      <div className="flex justify-center gap-4 mt-8 lg:hidden">
-        <button
-          aria-label="Previous slide"
-          id="keen-slider-previous-mobile"
-          className="flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
-        >
-          {/* Previous Icon */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6 -rotate-180"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.75 19.5L8.25 12l7.5-7.5"
-            />
-          </svg>
-        </button>
-        <button
-          aria-label="Next slide"
-          id="keen-slider-next-mobile"
-          className="flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
-        >
-          {/* Next Icon */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M8.25 4.5l7.5 7.5-7.5 7.5"
-            />
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>  
-</section>
-
-
+      </section>
     </div>
   );
 };

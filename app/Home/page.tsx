@@ -1,4 +1,3 @@
-// Homei.tsx
 "use client";
 
 import React, { useEffect, useState, useRef } from 'react';
@@ -6,6 +5,7 @@ import { Inter } from 'next/font/google';
 import throttle from 'lodash/throttle';
 import Hero from '../Hero/Hero';
 import Link from 'next/link';
+
 // Initialize the Inter font with the correct weight
 const inter = Inter({
   weight: ['900'], // Using array for type safety
@@ -19,6 +19,7 @@ const Homei: React.FC = () => {
   const [showHero, setShowHero] = useState<boolean>(false);
 
   useEffect(() => {
+    // Increased throttle duration from 10ms to 50ms for smoother animation
     const handleScroll = throttle(() => {
       if (containerRef.current) {
         const scrollY = window.scrollY;
@@ -36,7 +37,7 @@ const Homei: React.FC = () => {
         setProgress(progress);
 
         // Calculate scale to make the text fill the screen
-        const maxScale = 100; // Reduced from 100 to prevent overflow
+        const maxScale = 100; // Adjust as per design requirements
         const newScale = 1 + progress * (maxScale - 1);
         setScale(newScale);
 
@@ -47,7 +48,7 @@ const Homei: React.FC = () => {
           setShowHero(false);
         }
       }
-    }, 10);
+    }, 50); // Throttle delay set to 50ms for smoother animation
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
@@ -74,7 +75,7 @@ const Homei: React.FC = () => {
             top: '50%',
             left: '50%',
             transform: `translate(-50%, -50%) scale(${scale})`,
-            transition: 'transform 0.1s linear',
+            transition: 'transform 0.3s ease-out', // Increased transition duration for smoother effect
             transformOrigin: 'center',
             whiteSpace: 'nowrap', // Prevent text from wrapping
           }}
@@ -87,7 +88,7 @@ const Homei: React.FC = () => {
           className="absolute text-4xl sm:text-5xl md:text-6xl lg:text-8xl xl:text-9xl text-white font-bold text-center z-10"
           style={{
             opacity: `${1 - progress * 2}`,
-            transition: 'opacity 0.1s linear',
+            transition: 'opacity 0.3s ease-out', // Increased transition duration for smoother effect
           }}
         >
           <h1>.Your Story</h1>
@@ -100,22 +101,23 @@ const Homei: React.FC = () => {
               narrative into an unforgettable legacy!
             </p>
             {/* Buttons */}
-            <div className="flex space-x-4 mt-6">
-            <Link href="/Contact">
-              <button
-                className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-6 hover:bg-white hover:text-black transition"
-                aria-label="Contact Us"
-              >
-                Contact Us
-              </button>
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
+              <Link href="/Contact">
+                <button
+                  className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-6 hover:bg-white hover:text-black transition w-48 mx-auto sm:mx-0"
+                  aria-label="Contact Us"
+                >
+                  Contact Us
+                </button>
               </Link>
               <Link href="/Portfolio">
-              <button
-                className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-6 hover:bg-white hover:text-black transition"
-                aria-label="View Portfolio"
-              >
-                View Portfolio
-              </button></Link>
+                <button
+                  className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-6 hover:bg-white hover:text-black transition w-48 mx-auto sm:mx-0"
+                  aria-label="View Portfolio"
+                >
+                  View Portfolio
+                </button>
+              </Link>
             </div>
           </div>
         </div>
