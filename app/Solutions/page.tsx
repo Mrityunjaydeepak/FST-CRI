@@ -239,7 +239,8 @@ const Solutions = () => {
         <Image
           src={office}
           alt="Office Background Image"
-          fill
+          width={1500}
+              height={900}
           className="object-cover opacity-50"
         />
 

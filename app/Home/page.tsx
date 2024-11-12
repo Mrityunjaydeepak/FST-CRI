@@ -70,12 +70,12 @@ const Homei: React.FC = () => {
       >
         {/* Background Text with Dynamic Scaling */}
         <div
-          className={`${inter.className} absolute text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] text-transparent bg-clip-text bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] font-bold text-center`}
+          className={`${inter.className} absolute text-9xl sm:text-8xl md:text-9xl lg:text-[14rem] xl:text-[16rem] text-transparent bg-clip-text bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] font-bold text-center`}
           style={{
             top: '50%',
             left: '50%',
             transform: `translate(-50%, -50%) scale(${scale})`,
-            transition: 'transform 0.3s ease-out', // Increased transition duration for smoother effect
+            transition: 'transform 0.4s ease-out', // Increased transition duration for smoother effect
             transformOrigin: 'center',
             whiteSpace: 'nowrap', // Prevent text from wrapping
           }}
@@ -104,7 +104,7 @@ const Homei: React.FC = () => {
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
               <Link href="/Contact">
                 <button
-                  className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-6 hover:bg-white hover:text-black transition w-48 mx-auto sm:mx-0"
+                  className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-6 hover:bg-white hover:bg-white hover:text-white hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] transition w-48 mx-auto sm:mx-0"
                   aria-label="Contact Us"
                 >
                   Contact Us
@@ -112,7 +112,7 @@ const Homei: React.FC = () => {
               </Link>
               <Link href="/Portfolio">
                 <button
-                  className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-6 hover:bg-white hover:text-black transition w-48 mx-auto sm:mx-0"
+                  className="text-lg sm:text-xl border line-through border-[#383838] text-white rounded-full py-3 px-6 hover:bg-white hover:text-white hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] transition w-48 mx-auto sm:mx-0"
                   aria-label="View Portfolio"
                 >
                   View Portfolio

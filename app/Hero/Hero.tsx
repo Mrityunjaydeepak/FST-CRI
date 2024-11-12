@@ -6,7 +6,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import KeenSlider from 'keen-slider';
 import 'keen-slider/keen-slider.min.css'; // Ensure KeenSlider styles are imported
 import Card from '../Components/Card';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { motion, useAnimation } from 'framer-motion';
 
 interface Cribonix {
@@ -20,10 +20,10 @@ interface Cribonix {
 }
 
 const Hero: React.FC = () => {
-  const [showImg1, setShowImg1] = useState(false);
-  const [showImg2, setShowImg2] = useState(false);
-  const [showImg3, setShowImg3] = useState(false);
-  const [showImg4, setShowImg4] = useState(false);
+  // const [showImg1, setShowImg1] = useState(false);
+  // const [showImg2, setShowImg2] = useState(false);
+  // const [showImg3, setShowImg3] = useState(false);
+  // const [showImg4, setShowImg4] = useState(false);
 
   const cribonix: Cribonix[] = [
     {
@@ -326,8 +326,8 @@ const Hero: React.FC = () => {
                 What They Say About Us...
               </h2>
               <p className="mt-4 text-gray-400 max-w-md">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas veritatis illo
-                placeat harum porro optio fugit a culpa sunt id!
+              Discover the impact of our digital marketing strategies through the voices of those who matter most—our clients. Their success stories reflect our commitment to excellence and innovation in every project we undertake.
+
               </p>
               <div className="flex gap-4 mt-8">
                 <button
