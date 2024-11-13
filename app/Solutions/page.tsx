@@ -7,7 +7,7 @@ const Solutions = () => {
   // State to manage the selected card
   const [selectedCardIndex, setSelectedCardIndex] = useState(0);
 
-  // Content for each card (same as provided)
+  // Content for each card
   const cardContents = [
     {
       title: 'Competition Analysis',
@@ -233,89 +233,87 @@ const Solutions = () => {
   ];
 
   return (
-    <div className="flex flex-col mx-4 sm:mx-8 md:mx-16 lg:mx-32 justify-center bg-primary">
+    <div className="bg-primary">
       {/* Header Section */}
-      <div className="relative mt-12 sm:mt-24 h-64 sm:h-96 md:h-screen bg-primary">
+      <div className="relative">
         <Image
           src={office}
           alt="Office Background Image"
+          layout="responsive"
           width={1500}
-              height={900}
+          height={900}
           className="object-cover opacity-50"
         />
 
         {/* Overlay Content */}
-        <div className="absolute inset-0 flex flex-col justify-center items-start p-4 sm:p-8">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-bold text-left text-white">
+        <div className="absolute inset-0 flex flex-col justify-center items-start px-6 md:px-16">
+          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
             OUR <span className="block">SOLUTIONS</span>
           </h2>
         </div>
       </div>
 
       {/* Main Content Section */}
-      <div className="flex flex-col md:flex-row justify-center items-stretch border-t-2 border-secondary p-4 sm:p-8 mt-12 sm:mt-24">
-        {/* Left Content */}
-        <div className="w-full md:flex-1 flex flex-col pr-0 md:pr-8">
-          {/* Problem Heading */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-            {cardContents[selectedCardIndex].content.problemHeading}
-          </h2>
-          {/* Problem Description */}
-          <p className="text-left font-thin mt-4 text-white text-sm sm:text-base md:text-lg">
-            {cardContents[selectedCardIndex].content.problemDescription}
-          </p>
+      <div className="container mx-auto px-6 py-16 border-t border-secondary">
+        <div className="flex flex-col lg:flex-row justify-between items-start space-y-12 lg:space-y-0 lg:space-x-16">
+          {/* Left Content */}
+          <div className="lg:w-2/3 space-y-8">
+            {/* Problem Heading */}
+            <h2 className="text-3xl sm:text-4xl font-bold text-white">
+              {cardContents[selectedCardIndex].content.problemHeading}
+            </h2>
+            {/* Problem Description */}
+            <p className="text-white text-lg leading-relaxed">
+              {cardContents[selectedCardIndex].content.problemDescription}
+            </p>
 
-          {/* Solution Heading */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-8">
-            {cardContents[selectedCardIndex].content.solutionHeading}
-          </h2>
-          {/* Solution Description */}
-          <p className="text-left font-thin mt-4 text-white text-sm sm:text-base md:text-lg">
-            {cardContents[selectedCardIndex].content.solutionDescription}
-          </p>
+            {/* Solution Heading */}
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-8">
+              {cardContents[selectedCardIndex].content.solutionHeading}
+            </h2>
+            {/* Solution Description */}
+            <p className="text-white text-lg leading-relaxed">
+              {cardContents[selectedCardIndex].content.solutionDescription}
+            </p>
 
-          {/* Process Heading */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-8">
-            {cardContents[selectedCardIndex].content.processHeading}
-          </h2>
-          {/* Process List */}
-          <ul className="list-disc list-inside mt-4 text-white font-thin text-sm sm:text-base md:text-lg">
-            {cardContents[selectedCardIndex].content.processList.map(
-              (item, index) => (
-                <li key={index} className="mt-2">
-                  {item}
-                </li>
-              )
-            )}
-          </ul>
-        </div>
+            {/* Process Heading */}
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-8">
+              {cardContents[selectedCardIndex].content.processHeading}
+            </h2>
+            {/* Process List */}
+            <ul className="list-disc list-inside text-white text-lg leading-relaxed space-y-2 mt-4">
+              {cardContents[selectedCardIndex].content.processList.map(
+                (item, index) => (
+                  <li key={index}>{item}</li>
+                )
+              )}
+            </ul>
+          </div>
 
-        {/* Right Content (Cards) */}
-        <div className="flex flex-col mt-8 md:mt-0 md:ml-4 w-full md:w-1/3 relative">
-          {/* Gradient Overlays */}
-          <div className="pointer-events-none absolute top-0 left-0 w-full h-8 bg-gradient-to-b from-black to-transparent z-10"></div>
-          <div className="pointer-events-none absolute bottom-0 left-0 w-full h-8 bg-gradient-to-t from-black to-transparent z-10"></div>
+          {/* Right Content (Cards) */}
+          <div className="lg:w-1/2 relative">
+            {/* Gradient Overlays */}
+            <div className="pointer-events-none absolute top-0 left-0 w-full h-8 bg-gradient-to-b from-primary to-transparent z-10"></div>
+            <div className="pointer-events-none absolute bottom-0 left-0 w-full h-8 bg-gradient-to-t from-primary to-transparent z-10"></div>
 
-          {/* Scrollable Container with fixed height */}
-          <div
-            className="overflow-y-auto hide-scrollbar relative z-0 pt-8 pb-8"
-            style={{ maxHeight: 'calc(16rem * 2 + 0.5rem * 2)' }}
-          >
-            {cardContents.map((card, index) => (
-              <div
-                key={index}
-                onClick={() => setSelectedCardIndex(index)}
-                className={`bg-[#2d2d2d] flex flex-col justify-center rounded-xl h-48 sm:h-64 p-4 sm:p-8 w-full mb-2 cursor-pointer ${
-                  selectedCardIndex === index
-                    ? 'border-2 border-white'
-                    : ''
-                }`}
-              >
-                <h1 className="text-white text-center text-xl sm:text-2xl font-bold">
-                  {card.title}
-                </h1>
+            {/* Scrollable Container */}
+            <div className="overflow-y-auto hide-scrollbar relative z-0" style={{ maxHeight: '80vh' }}>
+              <div className="space-y-4 pr-2">
+                {cardContents.map((card, index) => (
+                  <div
+                    key={index}
+                    onClick={() => setSelectedCardIndex(index)}
+                    className={`bg-[#2d2d2d] flex items-center justify-center rounded-lg h-24 sm:h-28 cursor-pointer p-4 ${
+                      selectedCardIndex === index ? 'border-2 border-white' : ''
+                    }`}
+                  >
+                    <h1 className="text-white text-center text-xl sm:text-2xl font-bold">
+                      {card.title}
+                    </h1>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>

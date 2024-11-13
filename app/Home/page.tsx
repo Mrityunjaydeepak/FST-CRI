@@ -19,7 +19,7 @@ const Homei: React.FC = () => {
   const [showHero, setShowHero] = useState<boolean>(false);
 
   useEffect(() => {
-    // Increased throttle duration from 10ms to 50ms for smoother animation
+    // Increased throttle duration from 50ms to 100ms for smoother animation
     const handleScroll = throttle(() => {
       if (containerRef.current) {
         const scrollY = window.scrollY;
@@ -28,9 +28,10 @@ const Homei: React.FC = () => {
         const elementTop = containerRef.current.offsetTop;
 
         // Adjust this multiplier to control the scroll distance
-        const scrollMultiplier = 5; // Can be adjusted if needed
+        const scrollMultiplier = 1; // Can be adjusted if needed
 
-        const maxScroll = (elementTop + elementHeight - windowHeight) * scrollMultiplier;
+        const maxScroll =
+          (elementTop + elementHeight - windowHeight) * scrollMultiplier;
 
         // Calculate progress from 0 to 1 over the adjusted scroll range
         const progress = Math.min(Math.max(scrollY / maxScroll, 0), 1);
@@ -48,7 +49,7 @@ const Homei: React.FC = () => {
           setShowHero(false);
         }
       }
-    }, 50); // Throttle delay set to 50ms for smoother animation
+    }, 100); // Throttle delay set to 100ms for smoother animation
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
@@ -70,12 +71,12 @@ const Homei: React.FC = () => {
       >
         {/* Background Text with Dynamic Scaling */}
         <div
-          className={`${inter.className} absolute text-9xl sm:text-8xl md:text-9xl lg:text-[14rem] xl:text-[16rem] text-transparent bg-clip-text bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] font-bold text-center`}
+          className={`${inter.className} absolute text-[10rem] sm:text-[12rem] md:text-[14rem] lg:text-[16rem] xl:text-[18rem] text-transparent bg-clip-text bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] font-bold text-center`}
           style={{
             top: '50%',
             left: '50%',
             transform: `translate(-50%, -50%) scale(${scale})`,
-            transition: 'transform 0.4s ease-out', // Increased transition duration for smoother effect
+            transition: 'transform 0.6s ease-out', // Increased transition duration for smoother effect
             transformOrigin: 'center',
             whiteSpace: 'nowrap', // Prevent text from wrapping
           }}
@@ -85,26 +86,28 @@ const Homei: React.FC = () => {
 
         {/* Overlayed Text (Responsive) */}
         <div
-          className="absolute text-4xl sm:text-5xl md:text-6xl lg:text-8xl xl:text-9xl text-white font-bold text-center z-10"
+          className="absolute flex flex-col items-center text-center z-10 px-4"
           style={{
             opacity: `${1 - progress * 2}`,
-            transition: 'opacity 0.3s ease-out', // Increased transition duration for smoother effect
+            transition: 'opacity 0.4s ease-out', // Increased transition duration for smoother effect
           }}
         >
-          <h1>.Your Story</h1>
-          <h1>Our Influence.</h1>
-          <div className="flex flex-col items-center space-y-2 mt-4">
-            <p className="text-white text-base sm:text-lg">
-              Want your brand's story to echo through time? Let Cribonix weave your 
-            </p>
-            <p className="text-white text-base sm:text-lg">
-              narrative into an unforgettable legacy!
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white font-bold">
+            .Your Story
+          </h1>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white font-bold">
+            Our Influence.
+          </h1>
+          <div className="flex flex-col items-center space-y-2 mt-6">
+            <p className="text-white text-base sm:text-lg md:text-xl max-w-2xl">
+              Want your brand's story to echo through time? Let Cribonix weave
+              your narrative into an unforgettable legacy!
             </p>
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mt-8">
               <Link href="/Contact">
                 <button
-                  className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-6 hover:bg-white hover:bg-white hover:text-white hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] transition w-48 mx-auto sm:mx-0"
+                  className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-8 hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] hover:text-white transition duration-300 w-52"
                   aria-label="Contact Us"
                 >
                   Contact Us
@@ -112,7 +115,7 @@ const Homei: React.FC = () => {
               </Link>
               <Link href="/Portfolio">
                 <button
-                  className="text-lg sm:text-xl border line-through border-[#383838] text-white rounded-full py-3 px-6 hover:bg-white hover:text-white hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] transition w-48 mx-auto sm:mx-0"
+                  className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-8 hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] hover:text-white transition duration-300 w-52 line-through"
                   aria-label="View Portfolio"
                 >
                   View Portfolio
