@@ -484,7 +484,7 @@ const Whyus: FC = () => {
       {/* Follow us on Instagram */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-t border-secondary">
         <div className="flex flex-col items-center space-y-6 sm:space-y-8">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center">
             FOLLOW OUR WORK <br /> ON INSTAGRAM
           </h1>
           <h2 className="text-base sm:text-lg md:text-xl text-white text-center">
@@ -492,7 +492,7 @@ const Whyus: FC = () => {
             <br />
             Join us on Instagram for a peek into our world!
           </h2>
-          <div className="flex flex-row items-center justify-center space-x-3 sm:space-x-4 mt-6 sm:mt-8">
+          <div className="flex flex-row  items-center justify-center space-x-3 sm:space-x-4 mt-6 sm:mt-8">
             <Image src={circle} alt="Circle Icon" width={24} height={24} />
             <span className="text-white font-bold">@Cribonix</span>
             <Image src={verified} alt="Verified Icon" width={24} height={24} />
@@ -500,7 +500,7 @@ const Whyus: FC = () => {
               href="https://www.instagram.com/cribonix/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 px-4 sm:px-6 py-2 border border-secondary rounded-full text-white hover:bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] transition-colors duration-300"
+              className="flex items-center space-x-2 px-4 sm:px-4 py-2 border border-secondary rounded-full text-white hover:bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] transition-colors duration-300"
             >
               <FaInstagram />
               <span>Follow us</span>
@@ -509,59 +509,62 @@ const Whyus: FC = () => {
         </div>
 
         {/* Instagram Images */}
-        <div className="flex flex-col lg:flex-row justify-center gap-8 items-center mt-8 sm:mt-12">
-          {/* Mountain Image */}
-          <div className="flex w-full lg:w-2/5 relative ml-24 justify-center">
-            <Image
-              src={mountain}
-              alt="Mountain"
-              width={550}
-              height={600}
-              
-              className="object-cover rounded-md shadow-lg"
-            />
-          </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-2  sm:py-10 ">
+  <div className="flex flex-col lg:flex-row justify-center gap-8 items-center mt-8 sm:mt-12">
+    {/* Mountain Image */}
+    <div className="w-full lg:w-2/5 relative justify-center">
+      <Image
+        src={mountain}
+        alt="Mountain"
+        
+        className="object-cover rounded-md shadow-lg"
+      />
+    </div>
 
-          {/* Grid of Images */}
-          <div className="flex flex-col w-full lg:w-1/2 gap-6 sm:gap-8">
-            <div className="flex flex-row gap-4 sm:gap-6 relative h-64">
-              <Image
-                src={g1}
-                alt="Gallery 1"
-                width={250}
-                height={250}
-                className="object-cover rounded-md shadow-lg"
-                 
-              />
-              <Image
-                src={g2}
-                alt="Gallery 2"
-                width={250}
-                height={250}
-                className="object-cover rounded-md shadow-lg"
-                 
-              />
-            </div>
-            <div className="flex flex-row gap-4 sm:gap-6 relative h-64">
-              <Image
-                src={g3}
-                alt="Gallery 3"
-                width={250}
-                height={250}
-                className="object-cover rounded-md shadow-lg"
-                 
-              />
-              <Image
-                src={g4}
-                alt="Gallery 4"
-                width={250}
-                height={250}
-                className="object-cover rounded-md shadow-lg"
-                 
-              />
-            </div>
-          </div>
+    {/* Grid of Images */}
+    <div className="w-full lg:w-1/2 flex flex-col gap-6 sm:gap-8">
+      {/* First Row */}
+      <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+        <div className="relative w-full sm:w-1/2 h-64">
+          <Image
+            src={g1}
+            alt="Gallery 1"
+            fill
+            className="object-cover rounded-md shadow-lg"
+          />
         </div>
+        <div className="relative w-full sm:w-1/2 h-64">
+          <Image
+            src={g2}
+            alt="Gallery 2"
+            fill
+            className="object-cover rounded-md shadow-lg"
+          />
+        </div>
+      </div>
+      {/* Second Row */}
+      <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+        <div className="relative w-full sm:w-1/2 h-64">
+          <Image
+            src={g3}
+            alt="Gallery 3"
+            fill
+            className="object-cover rounded-md shadow-lg"
+          />
+        </div>
+        <div className="relative w-full sm:w-1/2 h-64">
+          <Image
+            src={g4}
+            alt="Gallery 4"
+            fill
+            className="object-cover rounded-md shadow-lg"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
 
       {/* Image Carousel Section */}

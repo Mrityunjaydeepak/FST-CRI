@@ -27,13 +27,13 @@ const Card: React.FC<CardProps> = ({
     const remainingText = subheading.slice(1);
 
     return (
-      <h4 className="text-2xl mt-2 flex items-start">
+      <h4 className="text-2xl mt-2 flex items-start -space-x-0">
         {/* First Letter with Gradient */}
-        <span className="flex font-bold bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] text-4xl items-start justify-center text-transparent bg-clip-text uppercase">
+        <span className="flex font-semibold items-baseline bg-[#A0A0A0] text-3xl justify-center text-transparent bg-clip-text">
           {firstLetter}
         </span>
         {/* Remaining Text */}
-        <span className="ml-1 text-3xl items-baseline text-white">
+        <span className="ml-1 text-3xl text-white">
           {remainingText}
         </span>
       </h4>

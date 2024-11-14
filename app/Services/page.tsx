@@ -23,6 +23,9 @@ const Services = () => {
   return (
     <div className="bg-primary">
       {/* Background Image Section */}
+
+      {/* Description */}
+      <div className="container mx-auto px-6 py-16">
       <div className="relative">
         <Image
           src={office}
@@ -35,16 +38,13 @@ const Services = () => {
 
         {/* Overlay Content */}
         <div className="absolute inset-0 flex flex-col justify-center items-start px-6 md:px-16">
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
+          <h2 className="text-2xl sm:text-6xl md:text-7xl lg:text-9xl font-bold text-white leading-tight">
             BLOCKBUSTER STRATEGIES FOR{" "}
             <span className="block">YOUR BRAND</span>
           </h2>
         </div>
       </div>
-
-      {/* Description */}
-      <div className="container mx-auto px-6 py-16">
-        <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
+        <h1 className="text-lg flex justify-center mt-6 sm:text-xl md:text-2xl font-bold text-white">
           From script to screen, we provide the tools and strategies that turn
           your brand into a digital sensation.
         </h1>

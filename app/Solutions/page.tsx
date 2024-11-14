@@ -250,12 +250,12 @@ const Solutions = () => {
 
         {/* Overlay Content */}
         <div className="absolute inset-0 flex flex-col justify-center items-start px-6 md:px-16 mb-8 pb-5">
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
+          <h2 className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
             OUR <span className="block">SOLUTIONS</span>
           </h2>
         </div>
       </div>
-        <div className="flex flex-col lg:flex-row justify-between items-start space-y-12 lg:space-y-0 lg:space-x-16">
+        <div className="flex flex-col lg:flex-row justify-between mt-8 items-start space-y-12 lg:space-y-0 lg:space-x-16">
           {/* Left Content */}
           <div className="lg:w-2/3 space-y-8">
             {/* Problem Heading */}

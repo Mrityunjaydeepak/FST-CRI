@@ -118,6 +118,10 @@ const Hero: React.FC = () => {
     'Ineffective Influencer Collaborations',
     'Social Media Management Challenges',
     'Google Business Management',
+    'Inability to Measure ROI',
+    'Cross-Channel Integration Problems',
+    'Growth on a Low Budget',
+
   ];
 
   const controlsProblems = useAnimation();
@@ -254,7 +258,7 @@ const Hero: React.FC = () => {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-12 lg:space-y-0 lg:space-x-12">
           {/* Text Content */}
           <div className="lg:w-1/2 space-y-6">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl text-white leading-tight">
               Building Strategies <br /> and Crafting <span className="text-[#A0A0A0]">Effective <br /> Ideas for Lasting Impressions</span>
             </h1>
           </div>
@@ -265,7 +269,7 @@ const Hero: React.FC = () => {
               <h2 className="text-white text-2xl">
                 <span className="text-[#009DD1] mr-2">|</span> Data-Driven Results
               </h2>
-              <p className="text-gray-400 text-lg leading-relaxed">
+              <p className="text-gray-400 text leading-relaxed">
                 We provide clear, actionable insights from every campaign to ensure measurable growth and success.
               </p>
             </div>
@@ -273,7 +277,7 @@ const Hero: React.FC = () => {
               <h2 className="text-white text-2xl">
                 <span className="text-[#009DD1] mr-2">|</span> Fast, Result-Driven Execution
               </h2>
-              <p className="text-gray-400 text-lg leading-relaxed">
+              <p className="text-gray-400 text leading-relaxed">
                 With our agile approach, we deliver high-impact solutions and measurable results in record time.
               </p>
             </div>
@@ -282,7 +286,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Statistics Section */}
-      <div className="container mx-auto px-6 py-16">
+      <div className="container mx-auto px-6 py-4">
         <div className="flex flex-col sm:flex-row justify-between items-center space-y-8 sm:space-y-0 sm:space-x-8">
           {/* Statistic Item */}
           <div className="text-center">
@@ -305,12 +309,12 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Testimonials Section */}
-      <section className="bg-primary border-t border-secondary py-16">
+      <section className="bg-primary border-t border-secondary py-16 ">
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
             {/* Testimonials Heading */}
-            <div className="lg:w-1/3 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">
+            <div className="lg:w-1/3 flex flex-col justify-center items-center lg:items-start text-center lg:text-left space-y-6">
+              <h2 className="text-3xl sm:text-5xl md:text-4xl font-bold text-white leading-tight">
                 What They Say About Us...
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed">

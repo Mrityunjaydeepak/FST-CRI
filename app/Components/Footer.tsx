@@ -119,7 +119,7 @@ const Footer = () => {
                 {/* Large "CRIBONIX" Text */}
                 <div className='flex justify-center items-center bg-black px-4 sm:px-8 md:px-16 lg:px-24 py-8 overflow-hidden'>
                     <h1 
-                        className='font-bold text-white text-6xl sm:text-8xl md:text-10xl lg:text-[10rem] max-w-full'
+                        className='font-bold text-white text-6xl sm:text-8xl md:text-7xl lg:text-[8rem] '
                     >
                         CRIBONIX
                     </h1>
