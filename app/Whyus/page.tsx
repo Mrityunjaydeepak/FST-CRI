@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React, { useState, useEffect, useRef, FC } from "react";
 import imgcont from "./Container.png";
 import Button from "../Components/Button";
@@ -29,8 +29,14 @@ interface Metric {
   value: string;
 }
 
+// Define the structure of a dynamic image
+interface DynamicImage {
+  src: StaticImageData;
+  alt: string;
+}
+
 const Whyus: FC = () => {
-  const images: StaticImageData[] = [panel1, panel2, panel3];
+  // Metrics Data
   const metrics: Metric[] = [
     {
       title: "Ads Management",
@@ -46,29 +52,36 @@ const Whyus: FC = () => {
     },
   ];
 
-  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
-  const [isFading, setIsFading] = useState<boolean>(false);
+  // Dynamic Images Data
+  const dynamicImages: DynamicImage[] = [
+    { src: panel1, alt: "Panel 1" },
+    { src: panel2, alt: "Panel 2" },
+    { src: panel3, alt: "Panel 3" },
+  ];
 
+  // State for Metrics Section
   const [currentMetricIndex, setCurrentMetricIndex] = useState<number>(0);
   const [isMetricVisible, setIsMetricVisible] = useState<boolean>(false);
   const metricsRef = useRef<HTMLDivElement | null>(null);
 
-  const handleButtonClick = (index: number) => {
-    if (index === currentImageIndex || isFading) return;
+  // State for Dynamic Image Carousel Section
+  const [currentDynamicImageIndex, setCurrentDynamicImageIndex] = useState<number>(0);
+  const [isDynamicImageVisible, setIsDynamicImageVisible] = useState<boolean>(false);
+  const dynamicImageRef = useRef<HTMLDivElement | null>(null);
 
-    setIsFading(true);
+  // State for Image Carousel (Manual Control)
+  // const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+  // const [isFading, setIsFading] = useState<boolean>(false);
 
-    setTimeout(() => {
-      setCurrentImageIndex(index);
+  // Refs for Intervals
+  const metricIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const dynamicImageIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-      setTimeout(() => {
-        setIsFading(false);
-      }, 500);
-    }, 500);
-  };
-
-  // Metrics Animation Logic
+  // Handle Metrics Animation
   useEffect(() => {
+    const node = metricsRef.current;
+    if (!node) return;
+
     const observerOptions = {
       root: null,
       rootMargin: "0px",
@@ -87,32 +100,105 @@ const Whyus: FC = () => {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    if (metricsRef.current) {
-      observer.observe(metricsRef.current);
-    }
+    observer.observe(node);
 
     return () => {
-      if (metricsRef.current) {
-        observer.unobserve(metricsRef.current);
+      if (node) {
+        observer.unobserve(node);
       }
     };
   }, []);
 
   useEffect(() => {
-    let metricInterval: NodeJS.Timeout;
-
     if (isMetricVisible) {
-      metricInterval = setInterval(() => {
+      metricIntervalRef.current = setInterval(() => {
         setCurrentMetricIndex((prevIndex) =>
           prevIndex === metrics.length - 1 ? 0 : prevIndex + 1
         );
       }, 3000); // Change metric every 3 seconds
     } else {
-      clearInterval(metricInterval);
+      if (metricIntervalRef.current) {
+        clearInterval(metricIntervalRef.current);
+        metricIntervalRef.current = null;
+      }
     }
 
-    return () => clearInterval(metricInterval);
+    return () => {
+      if (metricIntervalRef.current) {
+        clearInterval(metricIntervalRef.current);
+        metricIntervalRef.current = null;
+      }
+    };
   }, [isMetricVisible, metrics.length]);
+
+  // Handle Dynamic Image Animation
+  useEffect(() => {
+    const node = dynamicImageRef.current;
+    if (!node) return;
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsDynamicImageVisible(true);
+        } else {
+          setIsDynamicImageVisible(false);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    observer.observe(node);
+
+    return () => {
+      if (node) {
+        observer.unobserve(node);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isDynamicImageVisible) {
+      dynamicImageIntervalRef.current = setInterval(() => {
+        setCurrentDynamicImageIndex((prevIndex) =>
+          prevIndex === dynamicImages.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 3000); // Change dynamic image every 3 seconds
+    } else {
+      if (dynamicImageIntervalRef.current) {
+        clearInterval(dynamicImageIntervalRef.current);
+        dynamicImageIntervalRef.current = null;
+      }
+    }
+
+    return () => {
+      if (dynamicImageIntervalRef.current) {
+        clearInterval(dynamicImageIntervalRef.current);
+        dynamicImageIntervalRef.current = null;
+      }
+    };
+  }, [isDynamicImageVisible, dynamicImages.length]);
+
+  // Handle Image Carousel (Manual Control)
+  // const handleButtonClick = (index: number) => {
+  //   if (index === currentImageIndex || isFading) return;
+
+  //   setIsFading(true);
+
+  //   setTimeout(() => {
+  //     setCurrentImageIndex(index);
+
+  //     setTimeout(() => {
+  //       setIsFading(false);
+  //     }, 500);
+  //   }, 500);
+  // };
 
   return (
     <div className="bg-[#040404] scroll-smooth">
@@ -121,15 +207,17 @@ const Whyus: FC = () => {
         <div className="relative w-full h-auto sm:h-96 lg:h-[40rem]">
           <Image
             src={imgcont}
-            alt="Why Us Background Image"
-            layout="fill"
-            objectFit="cover"
-            className="object-cover opacity-50 rounded-md"
+            
+          alt="Office Background Image"
+          layout="responsive"
+          width={1500}
+          height={900}
+          className="object-cover opacity-50"
           />
 
           {/* Overlay Content */}
           <div className="absolute inset-0 flex flex-col justify-center items-start px-4 sm:px-6 lg:px-16">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+            <h2 className="text-4xl sm:text-4xl md:text-3xl lg:text-9xl font-bold text-white leading-tight">
               Mastering Every <span className="block">Digital Move.</span>
             </h2>
           </div>
@@ -179,19 +267,19 @@ const Whyus: FC = () => {
       </div>
 
       {/* How We Started */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-t border-secondary">
-        <div className="flex flex-col lg:flex-row items-start lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border border-t border-r-0 border-l-0 border-b-0 border-secondary">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
           {/* Left Description */}
-          <div className="flex-1 space-y-6">
-            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+          <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-6">
+            <h2 className="text-white text-2xl sm:text-2xl md:text-2xl lg:text-3xl font-extrabold leading-tight">
               Where smart strategies meet creativity, we lift brands to new heights. Discover how knowledge drives our innovative solutions!
             </h2>
             <p className="text-white text-base sm:text-lg md:text-xl leading-relaxed">
               At Cribonix, we harness knowledge and industry insights to create personalised digital marketing strategies. Our expert team stays ahead of trends and customer behaviours to help brands stand out. From SEO to social media, we craft methods that drive real results, ensuring your brand connects with its audience and grows. Let us turn our expertise into your brand's success!
             </p>
-            <Link href="/Portfolio">
+            <Link href="/Solutions" className="flex justify-center">
               <button className="border text-base sm:text-lg md:text-xl border-secondary rounded-full px-6 py-3 text-white hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] transition">
-                Portfolio
+                Solutions
               </button>
             </Link>
           </div>
@@ -201,10 +289,10 @@ const Whyus: FC = () => {
             <Image
               src={team}
               alt="Team Image"
-              width={600}
+              width={1200}
               height={500}
               className="object-cover rounded-md shadow-lg"
-              layout="responsive"
+              
             />
           </div>
         </div>
@@ -213,7 +301,7 @@ const Whyus: FC = () => {
       {/* Our Values */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-t border-secondary">
         <div className="flex flex-col items-center space-y-6 md:space-y-8">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center">
+          <h1 className="text-2xl sm:text-4xl md:text-2xl lg:text-4xl font-extrabold text-white text-center">
             THE VALUES THAT DRIVE, <br />
             EVERYTHING WE DO
           </h1>
@@ -225,51 +313,59 @@ const Whyus: FC = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row justify-center items-center space-y-8 lg:space-y-0 lg:space-x-12 mt-12">
-          {/* Dynamic Image Section */}
-          <div className="relative w-full lg:w-2/3 transition-opacity duration-500">
-            <Image
-              src={images[currentImageIndex]}
-              alt={`Quality Image ${currentImageIndex + 1}`}
-              layout="responsive"
-              width={1550}
-              height={1000}
-              className={`rounded-md shadow-lg ${
-                isFading ? "opacity-0" : "opacity-100"
-              }`}
-            />
+          {/* Dynamic Image Carousel Section */}
+          <div
+            className="relative w-full lg:w-2/3  "
+            ref={dynamicImageRef}
+          >
+            {dynamicImages.map((image, index) => (
+              <Image
+                key={index}
+                src={image.src}
+                alt={image.alt}
+                 
+                className={`rounded-md shadow-lg absolute inset-0 transition-opacity duration-1000 ${
+                  currentDynamicImageIndex === index ? "opacity-100 " : "opacity-0 z-0"
+                }`}
+              />
+            ))}
+          <div className="container mx-auto mt-3.5 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-t border-secondary">
+            <div className="flex flex-col lg:flex-row items-start lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
+              <div className="lg:w-1/2 space-y-6">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+                   <br /> 
+                   <br /> 
+                   <br /> 
+                   <br /> 
+
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
+                  
+                </p>
+              </div>
+            </div>
+          </div>
           </div>
 
           {/* Buttons Section */}
-          <div className="flex flex-row lg:flex-col justify-center items-center space-x-4 lg:space-x-0 lg:space-y-4">
-            {images.map((img, index) => (
+          {/* <div className="flex flex-row lg:flex-col justify-center items-center space-x-4 lg:space-x-0 lg:space-y-4">
+            {dynamicImages.map((_, index) => (
               <button
                 key={index}
-                onClick={() => handleButtonClick(index)}
+                onClick={() => setCurrentDynamicImageIndex(index)}
                 className={`w-10 h-10 sm:w-12 sm:h-12 text-sm sm:text-base bg-black rounded-full hover:text-white transition-colors duration-300 focus:outline-none flex items-center justify-center ${
-                  currentImageIndex === index ? "bg-white text-black" : ""
+                  currentDynamicImageIndex === index ? "bg-white text-black" : ""
                 }`}
-                aria-label={`Display image ${index + 1}`}
+                aria-label={`Display dynamic image ${index + 1}`}
               >
                 {`0${index + 1}`}
               </button>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
 
       {/* Our Clients Section */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-t border-secondary">
-        <div className="flex flex-col lg:flex-row items-start lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
-          <div className="lg:w-1/2 space-y-6">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-              OUR TRUSTED <br /> CLIENTS
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
-              Collaborating with the best to bring their visions to life. From emerging startups to established brands, we’re honoured to be the trusted digital partner that helps them thrive in the modern market.
-            </p>
-          </div>
-        </div>
-      </div>
 
       {/* Our Team */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-t border-secondary">
@@ -306,7 +402,7 @@ const Whyus: FC = () => {
               width={250}
               height={250}
               className="object-cover rounded-md shadow-lg"
-              layout="responsive"
+               
             />
             <p className="text-gray-400 font-light text-sm mt-4">
               Hi! my Name is
@@ -323,7 +419,7 @@ const Whyus: FC = () => {
               width={250}
               height={250}
               className="object-cover rounded-md shadow-lg"
-              layout="responsive"
+               
             />
             <p className="text-gray-400 font-light text-sm mt-4">
               Hi! my Name is
@@ -340,7 +436,7 @@ const Whyus: FC = () => {
               width={250}
               height={250}
               className="object-cover rounded-md shadow-lg"
-              layout="responsive"
+               
             />
             <p className="text-gray-400 font-light text-sm mt-4">
               Hi! my Name is
@@ -357,7 +453,7 @@ const Whyus: FC = () => {
               width={250}
               height={250}
               className="object-cover rounded-md shadow-lg"
-              layout="responsive"
+               
             />
             <p className="text-gray-400 font-light text-sm mt-4">
               Hi! my Name is
@@ -379,10 +475,8 @@ const Whyus: FC = () => {
           <Image
             src={office}
             alt="Office Background"
-            width={1500}
-            height={990}
+             
             className="object-cover rounded-md shadow-lg opacity-80"
-            layout="responsive"
           />
         </div>
       </div>
@@ -400,7 +494,7 @@ const Whyus: FC = () => {
           </h2>
           <div className="flex flex-row items-center justify-center space-x-3 sm:space-x-4 mt-6 sm:mt-8">
             <Image src={circle} alt="Circle Icon" width={24} height={24} />
-            <span className="text-white font-bold">@Productionx</span>
+            <span className="text-white font-bold">@Cribonix</span>
             <Image src={verified} alt="Verified Icon" width={24} height={24} />
             <Link
               href="https://www.instagram.com/cribonix/"
@@ -417,27 +511,27 @@ const Whyus: FC = () => {
         {/* Instagram Images */}
         <div className="flex flex-col lg:flex-row justify-center gap-8 items-center mt-8 sm:mt-12">
           {/* Mountain Image */}
-          <div className="flex w-full lg:w-1/2">
+          <div className="flex w-full lg:w-2/5 relative ml-24 justify-center">
             <Image
               src={mountain}
               alt="Mountain"
-              width={530}
-              height={550}
+              width={550}
+              height={600}
+              
               className="object-cover rounded-md shadow-lg"
-              layout="responsive"
             />
           </div>
 
           {/* Grid of Images */}
           <div className="flex flex-col w-full lg:w-1/2 gap-6 sm:gap-8">
-            <div className="flex flex-row gap-4 sm:gap-6">
+            <div className="flex flex-row gap-4 sm:gap-6 relative h-64">
               <Image
                 src={g1}
                 alt="Gallery 1"
                 width={250}
                 height={250}
                 className="object-cover rounded-md shadow-lg"
-                layout="responsive"
+                 
               />
               <Image
                 src={g2}
@@ -445,17 +539,17 @@ const Whyus: FC = () => {
                 width={250}
                 height={250}
                 className="object-cover rounded-md shadow-lg"
-                layout="responsive"
+                 
               />
             </div>
-            <div className="flex flex-row gap-4 sm:gap-6">
+            <div className="flex flex-row gap-4 sm:gap-6 relative h-64">
               <Image
                 src={g3}
                 alt="Gallery 3"
                 width={250}
                 height={250}
                 className="object-cover rounded-md shadow-lg"
-                layout="responsive"
+                 
               />
               <Image
                 src={g4}
@@ -463,12 +557,15 @@ const Whyus: FC = () => {
                 width={250}
                 height={250}
                 className="object-cover rounded-md shadow-lg"
-                layout="responsive"
+                 
               />
             </div>
           </div>
         </div>
       </div>
+
+      {/* Image Carousel Section */}
+    
     </div>
   );
 };

@@ -235,6 +235,9 @@ const Solutions = () => {
   return (
     <div className="bg-primary">
       {/* Header Section */}
+
+      {/* Main Content Section */}
+      <div className="container mx-auto px-6 py-16  border-secondary">
       <div className="relative">
         <Image
           src={office}
@@ -246,15 +249,12 @@ const Solutions = () => {
         />
 
         {/* Overlay Content */}
-        <div className="absolute inset-0 flex flex-col justify-center items-start px-6 md:px-16">
+        <div className="absolute inset-0 flex flex-col justify-center items-start px-6 md:px-16 mb-8 pb-5">
           <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
             OUR <span className="block">SOLUTIONS</span>
           </h2>
         </div>
       </div>
-
-      {/* Main Content Section */}
-      <div className="container mx-auto px-6 py-16 border-t border-secondary">
         <div className="flex flex-col lg:flex-row justify-between items-start space-y-12 lg:space-y-0 lg:space-x-16">
           {/* Left Content */}
           <div className="lg:w-2/3 space-y-8">
