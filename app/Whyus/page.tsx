@@ -70,18 +70,18 @@ const Whyus = () => {
       <div className="container mx-auto px-6 py-16">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-12 lg:space-y-0 lg:space-x-24">
           {/* Left Content */}
-          <div className="flex">
-            <p className="text-left text-lg sm:text-xl md:text-2xl text-gray-200 leading-relaxed">
+          <div className="flex-1">
+            <p className="text-left text-lg sm:text-xl md:text-2xl text-gray-200 leading-relaxed text-justify">
               Where Aloo meets the Samosa
-              <br /> <br />
+
               At Cribonix, we're the “Bahubali” of digital marketing—always delivering what your brand needs. With blockbuster strategies, superstar solutions, and a script for success, we make sure your brand hits the spotlight.
-              <br />
+
               Ready for a “Dhoom” of growth? We’ve got your back!
             </p>
           </div>
 
           {/* Right Content: Metrics */}
-          <div className="flex flex-col sm:flex-row justify-between space-y-12 sm:space-y-0 sm:space-x-12">
+          <div className="flex-1 flex flex-col sm:flex-row justify-between space-y-12 sm:space-y-0 sm:space-x-12">
             {/* Metric 1 */}
             <div className="flex flex-col items-center">
               <h2 className="text-3xl sm:text-4xl font-bold text-white text-center">
@@ -123,7 +123,7 @@ const Whyus = () => {
             <h2 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
               Where smart strategies meet creativity, we lift brands to new heights. Discover how knowledge drives our innovative solutions!
             </h2>
-            <p className="text-white text-lg sm:text-xl md:text-2xl leading-relaxed">
+            <p className="text-white text-lg sm:text-xl md:text-2xl leading-relaxed text-justify">
               At Cribonix, we harness knowledge and industry insights to create personalised digital marketing strategies. Our expert team stays ahead of trends and customer behaviours to help brands stand out. From SEO to social media, we craft methods that drive real results, ensuring your brand connects with its audience and grows. Let us turn our expertise into your brand's success!
             </p>
             <Link href="/Portfolio">
@@ -134,13 +134,13 @@ const Whyus = () => {
           </div>
 
           {/* Right Image */}
-          <div className="flex justify-center items-center">
+          <div className="flex-1 flex justify-center items-center">
             <Image
               src={team}
               alt="Team Image"
               width={600}
               height={500}
-              className="object-cover rounded-md shadow-lg flex justify-center items-center"
+              className="object-cover rounded-md shadow-lg max-w-full"
             />
           </div>
         </div>
@@ -181,7 +181,7 @@ const Whyus = () => {
               <button
                 key={index}
                 onClick={() => handleButtonClick(index)}
-                className={`w-12 h-12 sm:w-14 sm:h-14 text-lg sm:text-xl bg-black rounded-full  hover:text-white transition-colors duration-300 focus:outline-none ${
+                className={`w-12 h-12 sm:w-14 sm:h-14 text-lg sm:text-xl bg-black rounded-full hover:text-white transition-colors duration-300 focus:outline-none ${
                   currentImageIndex === index ? "bg-white text-black" : ""
                 }`}
                 aria-label={`Display image ${index + 1}`}
@@ -196,11 +196,11 @@ const Whyus = () => {
       {/* Our Clients Section */}
       <div className="container mx-auto px-6 py-16 border-t border-secondary">
         <div className="flex flex-col lg:flex-row items-start lg:items-start space-y-12 lg:space-y-0 lg:space-x-16">
-          <div className="lg:w-1/2 space-y-6">
+          <div className="flex-1 space-y-6">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
               OUR TRUSTED <br /> CLIENTS
             </h1>
-            <p className="text-lg sm:text-xl text-white leading-relaxed">
+            <p className="text-lg sm:text-xl text-white leading-relaxed text-justify">
               Collaborating with the best to bring their visions to life. From emerging startups to established brands, we’re honoured to be the trusted digital partner that helps them thrive in the modern market.
             </p>
           </div>
@@ -211,11 +211,11 @@ const Whyus = () => {
       <div className="container mx-auto px-6 py-16 border-t border-secondary">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-start space-y-12 lg:space-y-0 lg:space-x-16">
           {/* Left Content */}
-          <div className="lg:w-1/2 space-y-6">
+          <div className="flex-1 space-y-6">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white">
               MEET OUR TEAM
             </h1>
-            <p className="text-lg sm:text-xl text-white leading-relaxed">
+            <p className="text-lg sm:text-xl text-white leading-relaxed text-justify">
               The brains behind the brilliance, the faces behind the flair. Meet the dreamers, creators, and doers shaping Cribonix’s magic.
             </p>
           </div>
@@ -229,7 +229,6 @@ const Whyus = () => {
               ariaLabel="Join Us"
               className="w-full sm:w-48 p-3 flex justify-center items-center hover:text-white hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2]"
             />
-           
           </div>
         </div>
 
@@ -314,7 +313,7 @@ const Whyus = () => {
             alt="Office Background"
             width={1500}
             height={990}
-            className="object-cover rounded-md shadow-lg opacity-80"
+            className="object-cover rounded-md shadow-lg opacity-80 max-w-full"
           />
         </div>
       </div>
@@ -355,7 +354,7 @@ const Whyus = () => {
               alt="Mountain"
               width={530}
               height={550}
-              className="object-cover rounded-md shadow-lg"
+              className="object-cover rounded-md shadow-lg max-w-full"
             />
           </div>
 
