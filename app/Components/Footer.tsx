@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import footerbg from './footerbg.png';
+import footerbg from './images/footerbg.png';
 import { FaArrowAltCircleRight, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
 

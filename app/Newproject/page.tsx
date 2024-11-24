@@ -7,7 +7,7 @@ import {
   useTransform,
   useReducedMotion,
 } from 'framer-motion';
-import office from './Container.png'; // Ensure the path is correct
+import office from './images/Container.png'; // Ensure the path is correct
 import Link from 'next/link';
 
 // Define animation variants for reusability
@@ -77,20 +77,19 @@ export default function Newproject() {
           <motion.h2
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white text-center leading-tight"
             variants={itemVariants}
-          >
+          >Wait for the DHAMAKA!!
             <motion.span
               className="block overflow-hidden"
               variants={textRevealVariants}
             >
-              Launching a revolutionizing website to change the
-              marketing industry
+             
             </motion.span>
             <motion.span
-              className="block mt-4"
+              className="block mt-4 flex-col"
               variants={itemVariants}
             >
-              Wait for the big{' '}
-              <span className="text-[#FF7E5F]">DHAMAKA!!</span>
+              
+              <span className="text-[#FF7E5F]">Coming Soon!!</span>
             </motion.span>
           </motion.h2>
         </motion.div>

@@ -2,24 +2,24 @@
 
 import Image, { StaticImageData } from "next/image";
 import React, { useState, useEffect, useRef, FC } from "react";
-import imgcont from "./Container.png";
+import imgcont from "./images/Container.png";
 import Button from "../Components/Button";
-import team from "./Team.png";
-import mem1 from "./Rectangle 379.png";
-import mem2 from "./Rectangle 380.png";
-import mem3 from "./Rectangle 381.png";
-import mem4 from "./Rectangle 382.png";
-import office from "./Officereal.png";
-import panel1 from "./Tabpanel(2).png";
-import panel2 from "./Tabpanel(1).png";
-import panel3 from "./Tabpanel.png";
-import mountain from "./mountain.png";
-import g1 from "./g1.png";
-import g2 from "./g2.png";
-import g3 from "./g3.png";
-import g4 from "./g4.png";
-import circle from "./circle.svg.png";
-import verified from "./verified.png";
+import team from "./images/Team.png";
+import mem1 from "./images/Rectangle 379.png";
+import mem2 from "./images/Rectangle 380.png";
+import mem3 from "./images/Rectangle 381.png";
+import mem4 from "./images/Rectangle 382.png";
+import office from "./images/Officereal.png";
+import panel1 from "./images/Tabpanel(2).png";
+import panel2 from "./images/Tabpanel(1).png";
+import panel3 from "./images/Tabpanel.png";
+import mountain from "./images/mountain.png";
+import g1 from "./images/g1.png";
+import g2 from "./images/g2.png";
+import g3 from "./images/g3.png";
+import g4 from "./images/g4.png";
+import circle from "./images/circle.svg.png";
+import verified from "./images/verified.png";
 import { FaInstagram } from "react-icons/fa";
 import Link from "next/link";
 
@@ -40,15 +40,15 @@ const Whyus: FC = () => {
   const metrics: Metric[] = [
     {
       title: "Ads Management",
-      value: "+500K",
+      value: "50Cr+",
     },
     {
       title: "Years of Experience",
-      value: "+10",
+      value: "2+",
     },
     {
       title: "Successful Projects",
-      value: "+400",
+      value: "400+",
     },
   ];
 
@@ -230,7 +230,7 @@ const Whyus: FC = () => {
           {/* Left Content */}
           <div className="w-full lg:w-1/2">
             <p className="text-left text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed">
-              <span className="font-semibold">Where Aloo meets the Samosa</span>
+              <span className="font-bold text-3xl p-2 mb-5">’’Where Aloo meets the Samosa’’</span>
 
               <br className="hidden sm:block" />
 

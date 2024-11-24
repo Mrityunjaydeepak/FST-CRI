@@ -7,7 +7,7 @@ import {
   useTransform,
   useReducedMotion,
 } from 'framer-motion';
-import contImg from './Container.png'; // Ensure the path is correct
+import contImg from './images/Container.png'; // Ensure the path is correct
 import Link from 'next/link';
 
 // Define animation variants for reusability
@@ -90,31 +90,31 @@ export default function Portfolio() {
               className="block overflow-hidden"
               variants={textRevealVariants}
             >
-              We don't believe in portfolios.
+              Coming Soon!
             </motion.span>
             <motion.span
               className="block overflow-hidden"
               variants={textRevealVariants}
             >
-              We believe every story is different,
+             
             </motion.span>
             <motion.span
               className="block overflow-hidden"
               variants={textRevealVariants}
             >
-              and every brand's value is unique.
+             
             </motion.span>
             <motion.span
               className="block mt-4"
               variants={itemVariants}
             >
-              Let's discuss and help us understand your vision to create an initial strategy or an art for you.
+              
             </motion.span>
             <motion.span
               className="block mt-2"
               variants={itemVariants}
             >
-              Final decision is yours!
+              
             </motion.span>
           </motion.h2>
         </motion.div>

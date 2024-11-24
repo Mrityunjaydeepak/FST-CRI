@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from 'react';
 import Image from 'next/image';
-import office from './Container.png';
+import office from './images/Container.png';
+import { FaArrowLeft } from "react-icons/fa6";
 
 const Solutions = () => {
   // State to manage the selected card
@@ -255,11 +256,11 @@ const Solutions = () => {
           </h2>
         </div>
       </div>
-        <div className="flex flex-col lg:flex-row justify-between mt-8 items-start space-y-12 lg:space-y-0 lg:space-x-16">
+        <div className="flex flex-col lg:flex-row justify-between mt-8 items-start  lg:space-y-0 lg:space-x-16">
           {/* Left Content */}
-          <div className="lg:w-2/3 space-y-8">
+          <div className="lg:w-2/3 ">
             {/* Problem Heading */}
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-8 ">
               {cardContents[selectedCardIndex].content.problemHeading}
             </h2>
             {/* Problem Description */}
@@ -281,7 +282,7 @@ const Solutions = () => {
               {cardContents[selectedCardIndex].content.processHeading}
             </h2>
             {/* Process List */}
-            <ul className="list-disc list-inside text-white text-lg leading-relaxed space-y-2 mt-4">
+            <ul className="list-disc list-inside text-white text-lg leading-relaxed space-y-2 mt-1">
               {cardContents[selectedCardIndex].content.processList.map(
                 (item, index) => (
                   <li key={index}>{item}</li>
@@ -297,17 +298,19 @@ const Solutions = () => {
             <div className="pointer-events-none absolute bottom-0 left-0 w-full h-8 bg-gradient-to-t from-primary to-transparent z-10"></div>
 
             {/* Scrollable Container */}
-            <div className="overflow-y-auto hide-scrollbar relative z-0" style={{ maxHeight: '80vh' }}>
-              <div className="space-y-4 pr-2">
+            <div className="overflow-y-auto hide-scrollbar z-0" style={{ maxHeight: '80vh' }}>
+              <div className="space-y-4 pr-2 relative">
+                
                 {cardContents.map((card, index) => (
                   <div
-                    key={index}
-                    onClick={() => setSelectedCardIndex(index)}
-                    className={`bg-[#2d2d2d] flex items-center justify-center rounded-lg h-24 sm:h-28 cursor-pointer p-4 ${
-                      selectedCardIndex === index ? 'border-2 border-white' : ''
-                    }`}
+                  key={index}
+                  onClick={() => setSelectedCardIndex(index)}
+                  className={`bg-[#2d2d2d] flex items-center justify-center rounded-lg h-24 sm:h-28 cursor-pointer p-4 ${
+                    selectedCardIndex === index ? 'border-2 border-white' : ''
+                  }`}
                   >
-                    <h1 className="text-white text-center text-xl sm:text-2xl font-bold">
+                    <h1 className="text-white text-center flex flex-row justify-center text-xl sm:text-2xl font-bold">
+                  <div className=''> <FaArrowLeft className='text-[#A0A0A0] absolute  mr-4 top-1 left-1' /></div>
                       {card.title}
                     </h1>
                   </div>

@@ -67,13 +67,13 @@ const Homei: React.FC = () => {
     <>
       <div
         ref={containerRef}
-        className="relative flex flex-col justify-center items-center min-h-screen w-full bg-black overflow-hidden"
+        className="relative flex flex-col md:mt-16 mt-32 items-center min-h-screen w-full px-4 bg-black overflow-hidden"
       >
         {/* Background Text with Dynamic Scaling */}
         <div
           className={`${inter.className} absolute text-[4rem] sm:text-[3rem] md:text-[9rem] lg:text-[11rem] xl:text-[13rem] text-transparent bg-clip-text bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] font-bold text-center`}
           style={{
-            top: '50%',
+            top: '28%',
             left: '50%',
             transform: `translate(-50%, -50%) scale(${scale})`,
             transition: 'transform 0.6s ease-out', // Increased transition duration for smoother effect
@@ -93,10 +93,10 @@ const Homei: React.FC = () => {
           }}
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white font-bold">
-            .Your Story
+            Your Story
           </h1>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white font-bold">
-            Our Influence.
+            Our Influence
           </h1>
           <div className="flex flex-col items-center space-y-2 mt-6">
             <p className="text-white text-base sm:text-lg md:text-xl max-w-2xl">
@@ -115,7 +115,7 @@ const Homei: React.FC = () => {
               </Link>
               <Link href="/Portfolio">
                 <button
-                  className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-8 hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] hover:text-white transition duration-300 w-52 line-through"
+                  className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-8 hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] hover:text-white transition duration-300 w-52"
                   aria-label="View Portfolio"
                 >
                   View Portfolio

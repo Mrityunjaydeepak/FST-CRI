@@ -5,15 +5,15 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import emailjs from 'emailjs-com';
 import Image from 'next/image';
-import mapimg from './map.png'; // Ensure these paths are correct
-import office from "./Officereal.png";
-import g1 from "./g1.png";
-import g2 from "./g2.png";
-import g3 from "./g3.png";
-import g4 from "./g4.png";
-import circle from "./circle.svg.png";
-import mountain from "./mountain.png";
-import verified from "./verified.png";
+import mapimg from './images/map.png'; // Ensure these paths are correct
+import office from "./images/Officereal.png";
+import g1 from "./images/g1.png";
+import g2 from "./images/g2.png";
+import g3 from "./images/g3.png";
+import g4 from "./images/g4.png";
+import circle from "./images/circle.svg.png";
+import mountain from "./images/mountain.png";
+import verified from "./images/verified.png";
 import { FaInstagram } from "react-icons/fa";
 import Link from "next/link";
 

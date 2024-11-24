@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import logo from "./Logo.png";
+import logo from "./images/logo.png";
 import { FaBars, FaTimes } from 'react-icons/fa'; // Import hamburger icons
 
 function Navbar() {
@@ -36,8 +36,8 @@ function Navbar() {
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div>
-          <Link href="/Home" className="flex items-center">
-            <Image src={logo} alt='logo' width={100} height={100} />
+          <Link href="/Home" className="flex items-center justify-center">
+            <Image src={logo} alt='logo' width={150} height={100} />
           </Link>
         </div>
 

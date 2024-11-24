@@ -1,13 +1,16 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect,  useRef } from 'react';
 import KeenSlider from 'keen-slider';
 import 'keen-slider/keen-slider.min.css';
 import Card from '../Components/Card';
 import { motion, useAnimation } from 'framer-motion';
 import Link from 'next/link';
 
+
 interface Cribonix {
+  tagline: string,
+  number:string,
   subheading?: string;
   description: string;
   height?: string;
@@ -20,29 +23,37 @@ const Hero: React.FC = () => {
   const cribonix: Cribonix[] = [
     {
       subheading: 'CUSTOMER FIRST',
+      tagline:'Customer hi Bhagwaan Hai!',
+      number:'01',
       description:
-        "Customer hi Bhagwaan Hai! We prioritize our customers' needs and preferences, ensuring that every decision we make is driven by their satisfaction and loyalty.",
-      height: 'h-64',
+        " We prioritize our customers' needs and preferences, ensuring that every decision we make is driven by their satisfaction and loyalty.",
+      height: 'h-74',
       width: 'w-full',
     },
     {
       subheading: 'COLLABORATIVE COMMUNICATION',
+      tagline:'Hum Saath Saath Hai!',
+      number:'02',
       description:
-        'Hum Saath Saath Hai! We believe in open and transparent communication, fostering collaboration among teams and clients to achieve common goals effectively.',
-      height: 'h-64',
+        ' We believe in open and transparent communication, fostering collaboration among teams and clients to achieve common goals effectively.',
+      height: 'h-74',
       width: 'w-full',
     },
     {
       subheading: 'CREATIVE EXCELLENCE',
+      tagline:'Yeh Apun ka Style Hai!',
+      number:'03',
       description:
-        'Yeh Apun ka Style Hai! Our approach focuses on creativity, providing innovative solutions that engage audiences and enhance brand storytelling.',
+        ' Our approach focuses on creativity, providing innovative solutions that engage audiences and enhance brand storytelling.',
       height: 'h-64',
       width: 'w-full',
     },
     {
       subheading: 'COST VALUATION',
+      tagline:'Ab Hoga Sabse Bada Rupaiya!',
+      number:'04',
       description:
-        'Ab Hoga Sabse Bada Rupaiya! We regularly review and adjust costs to ensure our strategies provide great value and support your business goals.',
+        ' We regularly review and adjust costs to ensure our strategies provide great value and support your business goals.',
       height: 'h-64',
       width: 'w-full',
     },
@@ -135,7 +146,7 @@ const Hero: React.FC = () => {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
@@ -159,19 +170,25 @@ const Hero: React.FC = () => {
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.4 },
+      transition: { delay: i * 0.1 },
     }),
   };
 
   return (
     <div className="bg-[#040404]">
       {/* Our Story Section */}
-      <div className="container mx-auto px-6 py-16">
+      <div className="container flex flex-col justify-center items-center mx-auto px-6 py-16">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-12 lg:space-y-0 lg:space-x-12 border-t border-secondary pt-12">
           {/* Our Story Heading */}
           <div className="flex flex-col space-y-6 lg:w-1/3">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-              The Art of<br /> Digital <br /> Marketing
+              The Art of
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#009DD1] to-[#bf3fd2]">
+                <br /> Digital <br />
+              </span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] ">
+                Marketing
+              </span>
             </h1>
             <Link href="/Contact">
               <button className="border border-secondary rounded-full px-6 py-3 text-white hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] transition">
@@ -195,10 +212,10 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-6 py-16 border-t border-secondary">
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white">
-            4 C's of Marketing
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#039CD4] to-[#c43ddd]">4 C's </span> of Marketing
           </h1>
           <h2 className="mt-4 text-xl sm:text-2xl text-white">
-            Unlocking New-Age Marketing: The 4 Pillars of Digital Success by Cribonix
+            Unlocking New-Age Marketing: The 4 Pillars of <br /> Digital Success by Cribonix
           </h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -207,7 +224,9 @@ const Hero: React.FC = () => {
               key={index}
               height={item.height}
               width={item.width}
+              number={item.number}
               subheading={item.subheading}
+              tagline={item.tagline}
               description={item.description}
             />
           ))}
@@ -226,7 +245,7 @@ const Hero: React.FC = () => {
           {/* Section Header */}
           <div className="text-center mb-12">
             <h2 className="text-4xl sm:text-5xl font-bold text-white">
-              Problems
+              PROBLEMS
             </h2>
             <p className="mt-4 text-white max-w-2xl mx-auto text-lg">
               The digital realm is full of unwanted and unique problems, but hey! Cribonix turns them into growth opportunities with its smart and creative solutions.
@@ -234,16 +253,16 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Problems Grid */}
-          <div className="grid gap-8 sm:grid-cols-2  lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {problems.map((problem, index) => (
               <motion.div
                 key={index}
                 custom={index}
                 variants={problemVariants}
-                className="bg-secondary rounded-lg shadow-md p-6   hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] transition duration-300"
+                className="bg-secondary rounded-lg shadow-md p-6 hover:bg-gradient-to-r from-[#a0a0a0] to-gray-950 transition duration-100"
               >
                 <Link href="/Solutions">
-                  <h3 className="text-xl font-semibold   hover:scale-105 cursor-pointer text-white text-center">
+                  <h3 className="text-xl font-semibold hover:scale-105 cursor-pointer text-white text-center">
                     {problem}
                   </h3>
                 </Link>
@@ -258,8 +277,8 @@ const Hero: React.FC = () => {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-12 lg:space-y-0 lg:space-x-12">
           {/* Text Content */}
           <div className="lg:w-1/2 space-y-6">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl text-white leading-tight">
-              Building Strategies <br /> and Crafting <span className="text-[#A0A0A0]">Effective <br /> Ideas for Lasting Impressions</span>
+            <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-5xl text-white leading-tight">
+              Building Strategies <br /> and Crafting <span className="">Effective <br /> Ideas for Lasting Impressions</span>
             </h1>
           </div>
 
@@ -269,7 +288,7 @@ const Hero: React.FC = () => {
               <h2 className="text-white text-2xl">
                 <span className="text-[#009DD1] mr-2">|</span> Data-Driven Results
               </h2>
-              <p className="text-gray-400 text leading-relaxed">
+              <p className="text-gray-400 text-base leading-relaxed">
                 We provide clear, actionable insights from every campaign to ensure measurable growth and success.
               </p>
             </div>
@@ -277,7 +296,7 @@ const Hero: React.FC = () => {
               <h2 className="text-white text-2xl">
                 <span className="text-[#009DD1] mr-2">|</span> Fast, Result-Driven Execution
               </h2>
-              <p className="text-gray-400 text leading-relaxed">
+              <p className="text-gray-400 text-base leading-relaxed">
                 With our agile approach, we deliver high-impact solutions and measurable results in record time.
               </p>
             </div>
@@ -287,29 +306,29 @@ const Hero: React.FC = () => {
 
       {/* Statistics Section */}
       <div className="container mx-auto px-6 py-4">
-        <div className="flex flex-col sm:flex-row justify-between items-center space-y-8 sm:space-y-0 sm:space-x-8">
+        <div className="flex flex-col sm:flex-row justify-center items-center space-y-8 sm:space-y-0 sm:space-x-8">
           {/* Statistic Item */}
-          <div className="text-center">
-            <h1 className="text-5xl sm:text-6xl font-bold text-white">50,000K+</h1>
+          <div className="text-center px-20">
+            <h1 className="text-5xl sm:text-6xl font-bold text-white">50Cr+</h1>
             <p className="text-xl sm:text-2xl text-gray-300 mt-2">Spent on Ads</p>
           </div>
           {/* Statistic Item */}
-          <div className="text-center">
+          <div className="text-center px-20">
             <h1 className="text-5xl sm:text-6xl font-bold text-white">5,000+</h1>
             <p className="text-xl sm:text-2xl text-gray-300 mt-2">Projects Onboarded</p>
           </div>
           {/* Statistic Item */}
-          <div className="text-center">
-            <h1 className="text-5xl sm:text-6xl font-bold text-white">500+</h1>
+          <div className="text-center px-20">
+            <h1 className="text-5xl sm:text-6xl font-bold text-white">4x</h1>
             <p className="text-xl sm:text-2xl text-gray-300 mt-2">
-              Delivering an average<br /> 4x ROI for brands
+              Avg ROI for brands
             </p>
           </div>
         </div>
       </div>
 
       {/* Testimonials Section */}
-      <section className="bg-primary border-t border-secondary py-16 ">
+      <section className="bg-primary border-t border-secondary py-16">
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
             {/* Testimonials Heading */}
@@ -373,7 +392,7 @@ const Hero: React.FC = () => {
                 <div className="keen-slider__slide">
                   <blockquote className="flex flex-col justify-between bg-[#040404] p-8 sm:p-10 lg:p-12 h-full rounded-lg">
                     <div>
-                      <div className="flex gap-1 text-[#009DD1]">
+                      <div className="flex gap-1 text-[#FFD700]">
                         {/* Stars */}
                         {[...Array(5)].map((_, i) => (
                           <svg
@@ -404,7 +423,7 @@ const Hero: React.FC = () => {
                 <div className="keen-slider__slide">
                   <blockquote className="flex flex-col justify-between bg-[#040404] p-8 sm:p-10 lg:p-12 h-full rounded-lg">
                     <div>
-                      <div className="flex gap-1 text-[#009DD1]">
+                      <div className="flex gap-1 text-[#FFD700]">
                         {/* Stars */}
                         {[...Array(5)].map((_, i) => (
                           <svg

@@ -2,13 +2,13 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import office from "./Container.png";
-import service1 from "./service1.png";
-import service2 from "./service2.png";
-import service3 from "./service3.png";
-import service4 from "./service4.png";
-import service5 from "./service5.png";
-import service6 from "./service6.png";
+import office from "./images/Container.png";
+import service1 from "./images/service1.png";
+import service2 from "./images/service2.png";
+import service3 from "./images/service3.png";
+import service4 from "./images/service4.png";
+import service5 from "./images/service5.png";
+import service6 from "./images/service6.png";
 import Link from "next/link";
 
 const Services = () => {
@@ -39,15 +39,14 @@ const Services = () => {
         {/* Overlay Content */}
         <div className="absolute inset-0 flex flex-col justify-center items-start px-6 md:px-16">
           <h2 className="text-2xl sm:text-6xl md:text-7xl lg:text-9xl font-bold text-white leading-tight">
-            BLOCKBUSTER STRATEGIES FOR{" "}
-            <span className="block">YOUR BRAND</span>
+            BLOCKBUSTER STRATEGIES 
           </h2>
-        </div>
-      </div>
         <h1 className="text-lg flex justify-center mt-6 sm:text-xl md:text-2xl font-bold text-white">
           From script to screen, we provide the tools and strategies that turn
           your brand into a digital sensation.
         </h1>
+        </div>
+      </div>
       </div>
 
       {/* Services Section */}
@@ -57,11 +56,11 @@ const Services = () => {
         </h1>
 
         {/* Services List */}
-        <div className="grid grid-cols-1 gap-12">
+        <div className="grid grid-cols-1 gap-12 duration-300">
           {/* Service 1 */}
           <div
             className="flex flex-col"
-            onMouseEnter={() => setShowService1(true)}
+            onMouseEnter={() => setShowService1(true) }
             onMouseLeave={() => setShowService1(false)}
           >
             <Image
@@ -129,7 +128,7 @@ const Services = () => {
 
           {/* Service 2 */}
           <div
-            className="flex flex-col"
+            className="flex flex-col duration-300"
             onMouseEnter={() => setShowService2(true)}
             onMouseLeave={() => setShowService2(false)}
           >
@@ -198,7 +197,7 @@ const Services = () => {
 
           {/* Service 3 */}
           <div
-            className="flex flex-col"
+            className="flex flex-col duration-300"
             onMouseEnter={() => setShowService3(true)}
             onMouseLeave={() => setShowService3(false)}
           >
@@ -264,7 +263,7 @@ const Services = () => {
 
           {/* Service 4 */}
           <div
-            className="flex flex-col"
+            className="flex flex-col duration-300"
             onMouseEnter={() => setShowService4(true)}
             onMouseLeave={() => setShowService4(false)}
           >
@@ -333,7 +332,7 @@ const Services = () => {
 
           {/* Service 5 */}
           <div
-            className="flex flex-col"
+            className="flex flex-col duration-300"
             onMouseEnter={() => setShowService5(true)}
             onMouseLeave={() => setShowService5(false)}
           >
@@ -402,7 +401,7 @@ const Services = () => {
 
           {/* Service 6 */}
           <div
-            className="flex flex-col"
+            className="flex flex-col duration-300"
             onMouseEnter={() => setShowService6(true)}
             onMouseLeave={() => setShowService6(false)}
           >
