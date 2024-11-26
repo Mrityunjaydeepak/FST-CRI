@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import bloging from "./images/container.png";
+import bloging from "./images/container.jpeg";
 
 const BlogEight: React.FC = () => {
   return (
