@@ -1,12 +1,12 @@
 // components/Card.tsx
 import React from 'react';
 import Image from 'next/image';
-import { TbPoint } from "react-icons/tb";
-import { FaHandshake } from "react-icons/fa6";
+
 
 interface CardProps {
   height?: string;         // Tailwind CSS height classes, e.g., "h-64"
-  width?: string;          // Tailwind CSS width classes, e.g., "w-80"
+  width?: string;  
+  heading?: string;        // Tailwind CSS width classes, e.g., "w-80"
   tagline?: string;        // Optional tagline or subtitle
   number: string;          // Number to display (e.g., "50Cr+")
   subheading?: string;     // Optional subheading or subtitle
@@ -18,6 +18,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({
   height = "h-auto",
   width = "w-full",
+  heading= "CRIBONIX",
   subheading = "",
   tagline,
   number,
@@ -27,10 +28,10 @@ const Card: React.FC<CardProps> = ({
 }) => {
   // Function to render the subheading with a gradient first letter
   const renderSubheading = () => {
-    if (!subheading) return null;
+    if (!heading) return null;
 
-    const firstLetter = subheading.charAt(0).toUpperCase();
-    const remainingText = subheading.slice(1);
+    const firstLetter = heading.charAt(0).toUpperCase();
+    const remainingText = heading.slice(1);
 
     return (
       <div className="flex flex-col w-full">
@@ -41,7 +42,7 @@ const Card: React.FC<CardProps> = ({
             {firstLetter}
           </span>
           {/* Remaining Text */}
-          <span className="font-semibold  text-gray-300 text-4xl -ml-0.5">
+          <span className="font-semibold  text-white/30 text-4xl -ml-0.5">
             {remainingText}
           </span>
         </h4>
@@ -52,6 +53,10 @@ const Card: React.FC<CardProps> = ({
             {number}
           </span>
         </div>
+
+        <span className="font-semibold  text-white text-4xl mt-2 ">
+            {subheading}
+          </span>
 
         {/* Tagline Below the Number */}
         {tagline && (

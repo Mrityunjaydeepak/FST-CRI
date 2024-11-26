@@ -18,7 +18,9 @@ function Navbar() {
     { name: 'Services', href: '/Services' },
     { name: 'Solutions', href: '/Solutions' },
     { name: 'Portfolio', href: '/Portfolio' },
+    { name: 'Blogs', href: '/Blogs' },
     { name: 'New Project', href: '/Newproject' },
+    
   ];
 
   // Function to toggle mobile menu
@@ -59,7 +61,7 @@ function Navbar() {
         {/* Contact Us Button */}
         <div className="hidden md:block">
           <Link href="/Contact" className="inline-block">
-            <span className='text-white px-6 py-3 border border-[#383838] rounded-full hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2]  hover:text-white transition cursor-pointer'>
+            <span className='text-white px-6 py-3 border border-[#383838] rounded-full bg-gradient-to-r from-[#009DD1] to-[#bf3fd2]  hover:text-white transition cursor-pointer'>
               Contact Us
             </span>
           </Link>

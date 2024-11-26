@@ -6,9 +6,14 @@ import 'keen-slider/keen-slider.min.css';
 import Card from '../Components/Card';
 import { motion, useAnimation } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
+import image4C from './images/✦ Nubeer.png'
+import problemImg from './images/problem.png'
+
 
 
 interface Cribonix {
+  heading:string,
   tagline: string,
   number:string,
   subheading?: string;
@@ -22,6 +27,7 @@ interface Cribonix {
 const Hero: React.FC = () => {
   const cribonix: Cribonix[] = [
     {
+      heading:'CRIBONIX',
       subheading: 'CUSTOMER FIRST',
       tagline:'Customer hi Bhagwaan Hai!',
       number:'01',
@@ -31,6 +37,7 @@ const Hero: React.FC = () => {
       width: 'w-full',
     },
     {
+      heading:'CRIBONIX',
       subheading: 'COLLABORATIVE COMMUNICATION',
       tagline:'Hum Saath Saath Hai!',
       number:'02',
@@ -40,21 +47,23 @@ const Hero: React.FC = () => {
       width: 'w-full',
     },
     {
+      heading:'CRIBONIX',
       subheading: 'CREATIVE EXCELLENCE',
       tagline:'Yeh Apun ka Style Hai!',
       number:'03',
       description:
         ' Our approach focuses on creativity, providing innovative solutions that engage audiences and enhance brand storytelling.',
-      height: 'h-64',
+      height: 'h-74',
       width: 'w-full',
     },
     {
+      heading:'CRIBONIX',
       subheading: 'COST VALUATION',
       tagline:'Ab Hoga Sabse Bada Rupaiya!',
       number:'04',
       description:
         ' We regularly review and adjust costs to ensure our strategies provide great value and support your business goals.',
-      height: 'h-64',
+      height: 'h-74',
       width: 'w-full',
     },
   ];
@@ -210,14 +219,37 @@ const Hero: React.FC = () => {
 
       {/* 4 Cs of Cribonix */}
       <div className="container mx-auto px-6 py-16 border-t border-secondary">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#039CD4] to-[#c43ddd]">4 C's </span> of Marketing
-          </h1>
-          <h2 className="mt-4 text-xl sm:text-2xl text-white">
-            Unlocking New-Age Marketing: The 4 Pillars of <br /> Digital Success by Cribonix
-          </h2>
-        </div>
+  <div className="flex justify-between items-center mb-12">
+    {/* Placeholder for symmetry */}
+    <div className="flex-1"></div> 
+
+    {/* Heading */}
+    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white text-center">
+      <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#039CD4] to-[#c43ddd]">
+        4 C's
+      </span>{' '}
+      of Marketing
+    </h1>
+
+    {/* Image */}
+    <div className="relative w-24 h-44 ml-4 flex-1 flex justify-end">
+      <Image
+        src={image4C} // Replace with your image
+        alt="Marketing Icon"
+        layout="fill"
+        objectFit="contain"
+        
+      />
+    </div>
+  </div>
+
+  {/* Subtitle */}
+  <h2 className="mt-4 text-xl sm:text-2xl text-white text-center">
+    Unlocking New-Age Marketing: The 4 Pillars of <br /> Digital Success by Cribonix
+  </h2>
+
+
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {cribonix.map((item, index) => (
             <Card
@@ -235,74 +267,105 @@ const Hero: React.FC = () => {
 
       {/* Problems Section */}
       <motion.section
-        ref={sectionRef}
-        variants={sectionVariants}
-        initial="hidden"
-        animate={controlsProblems}
-        className="py-16 bg-primary border-t border-secondary"
-      >
-        <div className="container mx-auto px-6">
-          {/* Section Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-4xl sm:text-5xl font-bold text-white">
-              PROBLEMS
-            </h2>
-            <p className="mt-4 text-white max-w-2xl mx-auto text-lg">
-              The digital realm is full of unwanted and unique problems, but hey! Cribonix turns them into growth opportunities with its smart and creative solutions.
-            </p>
-          </div>
+  ref={sectionRef}
+  variants={sectionVariants}
+  initial="hidden"
+  animate={controlsProblems}
+  className="py-16 bg-primary border-t border-secondary"
+>
+  <div className="container mx-auto px-6">
+    {/* Section Header */}
+    <div className="text-center mb-12">
+      <h2 className="text-4xl sm:text-5xl font-bold text-white">
+        PROBLEMS
+      </h2>
+      <p className="mt-4 text-white max-w-2xl mx-auto text-lg">
+        The digital realm is full of unwanted and unique problems, but hey! Cribonix turns them into growth opportunities with its smart and creative solutions.
+      </p>
+    </div>
 
-          {/* Problems Grid */}
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {problems.map((problem, index) => (
-              <motion.div
-                key={index}
-                custom={index}
-                variants={problemVariants}
-                className="bg-secondary rounded-lg shadow-md p-6 hover:bg-gradient-to-r from-[#a0a0a0] to-gray-950 transition duration-100"
-              >
-                <Link href="/Solutions">
-                  <h3 className="text-xl font-semibold hover:scale-105 cursor-pointer text-white text-center">
-                    {problem}
-                  </h3>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
+    {/* Problems Grid */}
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-screen-md">
+  {problems.map((problem, index) => (
+    <motion.div
+      key={index}
+      custom={index}
+      variants={problemVariants}
+      className="bg-[#222222] rounded-lg shadow-md transition duration-100 flex flex-col items-center justify-between w-40 h-40 p-4 overflow-hidden"
+    >
+      {/* Image */}
+      <div className="flex items-center justify-center w-24 h-24">
+        <Image
+          src={problemImg} // Replace with your image path
+          alt={`Problem ${index + 1}`}
+          width={80}
+          height={80}
+          className="object-contain"
+        />
+      </div>
+
+      {/* Text Content */}
+      <Link href="/Solutions">
+        <h3 className="text-white text-sm font-thin text-center overflow-hidden text-ellipsis">
+          {problem}
+        </h3>
+      </Link>
+    </motion.div>
+  ))}
+</div>
+
+
+  </div>
+</motion.section>
+
 
       {/* Extended Services Section */}
-      <div className="container mx-auto px-6 py-16 border-t border-secondary">
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-12 lg:space-y-0 lg:space-x-12">
-          {/* Text Content */}
-          <div className="lg:w-1/2 space-y-6">
-            <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-5xl text-white leading-tight">
-              Building Strategies <br /> and Crafting <span className="">Effective <br /> Ideas for Lasting Impressions</span>
-            </h1>
-          </div>
+      <div className="container mx-auto px-6 py-16 border-t border-secondary relative">
+  {/* Background Image */}
+  <div className="absolute left-0 -top-10 lg:left-[-100px] opacity-30 z-0 w-64 h-64">
+    <Image
+      src={image4C} // Replace with your image
+      alt="Decorative Background"
+      layout="fill"
+      objectFit="contain"
+      className=""
+    />
+  </div>
 
-          {/* Features */}
-          <div className="lg:w-1/2 space-y-8">
-            <div className="space-y-2">
-              <h2 className="text-white text-2xl">
-                <span className="text-[#009DD1] mr-2">|</span> Data-Driven Results
-              </h2>
-              <p className="text-gray-400 text-base leading-relaxed">
-                We provide clear, actionable insights from every campaign to ensure measurable growth and success.
-              </p>
-            </div>
-            <div className="space-y-2">
-              <h2 className="text-white text-2xl">
-                <span className="text-[#009DD1] mr-2">|</span> Fast, Result-Driven Execution
-              </h2>
-              <p className="text-gray-400 text-base leading-relaxed">
-                With our agile approach, we deliver high-impact solutions and measurable results in record time.
-              </p>
-            </div>
-          </div>
+  {/* Content */}
+  <div className="relative z-10">
+    <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-12 lg:space-y-0 lg:space-x-12">
+      {/* Text Content */}
+      <div className="lg:w-1/2 space-y-6">
+        <h1 className="text-4xl font sm:text-5xl md:text-6xl lg:text-5xl text-white leading-tight">
+          Building Strategies <br /> and Crafting{' '}
+          <span className="text-white/50">Effective <br /> Ideas for Lasting Impressions</span>
+        </h1>
+      </div>
+
+      {/* Features */}
+      <div className="lg:w-1/2 space-y-8">
+        <div className="space-y-2">
+          <h2 className="text-white text-2xl">
+            <span className="text-[#009DD1] mr-2">|</span> Data-Driven Results
+          </h2>
+          <p className="text-gray-400 text-base leading-relaxed">
+            We provide clear, actionable insights from every campaign to ensure measurable growth and success.
+          </p>
+        </div>
+        <div className="space-y-2">
+          <h2 className="text-white text-2xl">
+            <span className="text-[#009DD1] mr-2">|</span> Fast, Result-Driven Execution
+          </h2>
+          <p className="text-gray-400 text-base leading-relaxed">
+            With our agile approach, we deliver high-impact solutions and measurable results in record time.
+          </p>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
 
       {/* Statistics Section */}
       <div className="container mx-auto px-6 py-4">
@@ -502,6 +565,9 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </section>
+
+
+      
     </div>
   );
 };
