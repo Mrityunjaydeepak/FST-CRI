@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import bloging from "./images/apple-launch.jpg"; // Example image for Apple product launch
+import bloging from "./images/container.jpg"; // Example image for Apple product launch
 
 const BlogTen: React.FC = () => {
   return (

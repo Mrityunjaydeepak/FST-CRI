@@ -49,7 +49,7 @@ const BlogEight: React.FC = () => {
           </ul>
         </p>
 
-        <h1 className="font-bold text-xl sm:text-2xl pt-2">Case Study: Nike’s "Just Do It" Campaign</h1>
+        <h1 className="font-bold   text-xl sm:text-2xl pt-2">Case Study: Nike’s "Just Do It" Campaign</h1>
 
         <p className="text-xs sm:text-sm lg:text-base leading-relaxed text-justify">
           Nike’s “Just Do It” campaign is one of the most iconic examples of emotional marketing. The slogan, paired with stories of athletes overcoming challenges, taps into emotions like determination, perseverance, and inspiration. Nike doesn't just sell shoes; it sells the idea of empowerment and achievement.
