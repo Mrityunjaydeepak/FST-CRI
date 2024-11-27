@@ -11,6 +11,9 @@ import imgSeven from './images/BlogSeven.png'
 import imgEight from './images/BlogEight.png'
 import imgNine from './images/BlogNine.jpeg'
 import imgTen from './images/BlogTen.jpg'
+import Image from 'next/image';
+import head from './images/head.jpg'
+
 // Sample data
 const blogPosts = [
   {
@@ -98,19 +101,46 @@ const blogPosts = [
 
 const Blogs: React.FC = () => {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">Latest Blog Posts</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {blogPosts.map((post) => (
-          <BlogCard
-            key={post.id}
-            title={post.title}
-            description={post.description}
-            imageUrl={post.imageUrl}
-            link={post.link}
-          />
-        ))}
+    <div className="bg-[#040404] scroll-smooth">
+
+
+
+
+    <div className="container mx-auto px-4 py-8 flex flex-col">
+      {/* Header Image Section */}
+      <div className="relative w-full ">
+        <Image
+          src={head}
+          alt="Office Background Image"
+          layout="responsive"
+          width={400}
+          height={100}
+          className="object-cover opacity-50"
+        />
+
+        {/* Overlay Content */}
+        <div className="absolute inset-0 flex flex-col justify-center items-start px-4 sm:px-6 lg:px-16 z-100">
+          <h2 className="text-4xl sm:text-4xl md:text-3xl lg:text-9xl font-bold text-white leading-tight">
+            Blogs
+          </h2>
+        </div>
       </div>
+
+      {/* Content Section */}
+      <div className="mt-32 flex"> {/* Added margin-top to create space below the image */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {blogPosts.map((post) => (
+            <BlogCard
+              key={post.id}
+              title={post.title}
+              description={post.description}
+              imageUrl={post.imageUrl}
+              link={post.link}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
     </div>
   );
 };
