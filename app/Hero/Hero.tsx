@@ -4,11 +4,16 @@ import React, { useEffect,  useRef } from 'react';
 import KeenSlider from 'keen-slider';
 import 'keen-slider/keen-slider.min.css';
 import Card from '../Components/Card';
+import BlogCard from '../Components/BlogCard';
+import imgOne from './images/66edba4c724f61b2a4dd3418_blog-image-6.webp.png'
+import imgTwo from './images/listening skills.png'
+import imgThree from './images/feynman.png'
 import { motion, useAnimation } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import image4C from './images/✦ Nubeer.png'
-import problemImg from './images/problem.png'
+
+
 
 
 
@@ -25,6 +30,33 @@ interface Cribonix {
 }
 
 const Hero: React.FC = () => {
+
+
+  const blogPosts = [
+    {
+      id: 1,
+      title: ' Why is System Thinking Crucial in Digital Marketing?',
+      description:
+        'Digital marketing isn’t just about individual tactics—it’s about how all these elements work together to achieve success.',
+      imageUrl: imgOne,
+      link: '/BlogOne',
+    },
+    {
+      id: 2,
+      title: ' How Can Design Thinking Revolutionize Digital Campaigns?',
+      description:
+        'Design thinking is about putting people at the center of your strategy. It’s not just about creating a campaign; it’s about solving problems creatively with empathy..',
+      imageUrl: imgTwo,
+      link: '/BlogTwo',
+    },
+    {
+      id: 3,
+      title: ' What Can Digital Marketers Learn from the Feynman Theory?',
+      description:
+        'Clear communication is often the most overlooked aspect of marketing. The Feynman Theory—explaining complex ideas in simple terms—can make your campaigns more effective.',
+      imageUrl: imgThree,
+      link: '/BlogThree',
+    },]
   const cribonix: Cribonix[] = [
     {
       heading:'CRIBONIX',
@@ -285,38 +317,46 @@ const Hero: React.FC = () => {
     </div>
 
     {/* Problems Grid */}
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-screen-md">
-  {problems.map((problem, index) => (
-    <motion.div
-      key={index}
-      custom={index}
-      variants={problemVariants}
-      className="bg-[#222222] rounded-lg shadow-md transition duration-100 flex flex-col items-center justify-between w-40 h-40 p-4 overflow-hidden"
-    >
-      {/* Image */}
-      <div className="flex items-center justify-center w-24 h-24">
-        <Image
-          src={problemImg} // Replace with your image path
-          alt={`Problem ${index + 1}`}
-          width={80}
-          height={80}
-          className="object-contain"
-        />
-      </div>
+    <div className="grid gap-6 sm:grid-cols-1 sm:items-center sm:justify-center lg:grid-cols-4 md:grid-cols-2 xl:grid-cols-4 mx-auto max-w-screen-md">
+      {problems.map((problem, index) => (
+        <motion.div
+          key={index}
+          custom={index}
+          variants={problemVariants}
+          className="bg-primary hover:bg-secondary cursor-pointer rounded-lg shadow-md transition duration-100 flex flex-col items-center justify-between w-full sm:w-72 md:w-80 lg:w-44 h-56 p-6 overflow-hidden relative group" // Responsive sizes for width and height
+        >
+          {/* Text Content */}
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <h3 className="text-white text-lg sm:text-xl font-bold text-center overflow-hidden text-ellipsis">
+              {problem}
+            </h3>
+          </div>
 
-      {/* Text Content */}
-      <Link href="/Solutions">
-        <h3 className="text-white text-sm font-thin text-center overflow-hidden text-ellipsis">
-          {problem}
-        </h3>
-      </Link>
-    </motion.div>
-  ))}
-</div>
-
-
+          {/* SVG Arrow positioned at the bottom-right corner, only visible on hover */}
+          <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border rounded-full rotate-90 p-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-8 h-8 rotate-90" // Increased size here (w-8, h-8)
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 19.5L8.25 12l7.5-7.5"
+              />
+            </svg>
+          </div>
+        </motion.div>
+      ))}
+    </div>
   </div>
 </motion.section>
+
+
+
 
 
       {/* Extended Services Section */}
@@ -368,7 +408,7 @@ const Hero: React.FC = () => {
 
 
       {/* Statistics Section */}
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-6 py-4 mb-12">
         <div className="flex flex-col sm:flex-row justify-center items-center space-y-8 sm:space-y-0 sm:space-x-8">
           {/* Statistic Item */}
           <div className="text-center px-20">
@@ -526,18 +566,19 @@ const Hero: React.FC = () => {
               >
                 {/* Previous Icon */}
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6 -rotate-180"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 19.5L8.25 12l7.5-7.5"
-                  />
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 19.5L8.25 12l7.5-7.5"
+                    />
+                  
                 </svg>
               </button>
               <button
@@ -564,6 +605,34 @@ const Hero: React.FC = () => {
             </div>
           </div>
         </div>
+      </section>
+      <section className="bg-primary border-t border-secondary py-16">
+      <div className="container mx-auto px-4 py-8">
+        <div className='flex justify-between items-center mb-8'>
+
+      <h1 className="text-4xl font-bold mb-6 ">Blogs</h1>
+      <Link href="/Blogs">
+                <button
+                  className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-8 hover:bg-white hover:text-black transition duration-300 w-40"
+                  aria-label="View Portfolio"
+                >
+                 View all
+                </button>
+                </Link>
+        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {blogPosts.map((post) => (
+          <BlogCard
+            key={post.id}
+            title={post.title}
+            description={post.description}
+            imageUrl={post.imageUrl}
+            link={post.link}
+          />
+        ))}
+      </div>
+    </div>
+
       </section>
 
 

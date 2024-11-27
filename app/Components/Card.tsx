@@ -1,7 +1,5 @@
-// components/Card.tsx
 import React from 'react';
 import Image from 'next/image';
-
 
 interface CardProps {
   height?: string;         // Tailwind CSS height classes, e.g., "h-64"
@@ -18,7 +16,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({
   height = "h-auto",
   width = "w-full",
-  heading= "CRIBONIX",
+  heading = "CRIBONIX",
   subheading = "",
   tagline,
   number,
@@ -38,11 +36,11 @@ const Card: React.FC<CardProps> = ({
         {/* Subheading with Gradient First Letter */}
         <h4 className="text-2xl mt-2 flex items-center">
           {/* First Letter with Gradient */}
-          <span className="font-semibold bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] text-4xl text-transparent bg-clip-text">
+          <span className="font-semibold text-white/30 text-4xl ">
             {firstLetter}
           </span>
           {/* Remaining Text */}
-          <span className="font-semibold  text-white/30 text-4xl -ml-0.5">
+          <span className="font-semibold text-white/30 text-4xl -ml-0.5">
             {remainingText}
           </span>
         </h4>
@@ -54,7 +52,7 @@ const Card: React.FC<CardProps> = ({
           </span>
         </div>
 
-        <span className="font-semibold  text-white text-4xl mt-2 ">
+        <span className="font-semibold text-white text-4xl mt-2 ">
             {subheading}
           </span>
 
@@ -70,11 +68,10 @@ const Card: React.FC<CardProps> = ({
 
   return (
     <div
-      className={`bg-[#0f0f0f]  shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary ${height} ${width}`}
+      className={`bg-primary hover:bg-gradient-to-r hover:from-[#009DD1] hover:to-[#bf3fd2] hover:text-transparent hover:bg-clip-text shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary ${height} ${width}`}
       onClick={onClick}
       role="button"
       tabIndex={0}
-      
     >
       {/* Optional Image Section */}
       {image && (
@@ -91,10 +88,6 @@ const Card: React.FC<CardProps> = ({
 
       {/* Card Content */}
       <div className="p-6">
-        {/* Main Heading/Title */}
-        {/* You can add a title here if needed */}
-        {/* <h3 className="text-3xl font-semibold text-white mb-4">Title</h3> */}
-
         {/* Subheading and Number */}
         {renderSubheading()}
 

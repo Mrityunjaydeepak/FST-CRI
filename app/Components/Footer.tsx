@@ -96,6 +96,7 @@ const Footer = () => {
                                         { name: 'Services', href: '/Services' },
                                         { name: 'Solutions', href: '/Solutions' },
                                         { name: 'Portfolio', href: '/Portfolio' },
+                                        { name: 'Blogs', href: '/Blogs' },
                                         { name: 'New Project', href: '/Newproject' },
                                     ].map(({ name, href }) => (
                                         <Link key={name} href={href} className='cursor-pointer hover:text-blue-500 transition text-center'>
