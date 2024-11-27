@@ -47,7 +47,7 @@ const Card: React.FC<CardProps> = ({
 
         {/* Number Positioned to the Right and Below Subheading */}
         <div className="mt-2 flex justify-end">
-          <span className="text-6xl font-bold bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] text-transparent bg-clip-text">
+          <span className="text-6xl font-bold bg-white/30 text-transparent bg-clip-text">
             {number}
           </span>
         </div>

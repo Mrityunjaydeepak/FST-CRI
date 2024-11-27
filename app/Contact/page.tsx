@@ -130,7 +130,7 @@ const ContactUs: React.FC = () => {
       </div>
 
       {/* Main Form and Image */}
-      <div className="w-full max-w-6xl bg-primary shadow-md rounded-lg overflow-hidden">
+      <div className="w-full max-w-6xl mb-12  bg-primary shadow-md rounded-lg overflow-hidden">
         <div className="flex flex-col lg:flex-row">
           {/* Form Section */}
           <div className="w-full lg:w-1/2 p-8">
@@ -173,7 +173,7 @@ const ContactUs: React.FC = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   className="text-white mt-1 bg-primary block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-secondary focus:border-white"
-                  placeholder="+1 (555) 123-4567"
+                  placeholder=" (+91) 1234-56789"
                 />
               </div>
 
@@ -273,13 +273,13 @@ const ContactUs: React.FC = () => {
           </h2>
           <div className="flex flex-row items-center justify-center space-x-4 mt-8">
             <Image src={circle} alt="Circle Icon" width={24} height={24} />
-            <span className="text-white font-bold">@Productionx</span>
+            <span className="text-white font-bold">@Cribonix</span>
             <Image src={verified} alt="Verified Icon" width={24} height={24} />
             <Link
               href="https://www.instagram.com/cribonix/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 px-4 py-2 border sm:text-sm border-secondary rounded-full text-white hover:bg-white hover:text-black transition-colors duration-300"
+              className="flex items-center space-x-2 px-4 py-2 border sm:text-sm border-secondary rounded-full text-white hover:bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] transition-colors duration-300"
             >
               <FaInstagram />
               <span>Follow us</span>

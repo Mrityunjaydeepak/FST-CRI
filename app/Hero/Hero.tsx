@@ -610,7 +610,7 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-4 py-8">
         <div className='flex justify-between items-center mb-8'>
 
-      <h1 className="text-4xl font-bold mb-6 ">Blogs</h1>
+      <h1 className="text-7xl font-bold mb-6 ">Blogs</h1>
       <Link href="/Blogs">
                 <button
                   className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-8 hover:bg-white hover:text-black transition duration-300 w-40"

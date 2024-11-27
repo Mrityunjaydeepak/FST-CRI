@@ -41,12 +41,12 @@ const Services = () => {
           <h2 className="text-2xl sm:text-6xl md:text-7xl lg:text-9xl font-bold text-white leading-tight">
             BLOCKBUSTER STRATEGIES 
           </h2>
+        </div>
+      </div>
         <h1 className="text-lg flex justify-center mt-6 sm:text-xl md:text-2xl font-bold text-white">
           From script to screen, we provide the tools and strategies that turn
           your brand into a digital sensation.
         </h1>
-        </div>
-      </div>
       </div>
 
       {/* Services Section */}
