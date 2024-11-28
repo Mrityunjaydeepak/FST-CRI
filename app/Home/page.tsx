@@ -107,7 +107,7 @@ const Homei: React.FC = () => {
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mt-8">
               <Link href="/Contact">
                 <button
-                  className="text-lg sm:text-xl border border-[#383838] bg-white text-black rounded-full py-3 px-8 hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] hover:text-white transition duration-300 w-52"
+                  className="text-lg sm:text-xl  bg-white text-black rounded-full py-3 px-8 hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] hover:text-white transition duration-300 w-52"
                   aria-label="Contact Us"
                 >
                   Contact Us
@@ -115,7 +115,7 @@ const Homei: React.FC = () => {
               </Link>
               <Link href="/Portfolio">
                 <button
-                  className="text-lg sm:text-xl border border-[#383838] text-white rounded-full py-3 px-8 hover:bg-white hover:text-black transition duration-300 w-52"
+                  className="text-lg sm:text-xl border border-secondary text-white rounded-full py-3 px-8 hover:bg-white hover:text-black transition duration-300 w-52"
                   aria-label="View Portfolio"
                 >
                   View Portfolio

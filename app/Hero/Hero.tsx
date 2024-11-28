@@ -317,7 +317,7 @@ const Hero: React.FC = () => {
     </div>
 
     {/* Problems Grid */}
-    <div className="grid gap-6 sm:grid-cols-1 sm:items-center sm:justify-center lg:grid-cols-4 md:grid-cols-2 xl:grid-cols-4 mx-auto max-w-screen-md">
+    <div className="grid gap-12 sm:grid-cols-1 sm:items-center sm:justify-center lg:grid-cols-4 md:grid-cols-2 xl:grid-cols-4 mx-auto max-w-screen-md">
       {problems.map((problem, index) => (
         <motion.div
           key={index}
@@ -326,7 +326,7 @@ const Hero: React.FC = () => {
           className="bg-primary hover:bg-secondary cursor-pointer rounded-lg shadow-md transition duration-100 flex flex-col items-center justify-between w-full sm:w-72 md:w-80 lg:w-44 h-56 p-6 overflow-hidden relative group" // Responsive sizes for width and height
         >
           {/* Text Content */}
-          <div className="flex flex-col items-center justify-center w-full h-full">
+          <div className="flex flex-col space-x-5 gap-7 items-center justify-center w-full h-full">
             <h3 className="text-white text-lg sm:text-xl font-bold text-center overflow-hidden text-ellipsis">
               {problem}
             </h3>

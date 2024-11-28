@@ -278,7 +278,7 @@ const Whyus: FC = () => {
               At Cribonix, we harness knowledge and industry insights to create personalised digital marketing strategies. Our expert team stays ahead of trends and customer behaviours to help brands stand out. From SEO to social media, we craft methods that drive real results, ensuring your brand connects with its audience and grows. Let us turn our expertise into your brand's success!
             </p>
             <Link href="/Solutions" className="flex justify-center">
-              <button className="border text-base sm:text-lg md:text-xl border-secondary rounded-full px-6 py-3 text-white hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] transition">
+              <button className="border text-base sm:text-lg md:text-xl border-secondary rounded-full px-6 py-3 text-white hover:bg-white hover:text-black">
                 Solutions
               </button>
             </Link>

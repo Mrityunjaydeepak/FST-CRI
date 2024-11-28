@@ -108,13 +108,13 @@ const Blogs: React.FC = () => {
 
     <div className="container mx-auto px-4 py-8 flex flex-col">
       {/* Header Image Section */}
-      <div className="relative w-full ">
+      <div className="relative w-full  ">
         <Image
           src={head}
           alt="Office Background Image"
           layout="responsive"
           width={400}
-          height={100}
+          height={400}
           className="object-cover opacity-50"
         />
 
