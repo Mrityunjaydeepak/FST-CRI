@@ -387,7 +387,7 @@ const Whyus: FC = () => {
               href="/Contact"
               variant="primary"
               ariaLabel="Join Us"
-              className="w-full sm:w-40 p-3 flex justify-center items-center hover:text-white hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] transition"
+              className="w-full sm:w-40 p-3 flex justify-center items-center hover:text-black hover:bg-white transition"
             />
           </div>
         </div>
