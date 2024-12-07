@@ -71,7 +71,7 @@ const Homei: React.FC = () => {
       >
         {/* Background Text with Dynamic Scaling */}
         <div
-          className={`${inter.className} absolute text-[4rem] sm:text-[3rem] md:text-[9rem] lg:text-[11rem] xl:text-[13rem] text-transparent bg-clip-text bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] font-bold text-center`}
+          className={`${inter.className} absolute text-[4rem] sm:text-[3rem] md:text-[9rem] lg:text-[20rem] xl:text-[13rem] text-transparent bg-clip-text bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] font-bold text-center`}
           style={{
             top: '28%',
             left: '50%',
@@ -81,7 +81,7 @@ const Homei: React.FC = () => {
             whiteSpace: 'nowrap', // Prevent text from wrapping
           }}
         >
-          CRIBONIX
+          Cribonix
         </div>
 
         {/* Overlayed Text (Responsive) */}

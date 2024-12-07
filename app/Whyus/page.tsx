@@ -5,10 +5,10 @@ import React, { useState, useEffect, useRef, FC } from "react";
 import imgcont from "./images/Container.png";
 import Button from "../Components/Button";
 import team from "./images/Team.png";
-import mem1 from "./images/Rectangle 379.png";
-import mem2 from "./images/Rectangle 380.png";
-import mem3 from "./images/Rectangle 381.png";
-import mem4 from "./images/Rectangle 382.png";
+import mem1 from "./images/Sachin.jpg";
+import mem2 from "./images/Varun.jpg";
+import mem3 from "./images/Vini.jpg";
+import mem4 from "./images/HingLaj.jpg";
 import office from "./images/Officereal.png";
 import panel1 from "./images/Tabpanel(2).png";
 import panel2 from "./images/Tabpanel(1).png";
@@ -407,8 +407,8 @@ const Whyus: FC = () => {
             <p className="text-gray-400 font-light text-sm mt-4">
               Hi! my Name is
             </p>
-            <h2 className="text-white font-bold text-lg mt-1">Herman Defoe</h2>
-            <h3 className="text-white text-md font-light">CEO & Founder</h3>
+            <h2 className="text-white font-bold text-lg mt-1">Sachin </h2>
+            <h3 className="text-white text-md font-light">Chief Executive Officer</h3>
           </div>
 
           {/* Team Member 2 */}
@@ -424,8 +424,8 @@ const Whyus: FC = () => {
             <p className="text-gray-400 font-light text-sm mt-4">
               Hi! my Name is
             </p>
-            <h2 className="text-white font-bold text-lg mt-1">Jane Doe</h2>
-            <h3 className="text-white text-md font-light">Marketing Head</h3>
+            <h2 className="text-white font-bold text-lg mt-1">Varun</h2>
+            <h3 className="text-white text-md font-light">Chief operations Officer</h3>
           </div>
 
           {/* Team Member 3 */}
@@ -441,8 +441,8 @@ const Whyus: FC = () => {
             <p className="text-gray-400 font-light text-sm mt-4">
               Hi! my Name is
             </p>
-            <h2 className="text-white font-bold text-lg mt-1">John Smith</h2>
-            <h3 className="text-white text-md font-light">Creative Director</h3>
+            <h2 className="text-white font-bold text-lg mt-1">Vini</h2>
+            <h3 className="text-white text-md font-light">Chief Sales Officer</h3>
           </div>
 
           {/* Team Member 4 */}
@@ -458,8 +458,8 @@ const Whyus: FC = () => {
             <p className="text-gray-400 font-light text-sm mt-4">
               Hi! my Name is
             </p>
-            <h2 className="text-white font-bold text-lg mt-1">Emily Davis</h2>
-            <h3 className="text-white text-md font-light">Lead Designer</h3>
+            <h2 className="text-white font-bold text-lg mt-1">Hinglaj</h2>
+            <h3 className="text-white text-md font-light">Digital Marketing Head</h3>
           </div>
         </div>
       </div>

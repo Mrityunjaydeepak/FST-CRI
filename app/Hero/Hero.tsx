@@ -1,26 +1,55 @@
 "use client";
 
-import React, { useEffect,  useRef } from 'react';
-import KeenSlider from 'keen-slider';
-import 'keen-slider/keen-slider.min.css';
-import Card from '../Components/Card';
-import BlogCard from '../Components/BlogCard';
-import imgOne from './images/66edba4c724f61b2a4dd3418_blog-image-6.webp.png'
-import imgTwo from './images/listening skills.png'
-import imgThree from './images/feynman.png'
-import { motion, useAnimation } from 'framer-motion';
-import Link from 'next/link';
-import Image from 'next/image';
-import image4C from './images/✦ Nubeer.png'
+import React, { useEffect, useRef, useState } from "react";
+import KeenSlider from "keen-slider";
+import "keen-slider/keen-slider.min.css";
+import Card from "../Components/Card";
+import BlogCard from "../Components/BlogCard";
+import imgOne from "./images/66edba4c724f61b2a4dd3418_blog-image-6.webp.png";
+import imgTwo from "./images/listening skills.png";
+import imgThree from "./images/feynman.png";
+import { motion, useAnimation } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
+import image4C from "./images/✦ Nubeer.png";
+import seo from "./images/58 - Seo.gif"
+import pooSeo from "./images/Poor SEO practices.png"
+import AdFatiqueStatic from "./images/Ad fatigue.png"
+import BrandValueStatic from "./images/Brand value vs brand promotion.png"
+import CompetitionStatic from "./images/Competition Analysis.png"
+import CrossChannelStatic from "./images/Cross Channel Integration Problems.png"
+import GoogleBusiness from "./images/Google Business Management.png"
+import GrowthLowBudgetStatic from "./images/Growth on low budget.png"
+import inabilityStatic from "./images/Inability to measure ROI.png"
+import ineffectiveContent from "./images/Ineffective Content Strategies.png"
+import ineffectiveInfluencer from "./images/Ineffective Influencer Collborations.png"
+import MarketingManagement from "./images/Marketing management team.png"
+import socialmediaStatic from "./images/Social Media Management Challenges.png"
+import sustainablegrowthStatic from "./images/Sustainable Growth.png"
+
+import pooSeogif from "./images/Poor SEO practices.gif"
+import AdFatiquegif from "./images/Ad fatigue.gif"
+import BrandValuegif from "./images/Brand value vs brand promotion.gif"
+import Competitiongif from "./images/Competition Analysis.gif"
+import CrossChannelgif from "./images/Cross Channel Integration Problems.gif"
+import GoogleBusinessgif from "./images/Google Business Management.gif"
+import GrowthLowBudgetgif from "./images/Growth on low budget.gif"
+import inabilitygif from "./images/Inability to measure ROI.gif"
+import ineffectiveContentgif from "./images/Ineffective Content Strategies.gif"
+import ineffectiveInfluencergif from "./images/Ineffective Influencer Collborations.gif"
+import MarketingManagementgif from "./images/Marketing management team.gif"
+import socialmediagif from "./images/Social Media Management Challenges.gif"
+import sustainablegrowthgif from "./images/Sustainable Growth.gif"
 
 
 
+import estate from "./images/White and Blue Modern Creative Real Estate Property Marketing Instagram Post (1).jpg"
 
 
 interface Cribonix {
-  heading:string,
-  tagline: string,
-  number:string,
+  heading: string;
+  tagline: string;
+  number: string;
   subheading?: string;
   description: string;
   height?: string;
@@ -30,101 +59,126 @@ interface Cribonix {
 }
 
 const Hero: React.FC = () => {
-
-
   const blogPosts = [
     {
       id: 1,
-      title: ' Why is System Thinking Crucial in Digital Marketing?',
+      title: " Why is System Thinking Crucial in Digital Marketing?",
       description:
-        'Digital marketing isn’t just about individual tactics—it’s about how all these elements work together to achieve success.',
+        "Digital marketing isn’t just about individual tactics—it’s about how all these elements work together to achieve success.",
       imageUrl: imgOne,
-      link: '/BlogOne',
+      link: "/BlogOne",
     },
     {
       id: 2,
-      title: ' How Can Design Thinking Revolutionize Digital Campaigns?',
+      title: " How Can Design Thinking Revolutionize Digital Campaigns?",
       description:
-        'Design thinking is about putting people at the center of your strategy. It’s not just about creating a campaign; it’s about solving problems creatively with empathy..',
+        "Design thinking is about putting people at the center of your strategy. It’s not just about creating a campaign; it’s about solving problems creatively with empathy..",
       imageUrl: imgTwo,
-      link: '/BlogTwo',
+      link: "/BlogTwo",
     },
     {
       id: 3,
-      title: ' What Can Digital Marketers Learn from the Feynman Theory?',
+      title: " What Can Digital Marketers Learn from the Feynman Theory?",
       description:
-        'Clear communication is often the most overlooked aspect of marketing. The Feynman Theory—explaining complex ideas in simple terms—can make your campaigns more effective.',
+        "Clear communication is often the most overlooked aspect of marketing. The Feynman Theory—explaining complex ideas in simple terms—can make your campaigns more effective.",
       imageUrl: imgThree,
-      link: '/BlogThree',
-    },]
+      link: "/BlogThree",
+    },
+  ];
   const cribonix: Cribonix[] = [
     {
-      heading:'CRIBONIX',
-      subheading: 'CUSTOMER FIRST',
-      tagline:'Customer hi Bhagwaan Hai!',
-      number:'01',
+      heading: "CRIBONIX",
+      subheading: "CUSTOMER FIRST",
+      tagline: "Customer hi Bhagwaan Hai!",
+      number: "01",
       description:
         " We prioritize our customers' needs and preferences, ensuring that every decision we make is driven by their satisfaction and loyalty.",
-      height: 'h-74',
-      width: 'w-full',
+      height: "h-74",
+      width: "w-full",
     },
     {
-      heading:'CRIBONIX',
-      subheading: 'COLLABORATIVE COMMUNICATION',
-      tagline:'Hum Saath Saath Hai!',
-      number:'02',
+      heading: "CRIBONIX",
+      subheading: "COLLABORATIVE COMMUNICATION",
+      tagline: "Hum Saath Saath Hai!",
+      number: "02",
       description:
-        ' We believe in open and transparent communication, fostering collaboration among teams and clients to achieve common goals effectively.',
-      height: 'h-74',
-      width: 'w-full',
+        " We believe in open and transparent communication, fostering collaboration among teams and clients to achieve common goals effectively.",
+      height: "h-74",
+      width: "w-full",
     },
     {
-      heading:'CRIBONIX',
-      subheading: 'CREATIVE EXCELLENCE',
-      tagline:'Yeh Apun ka Style Hai!',
-      number:'03',
+      heading: "CRIBONIX",
+      subheading: "CREATIVE EXCELLENCE",
+      tagline: "Yeh Apun ka Style Hai!",
+      number: "03",
       description:
-        ' Our approach focuses on creativity, providing innovative solutions that engage audiences and enhance brand storytelling.',
-      height: 'h-74',
-      width: 'w-full',
+        " Our approach focuses on creativity, providing innovative solutions that engage audiences and enhance brand storytelling.",
+      height: "h-74",
+      width: "w-full",
     },
     {
-      heading:'CRIBONIX',
-      subheading: 'COST VALUATION',
-      tagline:'Ab Hoga Sabse Bada Rupaiya!',
-      number:'04',
+      heading: "CRIBONIX",
+      subheading: "COST VALUATION",
+      tagline: "Ab Hoga Sabse Bada Rupaiya!",
+      number: "04",
       description:
-        ' We regularly review and adjust costs to ensure our strategies provide great value and support your business goals.',
-      height: 'h-74',
-      width: 'w-full',
+        " We regularly review and adjust costs to ensure our strategies provide great value and support your business goals.",
+      height: "h-74",
+      width: "w-full",
     },
   ];
 
+  const [scrollY, setScrollY] = useState<number>(0);
+  const controls = useAnimation();
+  const images = [
+    estate,
+    estate,
+    estate,
+    estate,
+    estate,
+    estate,
+    estate,
+    estate,
+    estate
+   
+  ];
+
   useEffect(() => {
-    const keenSlider = new KeenSlider('#keen-slider', {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const keenSlider = new KeenSlider("#keen-slider", {
       loop: true,
       defaultAnimation: {
         duration: 500,
       },
       slides: {
-        origin: 'center',
+        origin: "center",
         perView: 1,
         spacing: 15,
       },
       breakpoints: {
-        '(min-width: 640px)': {
+        "(min-width: 640px)": {
           slides: {
             perView: 1,
             spacing: 15,
           },
         },
-        '(min-width: 768px)': {
+        "(min-width: 768px)": {
           slides: {
             perView: 2,
             spacing: 20,
           },
         },
-        '(min-width: 1024px)': {
+        "(min-width: 1024px)": {
           slides: {
             perView: 2,
             spacing: 32,
@@ -133,10 +187,14 @@ const Hero: React.FC = () => {
       },
     });
 
-    const keenSliderPrevious = document.getElementById('keen-slider-previous');
-    const keenSliderNext = document.getElementById('keen-slider-next');
-    const keenSliderPreviousMobile = document.getElementById('keen-slider-previous-mobile');
-    const keenSliderNextMobile = document.getElementById('keen-slider-next-mobile');
+    const keenSliderPrevious = document.getElementById("keen-slider-previous");
+    const keenSliderNext = document.getElementById("keen-slider-next");
+    const keenSliderPreviousMobile = document.getElementById(
+      "keen-slider-previous-mobile"
+    );
+    const keenSliderNextMobile = document.getElementById(
+      "keen-slider-next-mobile"
+    );
 
     const handlePrev = () => {
       keenSlider.prev();
@@ -146,34 +204,86 @@ const Hero: React.FC = () => {
       keenSlider.next();
     };
 
-    keenSliderPrevious?.addEventListener('click', handlePrev);
-    keenSliderNext?.addEventListener('click', handleNext);
-    keenSliderPreviousMobile?.addEventListener('click', handlePrev);
-    keenSliderNextMobile?.addEventListener('click', handleNext);
+    keenSliderPrevious?.addEventListener("click", handlePrev);
+    keenSliderNext?.addEventListener("click", handleNext);
+    keenSliderPreviousMobile?.addEventListener("click", handlePrev);
+    keenSliderNextMobile?.addEventListener("click", handleNext);
 
     return () => {
-      keenSliderPrevious?.removeEventListener('click', handlePrev);
-      keenSliderNext?.removeEventListener('click', handleNext);
-      keenSliderPreviousMobile?.removeEventListener('click', handlePrev);
-      keenSliderNextMobile?.removeEventListener('click', handleNext);
+      keenSliderPrevious?.removeEventListener("click", handlePrev);
+      keenSliderNext?.removeEventListener("click", handleNext);
+      keenSliderPreviousMobile?.removeEventListener("click", handlePrev);
+      keenSliderNextMobile?.removeEventListener("click", handleNext);
       keenSlider.destroy();
     };
   }, []);
 
-  const problems: string[] = [
-    'Brand Value vs Brand Promotion',
-    'Competitive Analysis',
-    'Poor SEO Practices',
-    'Ineffective Content Strategies',
-    'Ad Fatigue',
-    'Sustainable Growth',
-    'Ineffective Influencer Collaborations',
-    'Social Media Management Challenges',
-    'Google Business Management',
-    'Inability to Measure ROI',
-    'Cross-Channel Integration Problems',
-    'Growth on a Low Budget',
-
+  const problems = [
+    {
+      title: "Brand Value vs Brand Promotion",
+      staticImage: BrandValueStatic,
+      hoverImage: BrandValuegif,
+    },
+    {
+      title: "Competitive Analysis",
+      staticImage: CompetitionStatic,
+      hoverImage: Competitiongif,
+    },
+    {
+      title: "Poor SEO Practices",
+      staticImage: pooSeo,
+      hoverImage: seo,
+    },
+    {
+      title: "Ineffective Content Strategies",
+      staticImage: ineffectiveContent,
+      hoverImage: ineffectiveContentgif,
+    },
+    {
+      title: "Ad Fatigue",
+      staticImage: AdFatiqueStatic,
+      hoverImage: AdFatiquegif,
+    },
+    {
+      title: "Sustainable Growth",
+      staticImage: sustainablegrowthStatic,
+      hoverImage: sustainablegrowthgif,
+    },
+    {
+      title: "Ineffective Influencer Collaborations",
+      staticImage: ineffectiveInfluencer,
+      hoverImage: ineffectiveInfluencergif,
+    },
+    {
+      title: "Social Media Management Challenges",
+      staticImage:socialmediaStatic,
+      hoverImage: socialmediagif,
+    },
+    {
+      title: "Google Business Management",
+      staticImage: GoogleBusiness,
+      hoverImage: GoogleBusinessgif,
+    },
+    {
+      title: "Inability to Measure ROI",
+      staticImage: inabilityStatic,
+      hoverImage: inabilitygif,
+    },
+    {
+      title: "Cross-Channel Integration Problems",
+      staticImage: CrossChannelStatic,
+      hoverImage: CrossChannelgif,
+    },
+    {
+      title: "Growth on a Low Budget",
+      staticImage: GrowthLowBudgetStatic,
+      hoverImage: GrowthLowBudgetgif,
+    },
+    {
+      title:"Marketing Management Team",
+      staticImage: MarketingManagement,
+      hoverImage:MarketingManagementgif,
+    },
   ];
 
   const controlsProblems = useAnimation();
@@ -183,7 +293,7 @@ const Hero: React.FC = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          controlsProblems.start('visible');
+          controlsProblems.start("visible");
           observer.unobserve(entry.target);
         }
       },
@@ -214,7 +324,20 @@ const Hero: React.FC = () => {
       transition: { delay: i * 0.1 },
     }),
   };
-
+ 
+    // Variants for motion divs
+    const cardVariants = {
+      hidden: { opacity: 0, y: 50 },
+      visible: (index: number) => ({
+        opacity: 1,
+        y: 0,
+        transition: {
+          delay: index * 0.2, // Staggering animation for cards
+          duration: 0.6,
+          type: "spring",
+        },
+      }),
+    };
   return (
     <div className="bg-[#040404]">
       {/* Our Story Section */}
@@ -240,10 +363,18 @@ const Hero: React.FC = () => {
           {/* Our Story Content */}
           <div className="lg:w-2/3 space-y-6">
             <p className="text-[#E9E9E9] text-lg leading-relaxed">
-              In a world filled with noise, Cribonix stands out as a master creator, crafting digital stories that truly connect with audiences. We believe every brand has a unique tale to tell, and our mission is to help yours shine. Our passionate team blends innovation with artistry, transforming your vision into an engaging narrative that sparks connections and drives results.
+              In a world filled with noise, Cribonix stands out as a master
+              creator, crafting digital stories that truly connect with
+              audiences. We believe every brand has a unique tale to tell, and
+              our mission is to help yours shine. Our passionate team blends
+              innovation with artistry, transforming your vision into an
+              engaging narrative that sparks connections and drives results.
             </p>
             <p className="text-[#E9E9E9] text-lg leading-relaxed">
-              With strategies that push boundaries and creativity that knows no limits, we craft campaigns that not only speak but sing to your audience. Are you ready to unlock your brand's potential and start an exciting journey with us? Then let's create magic together!
+              With strategies that push boundaries and creativity that knows no
+              limits, we craft campaigns that not only speak but sing to your
+              audience. Are you ready to unlock your brand's potential and start
+              an exciting journey with us? Then let's create magic together!
             </p>
           </div>
         </div>
@@ -251,36 +382,34 @@ const Hero: React.FC = () => {
 
       {/* 4 Cs of Cribonix */}
       <div className="container mx-auto px-6 py-16 border-t border-secondary">
-  <div className="flex justify-between items-center mb-12">
-    {/* Placeholder for symmetry */}
-    <div className="flex-1"></div> 
+        <div className="flex justify-between items-center mb-12">
+          {/* Placeholder for symmetry */}
+          <div className="flex-1"></div>
 
-    {/* Heading */}
-    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white text-center">
-      <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#039CD4] to-[#c43ddd]">
-        4 C's
-      </span>{' '}
-      of Marketing
-    </h1>
+          {/* Heading */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white text-center">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#039CD4] to-[#c43ddd]">
+              4 C's
+            </span>{" "}
+            of Marketing
+          </h1>
 
-    {/* Image */}
-    <div className="relative w-24 h-44 ml-4 flex-1 flex justify-end">
-      <Image
-        src={image4C} // Replace with your image
-        alt="Marketing Icon"
-        layout="fill"
-        objectFit="contain"
-        
-      />
-    </div>
-  </div>
+          {/* Image */}
+          <div className="relative w-24 h-44 ml-4 flex-1 flex justify-end">
+            <Image
+              src={image4C} // Replace with your image
+              alt="Marketing Icon"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+        </div>
 
-  {/* Subtitle */}
-  <h2 className="mt-4 text-xl sm:text-2xl text-white text-center">
-    Unlocking New-Age Marketing: The 4 Pillars of <br /> Digital Success by Cribonix
-  </h2>
-
-
+        {/* Subtitle */}
+        <h2 className="mt-4 text-xl sm:text-2xl text-white text-center">
+          Unlocking New-Age Marketing: The 4 Pillars of <br /> Digital Success
+          by Cribonix
+        </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {cribonix.map((item, index) => (
@@ -298,114 +427,108 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Problems Section */}
-      <motion.section
-  ref={sectionRef}
-  variants={sectionVariants}
-  initial="hidden"
-  animate={controlsProblems}
-  className="py-16 bg-primary border-t border-secondary"
->
-  <div className="container mx-auto px-6">
-    {/* Section Header */}
-    <div className="text-center mb-12">
-      <h2 className="text-4xl sm:text-5xl font-bold text-white">
-        PROBLEMS
-      </h2>
-      <p className="mt-4 text-white max-w-2xl mx-auto text-lg">
-        The digital realm is full of unwanted and unique problems, but hey! Cribonix turns them into growth opportunities with its smart and creative solutions.
-      </p>
-    </div>
+      <section className="py-16 bg-primary text-white">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold">Problems</h2>
+          <p className="mt-4 max-w-2xl mx-auto">
+            The digital realm is full of unwanted and unique problems, but hey!
+            Cribonix turns them into growth opportunities with its smart and
+            creative solutions.
+          </p>
+        </div>
 
-    {/* Problems Grid */}
-    <div className="grid gap-12 sm:grid-cols-1 sm:items-center sm:justify-center lg:grid-cols-4 md:grid-cols-2 xl:grid-cols-4 mx-auto max-w-screen-md">
-      {problems.map((problem, index) => (
-        <motion.div
-          key={index}
-          custom={index}
-          variants={problemVariants}
-          className="bg-primary hover:bg-secondary cursor-pointer rounded-lg shadow-md transition duration-100 flex flex-col items-center justify-between w-full sm:w-72 md:w-80 lg:w-44 h-56 p-6 overflow-hidden relative group" // Responsive sizes for width and height
-        >
-          {/* Text Content */}
-          <div className="flex flex-col space-x-5 gap-7 items-center justify-center w-full h-full">
-            <h3 className="text-white text-lg sm:text-xl font-bold text-center overflow-hidden text-ellipsis">
-              {problem}
-            </h3>
-          </div>
-
-          {/* SVG Arrow positioned at the bottom-right corner, only visible on hover */}
-          <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border rounded-full rotate-90 p-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-8 h-8 rotate-90" // Increased size here (w-8, h-8)
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {problems.map((problem, index) => (
+            <motion.div
+              key={index}
+              className="relative group cursor-pointer flex flex-col items-center"
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={cardVariants}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 19.5L8.25 12l7.5-7.5"
-              />
-            </svg>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</motion.section>
+              {/* Static Image */}
+              <div className="relative w-48 h-48">
+                <Image
+                  src={problem.staticImage}
+                  alt={problem.title}
+                  className="transition-opacity duration-300"
+                  layout="fill"
+                  objectFit="cover"
+                />
 
+                {/* Hover Image */}
+                <Image
+                  src={problem.hoverImage}
+                  alt={`${problem.title} hover`}
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
 
-
-
+              {/* Title */}
+              <h3 className="text-lg font-bold mt-4">{problem.title}</h3>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
 
       {/* Extended Services Section */}
       <div className="container mx-auto px-6 py-16 border-t border-secondary relative">
-  {/* Background Image */}
-  <div className="absolute left-0 -top-10 lg:left-[-100px] opacity-30 z-0 w-64 h-64">
-    <Image
-      src={image4C} // Replace with your image
-      alt="Decorative Background"
-      layout="fill"
-      objectFit="contain"
-      className=""
-    />
-  </div>
-
-  {/* Content */}
-  <div className="relative z-10">
-    <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-12 lg:space-y-0 lg:space-x-12">
-      {/* Text Content */}
-      <div className="lg:w-1/2 space-y-6">
-        <h1 className="text-4xl font sm:text-5xl md:text-6xl lg:text-5xl text-white leading-tight">
-          Building Strategies <br /> and Crafting{' '}
-          <span className="text-white/50">Effective <br /> Ideas for Lasting Impressions</span>
-        </h1>
-      </div>
-
-      {/* Features */}
-      <div className="lg:w-1/2 space-y-8">
-        <div className="space-y-2">
-          <h2 className="text-white text-2xl">
-            <span className="text-[#009DD1] mr-2">|</span> Data-Driven Results
-          </h2>
-          <p className="text-gray-400 text-base leading-relaxed">
-            We provide clear, actionable insights from every campaign to ensure measurable growth and success.
-          </p>
+        {/* Background Image */}
+        <div className="absolute left-0 -top-10 lg:left-[-100px] opacity-30 z-0 w-64 h-64">
+          <Image
+            src={image4C} // Replace with your image
+            alt="Decorative Background"
+            layout="fill"
+            objectFit="contain"
+            className=""
+          />
         </div>
-        <div className="space-y-2">
-          <h2 className="text-white text-2xl">
-            <span className="text-[#009DD1] mr-2">|</span> Fast, Result-Driven Execution
-          </h2>
-          <p className="text-gray-400 text-base leading-relaxed">
-            With our agile approach, we deliver high-impact solutions and measurable results in record time.
-          </p>
+
+        {/* Content */}
+        <div className="relative z-10">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-12 lg:space-y-0 lg:space-x-12">
+            {/* Text Content */}
+            <div className="lg:w-1/2 space-y-6">
+              <h1 className="text-4xl font sm:text-5xl md:text-6xl lg:text-5xl text-white leading-tight">
+                Building Strategies <br /> and Crafting{" "}
+                <span className="text-white/50">
+                  Effective <br /> Ideas for Lasting Impressions
+                </span>
+              </h1>
+            </div>
+
+            {/* Features */}
+            <div className="lg:w-1/2 space-y-8">
+              <div className="space-y-2">
+                <h2 className="text-white text-2xl">
+                  <span className="text-[#009DD1] mr-2">|</span> Data-Driven
+                  Results
+                </h2>
+                <p className="text-gray-400 text-base leading-relaxed">
+                  We provide clear, actionable insights from every campaign to
+                  ensure measurable growth and success.
+                </p>
+              </div>
+              <div className="space-y-2">
+                <h2 className="text-white text-2xl">
+                  <span className="text-[#009DD1] mr-2">|</span> Fast,
+                  Result-Driven Execution
+                </h2>
+                <p className="text-gray-400 text-base leading-relaxed">
+                  With our agile approach, we deliver high-impact solutions and
+                  measurable results in record time.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
 
       {/* Statistics Section */}
       <div className="container mx-auto px-6 py-4 mb-12">
@@ -413,12 +536,18 @@ const Hero: React.FC = () => {
           {/* Statistic Item */}
           <div className="text-center px-20">
             <h1 className="text-5xl sm:text-6xl font-bold text-white">50Cr+</h1>
-            <p className="text-xl sm:text-2xl text-gray-300 mt-2">Spent on Ads</p>
+            <p className="text-xl sm:text-2xl text-gray-300 mt-2">
+              Spent on Ads
+            </p>
           </div>
           {/* Statistic Item */}
           <div className="text-center px-20">
-            <h1 className="text-5xl sm:text-6xl font-bold text-white">5,000+</h1>
-            <p className="text-xl sm:text-2xl text-gray-300 mt-2">Projects Onboarded</p>
+            <h1 className="text-5xl sm:text-6xl font-bold text-white">
+              5,000+
+            </h1>
+            <p className="text-xl sm:text-2xl text-gray-300 mt-2">
+              Projects Onboarded
+            </p>
           </div>
           {/* Statistic Item */}
           <div className="text-center px-20">
@@ -430,6 +559,52 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
+      <section className="relative flex flex-col items-center py-16 bg-primary text-white">
+      {/* Heading and Subheading */}
+      <div className="text-center mb-12 px-6">
+        <h2 className="text-4xl font-bold mb-4">Our Portfolio</h2>
+        <p className="text-lg">
+          Discover our work that blends creativity, strategy, and technology.
+          Explore the projects that define our success.
+        </p>
+      </div>
+
+      {/* Stacked Images */}
+      <div className="relative w-full h-screen flex items-center justify-center">
+        <div className="relative w-[90%] max-w-[500px] h-full">
+          {images.map((image, index) => {
+            const offset = scrollY - index * 500; // Adjust this multiplier for timing
+            const isVisible = offset >= 0 && offset <= 500; // Active when in range
+
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{
+                  opacity: isVisible ? 1 : 0,
+                  scale: isVisible ? 1 : 0.9,
+                  zIndex: isVisible ? 10 : 0,
+                  y: isVisible ? 0 : 100, // Moves cards into view 
+                }}
+                transition={{ duration: 1 }}
+                className="absolute w-full h-auto"
+                style={{
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                }}
+              >
+                <Image
+                  src={estate}
+                  alt={`Portfolio Image ${index + 1}`}
+                  className="w-full rounded-lg shadow-lg"
+                />
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
       {/* Testimonials Section */}
       <section className="bg-primary border-t border-secondary py-16">
         <div className="container mx-auto px-6">
@@ -440,7 +615,10 @@ const Hero: React.FC = () => {
                 What They Say About Us...
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed">
-                Discover the impact of our digital marketing strategies through the voices of those who matter most—our clients. Their success stories reflect our commitment to excellence and innovation in every project we undertake.
+                Discover the impact of our digital marketing strategies through
+                the voices of those who matter most—our clients. Their success
+                stories reflect our commitment to excellence and innovation in
+                every project we undertake.
               </p>
               <div className="flex gap-4 mt-8">
                 <button
@@ -510,18 +688,63 @@ const Hero: React.FC = () => {
                         ))}
                       </div>
                       <div className="mt-6">
-                        <p className="text-2xl font-bold text-white">Great Service!</p>
+                        <p className="text-2xl font-bold text-white">
+                          Great Service!
+                        </p>
                         <p className="mt-4 text-gray-400 leading-relaxed">
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima cupiditate quaerat rerum, quas sunt labore perferendis!
+                          Cribonix transformed our marketing game! From
+                          understanding our restaurant’s voice and theme to
+                          running creative campaigns to the right audience and
+                          managing our social media platforms, their expertise
+                          delivered exactly what we needed. A true partner in
+                          every sense.
                         </p>
                       </div>
                     </div>
                     <footer className="mt-6 text-base font-medium text-gray-400">
-                      &mdash; John Doe
+                      &mdash; Priyanka Sharma [ Restaurant Owner ]
                     </footer>
                   </blockquote>
                 </div>
 
+                {/* Testimonial Slide */}
+
+                <div className="keen-slider__slide">
+                  <blockquote className="flex flex-col justify-between bg-[#040404] p-8 sm:p-10 lg:p-12 h-full rounded-lg">
+                    <div>
+                      <div className="flex gap-1 text-[#FFD700]">
+                        {/* Stars */}
+                        {[...Array(5)].map((_, i) => (
+                          <svg
+                            key={i}
+                            className="w-5 h-5"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                      <div className="mt-6">
+                        <p className="text-2xl font-bold text-white">
+                          Wonderful Team!
+                        </p>
+                        <p className="mt-4 text-gray-400 leading-relaxed">
+                          We were having a difficulty in finding a team that
+                          truly meets our brand's needs, making people
+                          understand about our real estate plans, but Cribonix
+                          exceeded expectations. Their strategies brought great
+                          results and their creativity kept us coming back for
+                          more.
+                        </p>
+                      </div>
+                    </div>
+                    <footer className="mt-6 text-base font-medium text-gray-400">
+                      &mdash; Ishaan Arora [ Medical Service Brand Owner ]
+                    </footer>
+                  </blockquote>
+                </div>
                 {/* Testimonial Slide */}
                 <div className="keen-slider__slide">
                   <blockquote className="flex flex-col justify-between bg-[#040404] p-8 sm:p-10 lg:p-12 h-full rounded-lg">
@@ -541,14 +764,55 @@ const Hero: React.FC = () => {
                         ))}
                       </div>
                       <div className="mt-6">
-                        <p className="text-2xl font-bold text-white">Wonderful Team!</p>
+                        <p className="text-2xl font-bold text-white">
+                        Full of creativity!
+                        </p>
                         <p className="mt-4 text-gray-400 leading-relaxed">
-                          Great experience from start to finish. The team was professional and very efficient in getting the project done.
+                          We’re a small consulting firm and Cribonix helped us
+                          get noticed. Their ads brought in more clients and
+                          they made our services stand out in this crowded busy
+                          market.
                         </p>
                       </div>
                     </div>
                     <footer className="mt-6 text-base font-medium text-gray-400">
-                      &mdash; Jane Smith
+                      &mdash; Saksham Gambhir [ Real Estate Consultant ]
+                    </footer>
+                  </blockquote>
+                </div>
+                {/* Testimonial Slide */}
+                <div className="keen-slider__slide">
+                  <blockquote className="flex flex-col justify-between bg-[#040404] p-8 sm:p-10 lg:p-12 h-full rounded-lg">
+                    <div>
+                      <div className="flex gap-1 text-[#FFD700]">
+                        {/* Stars */}
+                        {[...Array(5)].map((_, i) => (
+                          <svg
+                            key={i}
+                            className="w-5 h-5"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                      <div className="mt-6">
+                        <p className="text-2xl font-bold text-white">
+                        Exceptional service!
+                        </p>
+                        <p className="mt-4 text-gray-400 leading-relaxed">
+                          Running stock market campaigns is a big challenge as
+                          it is very difficult for people to get things
+                          understood in this industry, until we partnered with
+                          Cribonix. Their creative ads and data-driven approach
+                          brought us the right clients effortlessly.
+                        </p>
+                      </div>
+                    </div>
+                    <footer className="mt-6 text-base font-medium text-gray-400">
+                      &mdash; Mritunjay Tanwar [ Investment Firm Owner ]
                     </footer>
                   </blockquote>
                 </div>
@@ -566,19 +830,18 @@ const Hero: React.FC = () => {
               >
                 {/* Previous Icon */}
                 <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15.75 19.5L8.25 12l7.5-7.5"
-                    />
-                  
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15.75 19.5L8.25 12l7.5-7.5"
+                  />
                 </svg>
               </button>
               <button
@@ -607,36 +870,31 @@ const Hero: React.FC = () => {
         </div>
       </section>
       <section className="bg-primary border-t border-secondary py-16">
-      <div className="container mx-auto px-4 py-8">
-        <div className='flex justify-between items-center mb-8 sm:flex-col'>
-
-      <h1 className=" flex text-7xl font-bold mb-6 ">Blogs</h1>
-      <Link href="/Blogs">
-                <button
-                  className="text-lg sm:text-xl border border-[#383838] py-3 px-3 text-white rounded-full hover:bg-white hover:text-black transition duration-300 w-28"
-                  aria-label="View Portfolio"
-                >
-                 View all
-                </button>
-                </Link>
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex justify-between items-center mb-8 sm:flex-col">
+            <h1 className=" flex text-7xl font-bold mb-6 ">Blogs</h1>
+            <Link href="/Blogs">
+              <button
+                className="text-lg sm:text-xl border border-[#383838] py-3 px-3 text-white rounded-full hover:bg-white hover:text-black transition duration-300 w-28"
+                aria-label="View Portfolio"
+              >
+                View all
+              </button>
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {blogPosts.map((post) => (
+              <BlogCard
+                key={post.id}
+                title={post.title}
+                description={post.description}
+                imageUrl={post.imageUrl}
+                link={post.link}
+              />
+            ))}
+          </div>
         </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {blogPosts.map((post) => (
-          <BlogCard
-            key={post.id}
-            title={post.title}
-            description={post.description}
-            imageUrl={post.imageUrl}
-            link={post.link}
-          />
-        ))}
-      </div>
-    </div>
-
       </section>
-
-
-      
     </div>
   );
 };
