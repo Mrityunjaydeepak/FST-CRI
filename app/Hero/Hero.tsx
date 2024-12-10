@@ -559,52 +559,32 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      <section className="relative flex flex-col items-center py-16 bg-primary text-white">
-      {/* Heading and Subheading */}
-      <div className="text-center mb-12 px-6">
-        <h2 className="text-4xl font-bold mb-4">Our Portfolio</h2>
-        <p className="text-lg">
-          Discover our work that blends creativity, strategy, and technology.
-          Explore the projects that define our success.
-        </p>
-      </div>
+     
 
-      {/* Stacked Images */}
-      <div className="relative w-full h-screen flex items-center justify-center">
-        <div className="relative w-[90%] max-w-[500px] h-full">
-          {images.map((image, index) => {
-            const offset = scrollY - index * 500; // Adjust this multiplier for timing
-            const isVisible = offset >= 0 && offset <= 500; // Active when in range
+<section className="relative flex flex-col items-center py-16 bg-primary text-white">
+  {/* Heading and Subheading */}
+  {/* <div className="text-center mb-12 px-6">
+    <h2 className="text-4xl font-bold mb-4">Our Portfolio</h2>
+    <p className="text-lg">
+      Discover our work that blends creativity, strategy, and technology.
+      Explore the projects that define our success.
+    </p>
+  </div> */}
 
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{
-                  opacity: isVisible ? 1 : 0,
-                  scale: isVisible ? 1 : 0.9,
-                  zIndex: isVisible ? 10 : 0,
-                  y: isVisible ? 0 : 100, // Moves cards into view 
-                }}
-                transition={{ duration: 1 }}
-                className="absolute w-full h-auto"
-                style={{
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                }}
-              >
-                <Image
-                  src={estate}
-                  alt={`Portfolio Image ${index + 1}`}
-                  className="w-full rounded-lg shadow-lg"
-                />
-              </motion.div>
-            );
-          })}
-        </div>
+  {/* Stacked Images */}
+  {/* <div className="relative flex flex-col items-center gap-12 w-full">
+    {images.map((image, index) => (
+      <div key={index} className="w-3/4">
+        <Image
+          src={image}
+          alt={`Portfolio Image ${index + 1}`}
+          className="rounded-lg shadow-lg w-full"
+        />
       </div>
-    </section>
+    ))}
+  </div> */}
+</section>
+
       {/* Testimonials Section */}
       <section className="bg-primary border-t border-secondary py-16">
         <div className="container mx-auto px-6">
