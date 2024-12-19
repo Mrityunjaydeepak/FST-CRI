@@ -12,39 +12,37 @@ import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import image4C from "./images/✦ Nubeer.png";
-import seo from "./images/58 - Seo.gif"
-import pooSeo from "./images/Poor SEO practices.png"
-import AdFatiqueStatic from "./images/Ad fatigue.png"
-import BrandValueStatic from "./images/Brand value vs brand promotion.png"
-import CompetitionStatic from "./images/Competition Analysis.png"
-import CrossChannelStatic from "./images/Cross Channel Integration Problems.png"
-import GoogleBusiness from "./images/Google Business Management.png"
-import GrowthLowBudgetStatic from "./images/Growth on low budget.png"
-import inabilityStatic from "./images/Inability to measure ROI.png"
-import ineffectiveContent from "./images/Ineffective Content Strategies.png"
-import ineffectiveInfluencer from "./images/Ineffective Influencer Collborations.png"
-import MarketingManagement from "./images/Marketing management team.png"
-import socialmediaStatic from "./images/Social Media Management Challenges.png"
-import sustainablegrowthStatic from "./images/Sustainable Growth.png"
+import seo from "./images/58 - Seo.gif";
+import pooSeo from "./images/Poor SEO practices.png";
+import AdFatiqueStatic from "./images/Ad fatigue.png";
+import BrandValueStatic from "./images/Brand value vs brand promotion.png";
+import CompetitionStatic from "./images/Competition Analysis.png";
+import CrossChannelStatic from "./images/Cross Channel Integration Problems.png";
+import GoogleBusiness from "./images/Google Business Management.png";
+import GrowthLowBudgetStatic from "./images/Growth on low budget.png";
+import inabilityStatic from "./images/Inability to measure ROI.png";
+import ineffectiveContent from "./images/Ineffective Content Strategies.png";
+import ineffectiveInfluencer from "./images/Ineffective Influencer Collborations.png";
+import MarketingManagement from "./images/Marketing management team.png";
+import socialmediaStatic from "./images/Social Media Management Challenges.png";
+import sustainablegrowthStatic from "./images/Sustainable Growth.png";
 
-import pooSeogif from "./images/Poor SEO practices.gif"
-import AdFatiquegif from "./images/Ad fatigue.gif"
-import BrandValuegif from "./images/Brand value vs brand promotion.gif"
-import Competitiongif from "./images/Competition Analysis.gif"
-import CrossChannelgif from "./images/Cross Channel Integration Problems.gif"
-import GoogleBusinessgif from "./images/Google Business Management.gif"
-import GrowthLowBudgetgif from "./images/Growth on low budget.gif"
-import inabilitygif from "./images/Inability to measure ROI.gif"
-import ineffectiveContentgif from "./images/Ineffective Content Strategies.gif"
-import ineffectiveInfluencergif from "./images/Ineffective Influencer Collborations.gif"
-import MarketingManagementgif from "./images/Marketing management team.gif"
-import socialmediagif from "./images/Social Media Management Challenges.gif"
-import sustainablegrowthgif from "./images/Sustainable Growth.gif"
+import pooSeogif from "./images/Poor SEO practices.gif";
+import AdFatiquegif from "./images/Ad fatigue.gif";
+import BrandValuegif from "./images/Brand value vs brand promotion.gif";
+import Competitiongif from "./images/Competition Analysis.gif";
+import CrossChannelgif from "./images/Cross Channel Integration Problems.gif";
+import GoogleBusinessgif from "./images/Google Business Management.gif";
+import GrowthLowBudgetgif from "./images/Growth on low budget.gif";
+import inabilitygif from "./images/Inability to measure ROI.gif";
+import ineffectiveContentgif from "./images/Ineffective Content Strategies.gif";
+import ineffectiveInfluencergif from "./images/Ineffective Influencer Collborations.gif";
+import MarketingManagementgif from "./images/Marketing management team.gif";
+import socialmediagif from "./images/Social Media Management Challenges.gif";
+import sustainablegrowthgif from "./images/Sustainable Growth.gif";
 
-
-
-import estate from "./images/White and Blue Modern Creative Real Estate Property Marketing Instagram Post (1).jpg"
-
+import estate from "./images/White and Blue Modern Creative Real Estate Property Marketing Instagram Post (1).jpg";
+import ImageSection from "../Components/ImageSection";
 
 interface Cribonix {
   heading: string;
@@ -139,8 +137,7 @@ const Hero: React.FC = () => {
     estate,
     estate,
     estate,
-    estate
-   
+    estate,
   ];
 
   useEffect(() => {
@@ -256,7 +253,7 @@ const Hero: React.FC = () => {
     },
     {
       title: "Social Media Management Challenges",
-      staticImage:socialmediaStatic,
+      staticImage: socialmediaStatic,
       hoverImage: socialmediagif,
     },
     {
@@ -280,9 +277,9 @@ const Hero: React.FC = () => {
       hoverImage: GrowthLowBudgetgif,
     },
     {
-      title:"Marketing Management Team",
+      title: "Marketing Management Team",
       staticImage: MarketingManagement,
-      hoverImage:MarketingManagementgif,
+      hoverImage: MarketingManagementgif,
     },
   ];
 
@@ -324,20 +321,20 @@ const Hero: React.FC = () => {
       transition: { delay: i * 0.1 },
     }),
   };
- 
-    // Variants for motion divs
-    const cardVariants = {
-      hidden: { opacity: 0, y: 50 },
-      visible: (index: number) => ({
-        opacity: 1,
-        y: 0,
-        transition: {
-          delay: index * 0.2, // Staggering animation for cards
-          duration: 0.6,
-          type: "spring",
-        },
-      }),
-    };
+
+  // Variants for motion divs
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (index: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: index * 0.2, // Staggering animation for cards
+        duration: 0.6,
+        type: "spring",
+      },
+    }),
+  };
   return (
     <div className="bg-[#040404]">
       {/* Our Story Section */}
@@ -428,54 +425,55 @@ const Hero: React.FC = () => {
 
       {/* Problems Section */}
       <section className="py-16 bg-primary text-white">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold">Problems</h2>
-          <p className="mt-4 max-w-2xl mx-auto">
-            The digital realm is full of unwanted and unique problems, but hey!
-            Cribonix turns them into growth opportunities with its smart and
-            creative solutions.
-          </p>
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold">Problems</h2>
+            <p className="mt-4 max-w-2xl mx-auto">
+              The digital realm is full of unwanted and unique problems, but
+              hey! Cribonix turns them into growth opportunities with its smart
+              and creative solutions.
+            </p>
+          </div>
+
+          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {problems.map((problem, index) => (
+              <motion.div
+                key={index}
+                className="relative group cursor-pointer flex flex-col items-center"
+                custom={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={cardVariants}
+              >
+                {/* Static Image */}
+
+                <div className="relative w-48 h-48">
+                  <Image
+                    src={problem.staticImage}
+                    alt={problem.title}
+                    className="transition-opacity duration-300"
+                    layout="fill"
+                    objectFit="cover"
+                  />
+
+                  {/* Hover Image */}
+                  <Image
+                    src={problem.hoverImage}
+                    alt={`${problem.title} hover`}
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+
+                {/* Title */}
+                <h3 className="text-lg font-bold mt-4">{problem.title}</h3>
+              </motion.div>
+            ))}
+          </div>
         </div>
-
-        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {problems.map((problem, index) => (
-            <motion.div
-              key={index}
-              className="relative group cursor-pointer flex flex-col items-center"
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={cardVariants}
-            >
-              {/* Static Image */}
-              <div className="relative w-48 h-48">
-                <Image
-                  src={problem.staticImage}
-                  alt={problem.title}
-                  className="transition-opacity duration-300"
-                  layout="fill"
-                  objectFit="cover"
-                />
-
-                {/* Hover Image */}
-                <Image
-                  src={problem.hoverImage}
-                  alt={`${problem.title} hover`}
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </div>
-
-              {/* Title */}
-              <h3 className="text-lg font-bold mt-4">{problem.title}</h3>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
+      </section>
 
       {/* Extended Services Section */}
       <div className="container mx-auto px-6 py-16 border-t border-secondary relative">
@@ -559,31 +557,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-     
-
-<section className="relative flex flex-col items-center py-16 bg-primary text-white">
-  {/* Heading and Subheading */}
-  {/* <div className="text-center mb-12 px-6">
-    <h2 className="text-4xl font-bold mb-4">Our Portfolio</h2>
-    <p className="text-lg">
-      Discover our work that blends creativity, strategy, and technology.
-      Explore the projects that define our success.
-    </p>
-  </div> */}
-
-  {/* Stacked Images */}
-  {/* <div className="relative flex flex-col items-center gap-12 w-full">
-    {images.map((image, index) => (
-      <div key={index} className="w-3/4">
-        <Image
-          src={image}
-          alt={`Portfolio Image ${index + 1}`}
-          className="rounded-lg shadow-lg w-full"
-        />
-      </div>
-    ))}
-  </div> */}
-</section>
+      <ImageSection />
 
       {/* Testimonials Section */}
       <section className="bg-primary border-t border-secondary py-16">
@@ -745,7 +719,7 @@ const Hero: React.FC = () => {
                       </div>
                       <div className="mt-6">
                         <p className="text-2xl font-bold text-white">
-                        Full of creativity!
+                          Full of creativity!
                         </p>
                         <p className="mt-4 text-gray-400 leading-relaxed">
                           We’re a small consulting firm and Cribonix helped us
@@ -780,7 +754,7 @@ const Hero: React.FC = () => {
                       </div>
                       <div className="mt-6">
                         <p className="text-2xl font-bold text-white">
-                        Exceptional service!
+                          Exceptional service!
                         </p>
                         <p className="mt-4 text-gray-400 leading-relaxed">
                           Running stock market campaigns is a big challenge as

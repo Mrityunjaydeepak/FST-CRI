@@ -152,8 +152,13 @@ const PrivacyPolicy: React.FC = () => {
         <p>If you have any questions or concerns, please contact us at:</p>
         <address className="pl-5">
           Cribonix Digital Marketing Solutions <br />
-          Email: sachin@cribonix.com <br />
-          Phone: +91 8950163810 <br />
+          Email:{" "}
+          <a href="mailto:sachin@cribonix.com" className="text-blue-500">
+            sachin@cribonix.com
+          </a>
+          <br />
+          Phone: +91 89501 63810
+          <br />
           Address: 546, 5th floor, JMD MEGAPOLIS, Sector 48, Gurugram, Haryana
           122018
         </address>

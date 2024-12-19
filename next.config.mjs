@@ -1,11 +1,20 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
-  output: "export",
-  trailingSlash: true,
   images: {
-    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "http", // Change to https if needed
+        hostname: "localhost", // Replace with your backend's domain
+        port: "5000", // Backend port, if applicable
+        pathname: "/**", // Allow all paths
+      },
+    ],
+    unoptimized: true, // Optionally disable optimization if needed
   },
-  distDir: "OutP", // Customize the output directory if needed
+  // output: "export",
+  // trailingSlash: true,
+  // distDir: "OutP", // Customize the output directory if needed
 };
 
 export default nextConfig;

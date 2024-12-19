@@ -1,178 +1,120 @@
 "use client";
 
-import React from 'react';
-import {
-  motion,
-  useViewportScroll,
-  useTransform,
-  useReducedMotion,
-} from 'framer-motion';
-import contImg from './images/Container.png'; // Ensure the path is correct
-import Link from 'next/link';
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { StaticImageData } from "next/image";
+import ImageCard from "../Components/ImageCard"; // Adjust path as needed
+import head from "./images/Container.png"; // Adjust path as needed
 
-// Define animation variants for reusability
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.3,
-    },
-  },
-};
+interface Portfolio {
+  _id: string;
+  title: string;
+  homePageImage: string;
+}
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 50,
-    },
-  },
-};
+interface ImageData {
+  src: StaticImageData;
+  alt: string;
+}
 
-const textRevealVariants = {
-  hidden: { width: 0 },
-  visible: {
-    width: '100%',
-    transition: {
-      duration: 1,
-      ease: 'easeInOut',
-    },
-  },
-};
+const PortfolioHomePage: React.FC = () => {
+  const [portfolios, setPortfolios] = useState<Portfolio[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
-export default function Portfolio() {
-  const shouldReduceMotion = useReducedMotion();
-  const { scrollY } = useViewportScroll();
-  const yParallax = useTransform(scrollY, [0, 500], [0, -100]);
+  useEffect(() => {
+    const fetchPortfolios = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/portfolios`,
+          {
+            cache: "no-store",
+          }
+        );
+
+        if (!res.ok) {
+          throw new Error("Failed to fetch portfolios");
+        }
+
+        const data: Portfolio[] = await res.json();
+        setPortfolios(data);
+      } catch (error) {
+        console.error("Error fetching portfolios:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPortfolios();
+  }, []);
+
+  // Single image data array, similar to what you had in your ImageSection
+  const images: ImageData[] = [{ src: head, alt: "homeImage" }];
 
   return (
-    <div className="bg-[#040404]">
-      {/* Image Section with Parallax Effect */}
-      <motion.div
-        className="relative h-screen flex items-center justify-center overflow-hidden"
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: { scale: 1.1 },
-          visible: { scale: 1, transition: { duration: 1 } },
-        }}
-        style={shouldReduceMotion ? {} : { y: yParallax }}
-      >
-        {/* Parallax Background Image */}
-        <motion.div
-          className="absolute inset-0 bg-cover bg-center z-0"
-          style={{ backgroundImage: `url(${contImg.src})` }}
-          initial={{ y: 0 }}
-          animate={
-            shouldReduceMotion ? {} : { y: [0, -50, 0] }
-          }
-          transition={
-            shouldReduceMotion
-              ? {}
-              : { duration: 10, repeat: Infinity, ease: 'linear' }
-          }
-        />
+    <div className="bg-primary scroll-smooth">
+      <section className="relative py-20 bg-primary border mx-32 border-t-1 border-secondary border-l-0 border-r-0 border-b-0">
+        {/* Top Spacer */}
+        <div className="h-[40vh] flex flex-col justify-center">
+          <h3 className="text-6xl font-bold mx-32">
+            Our Work in Action <br />
+          </h3>
+          <h4 className="text-3xl mx-32 mt-8">
+            A Glimpse into Our Success Stories and Creative Impact
+          </h4>
+        </div>
 
-        {/* Overlay Content */}
-        <motion.div
-          className="absolute inset-0 flex flex-col justify-center items-center px-6 md:px-12 bg-black bg-opacity-50"
-          variants={containerVariants}
-        >
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center leading-tight space-y-4"
-            variants={itemVariants}
-          >
-            <motion.span
-              className="block overflow-hidden"
-              variants={textRevealVariants}
-            >
-              Coming Soon!
-            </motion.span>
-            <motion.span
-              className="block overflow-hidden"
-              variants={textRevealVariants}
-            >
-             
-            </motion.span>
-            <motion.span
-              className="block overflow-hidden"
-              variants={textRevealVariants}
-            >
-             
-            </motion.span>
-            <motion.span
-              className="block mt-4"
-              variants={itemVariants}
-            >
-              
-            </motion.span>
-            <motion.span
-              className="block mt-2"
-              variants={itemVariants}
-            >
-              
-            </motion.span>
-          </motion.h2>
-        </motion.div>
+        {/* Animated Image Section */}
+        <div className="relative max-w-7xl mx-auto h-[800vh]">
+          {images.map((image, index) => (
+            <ImageCard
+              key={index}
+              src={image.src}
+              alt={image.alt}
+              index={index}
+              totalImages={images.length}
+            />
+          ))}
+        </div>
 
-        {/* Decorative Animated Elements */}
-        {/* Bottom-Right Decorative Element */}
-        <motion.div
-          className="absolute bottom-8 right-8 w-16 h-16 bg-gradient-to-r from-[#FF7E5F] to-[#FEB47B] rounded-full opacity-70"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 0.7, scale: 1 }}
-          transition={{
-            duration: 2,
-            ease: 'easeInOut',
-            repeat: Infinity,
-            repeatType: 'reverse',
-          }}
-        />
+        {/* Bottom Spacer */}
+        <div className="h-[-40vh]"></div>
+      </section>
 
-        {/* Top-Left Decorative Element */}
-        <motion.div
-          className="absolute top-8 left-8 w-12 h-12 bg-gradient-to-r from-[#6A11CB] to-[#2575FC] rounded-full opacity-70"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 0.7, scale: 1 }}
-          transition={{
-            duration: 2,
-            ease: 'easeInOut',
-            repeat: Infinity,
-            repeatType: 'reverse',
-            delay: 0.5,
-          }}
-        />
-      </motion.div>
-
-      {/* Description Section */}
-      <motion.div
-        className="container mx-auto px-6 py-16"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={{
-          hidden: { opacity: 0, y: 50 },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 1 },
-          },
-        }}
-      >
-        <motion.p
-          className="text-lg sm:text-xl md:text-2xl text-white text-center max-w-3xl mx-auto"
-          whileHover={{ scale: 1.6, color: '#FF7E5F' }}
-          transition={{ type: 'spring', stiffness: 300 }}
-        >
-          <Link href="/Contact">
-            Ready to bring your vision to life? Let's connect and create something amazing together.
-          </Link>
-        </motion.p>
-      </motion.div>
+      {/* Portfolios Section */}
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-4xl font-bold text-center mb-6">Portfolios</h1>
+        {loading ? (
+          <div className="text-white text-2xl text-center">Loading...</div>
+        ) : portfolios.length === 0 ? (
+          <div className="text-center py-12">No portfolios found.</div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {portfolios.map((portfolio) => (
+              <Link
+                key={portfolio._id}
+                href={`/Portfolio/${portfolio._id}`}
+                className="block relative group"
+              >
+                <div className="relative w-full h-60">
+                  <Image
+                    src={portfolio.homePageImage}
+                    alt={portfolio.title}
+                    width={500}
+                    height={500}
+                    className="rounded-md group-hover:opacity-75 transition-opacity duration-300 object-cover"
+                  />
+                </div>
+                <h2 className="text-lg font-semibold mt-2 text-center text-white">
+                  {portfolio.title}
+                </h2>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
-}
+};
+
+export default PortfolioHomePage;

@@ -60,13 +60,14 @@ const Disclaimer: React.FC = () => {
             policies, please contact Cribonix customer support:
             <br />
             Email:{" "}
-            <a href="mailto:collab@cribonix.com" className="text-blue-500">
-              collab@cribonix.com
+            <a href="mailto:sachin@cribonix.com" className="text-blue-500">
+              sachin@cribonix.com
             </a>
             <br />
-            Phone: +91 88263 80022
+            Phone: +91 89501 63810
             <br />
-            Address: JMD MEGAPOLIS, 546, Sector 48, Gurugram, Haryana 122101
+            Address: 546, 5th floor, JMD MEGAPOLIS, Sector 48, Gurugram, Haryana
+            122018
           </p>
         </div>
       </div>
