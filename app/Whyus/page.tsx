@@ -65,8 +65,10 @@ const Whyus: FC = () => {
   const metricsRef = useRef<HTMLDivElement | null>(null);
 
   // State for Dynamic Image Carousel Section
-  const [currentDynamicImageIndex, setCurrentDynamicImageIndex] = useState<number>(0);
-  const [isDynamicImageVisible, setIsDynamicImageVisible] = useState<boolean>(false);
+  const [currentDynamicImageIndex, setCurrentDynamicImageIndex] =
+    useState<number>(0);
+  const [isDynamicImageVisible, setIsDynamicImageVisible] =
+    useState<boolean>(false);
   const dynamicImageRef = useRef<HTMLDivElement | null>(null);
 
   // State for Image Carousel (Manual Control)
@@ -98,7 +100,10 @@ const Whyus: FC = () => {
       });
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
 
     observer.observe(node);
 
@@ -152,7 +157,10 @@ const Whyus: FC = () => {
       });
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
 
     observer.observe(node);
 
@@ -203,16 +211,15 @@ const Whyus: FC = () => {
   return (
     <div className="bg-[#040404] scroll-smooth">
       {/* Hero Section */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative w-full h-auto sm:h-96 lg:h-[40rem]">
           <Image
             src={imgcont}
-            
-          alt="Office Background Image"
-          layout="responsive"
-          width={1500}
-          height={900}
-          className="object-cover opacity-50"
+            alt="Office Background Image"
+            layout="responsive"
+            width={1500}
+            height={900}
+            className="object-cover opacity-50"
           />
 
           {/* Overlay Content */}
@@ -230,14 +237,15 @@ const Whyus: FC = () => {
           {/* Left Content */}
           <div className="w-full lg:w-1/2">
             <p className="text-left text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed">
-              <span className="font-bold text-3xl p-2 mb-5">’’Where Aloo meets the Samosa’’</span>
-
+              <span className="font-bold text-3xl p-2 mb-5">
+                ’’Where Aloo meets the Samosa’’
+              </span>
               <br className="hidden sm:block" />
-
-              At Cribonix, we're the “Bahubali” of digital marketing—always delivering what your brand needs. With blockbuster strategies, superstar solutions, and a script for success, we make sure your brand hits the spotlight.
-
+              At Cribonix, we're the “Bahubali” of digital marketing—always
+              delivering what your brand needs. With blockbuster strategies,
+              superstar solutions, and a script for success, we make sure your
+              brand hits the spotlight.
               <br className="hidden sm:block" />
-
               Ready for a “Dhoom” of growth? We’ve got your back!
             </p>
           </div>
@@ -272,10 +280,16 @@ const Whyus: FC = () => {
           {/* Left Description */}
           <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-6">
             <h2 className="text-white text-2xl sm:text-2xl md:text-2xl lg:text-3xl font-extrabold leading-tight">
-              Where smart strategies meet creativity, we lift brands to new heights. Discover how knowledge drives our innovative solutions!
+              Where smart strategies meet creativity, we lift brands to new
+              heights. Discover how knowledge drives our innovative solutions!
             </h2>
             <p className="text-white text-base sm:text-lg md:text-xl leading-relaxed">
-              At Cribonix, we harness knowledge and industry insights to create personalised digital marketing strategies. Our expert team stays ahead of trends and customer behaviours to help brands stand out. From SEO to social media, we craft methods that drive real results, ensuring your brand connects with its audience and grows. Let us turn our expertise into your brand's success!
+              At Cribonix, we harness knowledge and industry insights to create
+              personalised digital marketing strategies. Our expert team stays
+              ahead of trends and customer behaviours to help brands stand out.
+              From SEO to social media, we craft methods that drive real
+              results, ensuring your brand connects with its audience and grows.
+              Let us turn our expertise into your brand's success!
             </p>
             <Link href="/Solutions" className="flex justify-center">
               <button className="border text-base sm:text-lg md:text-xl border-secondary rounded-full px-6 py-3 text-white hover:bg-white hover:text-black">
@@ -292,7 +306,6 @@ const Whyus: FC = () => {
               width={1200}
               height={500}
               className="object-cover rounded-md shadow-lg"
-              
             />
           </div>
         </div>
@@ -308,43 +321,39 @@ const Whyus: FC = () => {
           <h2 className="text-base sm:text-lg md:text-xl text-white font-light text-center">
             - More than goals. We’re on a mission.
             <br />
-            Our values are the fuel behind every campaign, strategy, and breakthrough.
+            Our values are the fuel behind every campaign, strategy, and
+            breakthrough.
           </h2>
         </div>
 
         <div className="flex flex-col lg:flex-row justify-center items-center space-y-8 lg:space-y-0 lg:space-x-12 mt-12">
           {/* Dynamic Image Carousel Section */}
-          <div
-            className="relative w-full lg:w-2/3  "
-            ref={dynamicImageRef}
-          >
+          <div className="relative w-full lg:w-2/3  " ref={dynamicImageRef}>
             {dynamicImages.map((image, index) => (
               <Image
                 key={index}
                 src={image.src}
                 alt={image.alt}
-                 
                 className={`rounded-md shadow-lg absolute inset-0 transition-opacity duration-1000 ${
-                  currentDynamicImageIndex === index ? "opacity-100 " : "opacity-0 z-0"
+                  currentDynamicImageIndex === index
+                    ? "opacity-100 "
+                    : "opacity-0 z-0"
                 }`}
               />
             ))}
-          <div className="container mx-auto mt-3.5 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-t border-secondary">
-            <div className="flex flex-col lg:flex-row items-start lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
-              <div className="lg:w-1/2 space-y-6">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-                   <br /> 
-                   <br /> 
-                   <br /> 
-                   <br /> 
-
-                </h1>
-                <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
-                  
-                </p>
+            <div className="container mx-auto mt-3.5 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-t border-secondary">
+              <div className="flex flex-col lg:flex-row items-start lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
+                <div className="lg:w-1/2 space-y-6">
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                  </h1>
+                  <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed"></p>
+                </div>
               </div>
             </div>
-          </div>
           </div>
 
           {/* Buttons Section */}
@@ -376,7 +385,8 @@ const Whyus: FC = () => {
               MEET OUR TEAM
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
-              The brains behind the brilliance, the faces behind the flair. Meet the dreamers, creators, and doers shaping Cribonix’s magic.
+              The brains behind the brilliance, the faces behind the flair. Meet
+              the dreamers, creators, and doers shaping Cribonix’s magic.
             </p>
           </div>
 
@@ -402,13 +412,14 @@ const Whyus: FC = () => {
               width={250}
               height={250}
               className="object-cover rounded-md shadow-lg"
-               
             />
             <p className="text-gray-400 font-light text-sm mt-4">
               Hi! my Name is
             </p>
             <h2 className="text-white font-bold text-lg mt-1">Sachin </h2>
-            <h3 className="text-white text-md font-light">Chief Executive Officer</h3>
+            <h3 className="text-white text-md font-light">
+              Chief Executive Officer
+            </h3>
           </div>
 
           {/* Team Member 2 */}
@@ -419,13 +430,14 @@ const Whyus: FC = () => {
               width={250}
               height={250}
               className="object-cover rounded-md shadow-lg"
-               
             />
             <p className="text-gray-400 font-light text-sm mt-4">
               Hi! my Name is
             </p>
             <h2 className="text-white font-bold text-lg mt-1">Varun</h2>
-            <h3 className="text-white text-md font-light">Chief operations Officer</h3>
+            <h3 className="text-white text-md font-light">
+              Chief operations Officer
+            </h3>
           </div>
 
           {/* Team Member 3 */}
@@ -436,13 +448,14 @@ const Whyus: FC = () => {
               width={250}
               height={250}
               className="object-cover rounded-md shadow-lg"
-               
             />
             <p className="text-gray-400 font-light text-sm mt-4">
               Hi! my Name is
             </p>
             <h2 className="text-white font-bold text-lg mt-1">Vini</h2>
-            <h3 className="text-white text-md font-light">Chief Sales Officer</h3>
+            <h3 className="text-white text-md font-light">
+              Chief Sales Officer
+            </h3>
           </div>
 
           {/* Team Member 4 */}
@@ -453,13 +466,14 @@ const Whyus: FC = () => {
               width={250}
               height={250}
               className="object-cover rounded-md shadow-lg"
-               
             />
             <p className="text-gray-400 font-light text-sm mt-4">
               Hi! my Name is
             </p>
             <h2 className="text-white font-bold text-lg mt-1">Hinglaj</h2>
-            <h3 className="text-white text-md font-light">Digital Marketing Head</h3>
+            <h3 className="text-white text-md font-light">
+              Digital Marketing Head
+            </h3>
           </div>
         </div>
       </div>
@@ -475,7 +489,6 @@ const Whyus: FC = () => {
           <Image
             src={office}
             alt="Office Background"
-             
             className="object-cover rounded-md shadow-lg opacity-80"
           />
         </div>
@@ -510,65 +523,62 @@ const Whyus: FC = () => {
 
         {/* Instagram Images */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-2  sm:py-10 ">
-  <div className="flex flex-col lg:flex-row justify-center gap-8 items-center mt-8 sm:mt-12">
-    {/* Mountain Image */}
-    <div className="w-full lg:w-2/5 relative justify-center">
-      <Image
-        src={mountain}
-        alt="Mountain"
-        
-        className="object-cover rounded-md shadow-lg"
-      />
-    </div>
+          <div className="flex flex-col lg:flex-row justify-center gap-8 items-center mt-8 sm:mt-12">
+            {/* Mountain Image */}
+            <div className="w-full lg:w-2/5 relative justify-center">
+              <Image
+                src={mountain}
+                alt="Mountain"
+                className="object-cover rounded-md shadow-lg"
+              />
+            </div>
 
-    {/* Grid of Images */}
-    <div className="w-full lg:w-1/2 flex flex-col gap-6 sm:gap-8">
-      {/* First Row */}
-      <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-        <div className="relative w-full sm:w-1/2 h-64">
-          <Image
-            src={g1}
-            alt="Gallery 1"
-            fill
-            className="object-cover rounded-md shadow-lg"
-          />
+            {/* Grid of Images */}
+            <div className="w-full lg:w-1/2 flex flex-col gap-6 sm:gap-8">
+              {/* First Row */}
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                <div className="relative w-full sm:w-1/2 h-64">
+                  <Image
+                    src={g1}
+                    alt="Gallery 1"
+                    fill
+                    className="object-cover rounded-md shadow-lg"
+                  />
+                </div>
+                <div className="relative w-full sm:w-1/2 h-64">
+                  <Image
+                    src={g2}
+                    alt="Gallery 2"
+                    fill
+                    className="object-cover rounded-md shadow-lg"
+                  />
+                </div>
+              </div>
+              {/* Second Row */}
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                <div className="relative w-full sm:w-1/2 h-64">
+                  <Image
+                    src={g3}
+                    alt="Gallery 3"
+                    fill
+                    className="object-cover rounded-md shadow-lg"
+                  />
+                </div>
+                <div className="relative w-full sm:w-1/2 h-64">
+                  <Image
+                    src={g4}
+                    alt="Gallery 4"
+                    fill
+                    className="object-cover rounded-md shadow-lg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="relative w-full sm:w-1/2 h-64">
-          <Image
-            src={g2}
-            alt="Gallery 2"
-            fill
-            className="object-cover rounded-md shadow-lg"
-          />
-        </div>
-      </div>
-      {/* Second Row */}
-      <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-        <div className="relative w-full sm:w-1/2 h-64">
-          <Image
-            src={g3}
-            alt="Gallery 3"
-            fill
-            className="object-cover rounded-md shadow-lg"
-          />
-        </div>
-        <div className="relative w-full sm:w-1/2 h-64">
-          <Image
-            src={g4}
-            alt="Gallery 4"
-            fill
-            className="object-cover rounded-md shadow-lg"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
       </div>
 
       {/* Image Carousel Section */}
-    
     </div>
   );
 };

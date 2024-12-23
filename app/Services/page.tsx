@@ -25,24 +25,24 @@ const Services = () => {
       {/* Background Image Section */}
 
       {/* Description */}
-      <div className="container mx-auto px-6 py-16">
-      <div className="relative">
-        <Image
-          src={office}
-          alt="Why Us Background Image"
-          layout="responsive"
-          width={1200}
-          height={600}
-          className="object-cover opacity-50"
-        />
+      <div className="container mx-auto px-6">
+        <div className="relative">
+          <Image
+            src={office}
+            alt="Why Us Background Image"
+            layout="responsive"
+            width={1200}
+            height={600}
+            className="object-cover opacity-50"
+          />
 
-        {/* Overlay Content */}
-        <div className="absolute inset-0 flex flex-col justify-center items-start px-6 md:px-16">
-          <h2 className="text-2xl sm:text-6xl md:text-7xl lg:text-9xl font-bold text-white leading-tight">
-            BLOCKBUSTER STRATEGIES 
-          </h2>
+          {/* Overlay Content */}
+          <div className="absolute inset-0 flex flex-col justify-center items-start px-6 md:px-16">
+            <h2 className="text-2xl sm:text-6xl md:text-7xl lg:text-9xl font-bold text-white leading-tight">
+              BLOCKBUSTER STRATEGIES
+            </h2>
+          </div>
         </div>
-      </div>
         <h1 className="text-lg flex justify-center mt-6 sm:text-xl md:text-2xl font-bold text-white">
           From script to screen, we provide the tools and strategies that turn
           your brand into a digital sensation.
@@ -60,7 +60,7 @@ const Services = () => {
           {/* Service 1 */}
           <div
             className="flex flex-col"
-            onMouseEnter={() => setShowService1(true) }
+            onMouseEnter={() => setShowService1(true)}
             onMouseLeave={() => setShowService1(false)}
           >
             <Image
@@ -82,10 +82,10 @@ const Services = () => {
                     brand to life through powerful visuals and engaging
                     storytelling. We specialize in creating campaigns that not
                     only catch the eye but also evoke genuine emotions, making
-                    your brand memorable and relatable. From dynamic social media
-                    content to striking ad designs, we craft each piece with
-                    purpose and creativity, aiming to connect deeply with your
-                    target audience and leave a lasting impact.
+                    your brand memorable and relatable. From dynamic social
+                    media content to striking ad designs, we craft each piece
+                    with purpose and creativity, aiming to connect deeply with
+                    your target audience and leave a lasting impact.
                   </p>
                   <h1 className="text-2xl font-bold text-white mt-4">
                     Our USPs:
@@ -113,8 +113,8 @@ const Services = () => {
                     Let's connect for a discussion
                   </h2>
                   <p className="text-white flex text-center text-lg items-center">
-                    Interested in taking your brand to the next level? Contact us
-                    today to start the conversation.
+                    Interested in taking your brand to the next level? Contact
+                    us today to start the conversation.
                   </p>
                   <Link href="/Contact">
                     <button className="px-6 py-3 border border-secondary bg-white text-black hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] transition rounded-full  duration-300">
@@ -162,7 +162,9 @@ const Services = () => {
                   </h1>
                   <ul className="list-disc list-inside text-white text-lg space-y-2">
                     <li>
-                      <span className="font-bold">Perfect Influencer Match:</span>{" "}
+                      <span className="font-bold">
+                        Perfect Influencer Match:
+                      </span>{" "}
                       We connect you with influencers who truly represent your
                       brand.
                     </li>
@@ -216,29 +218,29 @@ const Services = () => {
                     About the service
                   </h1>
                   <p className="text-white text-lg leading-relaxed">
-                    Our Ad Magic service ensures your brand gets the spotlight it
-                    deserves, from Meta to Google. We expertly manage and optimize
-                    your ad spend, crafting high-impact campaigns that capture
-                    attention and drive meaningful engagement. Our data-driven
-                    approach allows us to tailor ads that not only amplify
-                    visibility but also deliver measurable results, enhancing your
-                    brand’s reach across digital platforms.
+                    Our Ad Magic service ensures your brand gets the spotlight
+                    it deserves, from Meta to Google. We expertly manage and
+                    optimize your ad spend, crafting high-impact campaigns that
+                    capture attention and drive meaningful engagement. Our
+                    data-driven approach allows us to tailor ads that not only
+                    amplify visibility but also deliver measurable results,
+                    enhancing your brand’s reach across digital platforms.
                   </p>
                   <h1 className="text-2xl font-bold text-white mt-4">
                     Our USPs:
                   </h1>
                   <ul className="list-disc list-inside text-white text-lg space-y-2">
                     <li>
-                      <span className="font-bold">Precision Targeting:</span> Reach
-                      your ideal audience with customized ad strategies.
+                      <span className="font-bold">Precision Targeting:</span>{" "}
+                      Reach your ideal audience with customized ad strategies.
                     </li>
                     <li>
                       <span className="font-bold">Optimized Budget Use:</span>{" "}
                       Maximize every dollar spent for top ROI.
                     </li>
                     <li>
-                      <span className="font-bold">Creative Excellence:</span> Ads
-                      that engage, convert, and leave a lasting impression.
+                      <span className="font-bold">Creative Excellence:</span>{" "}
+                      Ads that engage, convert, and leave a lasting impression.
                     </li>
                   </ul>
                 </div>
@@ -248,8 +250,8 @@ const Services = () => {
                     Let's connect for a discussion
                   </h2>
                   <p className="text-white flex text-center text-lg items-center">
-                    Want to make your ads work harder for you? Reach out to explore
-                    our ad solutions.
+                    Want to make your ads work harder for you? Reach out to
+                    explore our ad solutions.
                   </p>
                   <Link href="/Contact">
                     <button className="px-6 py-3 border border-secondary bg-white text-black rounded-full hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] transition duration-300">
@@ -282,24 +284,24 @@ const Services = () => {
                     About the service
                   </h1>
                   <p className="text-white text-lg leading-relaxed">
-                    Our Effortless UGC Management service takes the complexity out
-                    of handling user-generated content (UGC). We transform
+                    Our Effortless UGC Management service takes the complexity
+                    out of handling user-generated content (UGC). We transform
                     authentic customer stories, photos, and reviews into
                     compelling marketing assets, elevating your brand’s
                     credibility and engagement. From sourcing to moderation, we
                     manage the process seamlessly, letting you benefit from
-                    genuine content without lifting a finger. By leveraging these
-                    real-life experiences, we ensure your brand feels relatable,
-                    trustworthy, and impactful, making meaningful connections with
-                    your audience.
+                    genuine content without lifting a finger. By leveraging
+                    these real-life experiences, we ensure your brand feels
+                    relatable, trustworthy, and impactful, making meaningful
+                    connections with your audience.
                   </p>
                   <h1 className="text-2xl font-bold text-white mt-4">
                     Our USPs:
                   </h1>
                   <ul className="list-disc list-inside text-white text-lg space-y-2">
                     <li>
-                      <span className="font-bold">Time-Saving Solutions:</span> We
-                      handle all UGC operations for you.
+                      <span className="font-bold">Time-Saving Solutions:</span>{" "}
+                      We handle all UGC operations for you.
                     </li>
                     <li>
                       <span className="font-bold">Authentic Engagement:</span>{" "}
@@ -317,8 +319,8 @@ const Services = () => {
                     Let's connect for a discussion
                   </h2>
                   <p className="text-white flex text-center text-lg items-center">
-                    Harness the power of user-generated content. Contact us to get
-                    started.
+                    Harness the power of user-generated content. Contact us to
+                    get started.
                   </p>
                   <Link href="/Contact">
                     <button className="px-6 py-3 border border-secondary bg-white text-black rounded-full hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] transition duration-300">
@@ -351,16 +353,16 @@ const Services = () => {
                     About the service
                   </h1>
                   <p className="text-white text-lg leading-relaxed">
-                    Our Strategic Branding service ensures your brand doesn’t just
-                    exist but thrives in the digital landscape. We craft
-                    comprehensive and consistent brand strategies tailored to your
-                    market, helping you make a powerful impact and foster lasting
-                    connections. From visual identity to brand messaging, we
-                    design every element to resonate deeply with your audience,
-                    making your brand memorable and distinctive. By aligning with
-                    your goals and emphasizing your unique strengths, we set you
-                    apart from the competition and position you as a leader in
-                    your industry.
+                    Our Strategic Branding service ensures your brand doesn’t
+                    just exist but thrives in the digital landscape. We craft
+                    comprehensive and consistent brand strategies tailored to
+                    your market, helping you make a powerful impact and foster
+                    lasting connections. From visual identity to brand
+                    messaging, we design every element to resonate deeply with
+                    your audience, making your brand memorable and distinctive.
+                    By aligning with your goals and emphasizing your unique
+                    strengths, we set you apart from the competition and
+                    position you as a leader in your industry.
                   </p>
                   <h1 className="text-2xl font-bold text-white mt-4">
                     Our USPs:
@@ -375,8 +377,8 @@ const Services = () => {
                       Create a memorable and cohesive brand voice.
                     </li>
                     <li>
-                      <span className="font-bold">Market-Driven:</span> Designed to
-                      engage and captivate your target audience.
+                      <span className="font-bold">Market-Driven:</span> Designed
+                      to engage and captivate your target audience.
                     </li>
                   </ul>
                 </div>
@@ -423,11 +425,12 @@ const Services = () => {
                     Our Performance Insights service transforms data into
                     actionable growth strategies. We deeply analyze key
                     performance metrics to understand what's working and what
-                    needs improvement, ensuring your digital marketing efforts are
-                    always optimized for success. By leveraging these insights, we
-                    refine campaigns to enhance engagement, conversion, and brand
-                    impact. We believe that informed decisions lead to better
-                    results, making your marketing smarter and more efficient.
+                    needs improvement, ensuring your digital marketing efforts
+                    are always optimized for success. By leveraging these
+                    insights, we refine campaigns to enhance engagement,
+                    conversion, and brand impact. We believe that informed
+                    decisions lead to better results, making your marketing
+                    smarter and more efficient.
                   </p>
                   <h1 className="text-2xl font-bold text-white mt-4">
                     Our USPs:
@@ -442,7 +445,9 @@ const Services = () => {
                       Recommendations to maximize ROI.
                     </li>
                     <li>
-                      <span className="font-bold">Continuous Optimization:</span>{" "}
+                      <span className="font-bold">
+                        Continuous Optimization:
+                      </span>{" "}
                       Adaptive improvements for ongoing success.
                     </li>
                   </ul>
@@ -453,8 +458,8 @@ const Services = () => {
                     Let's connect for a discussion
                   </h2>
                   <p className="text-white flex text-center text-lg items-center">
-                    Ready to unlock insights from your data? Let's talk about how
-                    we can help.
+                    Ready to unlock insights from your data? Let's talk about
+                    how we can help.
                   </p>
                   <Link href="/Contact">
                     <button className="px-6 py-3 border flex justify-center items-center border-secondary bg-white text-black rounded-full hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] transition duration-300">
