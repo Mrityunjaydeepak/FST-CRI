@@ -37,7 +37,7 @@ const ImageSection: React.FC = () => {
       {/* Top Spacer */}
       <div className="h-[40vh]">
         <h3 className="text-6xl font-bold mx-32">
-          Our Work in Action <br />
+          Brands we admire and collaborated with <br />
         </h3>
         <h4 className="text-3xl mx-32 mt-8">
           A Glimpse into Our Success Stories and Creative Impact

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { StaticImageData } from "next/image";
 
 interface ImageCardProps {
-  src: StaticImageData;
+  src: StaticImageData | string;
   alt: string;
   index: number;
   totalImages: number;
@@ -56,7 +56,8 @@ const ImageCard: React.FC<ImageCardProps> = ({
         <Image
           src={src}
           alt={alt}
-          objectFit="cover"
+          width={5000}
+          height={5000}
           sizes="(max-width: 768px) 100vw,
                  (max-width: 1200px) 50vw,
                  33vw"

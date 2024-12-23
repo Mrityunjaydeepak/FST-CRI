@@ -5,7 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "http", // Change to https if needed
-        hostname: "localhost", // Replace with your backend's domain
+        hostname: "cribonix.com", // Replace with your backend's domain
         port: "5000", // Backend port, if applicable
         pathname: "/**", // Allow all paths
       },

@@ -1,16 +1,16 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 interface CardProps {
-  height?: string;         // Tailwind CSS height classes, e.g., "h-64"
-  width?: string;  
-  heading?: string;        // Tailwind CSS width classes, e.g., "w-80"
-  tagline?: string;        // Optional tagline or subtitle
-  number: string;          // Number to display (e.g., "50Cr+")
-  subheading?: string;     // Optional subheading or subtitle
-  description: string;     // Description or detailed content of the card
-  image?: string;          // Optional image URL or path
-  onClick?: () => void;    // Optional click handler for the card
+  height?: string; // Tailwind CSS height classes, e.g., "h-64"
+  width?: string; // Tailwind CSS width classes, e.g., "w-80"
+  heading?: string; // Optional heading text
+  tagline?: string; // Optional tagline or subtitle
+  number: string; // Number to display (e.g., "50Cr+")
+  subheading?: string; // Optional subheading or subtitle
+  description: string; // Description or detailed content of the card
+  image?: string; // Optional image URL or path
+  onClick?: () => void; // Optional click handler for the card
 }
 
 const Card: React.FC<CardProps> = ({
@@ -26,49 +26,29 @@ const Card: React.FC<CardProps> = ({
 }) => {
   // Function to render the subheading with a gradient first letter
   const renderSubheading = () => {
-    if (!heading) return null;
-
-    const firstLetter = heading.charAt(0).toUpperCase();
-    const remainingText = heading.slice(1);
-
     return (
       <div className="flex flex-col w-full">
         {/* Subheading with Gradient First Letter */}
         <h4 className="text-2xl mt-2 flex items-center">
-          {/* First Letter with Gradient */}
-          <span className="font-semibold text-white/30 text-4xl ">
-            {firstLetter}
-          </span>
-          {/* Remaining Text */}
-          <span className="font-semibold text-white/30 text-4xl -ml-0.5">
-            {remainingText}
+          <span className="font-bold text-gray-400 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-6xl transition-all duration-300">
+            {number}
           </span>
         </h4>
 
-        {/* Number Positioned to the Right and Below Subheading */}
-        <div className="mt-2 flex justify-end">
-          <span className="text-6xl font-bold bg-white/30 text-transparent bg-clip-text">
-            {number}
-          </span>
-        </div>
+        {/* Subheading Below Number */}
+        <span className="font-semibold text-white text-4xl mt-2">
+          {subheading}
+        </span>
 
-        <span className="font-semibold text-white text-4xl mt-2 ">
-            {subheading}
-          </span>
-
-        {/* Tagline Below the Number */}
-        {tagline && (
-          <span className="mt-4 text-2xl text-white">
-            {tagline}
-          </span>
-        )}
+        {/* Tagline Below the Subheading */}
+        {tagline && <span className="mt-4 text-2xl text-white">{tagline}</span>}
       </div>
     );
   };
 
   return (
     <div
-      className={`bg-primary hover:bg-gradient-to-r hover:from-[#009DD1] hover:to-[#bf3fd2] hover:text-transparent hover:bg-clip-text shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary ${height} ${width}`}
+      className={`group bg-primary shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-110 cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary ${height} ${width}`}
       onClick={onClick}
       role="button"
       tabIndex={0}
@@ -92,9 +72,7 @@ const Card: React.FC<CardProps> = ({
         {renderSubheading()}
 
         {/* Description */}
-        <p className="text-[#FFFFFF] mt-4">
-          {description}
-        </p>
+        <p className="text-[#FFFFFF] mt-4">{description}</p>
       </div>
     </div>
   );

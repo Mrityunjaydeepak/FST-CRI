@@ -29,12 +29,12 @@ const BlogPage: React.FC<BlogPageProps> = ({ blogPost }) => {
   }
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-      <div className="relative w-full h-72 sm:h-96 lg:h-[40rem]">
+    <div className="container mx-auto px-4  py-12 sm:py-16">
+      <div className=" flex relative w-full h-72 sm:h-96 lg:h-[40rem] justify-center ">
         <Image
           src={blogPost.image}
           alt="Blog Image"
-          width={500}
+          width={1400}
           height={500}
           className="opacity-50"
           priority
@@ -42,7 +42,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ blogPost }) => {
       </div>
 
       <div className="mt-8 space-y-6">
-        <h1 className="text-2xl sm:text-4xl font-bold text-center">
+        <h1 className="text-2xl sm:text-4xl font-bold text-start">
           {blogPost.heading1}
         </h1>
         <h2 className="text-sm sm:text-base lg:text-lg text-justify">

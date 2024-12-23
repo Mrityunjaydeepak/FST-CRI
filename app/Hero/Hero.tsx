@@ -85,7 +85,7 @@ const Hero: React.FC = () => {
   ];
   const cribonix: Cribonix[] = [
     {
-      heading: "CRIBONIX",
+      heading: "01",
       subheading: "CUSTOMER FIRST",
       tagline: "Customer hi Bhagwaan Hai!",
       number: "01",
@@ -95,7 +95,7 @@ const Hero: React.FC = () => {
       width: "w-full",
     },
     {
-      heading: "CRIBONIX",
+      heading: "02",
       subheading: "COLLABORATIVE COMMUNICATION",
       tagline: "Hum Saath Saath Hai!",
       number: "02",
@@ -105,7 +105,7 @@ const Hero: React.FC = () => {
       width: "w-full",
     },
     {
-      heading: "CRIBONIX",
+      heading: "03",
       subheading: "CREATIVE EXCELLENCE",
       tagline: "Yeh Apun ka Style Hai!",
       number: "03",
@@ -115,7 +115,7 @@ const Hero: React.FC = () => {
       width: "w-full",
     },
     {
-      heading: "CRIBONIX",
+      heading: "04",
       subheading: "COST VALUATION",
       tagline: "Ab Hoga Sabse Bada Rupaiya!",
       number: "04",
@@ -149,6 +149,42 @@ const Hero: React.FC = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+  }, []);
+
+  interface Testimonial {
+    id: string;
+    rating: number; // Number of stars (1-5)
+    title: string;
+    content: string;
+    author: string;
+    role: string;
+  }
+
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/testimonials`,
+          {
+            cache: "no-store", // Ensure fresh data is fetched
+          }
+        );
+        if (!res.ok) {
+          throw new Error("Failed to fetch testimonials");
+        }
+        const data: Testimonial[] = await res.json();
+        setTestimonials(data);
+      } catch (error) {
+        console.error("Error fetching testimonials:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTestimonials();
   }, []);
 
   useEffect(() => {
@@ -338,7 +374,7 @@ const Hero: React.FC = () => {
   return (
     <div className="bg-[#040404]">
       {/* Our Story Section */}
-      <div className="container flex flex-col justify-center items-center mx-auto px-6 py-16">
+      <div className="container flex flex-col justify-center items-center mx-auto py-16">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-12 lg:space-y-0 lg:space-x-12 border-t border-secondary pt-12">
           {/* Our Story Heading */}
           <div className="flex flex-col space-y-6 lg:w-1/3">
@@ -359,19 +395,30 @@ const Hero: React.FC = () => {
           </div>
           {/* Our Story Content */}
           <div className="lg:w-2/3 space-y-6">
-            <p className="text-[#E9E9E9] text-lg leading-relaxed">
-              In a world filled with noise, Cribonix stands out as a master
-              creator, crafting digital stories that truly connect with
-              audiences. We believe every brand has a unique tale to tell, and
-              our mission is to help yours shine. Our passionate team blends
-              innovation with artistry, transforming your vision into an
-              engaging narrative that sparks connections and drives results.
+            <p className="text-[#a0a0a0] text-lg leading-relaxed">
+              In a world filled with noise,{" "}
+              <span className="text-white">
+                Cribonix stands out as a master creator{" "}
+              </span>
+              , crafting digital stories that truly connect with audiences. We
+              believe every brand has a unique tale to tell, and{" "}
+              <span className="text-white">our mission is </span>
+              to help yours shine. Our passionate team blends innovation with
+              artistry,
+              <span className="text-white">transforming your vision </span> into
+              an engaging narrative{" "}
+              <span className="text-white">
+                that sparks connections and drives results.{" "}
+              </span>
             </p>
-            <p className="text-[#E9E9E9] text-lg leading-relaxed">
+            <p className="text-[#a0a0a0] text-lg leading-relaxed">
               With strategies that push boundaries and creativity that knows no
-              limits, we craft campaigns that not only speak but sing to your
-              audience. Are you ready to unlock your brand's potential and start
-              an exciting journey with us? Then let's create magic together!
+              limits,
+              <span className="text-white ">
+                we craft campaigns that not only speak but sing to your audience{" "}
+              </span>{" "}
+              . Are you ready to unlock your brand's potential and start an
+              exciting journey with us? Then let's create magic together!
             </p>
           </div>
         </div>
@@ -580,7 +627,6 @@ const Hero: React.FC = () => {
                   id="keen-slider-previous"
                   className="hidden lg:flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
                 >
-                  {/* Previous Icon */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -601,7 +647,6 @@ const Hero: React.FC = () => {
                   id="keen-slider-next"
                   className="hidden lg:flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
                 >
-                  {/* Next Icon */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -623,155 +668,49 @@ const Hero: React.FC = () => {
             {/* Testimonials Slider */}
             <div className="lg:w-2/3">
               <div id="keen-slider" className="keen-slider">
-                {/* Testimonial Slide */}
-                <div className="keen-slider__slide">
-                  <blockquote className="flex flex-col justify-between bg-[#040404] p-8 sm:p-10 lg:p-12 h-full rounded-lg">
-                    <div>
-                      <div className="flex gap-1 text-[#FFD700]">
-                        {/* Stars */}
-                        {[...Array(5)].map((_, i) => (
-                          <svg
-                            key={i}
-                            className="w-5 h-5"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                          </svg>
-                        ))}
-                      </div>
-                      <div className="mt-6">
-                        <p className="text-2xl font-bold text-white">
-                          Great Service!
-                        </p>
-                        <p className="mt-4 text-gray-400 leading-relaxed">
-                          Cribonix transformed our marketing game! From
-                          understanding our restaurant’s voice and theme to
-                          running creative campaigns to the right audience and
-                          managing our social media platforms, their expertise
-                          delivered exactly what we needed. A true partner in
-                          every sense.
-                        </p>
-                      </div>
+                {loading ? (
+                  <p className="text-gray-400 text-center">
+                    Loading testimonials...
+                  </p>
+                ) : testimonials.length > 0 ? (
+                  testimonials.map((testimonial) => (
+                    <div key={testimonial.id} className="keen-slider__slide">
+                      <blockquote className="flex flex-col justify-between bg-[#040404] p-8 sm:p-10 lg:p-12 h-full rounded-lg">
+                        <div>
+                          <div className="flex gap-1 text-[#FFD700]">
+                            {/* Render Stars Based on Rating */}
+                            {[...Array(testimonial.rating)].map((_, i) => (
+                              <svg
+                                key={i}
+                                className="w-5 h-5"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                            ))}
+                          </div>
+                          <div className="mt-6">
+                            <p className="text-2xl font-bold text-white">
+                              {testimonial.title}
+                            </p>
+                            <p className="mt-4 text-gray-400 leading-relaxed">
+                              {testimonial.content}
+                            </p>
+                          </div>
+                        </div>
+                        <footer className="mt-6 text-base font-medium text-gray-400">
+                          &mdash; {testimonial.author} [ {testimonial.role} ]
+                        </footer>
+                      </blockquote>
                     </div>
-                    <footer className="mt-6 text-base font-medium text-gray-400">
-                      &mdash; Priyanka Sharma [ Restaurant Owner ]
-                    </footer>
-                  </blockquote>
-                </div>
-
-                {/* Testimonial Slide */}
-
-                <div className="keen-slider__slide">
-                  <blockquote className="flex flex-col justify-between bg-[#040404] p-8 sm:p-10 lg:p-12 h-full rounded-lg">
-                    <div>
-                      <div className="flex gap-1 text-[#FFD700]">
-                        {/* Stars */}
-                        {[...Array(5)].map((_, i) => (
-                          <svg
-                            key={i}
-                            className="w-5 h-5"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                          </svg>
-                        ))}
-                      </div>
-                      <div className="mt-6">
-                        <p className="text-2xl font-bold text-white">
-                          Wonderful Team!
-                        </p>
-                        <p className="mt-4 text-gray-400 leading-relaxed">
-                          We were having a difficulty in finding a team that
-                          truly meets our brand's needs, making people
-                          understand about our real estate plans, but Cribonix
-                          exceeded expectations. Their strategies brought great
-                          results and their creativity kept us coming back for
-                          more.
-                        </p>
-                      </div>
-                    </div>
-                    <footer className="mt-6 text-base font-medium text-gray-400">
-                      &mdash; Ishaan Arora [ Medical Service Brand Owner ]
-                    </footer>
-                  </blockquote>
-                </div>
-                {/* Testimonial Slide */}
-                <div className="keen-slider__slide">
-                  <blockquote className="flex flex-col justify-between bg-[#040404] p-8 sm:p-10 lg:p-12 h-full rounded-lg">
-                    <div>
-                      <div className="flex gap-1 text-[#FFD700]">
-                        {/* Stars */}
-                        {[...Array(5)].map((_, i) => (
-                          <svg
-                            key={i}
-                            className="w-5 h-5"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                          </svg>
-                        ))}
-                      </div>
-                      <div className="mt-6">
-                        <p className="text-2xl font-bold text-white">
-                          Full of creativity!
-                        </p>
-                        <p className="mt-4 text-gray-400 leading-relaxed">
-                          We’re a small consulting firm and Cribonix helped us
-                          get noticed. Their ads brought in more clients and
-                          they made our services stand out in this crowded busy
-                          market.
-                        </p>
-                      </div>
-                    </div>
-                    <footer className="mt-6 text-base font-medium text-gray-400">
-                      &mdash; Saksham Gambhir [ Real Estate Consultant ]
-                    </footer>
-                  </blockquote>
-                </div>
-                {/* Testimonial Slide */}
-                <div className="keen-slider__slide">
-                  <blockquote className="flex flex-col justify-between bg-[#040404] p-8 sm:p-10 lg:p-12 h-full rounded-lg">
-                    <div>
-                      <div className="flex gap-1 text-[#FFD700]">
-                        {/* Stars */}
-                        {[...Array(5)].map((_, i) => (
-                          <svg
-                            key={i}
-                            className="w-5 h-5"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                          </svg>
-                        ))}
-                      </div>
-                      <div className="mt-6">
-                        <p className="text-2xl font-bold text-white">
-                          Exceptional service!
-                        </p>
-                        <p className="mt-4 text-gray-400 leading-relaxed">
-                          Running stock market campaigns is a big challenge as
-                          it is very difficult for people to get things
-                          understood in this industry, until we partnered with
-                          Cribonix. Their creative ads and data-driven approach
-                          brought us the right clients effortlessly.
-                        </p>
-                      </div>
-                    </div>
-                    <footer className="mt-6 text-base font-medium text-gray-400">
-                      &mdash; Mritunjay Tanwar [ Investment Firm Owner ]
-                    </footer>
-                  </blockquote>
-                </div>
-
-                {/* Add more testimonial slides as needed */}
+                  ))
+                ) : (
+                  <p className="text-gray-400 text-center">
+                    No testimonials found.
+                  </p>
+                )}
               </div>
             </div>
 
@@ -782,7 +721,6 @@ const Hero: React.FC = () => {
                 id="keen-slider-previous-mobile"
                 className="flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
               >
-                {/* Previous Icon */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -803,7 +741,6 @@ const Hero: React.FC = () => {
                 id="keen-slider-next-mobile"
                 className="flex rounded-full border border-white p-3 text-white hover:bg-white hover:text-black transition"
               >
-                {/* Next Icon */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -823,6 +760,8 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* ......................... */}
       <section className="bg-primary border-t border-secondary py-16">
         <div className="container mx-auto px-4 py-8">
           <div className="flex justify-between items-center mb-8 sm:flex-col">

@@ -1,5 +1,3 @@
-// /pages/index.tsx
-
 "use client";
 import React, { useEffect, useState } from "react";
 import BlogCard from "../Components/BlogCard";
@@ -26,10 +24,10 @@ const Blogs: React.FC = () => {
         if (!response.ok) {
           throw new Error("Failed to fetch blog posts");
         }
-        const data = await response.json();
+        const data: BlogPost[] = await response.json();
 
         // Extract only the fields we need: image, heading1, content1
-        const filteredData = data.map((post: any) => ({
+        const filteredData: BlogPost[] = data.map((post) => ({
           _id: post._id,
           image: post.image,
           heading1: post.heading1,
