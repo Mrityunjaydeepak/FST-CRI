@@ -44,6 +44,8 @@ import sustainablegrowthgif from "./images/Sustainable Growth.gif";
 import estate from "./images/White and Blue Modern Creative Real Estate Property Marketing Instagram Post (1).jpg";
 import ImageSection from "../Components/ImageSection";
 import CountUp from "react-countup";
+import ShinyText from "../Components/ShinyText";
+import PortfolioHomePage from "../Portfolio/page";
 
 interface Cribonix {
   heading: string;
@@ -583,7 +585,15 @@ const Hero: React.FC = () => {
         <div className="flex flex-col sm:flex-row justify-center items-center space-y-8 sm:space-y-0 sm:space-x-8">
           {/* Statistic Item */}
           <div className="text-center px-20">
-            <h1 className="text-5xl sm:text-6xl font-bold text-white">50Cr+</h1>
+            <h1 className="text-5xl sm:text-6xl font-bold text-white">
+              {" "}
+              <ShinyText
+                text="50Cr+"
+                disabled={false}
+                speed={3}
+                className="custom-class"
+              />
+            </h1>
             <p className="text-xl sm:text-2xl text-gray-300 mt-2">
               Spent on Ads
             </p>
@@ -591,7 +601,12 @@ const Hero: React.FC = () => {
           {/* Statistic Item */}
           <div className="text-center px-20">
             <h1 className="text-5xl sm:text-6xl font-bold text-white">
-              5,000+
+              <ShinyText
+                text="5000+"
+                disabled={false}
+                speed={3}
+                className="custom-class"
+              />
             </h1>
             <p className="text-xl sm:text-2xl text-gray-300 mt-2">
               Projects Onboarded
@@ -599,7 +614,14 @@ const Hero: React.FC = () => {
           </div>
           {/* Statistic Item */}
           <div className="text-center px-20">
-            <h1 className="text-5xl sm:text-6xl font-bold text-white">4x</h1>
+            <h1 className="text-5xl sm:text-6xl font-bold text-white">
+              <ShinyText
+                text="4x"
+                disabled={false}
+                speed={3}
+                className="custom-class"
+              />
+            </h1>
             <p className="text-xl sm:text-2xl text-gray-300 mt-2">
               Avg ROI for brands
             </p>
@@ -607,7 +629,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      <ImageSection />
+      <PortfolioHomePage />
 
       {/* Testimonials Section */}
       <section className="bg-primary border-t border-secondary py-16">

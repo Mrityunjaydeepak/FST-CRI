@@ -328,49 +328,39 @@ const Whyus: FC = () => {
 
         <div className="flex flex-col lg:flex-row justify-center items-center space-y-8 lg:space-y-0 lg:space-x-12 mt-12">
           {/* Dynamic Image Carousel Section */}
-          <div className="relative w-full lg:w-2/3  " ref={dynamicImageRef}>
+          <div
+            className="relative w-full lg:w-2/3 h-[500px] flex items-center justify-center overflow-hidden"
+            ref={dynamicImageRef}
+          >
             {dynamicImages.map((image, index) => (
               <Image
                 key={index}
                 src={image.src}
                 alt={image.alt}
-                className={`rounded-md shadow-lg absolute inset-0 transition-opacity duration-1000 ${
+                className={`rounded-md shadow-lg absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 ${
                   currentDynamicImageIndex === index
-                    ? "opacity-100 "
+                    ? "opacity-100"
                     : "opacity-0 z-0"
                 }`}
               />
             ))}
-            <div className="container mx-auto mt-3.5 px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-t border-secondary">
-              <div className="flex flex-col lg:flex-row items-start lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
-                <div className="lg:w-1/2 space-y-6">
-                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                  </h1>
-                  <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed"></p>
-                </div>
-              </div>
+
+            {/* Indicator Section */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+              {dynamicImages.map((_, index) => (
+                <div
+                  key={index}
+                  className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full ${
+                    currentDynamicImageIndex === index
+                      ? "bg-white"
+                      : "bg-gray-400"
+                  } transition-colors duration-300`}
+                />
+              ))}
             </div>
           </div>
 
-          {/* Buttons Section */}
-          {/* <div className="flex flex-row lg:flex-col justify-center items-center space-x-4 lg:space-x-0 lg:space-y-4">
-            {dynamicImages.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentDynamicImageIndex(index)}
-                className={`w-10 h-10 sm:w-12 sm:h-12 text-sm sm:text-base bg-black rounded-full hover:text-white transition-colors duration-300 focus:outline-none flex items-center justify-center ${
-                  currentDynamicImageIndex === index ? "bg-white text-black" : ""
-                }`}
-                aria-label={`Display dynamic image ${index + 1}`}
-              >
-                {`0${index + 1}`}
-              </button>
-            ))}
-          </div> */}
+          {/* Content Section */}
         </div>
       </div>
 
