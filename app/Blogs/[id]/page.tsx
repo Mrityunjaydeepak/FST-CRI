@@ -29,14 +29,14 @@ const BlogPage: React.FC<BlogPageProps> = ({ blogPost }) => {
   }
 
   return (
-    <div className="container mx-auto px-4  py-12 sm:py-16">
-      <div className=" flex relative w-full h-72 sm:h-96 lg:h-[40rem] justify-center ">
+    <div className="container mx-auto px-6">
+      <div className=" flex relative  w-full h-72 sm:h-96 lg:h-[40rem] justify-center ">
         <Image
           src={blogPost.image}
           alt="Blog Image"
           width={1400}
           height={500}
-          className="opacity-50"
+          className="object-cover opacity-50"
           priority
         />
       </div>

@@ -1,19 +1,19 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import ImageCard from "../Components/ImageCard"; // Make sure this uses <Image> with width/height or fill
+import { useRouter } from "next/navigation";
+import ImageCard from "../Components/ImageCard";
 
 interface Portfolio {
   _id: string;
   title: string;
-  homePageImage: string; // remote URL from API
+  homePageImage: string; // Remote URL from API
 }
 
 const PortfolioHomePage: React.FC = () => {
   const [portfolios, setPortfolios] = useState<Portfolio[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchPortfolios = async () => {
@@ -40,76 +40,59 @@ const PortfolioHomePage: React.FC = () => {
     fetchPortfolios();
   }, []);
 
+  const handleImageClick = (id: string) => {
+    router.push(`/Portfolio/${id}`);
+  };
+
   return (
     <div className="bg-primary scroll-smooth">
       {/* Hero Section */}
-      <section className="relative py-20 bg-primary border-t border-secondary mx-32">
-        {/* Top Spacer */}
-        <div className="h-[40vh] flex flex-col justify-center">
-          <h3 className="text-6xl font-bold mx-32">
+      <section className="relative py-10 bg-primary border-t border-secondary px-4 md:px-16 lg:px-32">
+        <div className="h-auto flex flex-col justify-center text-center">
+          <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white">
             Brands We Admire and Collaborated with
           </h3>
-          <h4 className="text-3xl mx-32 mt-8">
+          <h4 className="text-lg md:text-2xl lg:text-3xl text-gray-300 mt-4">
             A Glimpse into Our Success Stories and Creative Impact
           </h4>
         </div>
-
-        {/* Animated (Parallax) Image Section using fetched data */}
-        {!loading && portfolios.length > 0 && (
-          <div className="relative max-w-7xl mx-auto h-[800vh]">
-            {portfolios.map((portfolios, index) => (
-              <ImageCard
-                key={portfolios._id}
-                src={portfolios.homePageImage}
-                alt={portfolios.title}
-                index={index}
-                totalImages={1}
-              />
-            ))}
-          </div>
-        )}
-
-        {/* Bottom Spacer */}
-        <div className="h-[10vh]" />
       </section>
 
-      {/* Portfolios Section (grid view) */}
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-center mb-6 text-white">
-          Portfolios
-        </h1>
-        {loading ? (
-          <div className="text-white text-2xl text-center">Loading...</div>
-        ) : portfolios.length === 0 ? (
-          <div className="text-center py-12 text-white">
-            No portfolios found.
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {portfolios.map((portfolio) => (
-              <Link
+      {/* Animated (Sticky Parallax) Image Section */}
+      <section className="relative max-w-7xl mx-auto px-4 py-12">
+        {!loading && portfolios.length > 0 ? (
+          <div
+            className="relative"
+            style={{ height: `${portfolios.length * 100}vh` }}
+          >
+            {portfolios.map((portfolio, index) => (
+              <div
                 key={portfolio._id}
-                href={`/Portfolio/${portfolio._id}`}
-                className="block relative group"
+                className="sticky top-0 w-full h-screen flex items-center justify-center cursor-pointer "
+                style={{ zIndex: portfolios.length + index }}
+                onClick={() => handleImageClick(portfolio._id)}
               >
-                <div className="relative w-full h-60">
-                  {/* For remote URLs, ensure images.domains in next.config.js */}
-                  <Image
-                    src={portfolio.homePageImage}
-                    alt={portfolio.title}
-                    width={500}
-                    height={500}
-                    className="rounded-md group-hover:opacity-75 transition-opacity duration-300 object-cover"
-                  />
-                </div>
-                <h2 className="text-lg font-semibold mt-2 text-center text-white">
+                <ImageCard
+                  src={portfolio.homePageImage}
+                  alt={portfolio.title}
+                  index={index}
+                  totalImages={portfolios.length}
+                />
+                <h2 className="absolute bottom-12 text-lg md:text-2xl lg:text-3xl font-semibold text-center text-white ">
                   {portfolio.title}
                 </h2>
-              </Link>
+              </div>
             ))}
           </div>
+        ) : (
+          <div className="text-center text-white text-2xl">
+            {loading ? "Loading..." : "No portfolios found."}
+          </div>
         )}
-      </div>
+      </section>
+
+      {/* Bottom Spacer */}
+      <div className="-h-32"></div>
     </div>
   );
 };

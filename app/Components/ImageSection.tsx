@@ -25,27 +25,27 @@ const ImageSection: React.FC = () => {
     { src: Image1, alt: "Beautiful Landscape 1" },
     { src: Image2, alt: "Beautiful Landscape 2" },
     { src: Image3, alt: "Beautiful Landscape 3" },
-    { src: Image4, alt: "Beautiful Landscape 3" },
-    { src: Image5, alt: "Beautiful Landscape 3" },
-    { src: Image6, alt: "Beautiful Landscape 3" },
-    { src: Image7, alt: "Beautiful Landscape 3" },
-    { src: Image8, alt: "Beautiful Landscape 3" },
+    { src: Image4, alt: "Beautiful Landscape 4" },
+    { src: Image5, alt: "Beautiful Landscape 5" },
+    { src: Image6, alt: "Beautiful Landscape 6" },
+    { src: Image7, alt: "Beautiful Landscape 7" },
+    { src: Image8, alt: "Beautiful Landscape 8" },
   ];
 
   return (
-    <section className="relative py-20 bg-primary border mx-32 border-t-1 border-secondary border-l-0 border-r-0 border-b-0">
+    <section className="relative py-20 bg-primary border-t border-secondary">
       {/* Top Spacer */}
-      <div className="h-[40vh]">
-        <h3 className="text-6xl font-bold mx-32">
-          Brands we admire and collaborated with <br />
+      <div className="h-auto px-4 md:px-16 lg:px-32 text-center">
+        <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white">
+          Brands we admire and collaborated with
         </h3>
-        <h4 className="text-3xl mx-32 mt-8">
+        <h4 className="text-lg md:text-2xl lg:text-3xl text-gray-300 mt-4">
           A Glimpse into Our Success Stories and Creative Impact
         </h4>
       </div>
 
       {/* Image Stack Container */}
-      <div className="relative max-w-7xl mx-auto h-[800vh]">
+      <div className="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 px-4">
         {images.map((image, index) => (
           <ImageCard
             key={index}
@@ -58,7 +58,7 @@ const ImageSection: React.FC = () => {
       </div>
 
       {/* Bottom Spacer */}
-      <div className="h-[-40vh]"></div>
+      <div className="h-16"></div>
     </section>
   );
 };

@@ -1,10 +1,11 @@
 "use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
 import office from "./images/Container.png";
 import { FaArrowLeft } from "react-icons/fa6";
 
-const Solutions = () => {
+const Solutions: React.FC = () => {
   // State to manage the selected card
   const [selectedCardIndex, setSelectedCardIndex] = useState(0);
 
@@ -130,6 +131,57 @@ const Solutions = () => {
       },
     },
     {
+      title: "Cross-Channel Integration Problems",
+      content: {
+        problemHeading: "Problem: Cross-Channel Integration Problems",
+        problemDescription:
+          "Marketing across multiple channels can be a headache when strategies aren't aligned. Brands often miss opportunities or lose out on engagement due to inconsistent messaging, siloed data, or a lack of synchronisation between platforms.",
+        solutionHeading: "How Cribonix Solves It",
+        solutionDescription:
+          "We create a unified strategy that seamlessly integrates all your marketing channels, ensuring consistent messaging and efficient data flow. By leveraging cross-platform insights, we align your campaigns for maximum reach and impact, delivering a cohesive brand experience across every touchpoint.",
+        processHeading: "Our Process Includes:",
+        processList: [
+          "Unified Campaign Strategy: Aligning all channels for a consistent message.",
+          "Data Synchronisation: Merging analytics for informed decision-making.",
+          "Omnichannel Engagement: Optimising interactions across platforms.",
+        ],
+      },
+    },
+    {
+      title: "Growth on a Low Budget",
+      content: {
+        problemHeading: "Problem: Growth on a Low Budget",
+        problemDescription:
+          "Achieving growth with limited resources is a significant hurdle for many brands. Stretching marketing dollars while trying to stay competitive often feels overwhelming, especially when aiming for quality and reach.",
+        solutionHeading: "How Cribonix Solves It",
+        solutionDescription:
+          "We implement cost-effective yet powerful strategies, prioritising high-impact activities that yield maximum returns. With a creative approach, we focus on leveraging organic growth, strategic partnerships, and highly targeted ad campaigns that don't strain your budget, ensuring you see measurable growth without overspending.",
+        processHeading: "Our Process Includes:",
+        processList: [
+          "Budget Optimization: Maximising every rupee for best outcomes.",
+          "Targeted Ads: Hyper-focused campaigns to reduce costs.",
+          "Organic Engagement: Building authentic connections for sustainable impact.",
+        ],
+      },
+    },
+    {
+      title: "Inability to Measure ROI",
+      content: {
+        problemHeading: "Problem: Inability to Measure ROI",
+        problemDescription:
+          "Many brands struggle to understand the true impact of their marketing efforts. Without clear visibility into returns on investment, it becomes difficult to refine strategies, allocate budgets effectively, or prove the value of campaigns.",
+        solutionHeading: "How Cribonix Solves It",
+        solutionDescription:
+          "We use advanced analytics to break down campaign performance, highlighting key metrics that matter. Our team focuses on transparent reporting, helping you track each rupee spent and its outcomes. By continuously analysing data, we optimise your strategy to maximise ROI, ensuring every action drives measurable value.",
+        processHeading: "Our Process Includes:",
+        processList: [
+          "Detailed Reporting: Clear, easy-to-understand performance insights.",
+          "Custom KPI Tracking: Metrics tailored to your business goals.",
+          "Ongoing Optimization: Consistent improvements for higher returns.",
+        ],
+      },
+    },
+    {
       title: "Brand Value vs. Brand Promotion",
       content: {
         problemHeading: "Problem: Brand Value vs. Brand Promotion",
@@ -164,19 +216,19 @@ const Solutions = () => {
       },
     },
     {
-      title: "Inability to Measure ROI",
+      title: "Managing a Marketing Team",
       content: {
-        problemHeading: "Problem: Inability to Measure ROI",
+        problemHeading: "Problem: Managing a Marketing Team",
         problemDescription:
-          "Many brands struggle to understand the true impact of their marketing efforts. Without clear visibility into returns on investment, it becomes difficult to refine strategies, allocate budgets effectively, or prove the value of campaigns.",
+          "Coordinating a marketing team can be overwhelming, especially when juggling campaign strategies, creative ideas, and performance tracking. Miscommunication and inefficient workflows can slow progress and impact results.",
         solutionHeading: "How Cribonix Solves It",
         solutionDescription:
-          "We use advanced analytics to break down campaign performance, highlighting key metrics that matter. Our team focuses on transparent reporting, helping you track each rupee spent and its outcomes. By continuously analysing data, we optimise your strategy to maximise ROI, ensuring every action drives measurable value.",
+          "We streamline marketing management through structured processes and clear communication, ensuring tasks are aligned and efficiently executed. By fostering collaboration and leveraging project management tools, we enhance productivity, so teams stay focused on impactful outcomes.",
         processHeading: "Our Process Includes:",
         processList: [
-          "Detailed Reporting: Clear, easy-to-understand performance insights.",
-          "Custom KPI Tracking: Metrics tailored to your business goals.",
-          "Ongoing Optimization: Consistent improvements for higher returns.",
+          "Efficient Workflows: Streamlined processes for smoother operations.",
+          "Clear Communication: Avoiding misunderstandings with transparent coordination.",
+          "Performance Monitoring: Tracking metrics to drive continuous improvement.",
         ],
       },
     },
@@ -214,23 +266,6 @@ const Solutions = () => {
         ],
       },
     },
-    {
-      title: "Managing a Marketing Team",
-      content: {
-        problemHeading: "Problem: Managing a Marketing Team",
-        problemDescription:
-          "Coordinating a marketing team can be overwhelming, especially when juggling campaign strategies, creative ideas, and performance tracking. Miscommunication and inefficient workflows can slow progress and impact results.",
-        solutionHeading: "How Cribonix Solves It",
-        solutionDescription:
-          "We streamline marketing management through structured processes and clear communication, ensuring tasks are aligned and efficiently executed. By fostering collaboration and leveraging project management tools, we enhance productivity, so teams stay focused on impactful outcomes.",
-        processHeading: "Our Process Includes:",
-        processList: [
-          "Efficient Workflows: Streamlined processes for smoother operations.",
-          "Clear Communication: Avoiding misunderstandings with transparent coordination.",
-          "Performance Monitoring: Tracking metrics to drive continuous improvement.",
-        ],
-      },
-    },
   ];
 
   return (
@@ -238,7 +273,7 @@ const Solutions = () => {
       {/* Header Section */}
 
       {/* Main Content Section */}
-      <div className="container mx-auto px-6   border-secondary">
+      <div className="container mx-auto px-6 border-secondary">
         <div className="relative">
           <Image
             src={office}
@@ -256,11 +291,11 @@ const Solutions = () => {
             </h2>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row justify-between mt-8 items-start  lg:space-y-0 lg:space-x-16">
+        <div className="flex flex-col lg:flex-row justify-between mt-8 items-start lg:space-y-0 lg:space-x-16">
           {/* Left Content */}
-          <div className="lg:w-2/3 ">
+          <div className="lg:w-2/3">
             {/* Problem Heading */}
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-8 ">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-8">
               {cardContents[selectedCardIndex].content.problemHeading}
             </h2>
             {/* Problem Description */}
@@ -307,15 +342,15 @@ const Solutions = () => {
                   <div
                     key={index}
                     onClick={() => setSelectedCardIndex(index)}
-                    className={`bg-[#2d2d2d] flex items-center justify-center rounded-lg h-24 sm:h-28 cursor-pointer p-4 ${
+                    className={`relative bg-[#2d2d2d] flex items-center justify-center rounded-lg h-24 sm:h-28 cursor-pointer p-4 ${
                       selectedCardIndex === index ? "border-2 border-white" : ""
                     }`}
                   >
+                    {/* Arrow Icon on Selected Card */}
+                    {selectedCardIndex === index && (
+                      <FaArrowLeft className="absolute top-2 left-2 text-white text-lg" />
+                    )}
                     <h1 className="text-white text-center flex flex-row justify-center text-xl sm:text-2xl font-bold">
-                      <div className="">
-                        {" "}
-                        <FaArrowLeft className="text-[#A0A0A0] absolute  mr-4 top-1 left-1" />
-                      </div>
                       {card.title}
                     </h1>
                   </div>

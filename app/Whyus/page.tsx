@@ -8,7 +8,7 @@ import team from "./images/Team.png";
 import mem1 from "./images/Sachin.jpg";
 import mem2 from "./images/Varun.jpg";
 import mem3 from "./images/Vini.jpg";
-import mem4 from "./images/HingLaj.jpg";
+import mem4 from "./images/HingLaj.png";
 import office from "./images/Officereal.png";
 import panel1 from "./images/Tabpanel(2).png";
 import panel2 from "./images/Tabpanel(1).png";

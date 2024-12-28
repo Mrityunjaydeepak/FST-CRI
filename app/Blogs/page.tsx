@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import BlogCard from "../Components/BlogCard";
 import Image from "next/image";
-import head from "./images/head.jpg";
+import head from "./images/head.png";
 
 // Blog Post Interface
 interface BlogPost {
@@ -47,14 +47,14 @@ const Blogs: React.FC = () => {
 
   return (
     <div className="bg-[#040404] scroll-smooth">
-      <div className="container mx-auto px-4 py-8 flex flex-col">
+      <div className="container mx-auto px-6  flex flex-col">
         {/* Header Image Section */}
         <div className="relative w-full">
           <Image
             src={head}
             alt="Office Background Image"
             layout="responsive"
-            width={400}
+            width={1500}
             height={400}
             className="object-cover opacity-50"
           />

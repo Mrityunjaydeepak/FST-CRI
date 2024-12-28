@@ -12,20 +12,26 @@ const config: Config = {
     extend: {
       // Define custom animations
       animation: {
-        marquee: 'marquee 5s linear infinite',
+        marquee: "marquee 5s linear infinite",
+        gradient: "gradient 8s linear infinite",
       },
       keyframes: {
+        gradient: {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
         marquee: {
-          '0%': { transform: 'translateX(100%)' },
-          '100%': { transform: 'translateX(-50%)' },
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
       // Remove or correct the scrollBehavior configuration
       // If you need to extend it, define it as an object with valid properties
       // For example, adding a new scroll behavior:
       scrollBehavior: {
-        smooth: 'smooth',
-        auto: 'auto',
+        smooth: "smooth",
+        auto: "auto",
       },
       // Define custom colors
       colors: {

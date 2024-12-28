@@ -154,10 +154,10 @@ const Hero: React.FC = () => {
   interface Testimonial {
     id: string;
     rating: number; // Number of stars (1-5)
-    title: string;
-    content: string;
-    author: string;
-    role: string;
+    reviewTitle: string;
+    review: string;
+    name: string;
+    designation: string;
   }
 
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
@@ -474,7 +474,9 @@ const Hero: React.FC = () => {
       <section className="py-16 bg-primary text-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold">Problems</h2>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white text-center">
+              Problems
+            </h2>
             <p className="mt-4 max-w-2xl mx-auto">
               The digital realm is full of unwanted and unique problems, but
               hey! Cribonix turns them into growth opportunities with its smart
@@ -693,15 +695,16 @@ const Hero: React.FC = () => {
                           </div>
                           <div className="mt-6">
                             <p className="text-2xl font-bold text-white">
-                              {testimonial.title}
+                              {testimonial.reviewTitle}
                             </p>
                             <p className="mt-4 text-gray-400 leading-relaxed">
-                              {testimonial.content}
+                              {testimonial.review}
                             </p>
                           </div>
                         </div>
                         <footer className="mt-6 text-base font-medium text-gray-400">
-                          &mdash; {testimonial.author} [ {testimonial.role} ]
+                          &mdash; {testimonial.name} [ {testimonial.designation}{" "}
+                          ]
                         </footer>
                       </blockquote>
                     </div>
