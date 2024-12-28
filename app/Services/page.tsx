@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import Image from "next/image";
+import { StaticImageData } from "next/image";
 import office from "./images/Container.png";
 import service1 from "./images/service1.png";
 import service2 from "./images/service2.png";

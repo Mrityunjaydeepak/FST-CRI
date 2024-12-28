@@ -43,6 +43,7 @@ import sustainablegrowthgif from "./images/Sustainable Growth.gif";
 
 import estate from "./images/White and Blue Modern Creative Real Estate Property Marketing Instagram Post (1).jpg";
 import ImageSection from "../Components/ImageSection";
+import CountUp from "react-countup";
 
 interface Cribonix {
   heading: string;
