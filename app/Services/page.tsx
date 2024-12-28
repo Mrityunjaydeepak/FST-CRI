@@ -14,7 +14,7 @@ import Link from "next/link";
 
 interface Service {
   id: string;
-  image: StaticImageData;
+  image: StaticImageData | string;
   title: string;
   description: string;
   usps: string[];
