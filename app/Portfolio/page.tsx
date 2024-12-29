@@ -7,7 +7,7 @@ import ImageCard from "../Components/ImageCard";
 interface Portfolio {
   _id: string;
   title: string;
-  homePageImage: string; // Remote URL from API
+  homePageImage: string;
 }
 
 const PortfolioHomePage: React.FC = () => {
@@ -45,21 +45,21 @@ const PortfolioHomePage: React.FC = () => {
   };
 
   return (
-    <div className="bg-primary scroll-smooth">
+    <div className="bg-primary scroll-smooth mx-auto">
       {/* Hero Section */}
-      <section className="relative py-10 bg-primary border-t border-secondary px-4 md:px-16 lg:px-32">
-        <div className="h-auto flex flex-col justify-center text-center">
-          <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white">
+      <section className="relative py-10 px-6 bg-primary border-t border-secondary md:py-14 lg:py-20">
+        <div className="container mx-auto flex flex-col justify-center text-center">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
             Brands We Admire and Collaborated with
           </h3>
-          <h4 className="text-lg md:text-2xl lg:text-3xl text-gray-300 mt-4">
+          <h4 className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mt-4">
             A Glimpse into Our Success Stories and Creative Impact
           </h4>
         </div>
       </section>
 
       {/* Animated (Sticky Parallax) Image Section */}
-      <section className="relative max-w-7xl mx-auto px-4 py-12">
+      <section className="relative max-w-7xl mx-auto px-2 py-12">
         {!loading && portfolios.length > 0 ? (
           <div
             className="relative"
@@ -68,7 +68,7 @@ const PortfolioHomePage: React.FC = () => {
             {portfolios.map((portfolio, index) => (
               <div
                 key={portfolio._id}
-                className="sticky top-0 w-full h-screen flex items-center justify-center cursor-pointer "
+                className="sticky top-10 w-full h-screen flex items-center justify-center cursor-pointer "
                 style={{ zIndex: portfolios.length + index }}
                 onClick={() => handleImageClick(portfolio._id)}
               >
@@ -92,7 +92,6 @@ const PortfolioHomePage: React.FC = () => {
       </section>
 
       {/* Bottom Spacer */}
-      <div className="-h-32"></div>
     </div>
   );
 };

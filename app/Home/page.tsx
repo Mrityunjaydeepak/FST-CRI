@@ -5,7 +5,6 @@ import { Inter } from "next/font/google";
 import throttle from "lodash/throttle";
 import Hero from "../Hero/Hero";
 import Link from "next/link";
-import GradientText from "../Components/GradientText";
 
 const inter = Inter({
   weight: ["900"],
@@ -68,14 +67,7 @@ const Homei: React.FC = () => {
             opacity: 0.7, // Adjust this value to control the dullness
           }}
         >
-          <GradientText
-            colors={["#3B82F6", "#A855F7", "#EC4899"]} // Custom gradient colors
-            animationSpeed={3} // Custom animation speed in seconds
-            showBorder={false} // Show or hide border
-            className="custom-class" // Add one or more custom classes
-          >
-            CRIBONIX
-          </GradientText>
+          CRIBONIX
         </div>
 
         {/* Overlayed Content */}
