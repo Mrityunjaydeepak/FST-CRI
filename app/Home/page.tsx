@@ -52,7 +52,7 @@ const Homei: React.FC = () => {
     <>
       <div
         ref={containerRef}
-        className="relative flex flex-col md:mt-16 mt-32 items-center min-h-screen w-full px-4 bg-black overflow-hidden"
+        className="relative flex flex-col md:mt-16  items-center min-h-screen w-full px-4 bg-black overflow-hidden"
       >
         {/* Background Text */}
         <div
@@ -90,7 +90,7 @@ const Homei: React.FC = () => {
             Your Story, Our Influence.
           </h1>
           <p
-            className="text-white text-base sm:text-sm md:text-xl max-w-2xl mt-4"
+            className="text-white text-base sm:text-sm md:text-xl mt-4 sm:mt-6 px-4 sm:px-6 md:px-0 max-w-full sm:max-w-3xl md:max-w-2xl"
             style={{
               transform: `translateY(${progress * 90}px)`,
               opacity: 1 - progress,
@@ -100,6 +100,7 @@ const Homei: React.FC = () => {
             Want your brand's story to echo through time? Let Cribonix weave
             your narrative into an unforgettable legacy!
           </p>
+
           {/* Buttons */}
           <div
             className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mt-8"

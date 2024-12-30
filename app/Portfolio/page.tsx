@@ -13,9 +13,11 @@ interface Portfolio {
 const PortfolioHomePage: React.FC = () => {
   const [portfolios, setPortfolios] = useState<Portfolio[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
   const router = useRouter();
 
   useEffect(() => {
+    // Fetch portfolios from API
     const fetchPortfolios = async () => {
       try {
         const res = await fetch(
@@ -40,6 +42,20 @@ const PortfolioHomePage: React.FC = () => {
     fetchPortfolios();
   }, []);
 
+  useEffect(() => {
+    // Track screen size
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 768); // Example breakpoint: 768px
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const handleImageClick = (id: string) => {
     router.push(`/Portfolio/${id}`);
   };
@@ -58,32 +74,60 @@ const PortfolioHomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Animated (Sticky Parallax) Image Section */}
+      {/* Portfolio Section */}
       <section className="relative max-w-7xl mx-auto px-2 py-12">
         {!loading && portfolios.length > 0 ? (
-          <div
-            className="relative"
-            style={{ height: `${portfolios.length * 100}vh` }}
-          >
-            {portfolios.map((portfolio, index) => (
-              <div
-                key={portfolio._id}
-                className="sticky top-10 w-full h-screen flex items-center justify-center cursor-pointer "
-                style={{ zIndex: portfolios.length + index }}
-                onClick={() => handleImageClick(portfolio._id)}
-              >
-                <ImageCard
-                  src={portfolio.homePageImage}
-                  alt={portfolio.title}
-                  index={index}
-                  totalImages={portfolios.length}
-                />
-                <h2 className="absolute bottom-12 text-lg md:text-2xl lg:text-3xl font-semibold text-center text-white ">
-                  {portfolio.title}
-                </h2>
-              </div>
-            ))}
-          </div>
+          isSmallScreen ? (
+            // Column Layout for Small Screens
+            <div className="grid grid-cols-1 gap-4">
+              {" "}
+              {/* Reduced gap */}
+              {portfolios.map((portfolio) => (
+                <div
+                  key={portfolio._id}
+                  className="flex flex-col items-center cursor-pointer"
+                  onClick={() => handleImageClick(portfolio._id)}
+                >
+                  <div className="w-3/4">
+                    {" "}
+                    {/* Reduced width */}
+                    <ImageCard
+                      src={portfolio.homePageImage}
+                      alt={portfolio.title}
+                    />
+                  </div>
+                  <h2 className="mt-2 text-sm font-semibold text-center text-white">
+                    {portfolio.title}
+                  </h2>
+                </div>
+              ))}
+            </div>
+          ) : (
+            // Animated Layout for Larger Screens
+            <div
+              className="relative"
+              style={{ height: `${portfolios.length * 100}vh` }}
+            >
+              {portfolios.map((portfolio, index) => (
+                <div
+                  key={portfolio._id}
+                  className="sticky top-10 w-full flex items-center justify-center cursor-pointer"
+                  style={{ zIndex: portfolios.length + index }}
+                  onClick={() => handleImageClick(portfolio._id)}
+                >
+                  <ImageCard
+                    src={portfolio.homePageImage}
+                    alt={portfolio.title}
+                    index={index}
+                    totalImages={portfolios.length}
+                  />
+                  <h2 className="absolute bottom-12 text-lg md:text-2xl lg:text-3xl font-semibold text-center text-white">
+                    {portfolio.title}
+                  </h2>
+                </div>
+              ))}
+            </div>
+          )
         ) : (
           <div className="text-center text-white text-2xl">
             {loading ? "Loading..." : "No portfolios found."}

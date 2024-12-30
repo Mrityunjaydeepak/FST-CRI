@@ -377,7 +377,7 @@ const Hero: React.FC = () => {
   return (
     <div className="bg-[#040404]">
       {/* Our Story Section */}
-      <div className="container flex flex-col justify-center items-center mx-auto py-16">
+      <div className="container flex flex-col justify-center items-center mx-auto py-16 p-2">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-12 lg:space-y-0 lg:space-x-12 border-t border-secondary pt-12">
           {/* Our Story Heading */}
           <div className="flex flex-col space-y-6 lg:w-1/3">

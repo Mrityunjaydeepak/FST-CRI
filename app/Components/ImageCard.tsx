@@ -46,7 +46,7 @@ const ImageCard: React.FC<ImageCardProps> = ({
       ref={ref}
       initial={{ scale: 0, opacity: 0.8, filter: "brightness(0.6)" }}
       animate={controls}
-      className="sticky top-0 w-full h-screen flex justify-center items-center"
+      className="sticky top-0 w-full flex justify-center items-center"
       style={{
         zIndex: totalImages + index,
         transform: "translateY(-40vh)",
