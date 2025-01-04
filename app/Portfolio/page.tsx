@@ -80,20 +80,18 @@ const PortfolioHomePage: React.FC = () => {
           isSmallScreen ? (
             // Column Layout for Small Screens
             <div className="grid grid-cols-1 gap-4">
-              {" "}
-              {/* Reduced gap */}
-              {portfolios.map((portfolio) => (
+              {portfolios.map((portfolio, index) => (
                 <div
                   key={portfolio._id}
                   className="flex flex-col items-center cursor-pointer"
                   onClick={() => handleImageClick(portfolio._id)}
                 >
                   <div className="w-3/4">
-                    {" "}
-                    {/* Reduced width */}
                     <ImageCard
                       src={portfolio.homePageImage}
                       alt={portfolio.title}
+                      index={index} // Added index
+                      totalImages={portfolios.length} // Added totalImages
                     />
                   </div>
                   <h2 className="mt-2 text-sm font-semibold text-center text-white">
@@ -134,8 +132,6 @@ const PortfolioHomePage: React.FC = () => {
           </div>
         )}
       </section>
-
-      {/* Bottom Spacer */}
     </div>
   );
 };
