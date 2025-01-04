@@ -7,8 +7,8 @@ import { StaticImageData } from "next/image";
 interface ImageCardProps {
   src: StaticImageData | string;
   alt: string;
-  index: number;
-  totalImages: number;
+  index?: number;
+  totalImages?: number;
 }
 
 const ImageCard: React.FC<ImageCardProps> = ({
