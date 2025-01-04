@@ -9,6 +9,7 @@ type Testimonial = {
   rating: number;
   reviewTitle: string;
   review: string;
+  image: string; // New image property
 };
 
 const TestimonialsSection: React.FC = () => {
@@ -45,14 +46,14 @@ const TestimonialsSection: React.FC = () => {
       const instance = new KeenSlider(sliderRef.current, {
         loop: true,
         slides: {
-          perView: 2, // Default for larger screens
-          spacing: 15, // Spacing between slides
+          perView: 2,
+          spacing: 15,
         },
         breakpoints: {
           "(max-width: 768px)": {
             slides: {
-              perView: 1, // Show 1 slide on small screens
-              spacing: 10, // Adjust spacing for smaller screens
+              perView: 1,
+              spacing: 10,
             },
           },
         },
@@ -155,9 +156,16 @@ const TestimonialsSection: React.FC = () => {
                             </p>
                           </div>
                         </div>
-                        <footer className="mt-6 text-base font-medium text-gray-400">
-                          &mdash; {testimonial.name} [ {testimonial.designation}{" "}
-                          ]
+                        <footer className="mt-6 flex items-center gap-4 text-base font-medium text-gray-400">
+                          <img
+                            src={testimonial.image}
+                            alt={testimonial.name}
+                            className="w-12 h-12 rounded-full object-cover"
+                          />
+                          <div>
+                            <p className="text-white">{testimonial.name}</p>
+                            <p>{testimonial.designation}</p>
+                          </div>
                         </footer>
                       </blockquote>
                     </div>

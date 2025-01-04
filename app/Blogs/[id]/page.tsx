@@ -41,34 +41,26 @@ const BlogPage: React.FC<BlogPageProps> = ({ blogPost }) => {
         />
       </div>
 
-      <div className="mt-8 space-y-6">
-        <h1 className="text-2xl sm:text-4xl font-bold text-start">
+      <div className="mt-8 space-y-2">
+        <h1 className="text-2xl sm:text-4xl font-bold text-start mb-6">
           {blogPost.heading1}
         </h1>
         <h2 className="text-sm sm:text-base lg:text-lg text-justify">
           {blogPost.content1}
         </h2>
-        <h1 className="font-bold text-xl sm:text-2xl pt-2">
-          {blogPost.heading2}
-        </h1>
-        <p className="text-xs sm:text-sm lg:text-base leading-relaxed text-justify">
+        <h1 className="font-bold text-xl sm:text-2xl">{blogPost.heading2}</h1>
+        <p className=" sm:text-sm text-lg leading-relaxed text-justify">
           {blogPost.content2}
         </p>
-        <h1 className="font-bold text-xl sm:text-2xl pt-2">
-          {blogPost.heading3}
-        </h1>
+        <h1 className="font-bold text-xl sm:text-2xl">{blogPost.heading3}</h1>
         <p className="text-xs sm:text-sm lg:text-base leading-relaxed text-justify">
           {blogPost.content3}
         </p>
-        <h1 className="font-bold text-xl sm:text-2xl pt-2">
-          {blogPost.heading4}
-        </h1>
+        <h1 className="font-bold text-xl sm:text-2xl">{blogPost.heading4}</h1>
         <p className="text-xs sm:text-sm lg:text-base leading-relaxed text-justify">
           {blogPost.content4}
         </p>
-        <h1 className="font-bold text-xl sm:text-2xl pt-2">
-          {blogPost.heading5}
-        </h1>
+        <h1 className="font-bold text-xl sm:text-2xl">{blogPost.heading5}</h1>
         <p className="text-xs sm:text-sm lg:text-base leading-relaxed text-justify">
           {blogPost.content5}
         </p>

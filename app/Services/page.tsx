@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { StaticImageData } from "next/image";
 import office from "./images/Container.png";
@@ -27,29 +27,11 @@ interface VisibleServices {
 const Services: React.FC = () => {
   const [visibleServices, setVisibleServices] = useState<VisibleServices>({});
 
-  // Refs for timers
-  const timers = useRef<{ [key: string]: NodeJS.Timeout }>({});
-
-  const handleMouseEnter = (serviceId: string) => {
-    // Clear any existing timer for this service
-    if (timers.current[serviceId]) {
-      clearTimeout(timers.current[serviceId]);
-    }
-
-    // Set a new timer to show the service
-    timers.current[serviceId] = setTimeout(() => {
-      setVisibleServices((prev) => ({ ...prev, [serviceId]: true }));
-    }, 500); // Delay in milliseconds
-  };
-
-  const handleMouseLeave = (serviceId: string) => {
-    // Clear any existing timer for this service
-    if (timers.current[serviceId]) {
-      clearTimeout(timers.current[serviceId]);
-    }
-
-    // Immediately hide the service
-    setVisibleServices((prev) => ({ ...prev, [serviceId]: false }));
+  const toggleServiceVisibility = (serviceId: string) => {
+    setVisibleServices((prev) => ({
+      ...prev,
+      [serviceId]: !prev[serviceId],
+    }));
   };
 
   const services: Service[] = [
@@ -164,8 +146,7 @@ const Services: React.FC = () => {
             <div
               key={service.id}
               className="flex flex-col"
-              onMouseEnter={() => handleMouseEnter(service.id)}
-              onMouseLeave={() => handleMouseLeave(service.id)}
+              onClick={() => toggleServiceVisibility(service.id)}
             >
               <Image
                 src={service.image}
