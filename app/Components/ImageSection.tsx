@@ -38,7 +38,7 @@ const ImageSection: React.FC = () => {
             src={image.src}
             alt={image.alt}
             index={index}
-            totalImages={images.length}
+            totalImages={images.length} // Ensure this is passed correctly
           />
         ))}
       </div>

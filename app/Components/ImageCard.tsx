@@ -7,8 +7,8 @@ import { StaticImageData } from "next/image";
 interface ImageCardProps {
   src: StaticImageData | string;
   alt: string;
-  index?: number;
-  totalImages?: number;
+  index: number;
+  totalImages: number; // Make sure this is always required
 }
 
 const ImageCard: React.FC<ImageCardProps> = ({
@@ -48,7 +48,7 @@ const ImageCard: React.FC<ImageCardProps> = ({
       animate={controls}
       className="sticky top-0 w-full flex justify-center items-center"
       style={{
-        zIndex: totalImages + index,
+        zIndex: (totalImages ?? 1) + index, // Ensures a fallback for undefined
         transform: "translateY(-40vh)",
       }}
     >
@@ -68,4 +68,4 @@ const ImageCard: React.FC<ImageCardProps> = ({
   );
 };
 
-export default ImageCard; // Ensure it's exported as default
+export default ImageCard;
