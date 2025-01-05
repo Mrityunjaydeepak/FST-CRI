@@ -30,7 +30,8 @@ const BlogPage: React.FC<BlogPageProps> = ({ blogPost }) => {
 
   return (
     <div className="container mx-auto px-6">
-      <div className=" flex relative  w-full h-72 sm:h-96 lg:h-[40rem] justify-center ">
+      {/* Hero Image */}
+      <div className="relative w-full h-72 sm:h-96 lg:h-[40rem] flex justify-center">
         <Image
           src={blogPost.image}
           alt="Blog Image"
@@ -41,36 +42,65 @@ const BlogPage: React.FC<BlogPageProps> = ({ blogPost }) => {
         />
       </div>
 
-      <div className="mt-8 space-y-2">
-        <h1 className="text-2xl sm:text-4xl font-bold text-start mb-6">
-          {blogPost.heading1}
-        </h1>
-        <h2 className="text-sm sm:text-base lg:text-lg text-justify">
-          {blogPost.content1}
-        </h2>
-        <h1 className="font-bold text-xl sm:text-2xl">{blogPost.heading2}</h1>
-        <p className=" sm:text-sm text-lg leading-relaxed text-justify">
-          {blogPost.content2}
-        </p>
-        <h1 className="font-bold text-xl sm:text-2xl">{blogPost.heading3}</h1>
-        <p className="text-xs sm:text-sm lg:text-base leading-relaxed text-justify">
-          {blogPost.content3}
-        </p>
-        <h1 className="font-bold text-xl sm:text-2xl">{blogPost.heading4}</h1>
-        <p className="text-xs sm:text-sm lg:text-base leading-relaxed text-justify">
-          {blogPost.content4}
-        </p>
-        <h1 className="font-bold text-xl sm:text-2xl">{blogPost.heading5}</h1>
-        <p className="text-xs sm:text-sm lg:text-base leading-relaxed text-justify">
-          {blogPost.content5}
-        </p>
-        {/* Repeat for other headings/content */}
+      {/* Content Section */}
+      <div className="mt-8">
+        {/* Heading 1 & Content 1 */}
+        <div className="mb-6">
+          <h1 className="text-2xl sm:text-4xl font-bold mb-3">
+            {blogPost.heading1}
+          </h1>
+          <p className="text-sm sm:text-base lg:text-lg text-justify">
+            {blogPost.content1}
+          </p>
+        </div>
+
+        {/* Heading 2 & Content 2 */}
+        <div className="">
+          <h1 className="font-bold text-xl sm:text-2xl ">
+            {blogPost.heading2}
+          </h1>
+          <p className="text-sm sm:text-base lg:text-lg leading-relaxed text-justify">
+            {blogPost.content2}
+          </p>
+        </div>
+
+        {/* Heading 3 & Content 3 */}
+        <div className="">
+          <h1 className="font-bold text-xl sm:text-2xl ">
+            {blogPost.heading3}
+          </h1>
+          <p className="text-sm sm:text-base lg:text-lg leading-relaxed text-justify">
+            {blogPost.content3}
+          </p>
+        </div>
+
+        {/* Heading 4 & Content 4 */}
+        <div className="">
+          <h1 className="font-bold text-xl sm:text-2xl ">
+            {blogPost.heading4}
+          </h1>
+          <p className="text-sm sm:text-base lg:text-lg leading-relaxed text-justify">
+            {blogPost.content4}
+          </p>
+        </div>
+
+        {/* Heading 5 & Content 5 */}
+        <div className="mb-10">
+          <h1 className="font-bold text-xl sm:text-2xl ">
+            {blogPost.heading5}
+          </h1>
+          <p className="text-sm sm:text-base lg:text-lg leading-relaxed text-justify">
+            {blogPost.content5}
+          </p>
+        </div>
       </div>
     </div>
   );
 };
 
-// Fetch blog post data inside the component using async/await
+// =============================
+// Server-side Fetch & Export
+// =============================
 export default async function BlogPageComponent({
   params,
 }: {
@@ -90,6 +120,6 @@ export default async function BlogPageComponent({
     return <BlogPage blogPost={blogPost} />;
   } catch (error) {
     console.error("Error fetching blog post:", error);
-    notFound(); // Automatically handle 404 if there is an error
+    notFound(); // Automatically handle 404 if there's an error
   }
 }

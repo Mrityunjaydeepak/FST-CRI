@@ -11,6 +11,12 @@ interface Portfolio {
     heading?: string;
     content?: string;
   }[];
+  // New field for video gallery
+  videoGallery?: {
+    videoUrl: string;
+    heading?: string;
+    content?: string;
+  }[];
 }
 
 // Function to fetch the portfolio data from the API
