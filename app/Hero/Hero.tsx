@@ -443,12 +443,12 @@ const Hero: React.FC = () => {
 
           {/* Image */}
           <div className="relative w-24 h-44 ml-4 flex-1 flex justify-end">
-            <Image
+            {/* <Image
               src={image4C} // Replace with your image
               alt="Marketing Icon"
               layout="fill"
               objectFit="contain"
-            />
+            /> */}
           </div>
         </div>
 
