@@ -334,7 +334,7 @@ const Solutions: React.FC = () => {
 
             {/* Scrollable Container */}
             <div
-              className="overflow-y-auto hide-scrollbar z-0"
+              className="overflow-y-auto custom-scrollbar"
               style={{ maxHeight: "80vh" }}
             >
               <div className="space-y-4 pr-2 relative">
@@ -364,14 +364,19 @@ const Solutions: React.FC = () => {
       {/* Custom Styles */}
       <style jsx>{`
         /* Hide scrollbar for Chrome, Safari and Opera */
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        /* Hide scrollbar for IE, Edge and Firefox */
-        .hide-scrollbar {
-          -ms-overflow-style: none; /* IE and Edge */
-          scrollbar-width: none; /* Firefox */
-        }
+       .custom-scrollbar::-webkit-scrollbar {
+  width: 8px;                /* width of the entire scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #333;          /* track color */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #999;    /* thumb color */
+  border-radius: 6px;        /* roundness of the thumb */
+}
+
       `}</style>
     </div>
   );

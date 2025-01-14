@@ -138,7 +138,6 @@
 // export default Homei;
 
 
-
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
@@ -147,7 +146,7 @@ import { Inter } from "next/font/google";
 import throttle from "lodash/throttle";
 import Link from "next/link";
 import Hero from "../Hero/Hero";
-import logo from "./images/Mask group.png"
+import logo from "./images/Mask group.png";
 
 // You can keep Inter if you use it elsewhere, or remove if not needed:
 const inter = Inter({
@@ -201,28 +200,29 @@ const Homei: React.FC = () => {
         className="relative flex flex-col md:mt-16 items-center min-h-screen w-full px-4 bg-black overflow-hidden"
       >
         {/* 
-          REPLACED the CRIBONIX text with an image. 
-          This container and styling ensures the same "scaling" effect.
+          Absolute container for the image. 
+          "w-full" + "max-w-[1000px]" => ensures it shrinks on smaller screens.
         */}
         <div
-          className="absolute z-0 w-[1000px]"
+          className="absolute z-0 w-full max-w-[1000px]"
           style={{
             top: "29%",
             left: "50%",
             transform: `translate(-50%, -50%) scale(${scale})`,
-            transition: "transform 0.4s ease-out",
             transformOrigin: "52% 60%",
+            transition: "transform 0.4s ease-out",
             opacity: 0.9, // Adjust if you want the image more/less transparent
           }}
         >
           <Image
-            src={logo} 
+            src={logo}
             alt="Your Brand Logo"
             width={2000}
             height={1000}
-            // If you have a specific layout or fill approach, you can adjust here
             priority
-            
+            // Ensure the image scales proportionally:
+            style={{ width: "100%", height: "auto" }}
+            className="object-contain"
           />
         </div>
 
@@ -235,27 +235,30 @@ const Homei: React.FC = () => {
             transform: "translate(-50%, -50%)",
           }}
         >
-          <h1
-            className="text-xl sm:text-xl md:text-6xl lg:text-7xl xl:text-8xl text-white font-bold"
-            style={{
-              transform: `translateY(-${progress * 50}px)`,
-              opacity: 1 - progress,
-              transition: "transform 0.3s ease-out, opacity 0.3s ease-out",
-            }}
-          >
-            Your Story, Our Influence.
-          </h1>
-          <p
-            className="text-white text-base sm:text-sm md:text-xl mt-4 sm:mt-6 px-4 sm:px-6 md:px-0 max-w-full sm:max-w-3xl md:max-w-2xl"
-            style={{
-              transform: `translateY(${progress * 90}px)`,
-              opacity: 1 - progress,
-              transition: "transform 0.3s ease-out, opacity 0.3s ease-out",
-            }}
-          >
-            Want your brand's story to echo through time? Let Cribonix weave
-            your narrative into an unforgettable legacy!
-          </p>
+          {/* Centering container for text */}
+          <div className="mx-auto w-full max-w-lg sm:max-w-xl md:max-w-2xl">
+            <h1
+              className="text-xl sm:text-2xl md:text-6xl lg:text-7xl xl:text-8xl text-white font-bold"
+              style={{
+                transform: `translateY(-${progress * 50}px)`,
+                opacity: 1 - progress,
+                transition: "transform 0.3s ease-out, opacity 0.3s ease-out",
+              }}
+            >
+              Your Story, Our Influence.
+            </h1>
+            <p
+              className="text-white text-base sm:text-lg md:text-xl mt-4 sm:mt-6 leading-relaxed px-2 sm:px-6 md:px-0"
+              style={{
+                transform: `translateY(${progress * 90}px)`,
+                opacity: 1 - progress,
+                transition: "transform 0.3s ease-out, opacity 0.3s ease-out",
+              }}
+            >
+              Want your brand&apos;s story to echo through time? Let Cribonix weave
+              your narrative into an unforgettable legacy!
+            </p>
+          </div>
 
           {/* Buttons */}
           <div
@@ -293,3 +296,4 @@ const Homei: React.FC = () => {
 };
 
 export default Homei;
+
