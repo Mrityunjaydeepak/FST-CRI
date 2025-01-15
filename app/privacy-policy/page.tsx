@@ -140,7 +140,7 @@ const PrivacyPolicy: React.FC = () => {
           policies.
         </p>
 
-        <h2 className="font-bold text-lg sm:text-xl">
+        {/* <h2 className="font-bold text-lg sm:text-xl">
           11. Changes to This Privacy Policy
         </h2>
         <p>
@@ -161,7 +161,7 @@ const PrivacyPolicy: React.FC = () => {
           <br />
           Address: 546, 5th floor, JMD MEGAPOLIS, Sector 48, Gurugram, Haryana
           122018
-        </address>
+        </address> */}
       </div>
     </div>
   );

@@ -53,7 +53,7 @@ const Disclaimer: React.FC = () => {
           </p>
         </div>
 
-        <div>
+        {/* <div>
           <h2 className="font-bold text-xl sm:text-2xl mb-2">Contact Us</h2>
           <p className="text-sm sm:text-base lg:text-lg text-justify">
             For further details or clarification regarding our services or
@@ -69,7 +69,7 @@ const Disclaimer: React.FC = () => {
             Address: 546, 5th floor, JMD MEGAPOLIS, Sector 48, Gurugram, Haryana
             122018
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

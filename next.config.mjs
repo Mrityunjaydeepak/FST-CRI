@@ -12,9 +12,9 @@ const nextConfig = {
     ],
     unoptimized: true, // Optionally disable optimization if needed
   },
-  // output: "export",
-  // trailingSlash: true,
-  // distDir: "OutP", // Customize the output directory if needed
+  output: "export",
+  trailingSlash: true,
+  distDir: "OutP", // Customize the output directory if needed
 };
 
 export default nextConfig;

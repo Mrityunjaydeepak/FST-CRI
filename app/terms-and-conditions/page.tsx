@@ -82,7 +82,7 @@ const TermsAndConditions: React.FC = () => {
         </div>
 
         {/* Add remaining sections like Confidentiality, Performance Disclaimer, etc. */}
-        <div>
+        {/* <div>
           <h2 className="font-bold text-xl sm:text-2xl mb-2">
             6. Contact Information
           </h2>
@@ -100,7 +100,7 @@ const TermsAndConditions: React.FC = () => {
             Address: Address: 546, 5th floor, JMD MEGAPOLIS, Sector 48,
             Gurugram, Haryana 122018
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   );
