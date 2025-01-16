@@ -104,7 +104,7 @@ const PortfolioHomePage: React.FC = () => {
             // Animated Layout for Larger Screens
             <div
               className="relative"
-              style={{ height: `${portfolios.length * 80}vh` }}
+              style={{ height: `${portfolios.length * 100}vh` }}
             >
               {portfolios.map((portfolio, index) => (
                 <div
