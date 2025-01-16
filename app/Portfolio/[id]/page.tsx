@@ -1,7 +1,7 @@
+// /app/Portfolio/[id]/page.tsx
 import React from "react";
-import PortfolioPageClient from "./PortfolioPageClient";
+import DynamicPortfolioPageClient from "./DynamicPortfolioPageClient";
 
-// Portfolio data interface
 interface Portfolio {
   _id: string;
   title: string;
@@ -11,40 +11,41 @@ interface Portfolio {
     heading?: string;
     content?: string;
   }[];
-  // New field for video gallery
-  videoGallery?: {
-    videoUrl: string;
-    heading?: string;
-    content?: string;
-  }[];
 }
 
-// Function to fetch the portfolio data from the API
-async function fetchPortfolioById(id: string): Promise<Portfolio | null> {
+// Fetch the list of all portfolio IDs for static generation
+async function fetchAllPortfolioIds(): Promise<string[]> {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/portfolios/${id}`,
-      {
-        cache: "no-store",
-      }
-    );
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/portfolios`, {
+      cache: "no-store", // Fetch fresh data
+    });
     if (!res.ok) {
-      throw new Error("Failed to fetch portfolio data");
+      throw new Error("Failed to fetch portfolio IDs");
     }
-    return await res.json();
+    const portfolios: Portfolio[] = await res.json();
+    return portfolios.map((portfolio) => portfolio._id);
   } catch (error) {
-    console.error("Error fetching portfolio:", error);
-    return null;
+    console.error("Error fetching portfolio IDs:", error);
+    return [];
   }
 }
 
-// Server Component
-export default async function Page({ params }: { params: { id: string } }) {
-  const portfolio = await fetchPortfolioById(params.id);
-
-  if (!portfolio) {
-    return <div>Portfolio not found.</div>;
+// Implement `generateStaticParams` for static generation
+export async function generateStaticParams() {
+  const ids = await fetchAllPortfolioIds();
+  if (!ids.length) {
+    console.error("No portfolio IDs found!");
   }
+  return ids.map((id) => ({ id }));
+}
 
-  return <PortfolioPageClient portfolio={portfolio} />;
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+
+// Server Component simply renders the client component
+export default function Page({ params }: PageProps) {
+  return <DynamicPortfolioPageClient params={params} />;
 }

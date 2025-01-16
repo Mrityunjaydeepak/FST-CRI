@@ -99,8 +99,33 @@ const BlogPage: React.FC<BlogPageProps> = ({ blogPost }) => {
 };
 
 // =============================
-// Server-side Fetch & Export
+// Static Params and Server-side Fetch & Export
 // =============================
+
+// Function to fetch all blog post IDs for static generation
+async function fetchAllBlogIds(): Promise<string[]> {
+  try {
+    const res = await fetch("https://blog.cribonix.com/api/blogs");
+    if (!res.ok) {
+      throw new Error("Failed to fetch blog IDs");
+    }
+    const blogs = await res.json();
+    return blogs.map((blog: { _id: string }) => blog._id);
+  } catch (error) {
+    console.error("Error fetching blog IDs:", error);
+    return [];
+  }
+}
+
+// Implement `generateStaticParams` for static generation
+export async function generateStaticParams() {
+  const ids = await fetchAllBlogIds();
+  if (!ids.length) {
+    console.error("No blog IDs found!");
+  }
+  return ids.map((id) => ({ id }));
+}
+
 export default async function BlogPageComponent({
   params,
 }: {
@@ -111,6 +136,10 @@ export default async function BlogPageComponent({
   try {
     // Fetch the blog post data from your backend API
     const res = await fetch(`https://blog.cribonix.com/api/blogs/${id}`);
+    if (!res.ok) {
+      notFound(); // Automatically handle 404 if the blog post is not found
+    }
+
     const blogPost: BlogPost = await res.json();
 
     if (!blogPost) {
