@@ -266,6 +266,7 @@ const PortfolioPageClient: React.FC<PortfolioPageClientProps> = ({
             style={{ objectFit: "cover" }}
             className="rounded-lg"
             priority
+            unoptimized
           />
         </div>
 
@@ -287,6 +288,7 @@ const PortfolioPageClient: React.FC<PortfolioPageClientProps> = ({
                   fill
                   style={{ objectFit: "cover" }}
                   className="rounded-md"
+                  unoptimized
                 />
               </div>
               {(image.heading || image.content) && (

@@ -62,6 +62,7 @@ const ImageCard: React.FC<ImageCardProps> = ({
                  (max-width: 1200px) 50vw,
                  33vw"
           className="transition-transform duration-500 ease-in-out rounded-lg"
+          unoptimized
         />
       </div>
     </motion.div>
