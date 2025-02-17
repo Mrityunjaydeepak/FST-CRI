@@ -197,7 +197,7 @@ const Homei: React.FC = () => {
     <>
       <div
         ref={containerRef}
-        className="relative flex flex-col md:mt-16 items-center min-h-screen w-full px-4 bg-black overflow-hidden"
+       className="relative flex flex-col md:mt-16 items-center min-h-screen w-full px-0 sm:px-4 bg-black overflow-hidden"
       >
         {/* 
           Absolute container for the image. 
@@ -236,29 +236,30 @@ const Homei: React.FC = () => {
           }}
         >
           {/* Centering container for text */}
-          <div className="mx-auto w-full max-w-lg sm:max-w-xl md:max-w-2xl">
-            <h1
-              className="text-xl sm:text-2xl md:text-6xl lg:text-7xl xl:text-8xl text-white font-bold"
-              style={{
-                transform: `translateY(-${progress * 50}px)`,
-                opacity: 1 - progress,
-                transition: "transform 0.3s ease-out, opacity 0.3s ease-out",
-              }}
-            >
-              Your Story, Our Influence.
-            </h1>
-            <p
-              className="text-white text-base sm:text-lg md:text-xl mt-4 sm:mt-6 leading-relaxed px-2 sm:px-6 md:px-0"
-              style={{
-                transform: `translateY(${progress * 90}px)`,
-                opacity: 1 - progress,
-                transition: "transform 0.3s ease-out, opacity 0.3s ease-out",
-              }}
-            >
-              Want your brand&apos;s story to echo through time? Let Cribonix weave
-              your narrative into an unforgettable legacy!
-            </p>
-          </div>
+          <div className="mx-auto w-screen sm:w-auto max-w-xl md:max-w-2xl">
+  <h1
+    className="text-xl sm:text-2xl md:text-6xl lg:text-7xl xl:text-8xl text-white font-bold text-center"
+    style={{
+      transform: `translateY(-${progress * 50}px)`,
+      opacity: 1 - progress,
+      transition: "transform 0.3s ease-out, opacity 0.3s ease-out",
+    }}
+  >
+    Your Story, Our Influence.
+  </h1>
+  <p
+     className="text-white text-base sm:text-lg md:text-xl mt-16 sm:mt-12 leading-relaxed text-center w-screen sm:w-auto px-0 sm:px-6 md:px-0  sm:text-center"
+     style={{
+       transform: `translateY(${progress * 90}px)`,
+       opacity: 1 - progress,
+       transition: "transform 0.3s ease-out, opacity 0.3s ease-out",
+     }}
+  >
+    Want your brand&apos;s story to echo through time? Let Cribonix weave your 
+    narrative into an unforgettable legacy!
+  </p>
+</div>
+
 
           {/* Buttons */}
           <div
