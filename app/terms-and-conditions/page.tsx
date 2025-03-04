@@ -1,7 +1,17 @@
 import React from "react";
+import Head from "next/head";
 
 const TermsAndConditions: React.FC = () => {
   return (
+    <>
+    <Head>
+        <title>Cribonix Terms & Conditions - Know the Rules Before You Engage</title>
+        <meta name="description" content="Know the rules! Check out Cribonix’s terms & conditions to learn how we operate, ensuring a seamless experience for our clients." />
+        <meta name="keywords" content="Successful Brand Collaborations, Digital Marketing Case Studies, Creative Campaign Showcases, Influencer Marketing Success, Branding Project Highlights, Client Testimonials, Marketing Portfolio Examples" />
+        <meta name="author" content="Cribonix" />
+        <link rel="canonical" href="https://cribonix.com/terms-and-conditions" />
+      </Head>
+    
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
       {/* Page Title */}
       <h1 className="text-2xl sm:text-4xl font-bold text-center mb-8">
@@ -103,6 +113,7 @@ const TermsAndConditions: React.FC = () => {
         </div> */}
       </div>
     </div>
+    </>
   );
 };
 

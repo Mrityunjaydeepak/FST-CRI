@@ -102,7 +102,7 @@ const Blogs: React.FC = () => {
                   title={post.heading1}
                   description={post.content1}
                   imageUrl={post.image}
-                  link={`/Blogs/${post._id}`}
+                  link={`/blogs/${post._id}`}
                 />
               ))}
             </div>

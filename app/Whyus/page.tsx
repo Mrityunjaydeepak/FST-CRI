@@ -22,6 +22,7 @@ import circle from "./images/circle.svg.png";
 import verified from "./images/verified.png";
 import { FaInstagram } from "react-icons/fa";
 import Link from "next/link";
+import Head from "next/head";
 
 // Define the structure of a metric
 interface Metric {
@@ -209,7 +210,18 @@ const Whyus: FC = () => {
   // };
 
   return (
-    <div className="bg-[#040404] scroll-smooth">
+    <>  
+     <Head>
+        <title>Cribonix | Where Creativity Meets Performance in Digital Marketing</title>
+        <meta name="description" content="Cribonix is your all-in-one digital marketing agency, offering creative strategies, influencer marketing and performance-driven solutions to help brands grow online." />
+        <meta name="keywords" content="branding, storytelling, digital marketing, influence, legacy" />
+        <meta name="author" content="Cribonix" />
+        <link rel="canonical" href="https://cribonix.com/whyus" />
+      </Head>
+    
+    
+     <div className="bg-[#040404] scroll-smooth">
+      
       {/* Hero Section */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative w-full h-auto sm:h-96 lg:h-[40rem]">
@@ -224,9 +236,9 @@ const Whyus: FC = () => {
 
           {/* Overlay Content */}
           <div className="absolute inset-0 flex flex-col justify-center items-start px-4 sm:px-6 lg:px-16">
-            <h2 className="text-4xl sm:text-4xl md:text-3xl lg:text-9xl font-bold text-white leading-tight">
+            <h1 className="text-4xl sm:text-4xl md:text-3xl lg:text-9xl font-bold text-white leading-tight">
               Mastering Every <span className="block">Digital Move.</span>
-            </h2>
+            </h1>
           </div>
         </div>
       </div>
@@ -265,9 +277,9 @@ const Whyus: FC = () => {
                 <h2 className="text-2xl sm:text-3xl font-bold text-white text-center">
                   {metric.title}
                 </h2>
-                <h1 className="text-4xl sm:text-5xl font-extrabold text-white mt-2">
+                <h2 className="text-4xl sm:text-5xl font-extrabold text-white mt-2">
                   {metric.value}
-                </h1>
+                </h2>
               </div>
             ))}
           </div>
@@ -314,10 +326,10 @@ const Whyus: FC = () => {
       {/* Our Values */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-t border-secondary">
         <div className="flex flex-col items-center space-y-6 md:space-y-8">
-          <h1 className="text-2xl sm:text-4xl md:text-2xl lg:text-4xl font-extrabold text-white text-center">
+          <h2 className="text-2xl sm:text-4xl md:text-2xl lg:text-4xl font-extrabold text-white text-center">
             THE VALUES THAT DRIVE, <br />
             EVERYTHING WE DO
-          </h1>
+          </h2>
           <h2 className="text-base sm:text-lg md:text-xl text-white font-light text-center">
             - More than goals. We’re on a mission.
             <br />
@@ -371,9 +383,9 @@ const Whyus: FC = () => {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
           {/* Left Content */}
           <div className="lg:w-1/2 space-y-6">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
               MEET OUR TEAM
-            </h1>
+            </h2>
             <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed">
               The brains behind the brilliance, the faces behind the flair. Meet
               the dreamers, creators, and doers shaping Cribonix’s magic.
@@ -471,9 +483,9 @@ const Whyus: FC = () => {
       {/* Visit Our Office */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-t border-secondary">
         <div className="flex justify-center mb-8 sm:mb-12">
-          <h1 className="font-extrabold text-white text-3xl sm:text-4xl lg:text-5xl text-center">
+          <h2 className="font-extrabold text-white text-3xl sm:text-4xl lg:text-5xl text-center">
             VISIT OUR OFFICE
-          </h1>
+          </h2>
         </div>
         <div className="relative flex justify-center transition-opacity duration-500">
           <Image
@@ -487,9 +499,9 @@ const Whyus: FC = () => {
       {/* Follow us on Instagram */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-t border-secondary">
         <div className="flex flex-col items-center space-y-6 sm:space-y-8">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center">
             FOLLOW OUR WORK <br /> ON INSTAGRAM
-          </h1>
+          </h2>
           <h2 className="text-base sm:text-lg md:text-xl text-white text-center">
             Behind Every Swipe, There’s a Story to Tell.
             <br />
@@ -569,7 +581,8 @@ const Whyus: FC = () => {
       </div>
 
       {/* Image Carousel Section */}
-    </div>
+    </div></>
+ 
   );
 };
 

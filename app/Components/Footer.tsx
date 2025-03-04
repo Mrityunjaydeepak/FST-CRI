@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import footerbg from "./images/footerbg.png";
 import {
@@ -6,10 +7,35 @@ import {
   FaFacebook,
   FaInstagram,
   FaLinkedin,
+  FaArrowUp,
 } from "react-icons/fa";
 import Link from "next/link";
 
 const Footer = () => {
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       {/* Parent Container with Responsive Margins */}
@@ -88,8 +114,6 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Navigation Menu */}
-
             {/* Additional Text */}
             <div className="flex flex-col mt-2 px-4 sm:px-8 text-center">
               <h1 className="text-white text-sm sm:text-base">
@@ -101,10 +125,7 @@ const Footer = () => {
             </div>
 
             {/* Copyright and Links */}
-            <div className="flex flex-col space-y-4 justify-center  items-center w-full mt-4 px-4 sm:px-8">
-              {/* Left: Copyright */}
-
-              {/* Right: Links */}
+            <div className="flex flex-col space-y-4 justify-center items-center w-full mt-4 px-4 sm:px-8">
               <div className="flex space-x-4">
                 <Link
                   href="/privacy-policy"
@@ -140,6 +161,16 @@ const Footer = () => {
           </h1>
         </div>
       </div>
+
+      {/* Scroll to Top Button */}
+      {showButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 bg-blue-500 text-white p-3 rounded-full shadow-lg transition-opacity duration-300 hover:bg-blue-600"
+        >
+          <FaArrowUp size={20} />
+        </button>
+      )}
     </>
   );
 };

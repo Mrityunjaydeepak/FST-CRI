@@ -16,6 +16,7 @@ import mountain from "./images/mountain.png";
 import verified from "./images/verified.png";
 import { FaInstagram } from "react-icons/fa";
 import Link from "next/link";
+import Head from 'next/head';
 
 interface FormData {
   name: string;
@@ -118,6 +119,15 @@ const ContactUs: React.FC = () => {
   };
 
   return (
+
+    <>
+     <Head>
+        <title>Cribonix Contact Us - Let’s Elevate Your Brand Together!</title>
+        <meta name="description" content="Let’s connect and grow your brand! Reach out to Cribonix for expert digital marketing, influencer collaborations and creative branding solutions." />
+        <meta name="keywords" content="Successful Brand Collaborations, Digital Marketing Case Studies, Creative Campaign Showcases, Influencer Marketing Success, Branding Project Highlights, Client Testimonials, Marketing Portfolio Examples" />
+        <meta name="author" content="Cribonix" />
+        <link rel="canonical" href="https://cribonix.com/contact" />
+      </Head>
     <div className="min-h-screen bg-primary flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       {/* Header Section */}
       <div className='flex flex-col p-4 items-center justify-center text-center'>
@@ -334,6 +344,7 @@ const ContactUs: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

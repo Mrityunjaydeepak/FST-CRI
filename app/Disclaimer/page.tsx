@@ -1,8 +1,18 @@
 import React from "react";
+import Head from "next/head";
 
 const Disclaimer: React.FC = () => {
   return (
+    <>
+     <Head>
+        <title>Cribonix Disclaimer - Important Information About Our Services</title>
+        <meta name="description" content="Transparency matters! Read Cribonix’s disclaimer to understand our policies, content guidelines, and terms of service." />
+        <meta name="keywords" content="branding, storytelling, digital marketing, influence, legacy" />
+        <meta name="author" content="Cribonix" />
+        <link rel="canonical" href="https://cribonix.com/disclaimer" />
+      </Head>
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+
       {/* Page Title */}
       <h1 className="text-2xl sm:text-4xl font-bold text-center mb-8">
         Disclaimer
@@ -72,6 +82,7 @@ const Disclaimer: React.FC = () => {
         </div> */}
       </div>
     </div>
+    </>
   );
 };
 

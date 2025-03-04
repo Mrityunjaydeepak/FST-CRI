@@ -1,4 +1,4 @@
-import Homei from "./Home/page";
+import Homei from "./home/page";
 
 export default function Home() {
   return (

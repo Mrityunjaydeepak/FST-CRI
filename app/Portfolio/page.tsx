@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import ImageCard from "../Components/ImageCard";
+import Head from "next/head";
 
 interface Portfolio {
   _id: string;
@@ -57,17 +58,27 @@ const PortfolioHomePage: React.FC = () => {
   }, []);
 
   const handleImageClick = (id: string) => {
-    router.push(`/Portfolio/${id}`);
+    router.push(`/portfolio/${id}`);
   };
 
   return (
+
+
+    <>
+    <Head>
+        <title>Cribonix Portfolio - Creative Designs & Marketing That Deliver Results</title>
+        <meta name="description" content="See how Cribonix transforms brands! Explore our portfolio showcasing successful digital marketing campaigns, creative branding, influencer marketing and more." />
+        <meta name="keywords" content="Successful Brand Collaborations, Digital Marketing Case Studies, Creative Campaign Showcases, Influencer Marketing Success, Branding Project Highlights, Client Testimonials, Marketing Portfolio Examples" />
+        <meta name="author" content="Cribonix" />
+        <link rel="canonical" href="https://cribonix.com/services" />
+      </Head>
     <div className="bg-primary scroll-smooth mx-auto">
       {/* Hero Section */}
       <section className="relative py-10 px-6 bg-primary border-t border-secondary md:py-14 lg:py-20">
         <div className="container mx-auto flex flex-col justify-center text-center">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
             Brands We Admire and Collaborated with
-          </h3>
+          </h1>
           <h4 className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mt-4">
             A Glimpse into Our Success Stories and Creative Impact
           </h4>
@@ -133,6 +144,7 @@ const PortfolioHomePage: React.FC = () => {
         )}
       </section>
     </div>
+    </>
   );
 };
 

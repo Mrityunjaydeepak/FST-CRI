@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import office from "./images/Container.png";
 import { FaArrowRight,FaArrowDown } from "react-icons/fa6";
+import Head from "next/head";
 
 
 
@@ -277,6 +278,14 @@ const Solutions: React.FC = () => {
   }, []);
 
   return (
+    <>
+     <Head>
+        <title>Cribonix | Innovative Marketing & Branding Solutions</title>
+        <meta name="description" content="Struggling with digital marketing? Cribonix provides tailored solutions—branding, paid ads, influencer marketing and more!" />
+        <meta name="keywords" content="branding, storytelling, digital marketing, influence, legacy" />
+        <meta name="author" content="Cribonix" />
+        <link rel="canonical" href="https://cribonix.com/solutions" />
+      </Head>
     <div className="bg-primary">
       {/* Header Section */}
       <div className="container mx-auto px-6 border-secondary">
@@ -406,6 +415,7 @@ const Solutions: React.FC = () => {
         }
       `}</style>
     </div>
+    </>
   );
 };
 

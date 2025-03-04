@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import KeenSlider, { KeenSliderInstance } from "keen-slider";
+import Image from "next/image";
 import "keen-slider/keen-slider.min.css";
 
 type Testimonial = {
@@ -9,7 +10,7 @@ type Testimonial = {
   rating: number;
   reviewTitle: string;
   review: string;
-  image: string; // New image property
+  img: string; // New image property
 };
 
 const TestimonialsSection: React.FC = () => {
@@ -157,11 +158,13 @@ const TestimonialsSection: React.FC = () => {
                           </div>
                         </div>
                         <footer className="mt-6 flex items-center gap-4 text-base font-medium text-gray-400">
-                          <img
-                            src={testimonial.image}
-                            alt={testimonial.name}
-                            className="w-12 h-12 rounded-full object-cover"
-                          />
+                        <Image
+  src={testimonial.img}
+  alt={testimonial.name}
+  width={48} // Equivalent to w-12
+  height={48} // Equivalent to h-12
+  className="rounded-full object-cover"
+/>
                           <div>
                             <p className="text-white">{testimonial.name}</p>
                             <p>{testimonial.designation}</p>

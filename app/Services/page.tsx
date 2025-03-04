@@ -10,6 +10,7 @@ import service3 from "./images/service3.png";
 import service4 from "./images/service4.png";
 import service5 from "./images/service5.png";
 import service6 from "./images/service6.png";
+import Head from "next/head";
 import Link from "next/link";
 
 interface Service {
@@ -110,6 +111,14 @@ const Services: React.FC = () => {
   ];
 
   return (
+    <>
+     <Head>
+        <title>Cribonix Portfolio - Creative Designs & Marketing That Deliver Results</title>
+        <meta name="description" content="See how Cribonix transforms brands! Explore our portfolio showcasing successful digital marketing campaigns, creative branding, influencer marketing and more." />
+        <meta name="keywords" content="branding, storytelling, digital marketing, influence, legacy" />
+        <meta name="author" content="Cribonix" />
+        <link rel="canonical" href="https://cribonix.com/portfolio" />
+      </Head>
     <div className="bg-primary">
       {/* Header Section */}
       <div className="container mx-auto px-6">
@@ -123,9 +132,9 @@ const Services: React.FC = () => {
             className="object-cover opacity-50"
           />
           <div className="absolute inset-0 flex flex-col justify-center items-start px-6 md:px-16">
-            <h2 className="text-2xl sm:text-6xl md:text-7xl lg:text-9xl font-bold text-white leading-tight">
+            <h1 className="text-2xl sm:text-6xl md:text-7xl lg:text-9xl font-bold text-white leading-tight">
               BLOCKBUSTER STRATEGIES
-            </h2>
+            </h1>
           </div>
         </div>
         <h1 className="text-lg flex justify-center mt-6 sm:text-xl md:text-2xl font-bold text-white">
@@ -196,6 +205,7 @@ const Services: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

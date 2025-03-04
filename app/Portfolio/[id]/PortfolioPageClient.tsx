@@ -258,7 +258,7 @@ const PortfolioPageClient: React.FC<PortfolioPageClientProps> = ({
         </h1>
 
         {/* Header Image */}
-        <div className="relative w-full h-96 mb-8">
+        {/* <div className="relative w-full h-96 mb-8">
           <Image
             src={portfolio.headerImage}
             alt="Portfolio Header"
@@ -268,7 +268,7 @@ const PortfolioPageClient: React.FC<PortfolioPageClientProps> = ({
             priority
             unoptimized
           />
-        </div>
+        </div> */}
 
         {/* IMAGE GALLERY SECTION */}
         <h2 className="text-3xl font-bold text-center mb-4 text-white">

@@ -44,7 +44,7 @@ import estate from "./images/White and Blue Modern Creative Real Estate Property
 import ImageSection from "../Components/ImageSection";
 import CountUp from "react-countup";
 import ShinyText from "../Components/ShinyText";
-import PortfolioHomePage from "../Portfolio/page";
+import PortfolioHomePage from "../portfolio/page";
 import TestimonialsSection from "../Components/TestimonialsSection";
 
 interface Cribonix {
@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
       description:
         "Digital marketing isn’t just about individual tactics—it’s about how all these elements work together to achieve success.",
       imageUrl: imgOne,
-      link: "/BlogOne",
+      link: "/blogOne",
     },
     {
       id: 2,
@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
       description:
         "Design thinking is about putting people at the center of your strategy. It’s not just about creating a campaign; it’s about solving problems creatively with empathy..",
       imageUrl: imgTwo,
-      link: "/BlogTwo",
+      link: "/blogTwo",
     },
     {
       id: 3,
@@ -83,7 +83,7 @@ const Hero: React.FC = () => {
       description:
         "Clear communication is often the most overlooked aspect of marketing. The Feynman Theory—explaining complex ideas in simple terms—can make your campaigns more effective.",
       imageUrl: imgThree,
-      link: "/BlogThree",
+      link: "/blogThree",
     },
   ];
   const cribonix: Cribonix[] = [

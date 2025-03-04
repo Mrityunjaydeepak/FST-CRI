@@ -13,13 +13,13 @@ function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State to manage mobile menu
 
   const navItems = [
-    { name: 'Home', href: '/Home' },
-    { name: 'Why Us', href: '/Whyus' },
-    { name: 'Services', href: '/Services' },
-    { name: 'Solutions', href: '/Solutions' },
-    { name: 'Portfolio', href: '/Portfolio' },
-    { name: 'Blogs', href: '/Blogs' },
-    { name: 'New Project', href: '/Newproject' },
+    { name: 'Home', href: '/home' },
+    { name: 'Why Us', href: '/whyus' },
+    { name: 'Services', href: '/services' },
+    { name: 'Solutions', href: '/solutions' },
+    { name: 'Portfolio', href: '/portfolio' },
+    { name: 'Blogs', href: '/blogs' },
+    { name: 'New Project', href: '/newproject' },
     
   ];
 
@@ -34,11 +34,11 @@ function Navbar() {
   };
 
   return (
-    <header className="bg-[#040404] text-white px-4 sm:px-8 md:px-16 lg:px-24 py-4 rounded-full relative">
+    <header className="bg-transparent text-white px-4 sm:px-8 md:px-16 lg:px-24 py-4 rounded-full relative">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div>
-          <Link href="/Home" className="flex items-center justify-center">
+          <Link href="/home" className="flex items-center justify-center">
             <Image src={logo} alt='logo' width={150} height={100} />
           </Link>
         </div>
@@ -60,7 +60,7 @@ function Navbar() {
 
         {/* Contact Us Button */}
         <div className="hidden md:block">
-          <Link href="/Contact" className="inline-block">
+          <Link href="/contact" className="inline-block">
             <span className='text-white px-6 py-3 border border-[#383838] rounded-full bg-gradient-to-r from-[#009DD1] to-[#bf3fd2]  hover:text-white transition cursor-pointer'>
               Contact Us
             </span>
@@ -98,7 +98,7 @@ function Navbar() {
             </Link>
           ))}
           {/* Contact Us Button in Mobile Menu */}
-          <Link href="/Contact" className="w-full">
+          <Link href="/contact" className="w-full">
             <span className='w-full text-white px-4 py-2 border border-[#383838] rounded-full hover:bg-white hover:text-black transition cursor-pointer text-center'>
               Contact Us
             </span>
