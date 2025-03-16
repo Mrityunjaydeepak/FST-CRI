@@ -105,7 +105,7 @@ const Footer = () => {
 
               {/* Get in Touch */}
               <div className="flex items-center">
-                <Link href="/Contact">
+                <Link href="/contact">
                   <h1 className="text-white text-lg sm:text-xl flex items-center cursor-pointer">
                     Get in touch
                     <FaArrowAltCircleRight className="ml-2 text-xl sm:text-2xl" />
@@ -140,7 +140,7 @@ const Footer = () => {
                   Terms and Conditions
                 </Link>
                 <Link
-                  href="/Disclaimer"
+                  href="/disclaimer"
                   className="text-white text-sm hover:text-blue-500 transition"
                 >
                   Disclaimer

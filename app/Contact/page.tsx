@@ -241,13 +241,15 @@ const ContactUs: React.FC = () => {
 
           {/* Image Section */}
           <div className="w-full lg:w-1/2 h-64 lg:h-auto relative">
-            <Image
+          <Link href={" https://www.google.com/maps/place/Cribonix/@28.4194487,77.0362407,17z/data=!3m1!4b1!4m6!3m5!1s0x390d23fe0c7f370d:0x9882477f1b29c17d!8m2!3d28.4194487!4d77.0388156!16s%2Fg%2F11wpkrff80?entry=ttu&g_ep=EgoyMDI1MDMxMi4wIKXMDSoASAFQAw%3D%3D"} >
+          <Image
               src={mapimg} // Ensure this path is correct
               alt="Map Image"
               fill
               style={{ objectFit: 'cover' }}
               priority
-            />
+            /> </Link>
+           
           </div>
         </div>
       </div>

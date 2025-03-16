@@ -70,12 +70,12 @@ const Homei: React.FC = () => {
             narrative into an unforgettable legacy!
           </p>
           <div className="flex flex-col sm:flex-row space-y-4 justify-end sm:space-y-0 sm:space-x-6 mt-6">
-            <Link href="/Contact">
+            <Link href="/contact">
               <button className="text-sm sm:text-lg border border-[#383838] bg-white text-black rounded-full py-2 sm:py-3 px-6 sm:px-8 hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] hover:text-white transition duration-300 w-40 sm:w-52" aria-label="Contact Us">
                 Contact Us
               </button>
             </Link>
-            <Link href="/Portfolio">
+            <Link href="/portfolio">
               <button className="text-sm sm:text-lg border border-[#383838] text-white rounded-full py-2 sm:py-3 px-6 sm:px-8 hover:bg-white hover:text-black transition duration-300 w-40 sm:w-52" aria-label="View Portfolio">
                 View Portfolio
               </button>

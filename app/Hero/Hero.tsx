@@ -390,7 +390,7 @@ const Hero: React.FC = () => {
                 Marketing
               </span>
             </h1>
-            <Link href="/Contact">
+            <Link href="/contact">
               <button className="border border-secondary rounded-full px-6 py-3 text-white hover:bg-gradient-to-r from-[#009DD1] to-[#bf3fd2] transition">
                 More About Us
               </button>
@@ -641,10 +641,10 @@ const Hero: React.FC = () => {
         <div className="container mx-auto px-4 py-8">
           <div className="flex justify-between items-center mb-8 sm:flex-col">
             <h1 className=" flex text-7xl font-bold mb-6 ">Blogs</h1>
-            <Link href="/Blogs">
+            <Link href="/blogs">
               <button
                 className="text-lg sm:text-xl border border-[#383838] py-3 px-3 text-white rounded-full hover:bg-white hover:text-black transition duration-300 w-28"
-                aria-label="View Portfolio"
+                aria-label="View Blogs"
               >
                 View all
               </button>
